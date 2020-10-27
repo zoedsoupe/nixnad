@@ -1,0 +1,23 @@
+#Theme
+include dracula.conf
+
+#Fonts
+font_size        14.0
+font_family      CascadiaCodePL
+bold_font        CascadiaCodePL
+italic_font      CascadiaCodePL
+bold_italic_font CascadiaCodePL
+
+#Ligatures
+disable_ligatures never
+
+#Cursor
+cursor_shape underline
+
+#Mapping
+map ctrl+c copy_to_clipboard
+map ctrl+v paste_from_clipboard
+
+map ctrl+t new_tab
+map ctrl+right next_tab
+map ctrl+left previous_tab
