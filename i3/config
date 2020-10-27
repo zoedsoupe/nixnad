@@ -1,0 +1,250 @@
+# vim: filetype=i3config
+
+font pango:CascadiaCode 11
+
+# Autostart applications
+exec --no-startup-id nm-applet
+exec --no-startup-id clipit
+exec --no-startup-id start_conky_maia
+exec_always --no-startup-id setxkbmap -layout br -option ctrl:swapcaps
+exec_always --no-startup-id echo 'nameserver 8.8.8.8' | sudo tee /etc/resolv.conf
+exec_always --no-startup-id feh --bg-scale ~/Pics/wallpapers/wallpaper2.png
+exec_always --no-startup-id xrandr | grep 'HDMI-1 connected' && xrandr --output eDP-1 --auto --output HDMI-1 --auto --above eDP-1
+exec_always --no-startup-id autotiling
+#
+# #---Basic Definitions---# #
+smart_gaps on
+smart_borders on
+set $inner_gaps 15
+set $outer_gaps 12
+set $term --no-startup-id kitty
+set $mod Mod4
+set $alt Mod1
+set $shutdown sudo -A shutdown -h now
+set $reboot sudo -A reboot
+set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
+set $lock i3lock
+set $suspend sudo systemctl suspend
+set $hibernate sudo -A systemctl hibernate
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# #---Gaps---# #
+for_window [class="^.*"] border pixel 2
+gaps inner $inner_gaps
+gaps outer $outer_gaps
+
+# #---Basic Bindings---# #
+bindsym $mod+Return 		         exec $term
+bindsym $mod+Shift+Return	       exec $term -d $(xcwd)
+
+bindsym $mod+Escape	             exec --no-startup-id dm-tool switch-to-greeter
+bindsym $mod+Shift+Escape	       exec --no-startup-id $hibernate
+
+# bindsym $mod+BackSpace
+# bindsym $mod+Shift+BackSpace	   exec --no-startup-id prompt "Reboot computer?" $reboot
+
+# #---Letter Key Bindings---# #
+bindsym $mod+q			            [con_id="__focused__" instance="^(?!dropdown_).*$"] kill
+bindsym $mod+Shift+q		        [con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
+
+# w
+bindsym $mod+w 			            exec --no-startup-id google-chrome-stable
+
+# e
+#bindsym $mod+e 			            exec --no-startup-id $lock
+bindsym $mod+Shift+e		        exec --no-startup-id $suspend
+
+# r
+bindsym $mod+r 			            exec $term lf
+bindsym $mod+Shift+r		        exec --no-startup-id winresize
+
+# t
+bindsym $mod+t 			            exec $term -e ytop
+bindsym $mod+Shift+t            focus mode_toggle
+
+# u
+bindsym $mod+u                  [urgent=latest] focus
+
+# i
+bindsym $mod+i                  fullscreen disable; floating enable; resize set 500 300; sticky enable; move position 4610 1130
+
+# s
+bindsym $mod+s        			    sticky toggle;
+bindsym $mod+Shift+s			      split toggle
+
+# d
+#bindsym $mod+d                  exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d                  exec rofi -lines 12 -padding 800 -width 30 -location 0 -show drun -columns 1 -font 'CascadiaCode 10'
+
+# f
+bindsym $mod+f			            fullscreen toggle
+bindsym $mod+Shift+f 	          floating toggle
+
+# g
+bindsym $mod+g		              gaps inner current set $inner_gaps; gaps outer current set $outer_gaps
+bindsym $mod+Shift+g		        gaps inner current set 0; gaps outer current set 0
+
+# h
+bindsym $mod+h			            focus left
+bindsym $mod+Shift+h		        move left 30
+bindsym $mod+Ctrl+h		          move workspace to output left
+
+# j
+bindsym $mod+j			            focus down
+bindsym $mod+Shift+j		        move down 30
+bindsym $mod+Ctrl+j		          move workspace to output down
+
+# k
+bindsym $mod+k			            focus up
+bindsym $mod+Shift+k		        move up 30
+bindsym $mod+Ctrl+k		          move workspace to output up
+
+# l
+bindsym $mod+l			            focus right
+bindsym $mod+Shift+l		        move right 30
+bindsym $mod+Ctrl+l		          move workspace to output right
+
+bindsym $mod+semicolon 			    exec --no-startup-id skippy-xd
+
+# y
+bindsym $mod+y                  exec --not-startup-id gnome-screenshot -i
+
+# z
+bindsym $mod+z			            exec --no-startup-id $term -e nvim ~/.zshrc
+
+# x
+bindsym $mod+x 			            exec --no-startup-id $reboot
+bindsym $mod+Shift+x		        exec --no-startup-id $shutdown
+
+# c
+bindsym $mod+c			            exec --no-startup-id picom -b
+bindsym $mod+Shift+c		        exec --no-startup-id killall picom
+
+# v
+bindsym $mod+v			            exec --no-startup-id $term -e nvim
+
+# n
+bindsym $mod+n			            exec --no-startup-id kill -s USR1 $(pidof deadd-notification-center)
+
+# m
+bindsym $mod+m		              exec --no-startup-id spotify
+bindsym $mod+Shift+m		        exec --no-startup-id discord
+
+
+# #---Workspace Bindings---# #
+bindsym $mod+Tab		            exec --no-startup-id rofi -show window
+bindsym $mod+Shift+Tab		      workspace next
+bindsym $mod+apostrophe		      split horizontal ;; exec $term
+bindsym $mod+slash		          split vertical ;; exec $term
+bindsym $mod+Shift+slash	      kill
+bindsym $mod+backslash		      workspace back_and_forth
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Assign Workspaces:
+assign [class="qBittorrent"] $ws6
+assign [class="Google-chrome"] $ws2
+assign [class="discord"] $ws8
+for_window [class="Spotify"] move to workspace $ws9
+
+# Assing autofloat
+for_window [title=".*Emulator.*"] floating enable
+
+# switch to workspace
+bindsym $mod+1		workspace $ws1
+bindsym $mod+2		workspace $ws2
+bindsym $mod+3		workspace $ws3
+bindsym $mod+4		workspace $ws4
+bindsym $mod+5		workspace $ws5
+bindsym $mod+6		workspace $ws6
+bindsym $mod+7		workspace $ws7
+bindsym $mod+8		workspace $ws8
+bindsym $mod+9		workspace $ws9
+bindsym $mod+0		workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1	move container to workspace $ws1
+bindsym $mod+Shift+2	move container to workspace $ws2
+bindsym $mod+Shift+3	move container to workspace $ws3
+bindsym $mod+Shift+4	move container to workspace $ws4
+bindsym $mod+Shift+5	move container to workspace $ws5
+bindsym $mod+Shift+6	move container to workspace $ws6
+bindsym $mod+Shift+7	move container to workspace $ws7
+bindsym $mod+Shift+8	move container to workspace $ws8
+bindsym $mod+Shift+9	move container to workspace $ws9
+bindsym $mod+Shift+0	move container to workspace $ws10
+
+for_window [class="Org.gnome.clocks"] move workspace $ws10
+for_window [window_role="GtkFileChooserDialog"] resize set 800 600
+for_window [window_role="GtkFileChooserDialog"] move position center
+
+# #---Function Buttons---# #
+bindsym $mod+F1		        restart
+bindsym $mod+F2		        exec --no-startup-id screenkey -s small --scr 1
+bindsym $mod+F3	          exec --no-startup-id killall screenkey
+bindsym $mod+F12	        exec $term -e nmtui
+
+# #---Arrow Keys---# #
+bindsym $mod+Left		      focus left
+bindsym $mod+Shift+Left   resize shrink width 5 px or 5 ppt
+bindsym $mod+Ctrl+Left		move workspace to output right
+bindsym $mod+Down		      focus down
+bindsym $mod+Shift+Down   resize shrink height 5 px or 5 ppt
+bindsym $mod+Ctrl+Down		move workspace to output up
+bindsym $mod+Up			      focus up
+bindsym $mod+Shift+Up     resize grow height 5 px or 5 ppt
+bindsym $mod+Ctrl+Up		  move workspace to output down
+bindsym $mod+Right 		    focus right
+bindsym $mod+Shift+Right  resize grow width 5 px or 5 ppt
+bindsym $mod+Ctrl+Right		move workspace to output left
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% #decrease sound volume
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.background       #F8F8F2
+
+bar {
+	i3bar_command i3bar
+	status_command i3status
+	position top
+
+	strip_workspace_numbers yes
+
+    colors {
+        background #222D31
+        statusline #F9FAF9
+        separator  #454947
+
+#                      border  backgr. text
+        focused_workspace  #F9FAF9 #16a085 #292F34
+        active_workspace   #595B5B #353836 #FDF6E3
+        inactive_workspace #595B5B #222D31 #EEE8D5
+        binding_mode       #16a085 #2C2C2C #F9FAF9
+        urgent_workspace   #16a085 #FDF6E3 #E5201D
+    }
+}
+

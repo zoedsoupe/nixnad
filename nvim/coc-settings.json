@@ -1,0 +1,51 @@
+{
+  "diagnostic.errorSign": " ",
+  "diagnostic.warningSign": " ",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": " ",
+  "diagnostic.virtualText": true,
+
+  "coc.source.emoji.filetypes": ["markdown, typescript, elixir"],
+
+  "codeLens.enable": true,
+
+  "list.indicator": ">",
+  "list.selectedSignText": " ",
+
+  "suggest.noselect": false,
+  "suggest.detailMaxLength": 25,
+  "suggest.maxCompleteItemCount": 25,
+  "suggest.removeDuplicateItems": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "typescript",
+    "typescriptreact",
+    "json",
+    "html",
+    "css",
+    "elixir"
+  ],
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "eslint.packageManager": "yarn",
+  "tsserver.enableJavascript": false,
+  "css.validate": false,
+  "scss.validate": false,
+
+  "explorer.width": 30,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings": {
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:split"
+  },
+
+  "languageserver": {
+    "elmLS": {
+      "command": "elm-language-server",
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
+      "initializationOptions": {
+        "elmAnalyseTrigger": "never"
+      }
+    }
+  }
+}
