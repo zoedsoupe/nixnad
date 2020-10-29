@@ -16,7 +16,7 @@ if exists('+termguicolors')
 endif
 
 " linter invoking
-noremap <Leader>e :call LintFileExternal()<cr>
+nnoremap <Leader>e :call LintFileExternal()<CR>
 
 function! LintFileExternal()
   if (&ft=='typescript' || &ft=='typescript.tsx' || &ft=='typescriptreact')
@@ -33,7 +33,7 @@ function! LintFileExternal()
   elseif (&ft=='elixir')
     let linterBuffType = 'elixir credo'
 
-    let linter = system("mix credo " . bufname("%") . " 2>&1")
+    let linter = system("mix credo")
   endif
 
   if (exists('linter'))
