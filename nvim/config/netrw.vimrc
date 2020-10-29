@@ -17,7 +17,7 @@ function! ToggleVExplorer()
       let t:expl_buf_num = bufnr("%")
   endif
 endfunction
-map <silent> <C-E> :call ToggleVExplorer()<CR>
+map <silent> <C-d> :call ToggleVExplorer()<CR>
 
 " Hit enter in the file browser to open the selected
 " file with :vsplit to the right of the browser.
@@ -25,9 +25,7 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
+let g:netrw_list_hide = netrw_gitignore#Hide()
 
 " Default to tree mode
-let g:netrw_liststyle=3
-
-" Change directory to the current buffer when opening files.
-set autochdir
+let g:netrw_liststyle = 3

@@ -12,18 +12,10 @@ call plug#begin('~/nvim/plugged')
 
 " wakatime
 Plug 'wakatime/vim-wakatime'
-" Start Screen
-Plug 'mhinz/vim-startify'
-" Have the file system follow you around
-Plug 'airblade/vim-rooter'
 " Rainbow brackets
 Plug 'luochen1990/rainbow'
-" Markdown Preview
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " Smooth scroll
 Plug 'psliwka/vim-smoothie'
-" Find and replace
-"Plug 'ChristianChiarulli/far.vim'
 " Auto change html tags
 Plug 'AndrewRadev/tagalong.vim'
 " Better tabline
@@ -38,9 +30,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'liuchengxu/vim-which-key'
 " Terminal
 Plug 'voldikss/vim-floaterm'
-" FZF
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 " Auto pairs for '(' '[' '{'
 Plug 'jiangmiao/auto-pairs'
 " Closetags
@@ -53,8 +42,6 @@ Plug 'metakirby5/codi.vim'
 Plug 'norcalli/nvim-colorizer.lua'
 "syntax highlighting
 Plug 'sheerun/vim-polyglot'
-"useful snippets for html
-Plug 'mattn/emmet-vim'
 "git plugins
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
@@ -62,32 +49,23 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'rhysd/git-messenger.vim'
-"self snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-"simple status line
-Plug 'itchyny/lightline.vim'
-"nerdtree icons
-Plug 'ryanoasis/vim-devicons'
-"live server
-"init :Bracey
-Plug 'turbio/bracey.vim' 
+"explorer icons
+" Plug 'ryanoasis/vim-devicons'
 "colorschemes
-"Plug 'dracula/vim', {'as': 'dracula'}
-"Plug 'tomasiser/vim-code-dark'
 "Plug 'GuiLra/vim-omni', {'as': 'omni'}
-"Plug 'danilo-augusto/vim-afterglow'
 Plug 'owickstrom/vim-colors-paramount'
 " pretty format
-"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-"auto completion and linter
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+"auto completion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " file manager integration
 Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
+"minimap
+Plug 'wfxr/minimap.vim'
 "elixir
-"Plug 'slashmili/alchemist.vim'
+Plug 'slashmili/alchemist.vim'
 
 call plug#end()
 
