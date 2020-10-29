@@ -24,3 +24,6 @@ inoremap <C-x> <Esc>
 "set highlighting off after regex 
 nnoremap <CR> :noh<CR><CR>
 
+"format files elixir files
+nnoremap <Leader>f :Mix format<CR>
+

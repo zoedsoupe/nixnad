@@ -54,8 +54,6 @@ Plug 'rhysd/git-messenger.vim'
 "colorschemes
 "Plug 'GuiLra/vim-omni', {'as': 'omni'}
 Plug 'owickstrom/vim-colors-paramount'
-" pretty format
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 "auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -66,6 +64,10 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'wfxr/minimap.vim'
 "elixir
 Plug 'slashmili/alchemist.vim'
+" eslint-syntax-highlight
+" pretty format
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'gmoe/vim-eslint-syntax'
 
 call plug#end()
 
