@@ -1,7 +1,5 @@
 "MAPPINGS
 
-nmap <CR> o<Esc>
-
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
 nnoremap <C-a> <Home>
@@ -24,5 +22,5 @@ map <C-K> :bprev<CR>
 inoremap <C-x> <Esc>
 
 "set highlighting off after regex 
-nnoremap <Space> :noh<CR><CR>
+nnoremap <CR> :noh<CR><CR>
 

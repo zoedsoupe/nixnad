@@ -1,6 +1,7 @@
 set iskeyword+=-                      	" treat dash separated words as a word text object"
 set formatoptions-=cro                  " Stop newline continution of comments
 
+set nocompatible
 set hidden                              " Required to keep multiple buffers open multiple buffers
 set nowrap                              " Display long lines as just one line
 set whichwrap+=<,>,[,],h,l
@@ -31,11 +32,23 @@ set nowritebackup                       " This is recommended by coc
 set shortmess+=c                        " Don't pass messages to |ins-completion-menu|.
 set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time
 set updatetime=300                      " Faster completion
-set timeoutlen=100                      " By default timeoutlen is 1000 ms
+set timeoutlen=1000                      " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set incsearch
 set guifont=Cascadia\ Code\ PL
 set completeopt=menu,noinsert
+set path+=**                            " Provides tab-completion for all file-related tasks
+set wildmenu                            " Display all matching files when we tab complete
+
+filetype plugin on
+
+function! OnTermClose()
+    if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+        :quit!
+    else
+        call feedkeys(" ")
+    endif
+endfunction
 
 au TermClose * nested call OnTermClose()
 
@@ -49,7 +62,7 @@ au TermClose * nested call OnTermClose()
 " set nostartofline
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " set mmp=1300
-set autochdir                           " Your working directory will always be the same as your working directory
+" set autochdir                           " Your working directory will always be the same as your working directory
 " set foldcolumn=2                        " Folding abilities
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
@@ -65,3 +78,5 @@ endif
 
 " You can't stop me
 cmap w!! w !sudo tee %
+
+command! MakeTags !ctags -R .

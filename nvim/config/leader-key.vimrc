@@ -1,3 +1,3 @@
 "set mapleader key
-let mapleader = ']'
+let g:mapleader = ' '
 
