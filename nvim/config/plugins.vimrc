@@ -28,8 +28,6 @@ Plug 'tonadev/vim-airline-256noir'
 Plug 'junegunn/goyo.vim'
 " See what keys do like in emacs
 Plug 'liuchengxu/vim-which-key'
-" Terminal
-Plug 'voldikss/vim-floaterm'
 " Auto pairs for '(' '[' '{'
 Plug 'jiangmiao/auto-pairs'
 " Closetags
@@ -53,21 +51,24 @@ Plug 'rhysd/git-messenger.vim'
 " Plug 'ryanoasis/vim-devicons'
 "colorschemes
 "Plug 'GuiLra/vim-omni', {'as': 'omni'}
+Plug 'srcery-colors/srcery-vim'
 Plug 'owickstrom/vim-colors-paramount'
 "auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" file manager integration
-Plug 'ptzz/lf.vim'
-Plug 'rbgrouleff/bclose.vim'
+" file manager
+Plug 'mcchrish/nnn.vim'
 "minimap
 Plug 'wfxr/minimap.vim'
 "elixir
+Plug 'elixir-editors/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 " eslint-syntax-highlight
 " pretty format
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'gmoe/vim-eslint-syntax'
+" automatically add end
+Plug 'tpope/vim-endwise'
 
 call plug#end()
 

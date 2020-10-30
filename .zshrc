@@ -62,6 +62,14 @@ alias hdmi_on="xrandr --output eDP-1 --primary --auto --output HDMI-1 --auto --a
 alias update="yay -Syyu"
 alias prettyjson="python -m json.tool | cat"
 alias phx_api="mix phx.new --no-html --no-webpack --binary-id $@"
+alias mes="mix ecto.setup"
+alias megm="mix ecto.gen.migration $@"
+alias mem="mix ecto.migrate"
+alias mdg="mix deps.get"
+alias mdc="mix deps.compile"
+alias ies="iex -S mix"
+alias mps="mix phx.server"
+alias lg="lazygit"
 
 # remove o username
 DEFAULT_USER=`whoami`

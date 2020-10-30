@@ -1,2 +1,2 @@
-let g:airline_theme='256noir'
+let g:airline_theme='srcery'
 
