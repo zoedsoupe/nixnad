@@ -57,7 +57,7 @@ bindsym $mod+w 			            exec --no-startup-id google-chrome-stable
 bindsym $mod+Shift+e		        exec --no-startup-id $suspend
 
 # r
-bindsym $mod+r 			            exec $term lf
+bindsym $mod+r 			            exec $term nnn
 bindsym $mod+Shift+r		        exec --no-startup-id winresize
 
 # t

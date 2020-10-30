@@ -1,6 +1,7 @@
 set iskeyword+=-                      	" treat dash separated words as a word text object"
 set formatoptions-=cro                  " Stop newline continution of comments
 
+set autoread
 set nocompatible
 set hidden                              " Required to keep multiple buffers open multiple buffers
 set nowrap                              " Display long lines as just one line
@@ -36,10 +37,9 @@ set timeoutlen=1000                      " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set incsearch
 set guifont=Cascadia\ Code\ PL
-set completeopt=menu,noinsert
+"set completeopt=menu,noinsert
 set path+=**                            " Provides tab-completion for all file-related tasks
 set wildmenu                            " Display all matching files when we tab complete
-
 filetype plugin on
 
 function! OnTermClose()
