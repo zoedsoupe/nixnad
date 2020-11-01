@@ -1,3 +1,4 @@
+neofetch
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -67,9 +68,13 @@ alias megm="mix ecto.gen.migration $@"
 alias mem="mix ecto.migrate"
 alias mdg="mix deps.get"
 alias mdc="mix deps.compile"
+alias mpgc="mix phx.gen.context $@"
+alias mpgj="mix phx.gen.json $@"
 alias ies="iex -S mix"
 alias mps="mix phx.server"
 alias lg="lazygit"
+alias ps="procs"
+alias top="ytop"
 
 # remove o username
 DEFAULT_USER=`whoami`
