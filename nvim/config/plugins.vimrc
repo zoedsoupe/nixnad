@@ -69,6 +69,10 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'gmoe/vim-eslint-syntax'
 " automatically add end
 Plug 'tpope/vim-endwise'
+" indent line
+Plug 'Yggdroot/indentLine'
+" dir vish
+Plug 'justinmk/vim-dirvish'
 
 call plug#end()
 

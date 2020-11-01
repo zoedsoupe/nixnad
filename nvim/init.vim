@@ -1,8 +1,9 @@
 source $HOME/.config/nvim/config/plugins.vimrc
 source $HOME/.config/nvim/config/leader-key.vimrc
 "source $HOME/.config/nvim/config/coc.vimrc
+source $HOME/.config/nvim/config/ident.vimrc
 source $HOME/.config/nvim/config/deoplete.vimrc
-source $HOME/.config/nvim/config/netrw.vimrc
+"source $HOME/.config/nvim/config/netrw.vimrc
 source $HOME/.config/nvim/config/minimap.vimrc 
 source $HOME/.config/nvim/config/airline.vimrc
 source $HOME/.config/nvim/config/keymaps.vimrc
