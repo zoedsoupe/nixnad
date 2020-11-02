@@ -1,5 +1,7 @@
 "MAPPINGS
 
+nnoremap <C-d> :Dirvish<CR>
+
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
 nnoremap <C-a> <Home>
