@@ -63,6 +63,7 @@ Plug 'wfxr/minimap.vim'
 "elixir
 Plug 'elixir-editors/vim-elixir'
 Plug 'slashmili/alchemist.vim'
+Plug 'mhinz/vim-mix-format'
 " eslint-syntax-highlight
 " pretty format
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -73,6 +74,7 @@ Plug 'tpope/vim-endwise'
 Plug 'Yggdroot/indentLine'
 " dir vish
 Plug 'justinmk/vim-dirvish'
+Plug 'kristijanhusak/vim-dirvish-git'
 
 call plug#end()
 
