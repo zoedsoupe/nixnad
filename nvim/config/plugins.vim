@@ -55,6 +55,9 @@ Plug 'srcery-colors/srcery-vim'
 Plug 'owickstrom/vim-colors-paramount'
 "auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'pbogut/deoplete-elm'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'Shougo/neco-vim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " file manager
 Plug 'mcchrish/nnn.vim'

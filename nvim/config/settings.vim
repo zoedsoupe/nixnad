@@ -40,6 +40,7 @@ set guifont=Cascadia\ Code\ PL
 "set completeopt=menu,noinsert
 set path+=**                            " Provides tab-completion for all file-related tasks
 set wildmenu                            " Display all matching files when we tab complete
+set so=999
 filetype plugin on
 
 function! OnTermClose()

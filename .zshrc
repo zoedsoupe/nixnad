@@ -70,11 +70,13 @@ alias mdg="mix deps.get"
 alias mdc="mix deps.compile"
 alias mpgc="mix phx.gen.context $@"
 alias mpgj="mix phx.gen.json $@"
+alias mpgs="mix phx.gen.schema $@"
 alias ies="iex -S mix"
 alias mps="mix phx.server"
 alias lg="lazygit"
 alias ps="procs"
 alias top="ytop"
+alias start_postgres="docker start cef2d0d02474"
 
 # remove o username
 DEFAULT_USER=`whoami`

@@ -29,3 +29,6 @@ nnoremap <CR> :noh<CR><CR>
 "format files elixir files
 nnoremap <Leader>f :Mix format<CR>
 
+" remap shift + arrow to select words
+nnoremap <S-Left> v
+nnoremap <S-Right> v
