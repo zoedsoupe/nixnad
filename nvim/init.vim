@@ -6,13 +6,12 @@ source $HOME/.config/nvim/config/elixir-format.vim
 source $HOME/.config/nvim/config/deoplete.vim
 "source $HOME/.config/nvim/config/netrw.vim
 source $HOME/.config/nvim/config/minimap.vim 
-source $HOME/.config/nvim/config/airline.vim
 source $HOME/.config/nvim/config/keymaps.vim
 source $HOME/.config/nvim/config/rainbow.vim
-source $HOME/.config/nvim/config/codestats.vim
 source $HOME/.config/nvim/config/closetags.vim
 source $HOME/.config/nvim/config/colorscheme.vim
 source $HOME/.config/nvim/config/functions.vim
 source $HOME/.config/nvim/config/polyglot.vim
 source $HOME/.config/nvim/config/settings.vim
 source $HOME/.config/nvim/config/which-key.vim
+lua require'colorizer'.setup()

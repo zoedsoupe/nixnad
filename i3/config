@@ -1,6 +1,6 @@
 # vim: filetype=i3config
 
-font pango:CascadiaCode 11
+font pango:Iosevka Nerd Font Complete 11
 
 # Autostart applications
 exec --no-startup-id nm-applet
@@ -15,8 +15,9 @@ exec_always --no-startup-id autotiling
 # #---Basic Definitions---# #
 smart_gaps on
 smart_borders on
-set $inner_gaps 15
-set $outer_gaps 12
+# 15 and 12
+set $inner_gaps 0
+set $outer_gaps 0
 set $term --no-startup-id kitty
 set $mod Mod4
 set $alt Mod1
@@ -31,7 +32,7 @@ set $hibernate sudo -A systemctl hibernate
 floating_modifier $mod
 
 # #---Gaps---# #
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
 gaps inner $inner_gaps
 gaps outer $outer_gaps
 
@@ -53,7 +54,7 @@ bindsym $mod+Shift+q		        [con_id="__focused__" instance="^(?!dropdown_).*$"
 bindsym $mod+w 			            exec --no-startup-id google-chrome-stable
 
 # e
-#bindsym $mod+e 			            exec --no-startup-id $lock
+bindsym $mod+e 			            exec --no-startup-id $lock
 bindsym $mod+Shift+e		        exec --no-startup-id $suspend
 
 # r
@@ -71,11 +72,9 @@ bindsym $mod+u                  [urgent=latest] focus
 bindsym $mod+i                  fullscreen disable; floating enable; resize set 500 300; sticky enable; move position 4610 1130
 
 # s
-bindsym $mod+s        			    sticky toggle;
 bindsym $mod+Shift+s			      split toggle
 
 # d
-#bindsym $mod+d                  exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d                  exec rofi -lines 12 -padding 800 -width 30 -location 0 -show drun -columns 1 -font 'CascadiaCode 10'
 
 # f
@@ -109,7 +108,8 @@ bindsym $mod+Ctrl+l		          move workspace to output right
 bindsym $mod+semicolon 			    exec --no-startup-id skippy-xd
 
 # y
-bindsym $mod+y                  exec --not-startup-id gnome-screenshot -i
+bindsym --release $mod+y        exec scrot -s ~/Pics/screenshots/%Y-%m-%d-%H-%M-%S.png
+bindsym --release $mod+Shift+y  exec scrot -d ~/Pics/screenshots/%Y-%m-%d-%H-%M-%S.png
 
 # z
 bindsym $mod+z			            exec --no-startup-id $term -e nvim ~/.zshrc

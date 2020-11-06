@@ -18,12 +18,10 @@ Plug 'luochen1990/rainbow'
 Plug 'psliwka/vim-smoothie'
 " Auto change html tags
 Plug 'AndrewRadev/tagalong.vim'
-" Better tabline
-Plug 'mg979/vim-xtabline'
 " airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tonadev/vim-airline-256noir'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'tonadev/vim-airline-256noir'
 " Zen mode
 Plug 'junegunn/goyo.vim'
 " See what keys do like in emacs
@@ -32,10 +30,6 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'jiangmiao/auto-pairs'
 " Closetags
 Plug 'alvan/vim-closetag'
-" CodeStats plugin
-Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
-"scratchpad
-Plug 'metakirby5/codi.vim'
 " Colorizer
 Plug 'norcalli/nvim-colorizer.lua'
 "syntax highlighting
@@ -52,22 +46,19 @@ Plug 'rhysd/git-messenger.vim'
 "colorschemes
 "Plug 'GuiLra/vim-omni', {'as': 'omni'}
 Plug 'srcery-colors/srcery-vim'
-Plug 'owickstrom/vim-colors-paramount'
+"Plug 'owickstrom/vim-colors-paramount'
 "auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'pbogut/deoplete-elm'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+"Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'Shougo/neco-vim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" file manager
-Plug 'mcchrish/nnn.vim'
 "minimap
 Plug 'wfxr/minimap.vim'
 "elixir
 Plug 'elixir-editors/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'mhinz/vim-mix-format'
-" eslint-syntax-highlight
 " pretty format
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'gmoe/vim-eslint-syntax'
@@ -78,6 +69,8 @@ Plug 'Yggdroot/indentLine'
 " dir vish
 Plug 'justinmk/vim-dirvish'
 Plug 'kristijanhusak/vim-dirvish-git'
+" discord rich presence
+Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
 
 call plug#end()
 
