@@ -10,7 +10,7 @@ set encoding=utf-8                      " The encoding displayed
 set pumheight=10                        " Makes popup menu smaller
 set fileencoding=utf-8                  " The encoding written to file
 set ruler              			            " Show the cursor position all the time
-set cmdheight=2                         " More space for displaying messages
+set cmdheight=1                         " More space for displaying messages
 set mouse=a                             " Enable your mouse
 set splitbelow                          " Horizontal splits will automatically be below
 set splitright                          " Vertical splits will automatically be to the right
@@ -23,25 +23,25 @@ set expandtab                           " Converts tabs to spaces
 set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent
 set laststatus=2                        " Always display the status line
-set number                              " Line numbers
+set number relativenumber
 set cursorline                          " Enable highlighting of the current line
-"set background=dark                     " tell vim what the background color looks like
-set showtabline=2                       " Always show tabs
-set noshowmode                          " We don't need to see things like -- INSERT -- anymore
-set nobackup                            " This is recommended by coc
-set nowritebackup                       " This is recommended by coc
+set showtabline=0                       " never show tabs
+set noshowmode
+"set nobackup                            " This is recommended by coc
+"set nowritebackup                       " This is recommended by coc
 set shortmess+=c                        " Don't pass messages to |ins-completion-menu|.
 set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time
 set updatetime=300                      " Faster completion
 set timeoutlen=1000                      " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set incsearch
-set guifont=Cascadia\ Code\ PL
-"set completeopt=menu,noinsert
+set guifont=Iosevka\ Nerd\ Font\ Complete
 set path+=**                            " Provides tab-completion for all file-related tasks
 set wildmenu                            " Display all matching files when we tab complete
+set wildignore+=**/node_modules/**,**/deps/**,**/_build/**,.*
 set so=999
 filetype plugin on
+set guicursor=
 
 function! OnTermClose()
     if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
@@ -60,8 +60,8 @@ au TermClose * nested call OnTermClose()
 " set sidescrolloff=1
 " set display+=lastline
 " set backspace=eol,start,indent
-" set nostartofline
-" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set nostartofline
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " set mmp=1300
 " set autochdir                           " Your working directory will always be the same as your working directory
 " set foldcolumn=2                        " Folding abilities
@@ -70,8 +70,8 @@ au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm al
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " force syntax highlighting for large files
-autocmd BufEnter *.{ex,exs,hs,ts,tsx} :syntax sync fromstart
-autocmd BufLeave *.{ex,exs,hs,ts,tsx} :syntax sync clear
+autocmd BufEnter *.{ex,exs,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{ex,exs,ts,tsx} :syntax sync clear
 
 if !exists('g:syntax_on')
 	syntax enable
