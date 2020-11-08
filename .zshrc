@@ -96,15 +96,15 @@ fpath=($fpath "/home/mdsp/.zfunctions")
 fpath=($fpath "/home/mdsp/.zfunctions")
 
 SPACESHIP_PROMPT_ORDER=(
-  #user          # Username section
-  dir           # Current directory section
+  user          # Username section
+  #dir           # Current directory section
   #host          # Hostname section
-  #char
+  #vi_mode       # Vi-mode indicator
   git            # Git section (git_branch + git_status)
   node           # node version
-  #exec_time     # Execution time
-  #line_sep      # Line break
-  vi_mode       # Vi-mode indicator
+  exec_time     # Execution time
+  line_sep      # Line break
+  char
   jobs          # Background jobs indicator
   exit_code     # Exit code section
   #char          # Prompt character
@@ -124,23 +124,29 @@ SPACESHIP_CHAR_SYMBOL="ﬦ "
 #SPACESHIP_DIR_SUFFIX=") "
 
 # GIT
-SPACESHIP_GIT_PREFIX=""
-#SPACESHIP_GIT_SUFFIX=") "
+SPACESHIP_GIT_PREFIX="("
+SPACESHIP_GIT_SUFFIX=") "
 
 # NODE
 SPACESHIP_NODE_SHOW=always
-SPACESHIP_NODE_PREFIX=""
-#SPACESHIP_NODE_SUFFIX=") "
+SPACESHIP_NODE_PREFIX="("
+SPACESHIP_NODE_SUFFIX=") "
 SPACESHIP_NODE_SYMBOL="⬢ "
 SPACESHIP_NODE_DEFAULT_VERSION="(node -v)"
 SPACESHIP_NODE_COLOR="green"
 
 # DOCKER
-SPACESHIP_DOCKER_SHOW=true
-SPACESHIP_DOCKER_PREFIX=""
-#SPACESHIP_DOCKER_SUFFIX=") "
+SPACESHIP_DOCKER_SHOW=always
+SPACESHIP_DOCKER_PREFIX="("
+SPACESHIP_DOCKER_SUFFIX=") "
 SPACESHIP_DOCKER_SYMBOL=" "
 SPACESHIP_DOCKER_COLOR="cyan"
+
+# VI MODE
+SPACESHIP_VI_MODE_INSERT="<I>"
+SPACESHIP_VI_MODE_NORMAL="<N>"
+SPACESHIP_VI_MODE_VISUAL="<V>"
+SPACESHIP_VI_MODE_COLOR="yellow"
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
