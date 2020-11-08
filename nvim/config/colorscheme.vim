@@ -1,4 +1,4 @@
-colorscheme srcery
+colorscheme omni
 
 let g:srcery_transparent_background = 1
 

@@ -18,10 +18,6 @@ Plug 'luochen1990/rainbow'
 Plug 'psliwka/vim-smoothie'
 " Auto change html tags
 Plug 'AndrewRadev/tagalong.vim'
-" airline
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-"Plug 'tonadev/vim-airline-256noir'
 " Zen mode
 Plug 'junegunn/goyo.vim'
 " See what keys do like in emacs
@@ -44,8 +40,8 @@ Plug 'rhysd/git-messenger.vim'
 "explorer icons
 " Plug 'ryanoasis/vim-devicons'
 "colorschemes
-"Plug 'GuiLra/vim-omni', {'as': 'omni'}
-Plug 'srcery-colors/srcery-vim'
+Plug 'GuiLra/vim-omni', {'as': 'omni'}
+"Plug 'srcery-colors/srcery-vim'
 "Plug 'owickstrom/vim-colors-paramount'
 "auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -69,8 +65,6 @@ Plug 'Yggdroot/indentLine'
 " dir vish
 Plug 'justinmk/vim-dirvish'
 Plug 'kristijanhusak/vim-dirvish-git'
-" discord rich presence
-Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
 
 call plug#end()
 
