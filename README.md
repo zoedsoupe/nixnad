@@ -35,7 +35,7 @@ An initial minimal installation of the operating system is recommended. This mea
 | Wallpaper setter for X | [feh](https://wiki.archlinux.org/index.php/feh)|
 | Dmenu replacement (Window switcher, application launcher, etc.) | [rofi](https://github.com/davatorium/rofi)|
 | Audio visualizer | [Glava](https://github.com/jarcode-foss/glava)|
-| File manager (Cli) | [lf](https://github.com/gokcehan/lf) | 
+| File manager (Cli) | [nnn](https://github.com/jarun/nnn) | 
 | Document viewer | [Zathura](https://pwmt.org/projects/zathura/) |
 | Clipboard manager | [clipit](https://github.com/CristianHenzel/ClipIt) |
 | Notification daemon | [dunst](https://dunst-project.org/) |
