@@ -37,8 +37,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'rhysd/git-messenger.vim'
-"explorer icons
-" Plug 'ryanoasis/vim-devicons'
 "colorschemes
 Plug 'GuiLra/vim-omni', {'as': 'omni'}
 "Plug 'srcery-colors/srcery-vim'
@@ -46,9 +44,7 @@ Plug 'GuiLra/vim-omni', {'as': 'omni'}
 "auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'pbogut/deoplete-elm'
-"Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'Shougo/neco-vim'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "minimap
 Plug 'wfxr/minimap.vim'
 "elixir
@@ -57,7 +53,6 @@ Plug 'slashmili/alchemist.vim'
 Plug 'mhinz/vim-mix-format'
 " pretty format
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'gmoe/vim-eslint-syntax'
 " automatically add end
 Plug 'tpope/vim-endwise'
 " indent line
@@ -65,6 +60,7 @@ Plug 'Yggdroot/indentLine'
 " dir vish
 Plug 'justinmk/vim-dirvish'
 Plug 'kristijanhusak/vim-dirvish-git'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 

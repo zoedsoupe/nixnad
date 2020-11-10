@@ -26,16 +26,13 @@ set laststatus=2                        " Always display the status line
 set number relativenumber
 set cursorline                          " Enable highlighting of the current line
 set showtabline=0                       " never show tabs
-set noshowmode
-"set nobackup                            " This is recommended by coc
-"set nowritebackup                       " This is recommended by coc
 set shortmess+=c                        " Don't pass messages to |ins-completion-menu|.
 set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time
 set updatetime=300                      " Faster completion
 set timeoutlen=1000                      " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set incsearch
-set guifont=Iosevka\ Nerd\ Font\ Complete
+set guifont=Hasklig-Regular
 set path+=**                            " Provides tab-completion for all file-related tasks
 set wildmenu                            " Display all matching files when we tab complete
 set wildignore+=**/node_modules/**,**/deps/**,**/_build/**,.*

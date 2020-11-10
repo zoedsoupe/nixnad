@@ -1,12 +1,13 @@
 # vim: filetype=i3config
 
-font pango:Iosevka Nerd Font Complete 11
+font pango:Hasklig-Regular 11
 
 # Autostart applications
 exec --no-startup-id nm-applet
 exec --no-startup-id clipit
 exec --no-startup-id start_conky_maia
-exec_always --no-startup-id setxkbmap -layout br -option ctrl:swapcaps
+exec_always --no-startup-id setxkbmap -option ctrl:swapcaps
+exec_always --no-startup-id xset r off
 exec_always --no-startup-id echo 'nameserver 8.8.8.8' | sudo tee /etc/resolv.conf
 exec_always --no-startup-id feh --bg-scale ~/Pics/wallpapers/wallpaper2.png
 exec_always --no-startup-id xrandr | grep 'HDMI-1 connected' && xrandr --output eDP-1 --auto --output HDMI-1 --auto --above eDP-1
