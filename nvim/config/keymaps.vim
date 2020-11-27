@@ -2,33 +2,35 @@
 
 nnoremap <C-d> :Dirvish<CR>
 
-inoremap <C-a> <Home>
-inoremap <C-e> <End>
-nnoremap <C-a> <Home>
-nnoremap <C-e> <End>
-
-" delete text
-map <BS> c
-
-"save files
-map <C-s> :w<CR>
-
-"navigate buffers
-nnoremap <C-g> :buffers<CR>:buffer<Space> 
-
-"move among buffers with CTRL
-map <C-L> :bnext<CR>
-map <C-K> :bprev<CR>
-
-"exit insert mode
-inoremap <C-x> <Esc>
-
 "set highlighting off after regex 
 nnoremap <CR> :noh<CR><CR>
 
-"format files elixir files
-nnoremap <Leader>f :Mix format<CR>
+" Remove newbie crutches in Command Mode
+cnoremap <Down> <Nop>
+cnoremap <Left> <Nop>
+cnoremap <Right> <Nop>
+cnoremap <Up> <Nop>
 
-" remap shift + arrow to select words
-nnoremap <S-Left> v
-nnoremap <S-Right> v
+" Remove newbie crutches in Insert Mode
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <Up> <Nop>
+
+" Remove newbie crutches in Normal Mode
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+nnoremap <Up> <Nop>
+
+" Remove newbie crutches in Visual Mode
+vnoremap <Down> <Nop>
+vnoremap <Left> <Nop>
+vnoremap <Right> <Nop>
+vnoremap <Up> <Nop>
+
+"So I can move around in insert
+inoremap <C-k> <C-o>gk
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-j> <C-o>gj

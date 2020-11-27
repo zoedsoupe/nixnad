@@ -60,8 +60,9 @@ alias cheat="tldr $@"
 alias node_modules="find . -name "node_modules" -type d -prune -exec rm -rf '{}' +"
 alias cat="ccat"
 alias zsource="source ~/.zshrc"
-alias hdmi_off="xrandr --output eDP-1 --auto --output HDMI-1 --off"
+alias one_screen="xrandr --output eDP-1 --auto --output HDMI-1 --off"
 alias hdmi_on="xrandr --output eDP-1 --primary --auto --output HDMI-1 --auto --above eDP-1"
+alias vga_on="xrandr --output eDP-1 --auto --output DP-1 --auto --above eDP-1"
 alias update="yay -Syyu"
 alias prettyjson="python -m json.tool | cat"
 alias phx_api="mix phx.new --no-html --no-webpack --binary-id $@"
@@ -143,6 +144,13 @@ SPACESHIP_DOCKER_SUFFIX=") "
 SPACESHIP_DOCKER_SYMBOL=" "
 SPACESHIP_DOCKER_COLOR="cyan"
 
+#ELIXIR
+SPACESHIP_ELIXIR_SHOW=always
+SPACESHIP_ELIXIR_PREFIX="("
+SPACESHIP_ELIXIR_SUFIX=") "
+SPACESHIP_ELIXIR_SYMBOL=""
+SPACESHIP_ELIXIR_DEFAULT_VERSION="1.10"
+
 # VI MODE
 SPACESHIP_VI_MODE_INSERT="<I>"
 SPACESHIP_VI_MODE_NORMAL="<N>"
@@ -198,3 +206,6 @@ if [ -f '/home/mdsp/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mdsp/g
 # fnm
 
 source /home/matthew/.config/broot/launcher/bash/br
+
+# autojump
+[[ -s /home/matthew/.autojump/etc/profile.d/autojump.sh ]] && source /home/matthew/.autojump/etc/profile.d/autojump.sh

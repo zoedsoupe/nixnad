@@ -61,6 +61,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'justinmk/vim-dirvish'
 Plug 'kristijanhusak/vim-dirvish-git'
 Plug 'tpope/vim-surround'
+" commentary
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
