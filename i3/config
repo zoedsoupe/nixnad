@@ -52,7 +52,7 @@ bindsym $mod+q			            [con_id="__focused__" instance="^(?!dropdown_).*$"]
 bindsym $mod+Shift+q		        [con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
 
 # w
-bindsym $mod+w 			            exec --no-startup-id google-chrome-stable
+bindsym $mod+w 			            exec --no-startup-id microsoft-edge-dev
 
 # e
 bindsym $mod+e 			            exec --no-startup-id $lock
@@ -155,7 +155,7 @@ set $ws10 "10"
 
 # Assign Workspaces:
 assign [class="qBittorrent"] $ws6
-assign [class="Google-chrome"] $ws2
+assign [class="Microsoft-edge-dev"] $ws2
 assign [class="discord"] $ws8
 for_window [class="Spotify"] move to workspace $ws9
 
