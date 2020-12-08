@@ -38,9 +38,9 @@ Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'rhysd/git-messenger.vim'
 "colorschemes
-Plug 'GuiLra/vim-omni', {'as': 'omni'}
+"Plug 'GuiLra/vim-omni', {'as': 'omni'}
 "Plug 'srcery-colors/srcery-vim'
-"Plug 'owickstrom/vim-colors-paramount'
+Plug 'owickstrom/vim-colors-paramount'
 "auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'pbogut/deoplete-elm'
@@ -60,9 +60,12 @@ Plug 'Yggdroot/indentLine'
 " dir vish
 Plug 'justinmk/vim-dirvish'
 Plug 'kristijanhusak/vim-dirvish-git'
+" vim surround
 Plug 'tpope/vim-surround'
 " commentary
 Plug 'tpope/vim-commentary'
+" vem-tabline
+Plug 'pacha/vem-tabline'
 
 call plug#end()
 

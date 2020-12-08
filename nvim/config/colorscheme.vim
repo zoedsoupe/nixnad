@@ -1,6 +1,6 @@
-colorscheme omni
+colorscheme paramount
 
-let g:srcery_transparent_background = 1
+" let g:srcery_transparent_background = 1
 
 "let g:afterglow_blackout=1
 "let g:afterglow_italic_comments=1
