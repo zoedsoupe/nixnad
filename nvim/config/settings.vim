@@ -32,7 +32,6 @@ set updatetime=300                      " Faster completion
 set timeoutlen=1000                      " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set incsearch
-set guifont=Hasklig-Regular
 set path+=**                            " Provides tab-completion for all file-related tasks
 set wildmenu                            " Display all matching files when we tab complete
 set wildignore+=**/node_modules/**,**/deps/**,**/_build/**,.*

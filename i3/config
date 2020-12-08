@@ -1,6 +1,6 @@
 # vim: filetype=i3config
 
-font pango:Hasklig-Regular 11
+font pango:Monolisa-Medium 11
 
 # Autostart applications
 exec --no-startup-id nm-applet
