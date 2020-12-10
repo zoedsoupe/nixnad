@@ -10,8 +10,6 @@ endif
 " Specify a directory for plugins
 call plug#begin('~/nvim/plugged')
 
-" wakatime
-Plug 'wakatime/vim-wakatime'
 " Rainbow brackets
 Plug 'luochen1990/rainbow'
 " Smooth scroll
@@ -64,8 +62,10 @@ Plug 'kristijanhusak/vim-dirvish-git'
 Plug 'tpope/vim-surround'
 " commentary
 Plug 'tpope/vim-commentary'
-" vem-tabline
+" vim-tabline
 Plug 'pacha/vem-tabline'
+" vim-easymotion
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 

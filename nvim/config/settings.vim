@@ -1,4 +1,5 @@
 set iskeyword+=-                      	" treat dash separated words as a word text object"
+set iskeyword-=:,<,>,.,?,;,\",\',\/,%,$,#,@,!,^,&,*,(,),{,},~,[,],|
 set formatoptions-=cro                  " Stop newline continution of comments
 
 set autoread

@@ -49,6 +49,7 @@ bindkey -v
 alias icat="kitty +kitten icat"
 alias d="kitty +kitten diff"
 alias vs="code ."
+alias gac="git commit -am"
 alias gt="git status"
 alias ga="git add ."
 alias gp="git push origin master"
@@ -81,6 +82,7 @@ alias ps="procs"
 alias top="ytop"
 alias ls="exa -l"
 alias start_postgres="docker start cef2d0d02474"
+alias start_mariadb="docker start c64a2010b85b"
 
 # remove o username
 DEFAULT_USER=`whoami`
