@@ -37,8 +37,8 @@ Plug 'junegunn/gv.vim'
 Plug 'rhysd/git-messenger.vim'
 "colorschemes
 "Plug 'GuiLra/vim-omni', {'as': 'omni'}
-"Plug 'srcery-colors/srcery-vim'
-Plug 'owickstrom/vim-colors-paramount'
+Plug 'srcery-colors/srcery-vim'
+" Plug 'owickstrom/vim-colors-paramount'
 "auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'pbogut/deoplete-elm'
