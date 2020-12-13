@@ -1,0 +1,27 @@
+format = """
+$username\
+$hostname\
+$git_branch\
+$git_status\
+$docker_context\
+$elixir\
+$elm\
+$nodejs\
+$rust\
+$time\
+$character"""
+
+scan_timeout = 5
+
+[username]
+show_always = true
+
+[line_break]
+disabled = false
+
+add_newline = true
+
+[character]
+success_symbol = "[ﬦ](bold green) "
+error_symbol = "[✗](bold red) "
+vicmd_symbol = "[V](bold green) "
