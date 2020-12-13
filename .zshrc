@@ -22,6 +22,8 @@ if ! zplug check --verbose; then
     fi
 fi
 
+source ~/Documents/privy/dotfiles/zsh_plugins/elixir_mix.plugin.zsh
+
 # Then, source plugins and add commands to $PATH
 zplug load
 
