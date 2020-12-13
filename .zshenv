@@ -6,8 +6,8 @@ export PATH=/home/matthew/.local/bin:$PATH
 export PATH=~/scripts/:$PATH
 export PATH=~/.cargo/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH="/home/matthew/.oh-my-zsh"
+# Starship theme config
+export STARSHIP_CONFIG=~/Documents/privy/dotfiles/startship.toml
 
 # Default Apps
 export EDITOR="nvim"
