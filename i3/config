@@ -113,7 +113,7 @@ bindsym --release $mod+y        exec scrot -s ~/Pics/screenshots/%Y-%m-%d-%H-%M-
 bindsym --release $mod+Shift+y  exec scrot -d ~/Pics/screenshots/%Y-%m-%d-%H-%M-%S.png
 
 # z
-bindsym $mod+z			            exec --no-startup-id $term -e nvim ~/.zshrc
+bindsym $mod+z			            exec --no-startup-id $term -e nvim ~/.config/fish/config.fish
 
 # x
 bindsym $mod+x 			            exec --no-startup-id $reboot
