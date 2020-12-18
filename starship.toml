@@ -1,6 +1,6 @@
 format = """
-$username\
-$hostname\
+$character\
+$directory\
 $git_branch\
 $git_status\
 $docker_context\
@@ -8,20 +8,26 @@ $elixir\
 $elm\
 $nodejs\
 $rust\
-$time\
-$character"""
+$time"""
 
 scan_timeout = 5
 
-[username]
-show_always = true
+[directory]
+format = "[$path]($style)[$read_only]($read_only_style) "
 
-[line_break]
-disabled = false
+[git_branch]
+format = "[git:](white)\\([$branch]($style)"
 
-add_newline = true
+[git_status]
+format = "[$all_status$ahead_behind]($style)\\) "
+
+[elixir]
+format = "[elixir:](white)\\([$version]($style)\\) "
+
+[nodejs]
+format = "[node:](white)\\([$version]($style)\\) "
 
 [character]
 success_symbol = "[ﬦ](bold green) "
 error_symbol = "[✗](bold red) "
-vicmd_symbol = "[V](bold green) "
+vicmd_symbol = "[](bold green) "

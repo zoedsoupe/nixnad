@@ -1,9 +1,9 @@
-colorscheme srcery
+colorscheme omni
 
-let g:srcery_transparent_background = 1
+" let g:srcery_transparent_background = 1
 
-let g:afterglow_blackout=1
-let g:afterglow_italic_comments=1
+" let g:afterglow_blackout=1
+" let g:afterglow_italic_comments=1
 
 " Change highlighting of cursor line when entering/leaving Insert Mode
 set cursorline

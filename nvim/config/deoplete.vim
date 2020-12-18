@@ -20,5 +20,5 @@ call deoplete#custom#source('_', 'converters', [
     \ 'converter_auto_delimiter'
     \])
 
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-A>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <silent><expr> <C-Space> deoplete#manual_complete()
