@@ -36,4 +36,3 @@ alias ls="exa -l"
 alias start_postgres="docker start cef2d0d02474"
 alias start_mariadb="docker start c64a2010b85b"
 alias v="nvim $argv"
-

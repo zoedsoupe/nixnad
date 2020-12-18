@@ -12,10 +12,17 @@ call plug#begin('~/nvim/plugged')
 
 " Rainbow brackets
 Plug 'luochen1990/rainbow'
+" better file changes
+Plug 'tpope/vim-projectionist'
+" snippets
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
 " Smooth scroll
 Plug 'psliwka/vim-smoothie'
 " Auto change html tags
 Plug 'AndrewRadev/tagalong.vim'
+" emmet
+Plug 'mattn/emmet-vim'
 " Zen mode
 Plug 'junegunn/goyo.vim'
 " See what keys do like in emacs
@@ -36,8 +43,8 @@ Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'rhysd/git-messenger.vim'
 "colorschemes
-"Plug 'GuiLra/vim-omni', {'as': 'omni'}
-Plug 'srcery-colors/srcery-vim'
+Plug 'GuiLra/vim-omni', {'as': 'omni'}
+"Plug 'srcery-colors/srcery-vim'
 " Plug 'owickstrom/vim-colors-paramount'
 "auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -62,7 +69,8 @@ Plug 'kristijanhusak/vim-dirvish-git'
 Plug 'tpope/vim-surround'
 " commentary
 Plug 'tpope/vim-commentary'
-" vim-tabline
+" status-line and tabline
+Plug 'liuchengxu/eleline.vim'
 Plug 'pacha/vem-tabline'
 " vim-easymotion
 Plug 'easymotion/vim-easymotion'
