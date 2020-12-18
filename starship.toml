@@ -16,10 +16,10 @@ scan_timeout = 5
 format = "[$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
-format = "[git:](white)\\([$branch]($style)"
+format = "[git:](white)\\([$branch]($style)\\)"
 
 [git_status]
-format = "[$all_status$ahead_behind]($style)\\) "
+format = "[$all_status$ahead_behind]($style) "
 
 [elixir]
 format = "[elixir:](white)\\([$version]($style)\\) "
@@ -28,6 +28,6 @@ format = "[elixir:](white)\\([$version]($style)\\) "
 format = "[node:](white)\\([$version]($style)\\) "
 
 [character]
-success_symbol = "[ﬦ](bold green) "
-error_symbol = "[✗](bold red) "
-vicmd_symbol = "[](bold green) "
+success_symbol = "[ﬦ](bold green)"
+error_symbol = "[✗](bold red)"
+vicmd_symbol = "[](bold green)"
