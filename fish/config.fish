@@ -1,6 +1,11 @@
 # theme
 starship init fish | source
 
+echo 'nameserver 8.8.8.8' | sudo tee /etc/resolv.conf
+setxkbmap -option ctrl:swapcaps
+feh --bg-fill ~/Pics/wallpapers/mountains.jpg
+xset r off
+
 # autojump
 begin
     set --local AUTOJUMP_PATH $HOME/.autojump/share/autojump/autojump.fish
