@@ -9,6 +9,7 @@ import Data.Monoid
 import Data.Maybe (isJust)
 import System.IO (hPutStrLn)
 import System.Exit (exitSuccess)
+-- import Graphics.X11.ExtraTypes.XF86 (xF86XK_AudioLowerVolume, xF86XK_AudioRaiseVolume, xF86XK_AudioMute)
 import qualified XMonad.StackSet as W
 
     -- Utilities
@@ -73,10 +74,10 @@ windowCount     = gets $ Just . show . length . W.integrate' . W.stack . W.works
 
 main = do
     -- Launching xmobar.
-    xmproc <- spawnPipe "xmobar $HOME/.xmonad/xmobarrc"
+    xmproc <- spawnPipe "xmobar $HOME/.config/xmobar/xmobarrc"
         -- the xmonad, ya know...what the WM is named after!
     xmonad $ ewmh desktopConfig
-        { manageHook = ( isFullscreen --> doFullFloat ) <+> myManageHook <+> manageHook desktopConfig <+> manageDocks
+        { manageHook = ( isFullscreen --> doFullFloat ) <+> manageHook desktopConfig <+> manageDocks
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = \x -> hPutStrLn xmproc x 
                         , ppCurrent = xmobarColor "#c3e88d" "" . wrap "[" "]" -- Current workspace in xmobar
@@ -171,20 +172,27 @@ myKeys =
 
     --- Open Terminal
         , ("M-<Return>", spawn myTerminal)
-        , ("M-S-<Return>", spawn myTerminal ++ "--working-directory (xcdw)")
 
     --- My Applications (Super+Alt+Key)
         , ("M-t", spawn (myTerminal ++ " -e ytop"))
         , ("M-w", spawn "microsoft-edge-dev")
-        , ("M-y", spawn "scrot -s ~/Pics/screenshots/%Y-%m-%d-%H-%M-%S.png")
+        , ("M-r", spawn (myTerminal ++ " -e nnn"))
+        , ("M-f", spawn (myTerminal ++ " -e nvim ~/.config/fish/config.fish"))
+        , ("M-v", spawn (myTerminal ++ " -e nvim"))
+        , ("M-y", spawn "sel_screenshot")
+        , ("M-S-y", spawn "full_screenshot")
+        , ("M-m", spawn "spotify")
+        , ("M-S-m", spawn "discord")
+
+    --- System
+        , ("M-x", spawn "sudo -A reboot")
+        , ("M-S-x", spawn "sudo -A shutdown -h now")
+        -- , ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -10%")
+        -- , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +10%")
+        -- , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
         ] where nonNSP          = WSIs (return (\ws -> W.tag ws /= "nsp"))
                 nonEmptyNonNSP  = WSIs (return (\ws -> isJust (W.stack ws) && W.tag ws /= "nsp"))
                 
-
-myManageHook :: Query (Data.Monoid.Endo WindowSet)
-myManageHook = composeAll
-     [
-     ] <+> namedScratchpadManageHook myScratchPads
 
 ------------------------------------------------------------------------
 ---LAYOUTS
