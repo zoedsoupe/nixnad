@@ -48,8 +48,8 @@ Plug 'GuiLra/vim-omni', {'as': 'omni'}
 " Plug 'owickstrom/vim-colors-paramount'
 "auto completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'pbogut/deoplete-elm'
 Plug 'Shougo/neco-vim'
+Plug 'fszymanski/deoplete-emoji'
 "minimap
 Plug 'wfxr/minimap.vim'
 "elixir
