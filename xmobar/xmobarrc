@@ -15,6 +15,21 @@ Config { font = "xft:Monolisa-Medium:pixelsize=12:antialias=true:hinting=true"
        , iconRoot = "/home/matthew/.config/xmobar/xpm/"  -- default: "."
        , commands = [ Run Date "%a, %b %d %Y, %H:%M" "date" 10
                     , Run Network "enp2s0" ["-t", "<icon=net_up_20.xpm/>up <rxbar> <icon=net_down_20.xpm/>dn <txbar>"] 10
+                    , Run Battery        [ "--template" , "Batt: <acstatus>"
+                             , "--Low"      , "10"        -- units: %
+                             , "--High"     , "80"        -- units: %
+                             , "--low"      , "darkred"
+                             , "--normal"   , "darkorange"
+                             , "--high"     , "darkgreen"
+
+                             , "--" -- battery specific options
+                                       -- discharging status
+                                       , "-o"	, "<left>% (<timeleft>)"
+                                       -- AC "on" status
+                                       , "-O"	, "<fc=#dAA520>Charging</fc>"
+                                       -- charged status
+                                       , "-i"	, "<fc=#006000>Charged</fc>"
+                             ] 10
                     , Run Network "wlp3s0" ["-t", "<icon=net_up_20.xpm/>up <rxbar> <icon=net_down_20.xpm/>dn <txbar>"] 10
                     , Run Cpu ["-t", "cpu <bar> (<total>%)","-H","50","--high","red"] 10
                     , Run Memory ["-t", "mem <usedbar> (<usedratio>%)"] 10
@@ -23,5 +38,5 @@ Config { font = "xft:Monolisa-Medium:pixelsize=12:antialias=true:hinting=true"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <icon=haskell_20.xpm/> <fc=#666666>|</fc> %UnsafeStdinReader% }{ <fc=#FFB86C>%cpu%</fc> <fc=#FF5555>%memory%</fc> <fc=#82AAFF>%disku%</fc> <fc=#c3e88d>%wlp3s0%</fc> <fc=#c3e88d>%enp2s0%</fc> <fc=#8BE9FD>%date%</fc> "
+       , template = " <icon=haskell_20.xpm/> <fc=#666666>|</fc> %UnsafeStdinReader% }{ <fc=#FFB86C>%cpu%</fc> <fc=#FF5555>%memory%</fc> <fc=#82AAFF>%disku%</fc> <fc=#FFAAFF>%battery%</fc> <fc=#c3e88d>%wlp3s0%</fc> <fc=#c3e88d>%enp2s0%</fc> <fc=#8BE9FD>%date%</fc> "
        }
