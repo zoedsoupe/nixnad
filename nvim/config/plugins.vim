@@ -50,6 +50,12 @@ Plug 'GuiLra/vim-omni', {'as': 'omni'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neco-vim'
 Plug 'fszymanski/deoplete-emoji'
+Plug 'Shougo/neco-syntax'
+Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+" rust
+Plug 'racer-rust/vim-racer'
+" haskell
+Plug 'neovimhaskell/haskell-vim'
 "minimap
 Plug 'wfxr/minimap.vim'
 "elixir
