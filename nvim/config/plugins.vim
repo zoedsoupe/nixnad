@@ -16,7 +16,6 @@ Plug 'luochen1990/rainbow'
 Plug 'tpope/vim-projectionist'
 " snippets
 Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
 " Smooth scroll
 Plug 'psliwka/vim-smoothie'
 " Auto change html tags
@@ -27,8 +26,6 @@ Plug 'mattn/emmet-vim'
 Plug 'junegunn/goyo.vim'
 " See what keys do like in emacs
 Plug 'liuchengxu/vim-which-key'
-" Auto pairs for '(' '[' '{'
-Plug 'jiangmiao/auto-pairs'
 " Closetags
 Plug 'alvan/vim-closetag'
 " Colorizer
@@ -44,26 +41,16 @@ Plug 'junegunn/gv.vim'
 Plug 'rhysd/git-messenger.vim'
 "colorschemes
 Plug 'GuiLra/vim-omni', {'as': 'omni'}
-"Plug 'srcery-colors/srcery-vim'
-" Plug 'owickstrom/vim-colors-paramount'
 "auto completion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neco-vim'
-Plug 'fszymanski/deoplete-emoji'
-Plug 'Shougo/neco-syntax'
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " rust
-Plug 'racer-rust/vim-racer'
+Plug 'rust-lang/rust.vim'
 " haskell
 Plug 'neovimhaskell/haskell-vim'
 "minimap
 Plug 'wfxr/minimap.vim'
 "elixir
 Plug 'elixir-editors/vim-elixir'
-Plug 'slashmili/alchemist.vim'
-Plug 'mhinz/vim-mix-format'
-" pretty format
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " automatically add end
 Plug 'tpope/vim-endwise'
 " indent line

@@ -39,6 +39,7 @@ set wildignore+=**/node_modules/**,**/deps/**,**/_build/**,.*
 set so=999
 filetype plugin on
 set guicursor=
+set background=dark
 
 function! OnTermClose()
     if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
