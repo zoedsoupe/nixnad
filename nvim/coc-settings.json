@@ -22,7 +22,10 @@
     "json",
     "html",
     "css",
-    "elixir"
+    "elixir",
+    "rust",
+    "haskell",
+    "yaml"
   ],
   "coc.preferences.extensionUpdateCheck": "daily",
   "eslint.packageManager": "yarn",
@@ -30,22 +33,12 @@
   "css.validate": false,
   "scss.validate": false,
 
-  "explorer.width": 30,
-  "explorer.icon.enableNerdfont": true,
-  "explorer.previewAction.onHover": false,
-  "explorer.keyMappings": {
-    "<cr>": ["expandable?", "expand", "open"],
-    "v": "open:split"
-  },
-
   "languageserver": {
-    "elmLS": {
-      "command": "elm-language-server",
-      "filetypes": ["elm"],
-      "rootPatterns": ["elm.json"],
-      "initializationOptions": {
-        "elmAnalyseTrigger": "never"
-      }
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+      "filetypes": ["haskell", "lhaskell"]
     }
   }
 }

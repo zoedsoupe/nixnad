@@ -23,3 +23,6 @@ source $HOME/.config/fish/env_vars.fish
 
 # fast node manager
 fnm env | source
+# ghcup-env
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
+test -f /home/matthew/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin /home/matthew/.ghcup/bin $PATH

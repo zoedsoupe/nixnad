@@ -1,13 +1,10 @@
 source $HOME/.config/nvim/config/plugins.vim
+source $HOME/.config/nvim/config/coc.vim
 source $HOME/.config/nvim/config/leader-key.vim
 source $HOME/.config/nvim/config/emmet.vim
 source $HOME/.config/nvim/config/tabline.vim
-source $HOME/.config/nvim/config/tabnine.vim
-source $HOME/.config/nvim/config/racer.vim
-"source $HOME/.config/nvim/config/coc.vim
+source $HOME/.config/nvim/config/rust.vim
 source $HOME/.config/nvim/config/ident.vim
-source $HOME/.config/nvim/config/elixir-format.vim
-source $HOME/.config/nvim/config/deoplete.vim
 source $HOME/.config/nvim/config/minimap.vim 
 source $HOME/.config/nvim/config/keymaps.vim
 source $HOME/.config/nvim/config/rainbow.vim

@@ -1,5 +1,4 @@
 format = """
-$character\
 $directory\
 $git_branch\
 $git_status\
@@ -8,7 +7,7 @@ $elixir\
 $elm\
 $nodejs\
 $rust\
-$time"""
+$character"""
 
 scan_timeout = 5
 
@@ -27,7 +26,10 @@ format = "[elixir:](white)\\([$version]($style)\\) "
 [nodejs]
 format = "[node:](white)\\([$version]($style)\\) "
 
+[rust]
+format = "[rust:](white)\\([$version]($style)\\) "
+
 [character]
-success_symbol = "[ﬦ](bold green)"
-error_symbol = "[✗](bold red)"
-vicmd_symbol = "[](bold green)"
+success_symbol = "\n[ﬦ](bold green)"
+error_symbol = "\n[✗](bold red)"
+vicmd_symbol = "\n[](bold green)"
