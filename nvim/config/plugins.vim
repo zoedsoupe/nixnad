@@ -14,8 +14,6 @@ call plug#begin('~/nvim/plugged')
 Plug 'luochen1990/rainbow'
 " better file changes
 Plug 'tpope/vim-projectionist'
-" snippets
-Plug 'honza/vim-snippets'
 " Smooth scroll
 Plug 'psliwka/vim-smoothie'
 " Auto change html tags
@@ -26,8 +24,6 @@ Plug 'mattn/emmet-vim'
 Plug 'junegunn/goyo.vim'
 " See what keys do like in emacs
 Plug 'liuchengxu/vim-which-key'
-" Closetags
-Plug 'alvan/vim-closetag'
 " Colorizer
 Plug 'norcalli/nvim-colorizer.lua'
 "syntax highlighting
@@ -51,8 +47,6 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'wfxr/minimap.vim'
 "elixir
 Plug 'elixir-editors/vim-elixir'
-" automatically add end
-Plug 'tpope/vim-endwise'
 " indent line
 Plug 'Yggdroot/indentLine'
 " dir vish

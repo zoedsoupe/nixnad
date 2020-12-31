@@ -3,7 +3,8 @@ set PATH $HOME/bin /usr/local/bin \
   $HOME/.ebcli-virtual-env/executables \
   $HOME/.yarn/bin \
   $HOME/.config/yarn/global/node_modules/.bin \
-  $HOME/.local/bin ~/scripts/ ~/.cargo/bin $PATH
+  $HOME/.local/bin ~/scripts/ ~/.cargo/bin \
+  $HOME/.pyenv/versions/3.7.2/bin $PATH
 
 # remove fish greeting
 set fish_greeting
