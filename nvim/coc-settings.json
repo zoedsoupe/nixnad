@@ -1,8 +1,8 @@
 {
-  "diagnostic.errorSign": " ",
-  "diagnostic.warningSign": " ",
+  "diagnostic.errorSign": "",
+  "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
-  "diagnostic.hintSign": " ",
+  "diagnostic.hintSign": "",
   "diagnostic.virtualText": true,
 
   "coc.source.emoji.filetypes": ["markdown, typescript, elixir"],
@@ -37,7 +37,13 @@
     "haskell": {
       "command": "haskell-language-server-wrapper",
       "args": ["--lsp"],
-      "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+      "rootPatterns": [
+        "*.cabal",
+        "stack.yaml",
+        "cabal.project",
+        "package.yaml",
+        "hie.yaml"
+      ],
       "filetypes": ["haskell", "lhaskell"]
     }
   }

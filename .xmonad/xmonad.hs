@@ -1,4 +1,3 @@
-
 ------------------------------------------------------------------------
 ---IMPORTS
 ------------------------------------------------------------------------
@@ -6,40 +5,34 @@
 import XMonad
 import XMonad.Config.Desktop
 import Data.Monoid
+import Data.Ratio
 import Data.Maybe (isJust)
 import System.IO (hPutStrLn)
 import System.Exit (exitSuccess)
--- import Graphics.X11.ExtraTypes.XF86 (xF86XK_AudioLowerVolume, xF86XK_AudioRaiseVolume, xF86XK_AudioMute)
 import qualified XMonad.StackSet as W
 
     -- Utilities
 import XMonad.Util.Loggers
-import XMonad.Util.EZConfig (additionalKeysP, additionalMouseBindings)
-import XMonad.Util.NamedScratchpad
-import XMonad.Util.Run (safeSpawn, unsafeSpawn, runInTerm, spawnPipe)
+import XMonad.Util.EZConfig (additionalKeysP)
+import XMonad.Util.Run (safeSpawnProg, safeSpawn, spawnPipe)
 
     -- Hooks
-import XMonad.Hooks.DynamicLog (dynamicLogWithPP, defaultPP, wrap, pad, xmobarPP, xmobarColor, shorten, PP(..))
-import XMonad.Hooks.ManageDocks (avoidStruts, docksStartupHook, manageDocks, ToggleStruts(..))
-import XMonad.Hooks.ManageHelpers (isFullscreen, isDialog,  doFullFloat, doCenterFloat) 
-import XMonad.Hooks.Place (placeHook, withGaps, smart)
-import XMonad.Hooks.SetWMName
+import XMonad.ManageHook (composeAll)
+import XMonad.Hooks.DynamicLog (dynamicLogWithPP, xmobarPP, xmobarColor, shorten, wrap, PP(..))
+import XMonad.Hooks.ManageDocks (manageDocks)
+import XMonad.Hooks.ManageHelpers (isFullscreen,  doFullFloat, doRectFloat, isDialog) 
 import XMonad.Hooks.EwmhDesktops   -- required for xcomposite in obs to work
 
     -- Actions
-import XMonad.Actions.Minimize (minimizeWindow)
-import XMonad.Actions.Promote
+import XMonad.Actions.Promote (promote)
 import XMonad.Actions.RotSlaves (rotSlavesDown, rotAllDown)
-import XMonad.Actions.CopyWindow (kill1, copyToAll, killAllOtherCopies, runOrCopy)
-import XMonad.Actions.WindowGo (runOrRaise, raiseMaybe)
+import XMonad.Actions.CopyWindow (kill1, copyToAll, killAllOtherCopies)
 import XMonad.Actions.WithAll (sinkAll, killAll)
-import XMonad.Actions.CycleWS (moveTo, shiftTo, WSType(..), shiftNextScreen, shiftPrevScreen) 
-import XMonad.Actions.DynamicWorkspaces (addWorkspacePrompt, removeEmptyWorkspace)
-import XMonad.Actions.MouseResize
+import XMonad.Actions.CycleWS (moveTo, shiftTo, WSType(..)) 
 import qualified XMonad.Actions.ConstrainedResize as Sqr
 
     -- Prompts
-import XMonad.Prompt (defaultXPConfig, XPConfig(..), XPPosition(Top), Direction1D(..))
+import XMonad.Prompt (Direction1D(..))
 
 ------------------------------------------------------------------------
 ---CONFIG
@@ -56,7 +49,7 @@ main = do
     xmproc <- spawnPipe "xmobar $HOME/.config/xmobar/xmobarrc"
         -- the xmonad, ya know...what the WM is named after!
     xmonad $ ewmh desktopConfig
-        { manageHook = ( isFullscreen --> doFullFloat ) <+> manageHook desktopConfig <+> manageDocks
+        { manageHook = myManageHook <+> pbManageHook 
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = \x -> hPutStrLn xmproc x 
                         , ppCurrent = xmobarColor "#c3e88d" "" . wrap "[" "]" -- Current workspace in xmobar
@@ -79,10 +72,11 @@ main = do
 ------------------------------------------------------------------------
 ---KEYBINDINGS
 ------------------------------------------------------------------------
+myKeys :: [(String, X())]
 myKeys =
     --- Xmonad
-        [ ("M-C-r", spawn "xmonad --recompile")      -- Recompiles xmonad
-        , ("M-S-r", spawn "xmonad --restart")        -- Restarts xmonad
+        [ ("M-C-r", safeSpawn "xmonad" ["--recompile"])      -- Recompiles xmonad
+        , ("M-S-r", safeSpawn "xmonad" ["--restart"])        -- Restarts xmonad
         , ("M-S-q", io exitSuccess)                  -- Quits xmonad
     
     --- Windows
@@ -95,11 +89,8 @@ myKeys =
 
     --- Windows navigation
         , ("M-m", windows W.focusMaster)             -- Move focus to the master window
-        , ("M-j", windows W.focusDown)               -- Move focus to the next window
-        , ("M-k", windows W.focusUp)                 -- Move focus to the prev window
         , ("M-<Left>", windows W.focusDown)
         , ("M-<Right>", windows W.focusUp)
-        , ("M-S-m", windows W.swapMaster)            -- Swap the focused window and the master window
         , ("M-S-j", windows W.swapDown)              -- Swap the focused window with the next window
         , ("M-S-k", windows W.swapUp)                -- Swap the focused window with the prev window
         , ("M-<Backspace>", promote)                 -- Moves focused window to master, all others maintain order
@@ -115,24 +106,47 @@ myKeys =
         , ("M-S-<KP_Subtract>", shiftTo Prev nonNSP >> moveTo Prev nonNSP)  -- Shifts focused window to previous workspace
 
     --- Open Terminal
-        , ("M-<Return>", spawn myTerminal)
+        , ("M-<Return>", safeSpawnProg myTerminal)
 
-    --- My Applications (Super+Alt+Key)
-        , ("M-t", spawn (myTerminal ++ " -e ytop"))
-        , ("M-w", spawn "microsoft-edge-dev")
-        , ("M-r", spawn (myTerminal ++ " -e nnn"))
-        , ("M-f", spawn (myTerminal ++ " -e nvim ~/.config/fish/config.fish"))
-        , ("M-v", spawn (myTerminal ++ " -e nvim"))
-        , ("M-y", spawn "sel_screenshot")
-        , ("M-S-y", spawn "full_screenshot")
-        , ("M-m", spawn "spotify")
-        , ("M-S-m", spawn "discord")
+    --- My Applications
+        , ("M-t", safeSpawn myTerminal ["-e ytop"])
+        , ("M-w", safeSpawnProg "microsoft-edge-dev")
+        , ("M-r", safeSpawn myTerminal ["-e nnn"])
+        , ("M-f", safeSpawn myTerminal ["-e nvim ~/.config/fish/"])
+        , ("M-v", safeSpawn myTerminal ["-e nvim"])
+        , ("M-y", safeSpawnProg "sel_screenshot")
+        , ("M-S-y", safeSpawnProg "full_screenshot")
+        , ("M-m", safeSpawnProg "spotify")
+        , ("M-S-m", safeSpawnProg "discord")
 
     --- System
-        , ("M-x", spawn "sudo -A reboot")
-        , ("M-S-x", spawn "sudo -A shutdown -h now")
-        , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -10%")
-        , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +10%")
-        , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+        , ("M-x", safeSpawnProg "reboot")
+        , ("M-S-x", safeSpawn "shutdown" ["-h now"])
+        , ("<XF86AudioLowerVolume>", safeSpawn "pactl" ["set-sink-volume @DEFAULT_SINK@ -10%"])
+        , ("<XF86AudioRaiseVolume>", safeSpawn "pactl" ["set-sink-volume @DEFAULT_SINK@ +10%"])
+        , ("<XF86AudioMute>", safeSpawn "pactl" ["set-sink-mute @DEFAULT_SINK@ toggle"])
         ] where nonNSP          = WSIs (return (\ws -> W.tag ws /= "nsp"))
                 nonEmptyNonNSP  = WSIs (return (\ws -> isJust (W.stack ws) && W.tag ws /= "nsp"))
+
+pbManageHook :: ManageHook
+pbManageHook = composeAll $ concat
+    [ [ manageDocks                                      ]
+    , [ manageHook defaultConfig                         ]
+    , [ isDialog     --> doRectFloat (W.RationalRect (1 % 4) (1 % 4) (1 % 2) (1 % 2)) ]
+    , [ isFullscreen --> doF W.focusDown <+> doFullFloat ]
+    ]
+
+myManageHook :: ManageHook
+myManageHook = composeAll [ matchAny v --> a | (v,a) <- myActions ]
+    where myActions = [ ("spotify"   , doShift "9" )
+                      , ("discord"   , doShift "8" )
+                      ]
+
+matchAny :: String -> Query Bool
+matchAny x = foldr ((<||>) . (=? x)) (return False) [className, title, name, role]
+
+name :: Query String
+name = stringProperty "WM_NAME"
+
+role :: Query String
+role = stringProperty "WM_ROLE"
