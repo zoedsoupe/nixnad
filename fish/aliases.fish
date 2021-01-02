@@ -1,23 +1,4 @@
-alias icat="kitty +kitten icat"
-alias d="kitty +kitten diff"
-alias vs="code ."
-alias gt="git status"
-alias ga="git add ."
-alias gp="git push origin $argv"
-alias gc="git commit -m $argv"
-alias co="git checkout "
-alias gb="git branch "
-alias gac="ga && gc"
-alias clean="yay -Qqtd | yay -Rcns"
-alias cheat="tldr $argv"
-alias node_modules="find . -name "node_modules" -type d -prune -exec rm -rf '{}' +"
-alias cat="ccat"
-alias fsource="source ~/.config/fish/config.fish"
-alias one_screen="xrandr --output eDP-1 --auto --output HDMI-1 --off"
-alias hdmi_on="xrandr --output eDP-1  --auto --output HDMI-1 --primary --auto --left-of eDP-1"
-alias vga_on="xrandr --output eDP-1 --auto --output DP-1 --auto --above eDP-1"
-alias update="yay -Syyu"
-alias prettyjson="python -m json.tool | cat"
+# elixir and phoenix
 alias phx_api="mix phx.new --no-html --no-webpack --binary-id $argv"
 alias mes="mix ecto.setup"
 alias megm="mix ecto.gen.migration $argv"
@@ -32,13 +13,42 @@ alias mpgj="mix phx.gen.json $argv"
 alias mpgs="mix phx.gen.schema $argv"
 alias ies="iex -S mix"
 alias mps="mix phx.server"
+
+# git
+alias gt="git status"
+alias ga="git add ."
+alias gp="git push origin $argv"
+alias gc="git commit -m $argv"
+alias co="git checkout $argv"
+alias gb="git branch $argv"
+alias gac="ga && gc"
+
+# docker
+alias aws="docker run --rm -it -v ~/.aws:/root/.aws amazon/aws-cli"
+alias psql="docker exec -it cef2d0d02474 psql $argv"
+alias pg_isready="docker exec -it cef2d0d02474 pg_isready $argv"
+alias start_postgres="docker start cef2d0d02474"
+alias start_mariadb="docker start c64a2010b85b"
+
+# replace software
 alias lg="lazygit"
 alias ps="procs"
 alias top="ytop"
 alias ls="exa -l"
-alias start_postgres="docker start cef2d0d02474"
-alias start_mariadb="docker start c64a2010b85b"
+alias cheat="tldr $argv"
+alias prettyjson="python -m json.tool | bat"
+alias d="rm -rf $argv"
+
+# system health
+alias clean="yay -Qqtd | yay -Rcns"
+alias node_modules="find . -name "node_modules" -type d -prune -exec rm -rf '{}' +"
+alias update="yay -Syyu"
+
+# screens
+alias one_screen="xrandr --output eDP-1 --auto --output HDMI-1 --off"
+alias hdmi_on="xrandr --output eDP-1  --auto --output HDMI-1 --primary --auto --left-of eDP-1"
+alias vga_on="xrandr --output eDP-1 --auto --output DP-1 --auto --above eDP-1"
+
+# system
+alias fsource="source ~/.config/fish/config.fish"
 alias v="nvim $argv"
-alias aws="docker run --rm -it -v ~/.aws:/root/.aws amazon/aws-cli"
-alias psql="docker exec -it cef2d0d02474 psql $argv"
-alias pg_isready="docker exec -it cef2d0d02474 pg_isready $argv"
