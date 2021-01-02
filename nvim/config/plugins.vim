@@ -1,71 +1,79 @@
 "PLUGINS
 
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  "autocmd VimEnter * PlugInstall
-  autocmd VimEnter * PlugInstall | source $MYVIMRC
+if &compatible
+  set nocompatible
 endif
 
-" Specify a directory for plugins
-call plug#begin('~/nvim/plugged')
+set runtimepath+=/home/matthew/.config/dein/repos/github.com/Shougo/dein.vim
 
-" Rainbow brackets
-Plug 'luochen1990/rainbow'
-" better file changes
-Plug 'tpope/vim-projectionist'
-" Smooth scroll
-Plug 'psliwka/vim-smoothie'
-" Auto change html tags
-Plug 'AndrewRadev/tagalong.vim'
-" emmet
-Plug 'mattn/emmet-vim'
-" Zen mode
-Plug 'junegunn/goyo.vim'
-" See what keys do like in emacs
-Plug 'liuchengxu/vim-which-key'
-" Colorizer
-Plug 'norcalli/nvim-colorizer.lua'
-"syntax highlighting
-Plug 'sheerun/vim-polyglot'
-"git plugins
-Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-rhubarb'
-Plug 'junegunn/gv.vim'
-Plug 'rhysd/git-messenger.vim'
-"colorschemes
-Plug 'GuiLra/vim-omni', {'as': 'omni'}
-"auto completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" rust
-Plug 'rust-lang/rust.vim'
-" haskell
-Plug 'neovimhaskell/haskell-vim'
-"minimap
-Plug 'wfxr/minimap.vim'
-"elixir
-Plug 'elixir-editors/vim-elixir'
-" indent line
-Plug 'Yggdroot/indentLine'
-" dir vish
-Plug 'justinmk/vim-dirvish'
-Plug 'kristijanhusak/vim-dirvish-git'
-" vim surround
-Plug 'tpope/vim-surround'
-" commentary
-Plug 'tpope/vim-commentary'
-" status-line and tabline
-Plug 'liuchengxu/eleline.vim'
-Plug 'pacha/vem-tabline'
-" vim-easymotion
-Plug 'easymotion/vim-easymotion'
+if dein#load_state('/home/matthew/.config/dein')
+  call dein#begin('/home/matthew/.config/dein')
 
-call plug#end()
+  call dein#add('/home/matthew/.config/dein/repos/github.com/Shougo/dein.vim')
 
-" Automatically install missing plugins on startup
-autocmd VimEnter *
-  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \|   PlugInstall --sync | q
-  \| endif
+  " dein ui
+  call dein#add('wsdjeg/dein-ui.vim')
+    " Rainbow brackets
+  call dein#add('luochen1990/rainbow') 
+  " better file changes
+  call dein#add('tpope/vim-projectionist')
+  " Smooth scroll
+  call dein#add('psliwka/vim-smoothie')
+  " Auto change html tags
+  call dein#add('AndrewRadev/tagalong.vim') 
+  " emmet
+  call dein#add('mattn/emmet-vim') 
+  " Zen mode
+  call dein#add('junegunn/goyo.vim') 
+  " See what keys do like in emacs
+  call dein#add('liuchengxu/vim-which-key') 
+  " Colorizer
+  call dein#add('norcalli/nvim-colorizer.lua')
+  "syntax highlighting
+  call dein#add('sheerun/vim-polyglot')
+  "git plugins
+  call dein#add('mhinz/vim-signify') 
+  call dein#add('tpope/vim-fugitive') 
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('tpope/vim-rhubarb') 
+  call dein#add('junegunn/gv.vim') 
+  call dein#add('rhysd/git-messenger.vim') 
+  "colorschemes
+  " call dein#add('GuiLra/vim-omni', {'as': 'omni'}) 
+  call dein#add('axvr/photon.vim') 
+  "auto completion
+  call dein#add('neoclide/coc.nvim', { 'merged': 0 })
+  " rust
+  call dein#add('rust-lang/rust.vim') 
+  " haskell
+  call dein#add('neovimhaskell/haskell-vim') 
+  "minimap
+  call dein#add('wfxr/minimap.vim') 
+  "elixir
+  call dein#add('elixir-editors/vim-elixir') 
+  " indent line
+  call dein#add('Yggdroot/indentLine') 
+  " dir vish
+  call dein#add('justinmk/vim-dirvish') 
+  call dein#add('kristijanhusak/vim-dirvish-git') 
+  " vim surround
+  call dein#add('tpope/vim-surround') 
+  " commentary
+  call dein#add('tpope/vim-commentary') 
+  " status-line and tabline
+  call dein#add('bluz71/vim-moonfly-statusline') 
+  call dein#add('pacha/vem-tabline') 
+  " vim-easymotion
+  call dein#add('easymotion/vim-easymotion') 
+  " markdown preview
+  call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
+            \ 'build': 'sh -c "cd app && yarn install"' })
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
