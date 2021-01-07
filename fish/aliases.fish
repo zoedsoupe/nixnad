@@ -18,6 +18,7 @@ alias mps="mix phx.server"
 alias gt="git status"
 alias ga="git add ."
 alias gp="git push origin $argv"
+alias gpr="git pull.rebase origin $argv"
 alias gc="git commit -m $argv"
 alias co="git checkout $argv"
 alias gb="git branch $argv"
@@ -42,7 +43,7 @@ alias d="rm -rf $argv"
 # system health
 alias clean="yay -Qqtd | yay -Rcns"
 alias node_modules="find . -name "node_modules" -type d -prune -exec rm -rf '{}' +"
-alias update="yay -Syyu"
+alias update="yay -Syyu && xmonad --recompile"
 
 # screens
 alias one_screen="xrandr --output eDP-1 --auto --output HDMI-1 --off"

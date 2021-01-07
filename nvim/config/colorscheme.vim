@@ -1,4 +1,4 @@
-colorscheme photon 
+colorscheme omni 
 
 " Change highlighting of cursor line when entering/leaving Insert Mode
 set cursorline

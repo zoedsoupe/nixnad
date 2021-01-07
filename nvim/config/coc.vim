@@ -11,11 +11,9 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-markdownlint',
   \ 'coc-svg',
-  \ 'coc-floaterm',
   \ 'coc-vimlsp',
   \ 'coc-emoji',
   \ 'coc-elixir',
-  \ 'coc-rls'
   \ ]
 
 
