@@ -45,6 +45,8 @@ myBorderWidth   = 0         -- Sets border width for windows
 windowCount     = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
 main = do
+    -- Starting postgres
+    _ <- spawnPipe "start_postgres"
     -- Launching xmobar.
     xmproc <- spawnPipe "xmobar $HOME/.config/xmobar/xmobarrc"
         -- the xmonad, ya know...what the WM is named after!
@@ -114,10 +116,10 @@ myKeys =
         , ("M-r", safeSpawn myTerminal ["-e nnn"])
         , ("M-f", safeSpawn myTerminal ["-e nvim ~/.config/fish/"])
         , ("M-v", safeSpawn myTerminal ["-e nvim"])
-        , ("M-y", safeSpawnProg "sel_screenshot")
         , ("M-S-y", safeSpawnProg "full_screenshot")
         , ("M-m", safeSpawnProg "spotify")
         , ("M-S-m", safeSpawnProg "discord")
+        , ("M-c", safeSpawnProg "clipmenu")
 
     --- System
         , ("M-x", safeSpawnProg "reboot")
