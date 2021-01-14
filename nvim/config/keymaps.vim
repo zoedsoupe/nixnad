@@ -35,8 +35,5 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 inoremap <C-j> <C-o>gj
 
-" Remap visual block
-nnoremap F <C-v>
-
 " Visual split existing buffer
 nnoremap <leader>vb :ls<cr>:vertical sb<space>

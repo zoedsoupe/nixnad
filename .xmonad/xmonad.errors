@@ -1,8 +1,8 @@
 
-xmonad.hs:136:20: warning: [-Wdeprecations]
+xmonad.hs:140:20: warning: [-Wdeprecations]
     In the use of ‘defaultConfig’
     (imported from XMonad, but defined in XMonad.Config):
     Deprecated: "Use def (from Data.Default, and re-exported by XMonad and XMonad.Config) instead."
     |
-136 |     , [ manageHook defaultConfig                         ]
+140 |     , [ manageHook defaultConfig                         ]
     |                    ^^^^^^^^^^^^^

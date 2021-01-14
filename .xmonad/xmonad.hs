@@ -47,6 +47,8 @@ windowCount     = gets $ Just . show . length . W.integrate' . W.stack . W.works
 main = do
     -- Starting postgres
     _ <- spawnPipe "start_postgres"
+    -- Starting clipmenud
+    _ <- spawnPipe "clipmenud"
     -- Launching xmobar.
     xmproc <- spawnPipe "xmobar $HOME/.config/xmobar/xmobarrc"
         -- the xmonad, ya know...what the WM is named after!
@@ -98,7 +100,6 @@ myKeys =
         , ("M-<Backspace>", promote)                 -- Moves focused window to master, all others maintain order
         , ("M1-S-<Tab>", rotSlavesDown)              -- Rotate all windows except master and keep focus in place
         , ("M1-C-<Tab>", rotAllDown)                 -- Rotate all the windows in the current stack
-        , ("M-S-s", windows copyToAll)  
         , ("M-C-s", killAllOtherCopies) 
 
     --- Workspaces
@@ -111,19 +112,22 @@ myKeys =
         , ("M-<Return>", safeSpawnProg myTerminal)
 
     --- My Applications
-        , ("M-t", safeSpawn myTerminal ["-e ytop"])
+        , ("M-t", spawn (myTerminal ++ " -e ytop"))
         , ("M-w", safeSpawnProg "microsoft-edge-dev")
-        , ("M-r", safeSpawn myTerminal ["-e nnn"])
-        , ("M-f", safeSpawn myTerminal ["-e nvim ~/.config/fish/"])
-        , ("M-v", safeSpawn myTerminal ["-e nvim"])
+        , ("M-r", spawn (myTerminal ++ "-e nnn"))
+        , ("M-f", spawn (myTerminal ++ " -e nvim ~/.config/fish/"))
+        , ("M-v", spawn (myTerminal ++ " -e nvim"))
         , ("M-S-y", safeSpawnProg "full_screenshot")
+        , ("M-y", safeSpawnProg "sel_screenshot")
         , ("M-m", safeSpawnProg "spotify")
         , ("M-S-m", safeSpawnProg "discord")
         , ("M-c", safeSpawnProg "clipmenu")
+        , ("M-s", safeSpawnProg "screenkey")
+        , ("M-S-s", safeSpawn "killall" ["screenkey"])
 
     --- System
         , ("M-x", safeSpawnProg "reboot")
-        , ("M-S-x", safeSpawn "shutdown" ["-h now"])
+        , ("M-S-x", safeSpawnProg "poweroff")
         , ("<XF86AudioLowerVolume>", safeSpawn "pactl" ["set-sink-volume @DEFAULT_SINK@ -10%"])
         , ("<XF86AudioRaiseVolume>", safeSpawn "pactl" ["set-sink-volume @DEFAULT_SINK@ +10%"])
         , ("<XF86AudioMute>", safeSpawn "pactl" ["set-sink-mute @DEFAULT_SINK@ toggle"])

@@ -19,12 +19,12 @@ font:
     family: MonoLisa-Medium
 
   bold:
-    family: MonoLisa-Bold 
+    family: MonoLisa-Bold
 
   italic:
-    family: Monolisa-MediumItalic 
+    family: Monolisa-MediumItalic
 
-  size: 15.0
+  size: 13.0
 
   offset:
     x: 0
@@ -41,6 +41,6 @@ draw_bold_text_with_bright_colors: true
 background_opacity: 1.0
 
 key_bindings:
-  - { key: V,        mods: Control, action: Paste                  }
-  - { key: C,        mods: Control, action: Copy                   }
-  - { key: C,        mods: Control|Shift, chars: "\x03"            }
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  # - { key: C, mods: Control|Shift, chars: "\x03" }

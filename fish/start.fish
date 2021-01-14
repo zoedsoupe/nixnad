@@ -5,7 +5,7 @@ setxkbmap -option ctrl:swapcaps
 feh --bg-scale ~/Pics/wallpapers/mountains.jpg
 
 # cannot hold and press keys
-xset r off
+# xset r off
 
 # correct DNS handling
 sudo sh -c "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"
