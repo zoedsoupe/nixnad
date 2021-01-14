@@ -24,5 +24,5 @@ source $HOME/.config/fish/functions.fish
 # env vars
 source $HOME/.config/fish/env_vars.fish
 
-# fast node manager
-fnm env | source
+# asdf
+source ~/.asdf/asdf.fish

@@ -4,6 +4,7 @@ set PATH $HOME/bin /usr/local/bin \
   $HOME/.yarn/bin \
   $HOME/.config/yarn/global/node_modules/.bin \
   $HOME/.local/bin ~/scripts/ ~/.cargo/bin \
+  $HOME/.asdf/installs/rust/nightly/bin \
   $HOME/.pyenv/versions/3.7.2/bin $PATH
 
 # remove fish greeting
@@ -23,3 +24,4 @@ set IMAGE feh
 set COLORTERM truecolor
 set OPENER xdg-open
 
+set HISTCONTROL ignoreboth

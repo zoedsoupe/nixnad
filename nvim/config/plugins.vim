@@ -43,12 +43,16 @@ if dein#load_state('/home/matthew/.config/dein')
     " call dein#add('axvr/photon.vim') 
     "auto completion
     call dein#add('neoclide/coc.nvim', { 'merged': 0 })
+    " earthly syntax
+    call dein#add('earthly/earthly.vim', { 'branch': 'main'})
     " haskell
     call dein#add('neovimhaskell/haskell-vim') 
     "minimap
     call dein#add('wfxr/minimap.vim') 
     "elixir
     call dein#add('elixir-editors/vim-elixir') 
+    " purescript
+    call dein#add('purescript-contrib/purescript-vim')
     " indent line
     call dein#add('Yggdroot/indentLine') 
     " dir vish
@@ -67,6 +71,8 @@ if dein#load_state('/home/matthew/.config/dein')
     " markdown preview
     call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
               \ 'build': 'sh -c "cd app && yarn install"' })
+    " ide like
+    cal dein#add('pechorin/any-jump.vim')
 
   call dein#end()
   call dein#save_state()

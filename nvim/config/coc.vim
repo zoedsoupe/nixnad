@@ -14,6 +14,9 @@ let g:coc_global_extensions = [
   \ 'coc-vimlsp',
   \ 'coc-emoji',
   \ 'coc-elixir',
+  \ 'coc-docker',
+  \ 'coc-erlang_ls',
+  \ 'coc-solargraph'
   \ ]
 
 

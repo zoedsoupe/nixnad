@@ -13,13 +13,14 @@ source $HOME/.config/nvim/config/colorscheme.vim
 source $HOME/.config/nvim/config/functions.vim
 source $HOME/.config/nvim/config/settings.vim
 source $HOME/.config/nvim/config/which-key.vim
+
 lua <<EOF
 require'colorizer'.setup()
 
 require'bufferline'.setup{
   options = {
     separator_style = 'thin',
-    mappings = true
+    mappings = false,
   }
 }
 

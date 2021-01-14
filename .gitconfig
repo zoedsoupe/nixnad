@@ -20,3 +20,5 @@
     file-decoration-style = none
 [init]
 	defaultBranch = main
+[pull]
+	rebase = false
