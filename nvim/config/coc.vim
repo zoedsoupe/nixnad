@@ -16,7 +16,8 @@ let g:coc_global_extensions = [
   \ 'coc-elixir',
   \ 'coc-docker',
   \ 'coc-erlang_ls',
-  \ 'coc-solargraph'
+  \ 'coc-solargraph',
+  \ 'coc-fish',
   \ ]
 
 
@@ -32,7 +33,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)

@@ -1,4 +1,4 @@
-colorscheme omni 
+colorscheme challenger_deep 
 
 " Change highlighting of cursor line when entering/leaving Insert Mode
 set cursorline
