@@ -40,6 +40,9 @@ if dein#load_state('/home/matthew/.config/dein')
     call dein#add('rhysd/git-messenger.vim') 
     "colorschemes
     call dein#add('GuiLra/vim-omni', {'as': 'omni'}) 
+    call dein#add('bluz71/vim-moonfly-colors')
+    call dein#add('challenger-deep-theme/vim')
+    " call dein#add('sjl/badwolf')
     " call dein#add('axvr/photon.vim') 
     "auto completion
     call dein#add('neoclide/coc.nvim', { 'merged': 0 })

@@ -28,12 +28,3 @@ vnoremap <Down> <Nop>
 vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
 vnoremap <Up> <Nop>
-
-"So I can move around in insert
-inoremap <C-k> <C-o>gk
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-inoremap <C-j> <C-o>gj
-
-" Visual split existing buffer
-nnoremap <leader>vb :ls<cr>:vertical sb<space>
