@@ -5,6 +5,7 @@ set PATH $HOME/bin /usr/local/bin \
   $HOME/.config/yarn/global/node_modules/.bin \
   $HOME/.local/bin ~/scripts/ ~/.cargo/bin \
   $HOME/.asdf/installs/rust/nightly/bin \
+  $HOME/.asdf/installs/haskell/8.6.5/bin \
   $HOME/.pyenv/versions/3.7.2/bin $PATH
 
 # remove fish greeting
@@ -25,3 +26,6 @@ set COLORTERM truecolor
 set OPENER xdg-open
 
 set HISTCONTROL ignoreboth
+
+# add erlang docs every time it's installed via asdf
+set KERL_BUILD_DOCS yes
