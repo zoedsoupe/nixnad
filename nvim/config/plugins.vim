@@ -66,8 +66,8 @@ if dein#load_state('/home/matthew/.config/dein')
     " commentary
     call dein#add('tpope/vim-commentary') 
     " status-line and tabline
-    call dein#add('bluz71/vim-moonfly-statusline') 
     call dein#add('akinsho/nvim-bufferline.lua')
+    call dein#add('glepnir/spaceline.vim')
     call dein#add('kyazdani42/nvim-web-devicons')
     " vim-easymotion
     call dein#add('easymotion/vim-easymotion') 
