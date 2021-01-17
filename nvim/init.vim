@@ -3,7 +3,6 @@ source $HOME/.config/nvim/config/coc.vim
 source $HOME/.config/nvim/config/leader-key.vim
 source $HOME/.config/nvim/config/emmet.vim
 source $HOME/.config/nvim/config/bufferline.vim
-source $HOME/.config/nvim/config/statusline.vim
 source $HOME/.config/nvim/config/ident.vim
 source $HOME/.config/nvim/config/minimap.vim 
 source $HOME/.config/nvim/config/keymaps.vim
