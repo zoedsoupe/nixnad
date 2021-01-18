@@ -3,7 +3,7 @@
 Zoey's dotfiles config! Everything you need to have a productive
 environment for web developing and some hackings!
 
-[Installation steps](##Installation)
+[Installation steps](#Installation)
 
 **Powered by:**
 
