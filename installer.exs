@@ -94,10 +94,8 @@ defmodule Installer do
     do: File.ln_s!(existing, @config_path <> "/#{config}")
 
   defp root_config(commands) do
-    System.cmd("sudo", commands,
-      env: [{"SUDO_ASKPASS", "./askpass.sh"}],
-      into: IO.stream(:stdio, :line)
-    )
+    IO.puts("Please, insert your sudo pass:")
+    System.cmd("sudo", ["-A"] ++ commands, into: IO.read(:stdio, :line))
   end
 
   defp skip(config), do: IO.puts("Skipping #{config}...")
