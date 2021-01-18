@@ -24,7 +24,7 @@ defmodule Installer do
       existing_path = actual_path <> "/#{config}"
 
       cond do
-        config =~ ~r(\.git$) || config =~ ~r(\.gitignore$) ->
+        config == ".git" || config == ".gitignore" || config =~ "README" ->
           skip(config)
 
         config =~ ~r(^\..+) ->
@@ -58,6 +58,17 @@ defmodule Installer do
             IO.puts("Linked #{config}!")
           end
 
+        config == "fonts" ->
+          if File.exists?("/usr/share/ttf") do
+            skip(config)
+          else
+            "ln -s #{actual_path}/#{config} /usr/share/fonts/ttf"
+            |> String.split(" ")
+            |> root_config()
+
+            IO.puts("Linked #{config}!")
+          end
+
         config =~ ~r(exs$) || config =~ ~r(sh$) ->
           skip(config)
 
@@ -82,14 +93,14 @@ defmodule Installer do
   defp link_to_dot_config(existing, config),
     do: File.ln_s!(existing, @config_path <> "/#{config}")
 
-  defp root_config(command) do
-    System.cmd("sudo", [command],
+  defp root_config(commands) do
+    System.cmd("sudo", commands,
       env: [{"SUDO_ASKPASS", "./askpass.sh"}],
       into: IO.stream(:stdio, :line)
     )
   end
 
-  defp skip(config), do: IO.puts("Linked #{config}!")
+  defp skip(config), do: IO.puts("Skipping #{config}...")
 end
 
 Installer.link()
