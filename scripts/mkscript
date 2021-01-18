@@ -1,0 +1,26 @@
+#!/bin/fish
+# Simple script to generate a script file in my scripts directory
+
+printf "File Name: "
+
+# Set a name for the script
+while [ -z "$ans" ];
+  read ans
+
+  if [ -z "$ans" ]
+    printf "File Name: "
+  end
+end
+
+set file $HOME/scripts/$ans
+
+if [ -d "$HOME/scripts" ]
+  if [ -e "$HOME/scripts/$ans" ]
+    $EDITOR "$file"
+  else
+    echo "#!/bin/fish" >> "$file"
+    chmod +x "$file"
+    sudo ln -s "$file" /usr/local/bin
+    $EDITOR "$file"
+  end
+end
