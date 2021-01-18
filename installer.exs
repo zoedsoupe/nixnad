@@ -59,7 +59,7 @@ defmodule Installer do
           end
 
         config == "fonts" ->
-          if File.exists?("/usr/share/ttf") do
+          if File.exists?("/usr/share/fonts/ttf") do
             skip(config)
           else
             "ln -s #{actual_path}/#{config} /usr/share/fonts/ttf"
