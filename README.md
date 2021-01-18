@@ -1,5 +1,10 @@
 # dotfiles
 
+Matthew's dotfiles config! Everything you need to have a productive
+environment for web developing and some hackings!
+
+[Installation steps](##Installation)
+
 **Powered by:**
 
 ![](https://img.shields.io/badge/-Arch-informational?style=for-the-badge&logo=Arch-Linux&logoColor=white&color=1793D1)
@@ -12,6 +17,7 @@
 Obs: I recommend to use `asdf` as version manager to install all programming
 languages dependencies
 
+- [zenity](https://github.com/GNOME/zenity)
 - [archlinuxsetup](https://github.com/Mdsp9070/archlinux-setup)
 - Haskell (ghc + stack)
 - [Elixir](https://elixir-lang.org/install.html)
@@ -104,3 +110,23 @@ extras:
 
 - haskell-language-server
 - purescript-language-server
+
+## Installation
+
+Clone this repo:
+
+```sh
+gh repo clone Mdsp9070/dorfiles
+
+# or
+
+git clone https://github.com/Mdsp9070/dotfiles
+```
+
+Then cd into it and run the installer script!
+You need to have all the dependencies satisfied
+to everything work well!
+
+```sh
+cd dotfiles && elixir installer.exs
+```
