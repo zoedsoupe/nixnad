@@ -150,4 +150,4 @@ name :: Query String
 name = stringProperty "WM_NAME"
 
 role :: Query String
-role = stringProperty "WM_ROLE"P
+role = stringProperty "WM_ROLE"
