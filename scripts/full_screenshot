@@ -1,3 +1,0 @@
-#!/bin/fish
-
-sleep 0.2; scrot -m ~/Pics/screenshots/%Y-%m-%d-%H-%M-%S.png
