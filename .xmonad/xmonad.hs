@@ -121,8 +121,6 @@ myKeys =
         , ("M-c", safeSpawnProg "clipmenu")
         , ("M-s", safeSpawnProg "screenkey")
         , ("M-S-s", safeSpawn "killall" ["screenkey"])
-        , ("M-S-b", spawn (myTerminal ++ "setxkbmap -layout br -option ctrl:swapcaps"))
-        , ("M-S-u", spawn (myTerminal ++ "setxkbmap -layout us -option ctrl:swapcaps"))
 
     --- System
         , ("M-x", safeSpawnProg "reboot")

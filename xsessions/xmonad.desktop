@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Xmonad
+Comment=Lightweight X11 tiled window manager
+Exec=xmonad
+TryExec=xmonad
+Terminal=false
+DesktopNames=Xmonad
+StartupNotify=false
+Keywords=tiling;wm;haskell
+Categories=Application;
