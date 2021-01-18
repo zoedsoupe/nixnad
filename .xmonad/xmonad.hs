@@ -111,7 +111,6 @@ myKeys =
     --- My Applications
         , ("M-t", spawn (myTerminal ++ " -e ytop"))
         , ("M-w", safeSpawnProg "microsoft-edge-dev")
-        , ("M-r", spawn (myTerminal ++ "-e nnn"))
         , ("M-f", spawn (myTerminal ++ " -e nvim ~/.config/fish/"))
         , ("M-v", spawn (myTerminal ++ " -e nvim"))
         , ("M-S-y", safeSpawnProg "full_screenshot")
