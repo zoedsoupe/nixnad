@@ -4,7 +4,7 @@
 
 ![](https://img.shields.io/badge/-Arch-informational?style=for-the-badge&logo=Arch-Linux&logoColor=white&color=1793D1)
 ![](https://img.shields.io/badge/-Xorg-informational?style=for-the-badge&logo=X.Org&logoColor=white&color=F28834)
-![](https://img.shields.io/badge/-Fish-informational?style=for-the-badge&logo=X.Org&logoColor=white&color=F28834)
+![](https://img.shields.io/badge/-Fish-informational?style=for-the-badge&logoColor=white&color=F28834)
 ![](https://img.shields.io/badge/-Vim-informational?style=for-the-badge&logo=vim&logoColor=white&color=019733)
 
 # Dependencies

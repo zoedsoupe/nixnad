@@ -16,13 +16,13 @@ scrolling:
 
 font:
   normal:
-    family: MonoLisa-Medium
+    family: VictorMonoMedium
 
   bold:
-    family: MonoLisa-Bold
+    family: VictorMonoBold
 
   italic:
-    family: Monolisa-MediumItalic
+    family: VictorMonoMediumItalic
 
   size: 13.0
 
