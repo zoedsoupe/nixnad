@@ -17,7 +17,7 @@ alias mps="mix phx.server"
 # git
 alias gt="git status"
 alias ga="git add ."
-alias gp="git push origin $argv"
+alias gp="git push origin (git symbolic-ref --short HEAD)"
 alias gpr="git pull.rebase origin $argv"
 alias gc="git commit -m $argv"
 alias co="git checkout $argv"
