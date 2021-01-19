@@ -2,40 +2,37 @@
 -- install xmobar with these flags: --flags="with_alsa" --flags="with_mpd" --flags="with_xft"  OR --flags="all_extensions"
 -- you can find weather location codes here: http://weather.noaa.gov/index.html
 
-Config { font = "xft:VictorMonoMedium:pixelsize=12:antialias=true:hinting=true"
-       , additionalFonts = [ "xft:CascadiaCode:pixelsize=13" ]
-       , bgColor = "#282A36"
-       , fgColor = "#B45BCF"
-       , position = Top
+Config { font    = "xft:Ubuntu-R:weight=bold:pixelsize=11:antialias=true:hinting=true"
+       , additionalFonts = [ 
+                            "xft:Victor Mono Medium Nerd Font Complete Mono:pixelsize=11:antialias=true:hinting=true"
+                           ]
+       , bgColor = "#282c34"
+       , fgColor = "#ff6c6b"
        , lowerOnStart = True
        , hideOnStart = False
        , allDesktops = True
        , persistent = True
-       , iconRoot = "/home/matthew/.config/xmobar/xpm/"  -- default: "."
-       , commands = [ Run Date "%a, %b %d %Y, %H:%M" "date" 10
-                    , Run Network "enp2s0" ["-t", "<icon=net_up_20.xpm/>up <rxbar> <icon=net_down_20.xpm/>dn <txbar>"] 10
-                    , Run Battery        [ "--template" , "Batt: <acstatus>"
-                             , "--Low"      , "10"        -- units: %
-                             , "--High"     , "80"        -- units: %
-                             , "--low"      , "darkred"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "darkgreen"
-
-                             , "--" -- battery specific options
-                                       -- discharging status
-                                       , "-o"	, "<left>% (<timeleft>)"
-                                       -- AC "on" status
-                                       , "-O"	, "<fc=#dAA520>Charging</fc>"
-                                       -- charged status
-                                       , "-i"	, "<fc=#006000>Charged</fc>"
-                             ] 10
-                    , Run Network "wlp3s0" ["-t", "<icon=net_up_20.xpm/>up <rxbar> <icon=net_down_20.xpm/>dn <txbar>"] 10
-                    , Run Cpu ["-t", "cpu <bar> (<total>%)","-H","50","--high","red"] 10
-                    , Run Memory ["-t", "mem <usedbar> (<usedratio>%)"] 10
-                    , Run DiskU [("/", "hdd <usedbar> (<used>)")] [] 3600
-		    , Run UnsafeStdinReader
+       , iconRoot = "/home/matthew/.config/xmobar/xpm"  -- default: "."
+       , commands = [ 
+                      -- Time and date
+                      Run Date "<fn=1>\xf133</fn> %b %d %Y - (%H:%M)" "date" 50
+                      -- Network up and down
+                    , Run Network "enp6s0" ["-t", "<fn=1>\xf0aa</fn> <rx>kb  <fn=1>\xf0ab</fn> <tx>kb"] 20
+                      -- Cpu usage in percent
+                    , Run Cpu ["-t", "<fn=1>\xf108</fn> cpu: (<total>%)","-H","50","--high","red"] 20
+                      -- Ram used number and percent
+                    , Run Memory ["-t", "<fn=1>\xf233</fn> mem: <used>M (<usedratio>%)"] 20
+                      -- Disk space free
+                    , Run DiskU [("/", "<fn=1>\xf0c7</fn> hdd: <free> free")] [] 60
+                      -- Runs custom script to check for pacman updates.
+                      -- This script is in my dotfiles repo in .local/bin.
+                    , Run Com "/home/matthew/scripts/pacupdate" [] "pacupdate" 36000
+                      -- Runs a standard shell command 'uname -r' to get kernel version
+                    , Run Com "uname" ["-r"] "" 3600
+                      -- Prints out the left side items such as workspaces, layout, etc.
+                    , Run UnsafeStdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <icon=haskell_20.xpm/> <fc=#666666>|</fc> %UnsafeStdinReader% }{ <fc=#FFB86C>%cpu%</fc> <fc=#FF5555>%memory%</fc> <fc=#82AAFF>%disku%</fc> <fc=#FFAAFF>%battery%</fc> <fc=#c3e88d>%wlp3s0%</fc> <fc=#c3e88d>%enp2s0%</fc> <fc=#8BE9FD>%date%</fc> "
+       , template = " <action=`xdotool key control+alt+g`><icon=haskell_20.xpm/> </action><fc=#666666>  |</fc> %UnsafeStdinReader% }{ <fc=#666666><fn=2>|</fn> </fc><fc=#b3afc2><fn=1></fn>  %uname% </fc><fc=#666666> <fn=2>|</fn></fc> <fc=#ecbe7b> %cpu% </fc><fc=#666666> <fn=2>|</fn></fc> <fc=#ff6c6b> %memory% </fc><fc=#666666> <fn=2>|</fn></fc> <fc=#51afef> %disku% </fc><fc=#666666> <fn=2>|</fn></fc> <fc=#98be65> %enp2s0% </fc><fc=#666666> <fn=2>|</fn></fc> <fc=#c678dd><fn=1></fn>  %pacupdate% </fc><fc=#666666> <fn=2>|</fn></fc> <fc=#46d9ff> %date%  </fc>"
        }
