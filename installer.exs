@@ -84,6 +84,11 @@ defmodule Installer do
   defp link_to_dot_config(existing, config),
     do: File.ln_s!(existing, @config_path <> "/#{config}")
 
+  defp root_config(commands) do
+    IO.puts("Please, insert your sudo pass:")
+    System.cmd("sudo", ["-A"] ++ commands, into: IO.read(:stdio, :line))
+  end
+
   defp skip(config), do: IO.puts("Skipping #{config}...")
 end
 
