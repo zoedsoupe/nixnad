@@ -6,6 +6,8 @@ defmodule Installer do
   @config_path Path.expand("~/.config")
   @home_dir Path.expand("~")
 
+  @ignore [~r(\.git$), ~r(\.gitignore), ~r(README)]
+
   def link do
     IO.puts("I'll link all these configs for you! Let's go:")
     actual_path = Path.expand(".")
@@ -24,7 +26,7 @@ defmodule Installer do
       existing_path = actual_path <> "/#{config}"
 
       cond do
-        config == ".git" || config == ".gitignore" || config =~ "README" ->
+        @ignore |> Enum.filter(&(config =~ &1)) |> length() > 0 ->
           skip(config)
 
         config =~ ~r(^\..+) ->
@@ -58,18 +60,7 @@ defmodule Installer do
             IO.puts("Linked #{config}!")
           end
 
-        config == "fonts" ->
-          if File.exists?("/usr/share/fonts/ttf") do
-            skip(config)
-          else
-            "ln -s #{actual_path}/#{config} /usr/share/fonts/ttf"
-            |> String.split(" ")
-            |> root_config()
-
-            IO.puts("Linked #{config}!")
-          end
-
-        config =~ ~r(exs$) || config =~ ~r(sh$) ->
+        config =~ ~r(exs$) ->
           skip(config)
 
         true ->
@@ -92,11 +83,6 @@ defmodule Installer do
 
   defp link_to_dot_config(existing, config),
     do: File.ln_s!(existing, @config_path <> "/#{config}")
-
-  defp root_config(commands) do
-    IO.puts("Please, insert your sudo pass:")
-    System.cmd("sudo", ["-A"] ++ commands, into: IO.read(:stdio, :line))
-  end
 
   defp skip(config), do: IO.puts("Skipping #{config}...")
 end
