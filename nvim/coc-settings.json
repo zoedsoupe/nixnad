@@ -1,0 +1,58 @@
+{
+  "diagnostic.errorSign": "",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "",
+  "diagnostic.virtualText": true,
+
+  "coc.source.emoji.filetypes": ["markdown, typescript, elixir"],
+
+  "codeLens.enable": true,
+
+  "list.indicator": ">",
+  "list.selectedSignText": " ",
+
+  "suggest.noselect": false,
+  "suggest.detailMaxLength": 25,
+  "suggest.maxCompleteItemCount": 25,
+  "suggest.removeDuplicateItems": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "typescript",
+    "typescriptreact",
+    "json",
+    "html",
+    "css",
+    "elixir",
+    "rust",
+    "haskell",
+    "yaml"
+  ],
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "eslint.packageManager": "yarn",
+  "tsserver.enableJavascript": false,
+  "css.validate": false,
+  "scss.validate": false,
+
+  "erlang_ls.erlang_ls_path": "/usr/local/bin/erlang_ls",
+
+  "languageserver": {
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": [
+        "*.cabal",
+        "stack.yaml",
+        "cabal.project",
+        "package.yaml",
+        "hie.yaml"
+      ],
+      "filetypes": ["haskell", "lhaskell"]
+    },
+    "purescript": {
+      "command": "purescript-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["purescript"],
+      "rootPatterns": ["bower.json", "psc-package.json", "spago.dhall"]
+    }
+  }
+}
