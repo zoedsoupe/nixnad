@@ -17,8 +17,7 @@ environment for web developing and some hackings!
 Obs: I recommend to use `asdf` as version manager to install all programming
 languages dependencies
 
-- [zenity](https://github.com/GNOME/zenity)
-- [archlinuxsetup](https://github.com/Mdsp9070/archlinux-setup)
+- [archlinuxsetup](https://github.com/Mdsp9070/archlinux-setup) - Optional, but recommended
 - Haskell (ghc + stack)
 - [Elixir](https://elixir-lang.org/install.html)
 - Neovim: See `scripts/neovim` to installing the nightly build
