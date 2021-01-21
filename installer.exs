@@ -1,3 +1,9 @@
+# _ __ ___   __| |___ _ __
+# | '_ ` _ \ / _` / __| '_ \
+# | | | | | | (_| \__ \ |_) |
+# |_| |_| |_|\__,_|___/ .__/
+#                    |_|
+
 defmodule Installer do
   @moduledoc """
   Run this Elixir script to automatically link all these configs!
