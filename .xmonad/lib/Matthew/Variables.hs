@@ -18,8 +18,8 @@ myBrowser = "microsoft-edge-dev" -- Sets edge for tree select
 myEditor :: String
 myEditor = "emacsclient -c -a emacs" -- Sets emacs as editor for tree select
 
-myBorderWith :: Dimension
-myBorderWith = 2           -- Window Border
+myBorderWidth :: Dimension
+myBorderWidth = 2           -- Window Border
 
 myNormColor :: String
 myNormColor   = "#282c34"  -- Border color of normal windows
@@ -32,3 +32,6 @@ altMask = mod1Mask         -- Setting this for use in xprompts
 
 windowCount :: X (Maybe String)
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
+
+myWorkspaces :: [String]
+myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]

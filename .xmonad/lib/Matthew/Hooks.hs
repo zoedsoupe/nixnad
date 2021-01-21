@@ -9,6 +9,7 @@ import XMonad.Hooks.ManageHelpers (isFullscreen,  doFullFloat, doRectFloat, isDi
 
 myStartupHook :: X ()
 myStartupHook = do
+        spawnOnce "clipmenud &"
         spawnOnce "picom --experimental-backends &"
         spawnOnce "/usr/bin/emacs --daemon &"
         spawnOnce "feh --bg-fill --randomize ~/Pics/wallpapers &"
