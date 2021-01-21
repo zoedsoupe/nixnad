@@ -60,9 +60,9 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(setq centaur-tabs-mode t)
 (setq centaur-tabs-set-bar 'over
       centaur-tabs-set-icons t
-      centaur-tabs-gray-out-icons 'buffer
       centaur-tabs-height 24
       centaur-tabs-set-modified-marker t
       centaur-tabs-style "bar"
@@ -71,3 +71,9 @@
                                                (kbd "g T")  'centaur-tabs-backward       ; default Doom binding is 'g T'
                                                (kbd "g <down>")  'centaur-tabs-forward-group
                                                (kbd "g <up>")    'centaur-tabs-backward-group)
+
+(setq projectile-globally-ignored-directories '("**/_build/**", "**/node\_modules/**", "**/deps/**"))
+(setq projectile-enable-caching t)
+
+(setq company-idle-delay 0.05)
+(setq confirm-kill-emacs nil)

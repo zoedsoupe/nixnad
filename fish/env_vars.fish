@@ -1,89 +1,36 @@
-# path
+### PATH ###
 set PATH $HOME/bin /usr/local/bin \
-  $HOME/.ebcli-virtual-env/executables \
-  $HOME/.yarn/bin \
-  $HOME/.emacs.d/bin \
-  $HOME/.config/yarn/global/node_modules/.bin \
-  $HOME/.local/bin ~/scripts/ ~/.cargo/bin \
-  $HOME/.asdf/installs/rust/nightly/bin \
-  $HOME/.asdf/installs/haskell/8.6.5/bin \
-  $HOME/.pyenv/versions/3.7.2/bin $PATH
+    $HOME/.ebcli-virtual-env/executables \
+    $HOME/.yarn/bin \
+    $HOME/.emacs.d/bin \
+    $HOME/.config/yarn/global/node_modules/.bin \
+    $HOME/.local/bin ~/scripts/ ~/.cargo/bin \
+    $HOME/.asdf/installs/rust/nightly/bin \
+    $HOME/.asdf/installs/haskell/8.6.5/bin $PATH
 
-# remove fish greeting
-set fish_greeting
+set fish_greeting # suppress fish initital greeting
 
-# starship theme config
-set STARSHIP_CONFIG ~/Documents/privy/dotfiles/startship.toml
+### AUTOCOMPLETE AND HIGHLIGHT COLORS ###
+set fish_color_normal brcyan
+set fish_color_autosuggestion '#7d7d7d'
+set fish_color_command brcyan
+set fish_color_error '#ff6c6b'
+set fish_color_param brcyan
 
-# default apps
+### DEFAULT APPS ###
 set EDITOR nvim
 set READER zathura
 set VISUAL nvim
-set TERMINAL kitty
+set TERMINAL alacritty
 set BROWSER microsoft-edge-dev
 set VIDEO mpv
 set IMAGE feh
 set COLORTERM truecolor
 set OPENER xdg-open
+### END DEFAULT APPS ###
 
-set HISTCONTROL ignoreboth
+set HISTCONTROL ignoreboth # ignore commands with initial space and duplicates
 
-# add erlang docs every time it's installed via asdf
-set KERL_BUILD_DOCS yes
+set KERL_BUILD_DOCS yes # add erlang docs every time it's installed via asdf
 
-set LF_ICONS "\
-tw=:\
-st=:\
-ow=:\
-dt=:\
-di=:\
-fi=:\
-ln=:\
-or=:\
-ex=:\
-*.clj=:\
-*.css=:\
-*.erl=:\
-*.exs=:\
-*.ex=:\
-*.hs=:\
-*.html=:\
-*.js=:\
-*.json=:\
-*.lua=:\
-*.md=:\
-*.rb=:\
-*.rs=:\
-*.ts=:\
-*.vim=:\
-*.sh=:\
-*.bash=:\
-*.fish=:\
-*.tar=:\
-*.zip=:\
-*.gz=:\
-*.lz=:\
-*.xz=:\
-*.bz2=:\
-*.bz=:\
-*.rar=:\
-*.7z=:\
-*.jpg=:\
-*.jpeg=:\
-*.gif=:\
-*.xbm=:\
-*.xpm=:\
-*.png=:\
-*.svg=:\
-*.pcx=:\
-*.mov=:\
-*.mpeg=:\
-*.webm=:\
-*.mp4=:\
-*.qt=:\
-*.flac=:\
-*.mp3=:\
-*.mpc=:\
-*.ogg=:\
-*.wav=:\
-*.pdf="
+source $HOME/.config/fish/lf.fish

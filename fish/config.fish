@@ -1,10 +1,16 @@
-# theme
+# _ __ ___   __| |___ _ __  
+#| '_ ` _ \ / _` / __| '_ \ 
+#| | | | | | (_| \__ \ |_) | 
+#|_| |_| |_|\__,_|___/ .__/ 
+#                    |_|    
+
+### PROMPT ###
 starship init fish | source
 
-# start
+### START HOOK ###
 source $HOME/.config/fish/start.fish
 
-# autojump
+### AUTOJUMP ###
 begin
     set --local AUTOJUMP_PATH $HOME/.autojump/share/autojump/autojump.fish
     if test -e $AUTOJUMP_PATH
@@ -12,17 +18,17 @@ begin
     end
 end
 
-# vi mode
+### VI MODE ###
 fish_vi_key_bindings
 
-#aliases
+### ALIASES ###
 source $HOME/.config/fish/aliases.fish 
 
-
-# functions
+### FUNCTIONS ###
 source $HOME/.config/fish/functions.fish
-# env vars
+
+### ENV VARS ###
 source $HOME/.config/fish/env_vars.fish
 
-# asdf
+### ASDF ###
 source ~/.asdf/asdf.fish
