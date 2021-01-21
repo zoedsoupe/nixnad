@@ -24,7 +24,7 @@ import XMonad.Hooks.EwmhDesktops   -- required for xcomposite in obs to work
 import XMonad.Actions.Promote (promote)
 import XMonad.Actions.RotSlaves (rotSlavesDown, rotAllDown)
 import XMonad.Actions.WithAll (sinkAll, killAll)
-import XMonad.Actions.CycleWS (moveTo, shiftTo, WSType(..)) 
+import XMonad.Actions.CycleWS (moveTo, shiftTo, WSType(..))
 
     -- Prompts
 import XMonad.Prompt (Direction1D(..))

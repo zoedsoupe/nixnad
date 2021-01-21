@@ -2,7 +2,7 @@
 setxkbmap -option ctrl:swapcaps
 
 # wallpaper
-feh --bg-scale ~/Pics/wallpapers/mountains.jpg
+feh --bg-fill --randomize ~/Pics/wallpapers
 
 # cannot hold and press keys
 # xset r off

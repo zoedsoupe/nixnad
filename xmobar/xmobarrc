@@ -2,9 +2,9 @@
 -- install xmobar with these flags: --flags="with_alsa" --flags="with_mpd" --flags="with_xft"  OR --flags="all_extensions"
 -- you can find weather location codes here: http://weather.noaa.gov/index.html
 
-Config { font    = "xft:Ubuntu-R:weight=bold:pixelsize=11:antialias=true:hinting=true"
+Config { font    = "xft:Ubuntu-R:weight=bold:pixelsize=13:antialias=true:hinting=true"
        , additionalFonts = [ 
-                            "xft:Victor Mono Medium Nerd Font Complete Mono:pixelsize=11:antialias=true:hinting=true"
+                            "xft:Victor Mono Medium Nerd Font Complete Mono:pixelsize=13:antialias=true:hinting=true"
                            ]
        , bgColor = "#282c34"
        , fgColor = "#ff6c6b"
@@ -26,7 +26,7 @@ Config { font    = "xft:Ubuntu-R:weight=bold:pixelsize=11:antialias=true:hinting
                     , Run DiskU [("/", "<fn=1>\xf0c7</fn> hdd: <free> free")] [] 60
                       -- Runs custom script to check for pacman updates.
                       -- This script is in my dotfiles repo in .local/bin.
-                    , Run Com "/home/matthew/scripts/pacupdate" [] "pacupdate" 36000
+                    , Run Com "/home/matthew/scripts/pacupdate" [] "pacupdate" 100000
                       -- Runs a standard shell command 'uname -r' to get kernel version
                     , Run Com "uname" ["-r"] "" 3600
                       -- Prints out the left side items such as workspaces, layout, etc.
