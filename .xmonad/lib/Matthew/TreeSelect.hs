@@ -72,7 +72,7 @@ treeselectAction a = TS.treeselectAction a
        , Node (TS.TSNode "Boxes" "GNOME's virtualization program" (spawn "gnome-boxes")) []
        ]
    , Node (TS.TSNode "+ Internet" "internet and web programs" (return ()))
-       [ Node (TS.TSNode "Brave" "A privacy-oriented web browser" (spawn "brave")) []
+       [ Node (TS.TSNode "Edge" "Microsoft's chromium based browser" (spawn "microsoft-edge-dev")) []
        , Node (TS.TSNode "Discord" "Chat and video chat platform" (spawn "discord")) []
        ]
    , Node (TS.TSNode "+ Multimedia" "sound and video applications" (return ()))
@@ -135,9 +135,9 @@ treeselectAction a = TS.treeselectAction a
            , Node (TS.TSNode "Wikipedia" "The free encyclopedia" (spawn (myBrowser ++ "https://www.wikipedia.org/"))) []
            ]
        , Node (TS.TSNode "+ Programming" "programming and scripting" (return ()))
-           [ Node (TS.TSNode "+ Bash and Shell Scripting" "shell scripting documentation" (return ()))
-               [ Node (TS.TSNode "GNU Bash" "Documentation for bash" (spawn (myBrowser ++ "https://www.gnu.org/software/bash/manual/"))) []
-               , Node (TS.TSNode "r/bash" "Subreddit for bash" (spawn (myBrowser ++ "https://www.reddit.com/r/bash/"))) []
+           [ Node (TS.TSNode "+ Fish and Shell Scripting" "shell scripting documentation" (return ()))
+               [ Node (TS.TSNode "Fish" "Documentation for fish" (spawn (myBrowser ++ "https://fishshell.com/docs/current/index.html"))) []
+               , Node (TS.TSNode "r/fishshell" "Subreddit for fish" (spawn (myBrowser ++ "https://www.reddit.com/r/fishshell/"))) []
                , Node (TS.TSNode "r/commandline" "Subreddit for the command line" (spawn (myBrowser ++ "https://www.reddit.com/r/commandline/"))) []
                , Node (TS.TSNode "Learn Shell" "Interactive shell tutorial" (spawn (myBrowser ++ "https://www.learnshell.org/"))) []
                ]
