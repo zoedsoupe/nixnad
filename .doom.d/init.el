@@ -39,7 +39,6 @@
        vc                ; version-control and Emacs, sitting in a tree
 
        :term
-       eshell            ; the elisp shell that works everywhere
        vterm             ; the best terminal emulation in Emacs
 
        :checkers
@@ -63,9 +62,9 @@
        tty               ; improve the terminal Emacs experience
 
        :lang
-       cc                ; C/C++/Obj-C madness
-       clojure           ; java with a lisp
-       common-lisp       ; if you've seen one lisp, you've seen them all
+       ;cc                ; C/C++/Obj-C madness
+       ;clojure           ; java with a lisp
+       ;common-lisp       ; if you've seen one lisp, you've seen them all
        (elixir +lsp)            ; erlang done right
        emacs-lisp        ; drown in parentheses
        erlang            ; an elegant language for a more civilized age
@@ -73,14 +72,14 @@
                 +lsp)  ; a language that's lazier than I am
        json              ; At least it ain't XML
        (javascript +lsp)        ; all(hope(abandon(ye(who(enter(here))))))
-       latex             ; writing papers in Emacs has never been so fun
+       ;latex             ; writing papers in Emacs has never been so fun
        lua               ; one-based indices? one-based indices
        markdown          ; writing docs for people to ignore
        ;;ocaml             ; an objective camel
-       org               ; organize your plain life in plain text
-       purescript        ; javascript, but functional
+       ;org               ; organize your plain life in plain text
+       ;purescript        ; javascript, but functional
        (ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
-       (rust +lsp)              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+       ;(rust +lsp)              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        (sh +fish
            +lsp)                ; she sells {ba,z,fi}sh shells on the C xor
        yaml              ; JSON, but readable

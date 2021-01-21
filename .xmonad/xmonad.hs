@@ -10,7 +10,6 @@
     -- Base
 import XMonad
 import XMonad.Config.Desktop
-import Data.Ratio
 import System.IO (hPutStrLn)
 import System.Exit (exitSuccess)
 import qualified XMonad.StackSet as W
@@ -22,8 +21,6 @@ import XMonad.Util.Run (safeSpawnProg, safeSpawn, spawnPipe)
     -- Hooks
 import XMonad.ManageHook (composeAll)
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP, xmobarPP, xmobarColor, shorten, wrap, PP(..))
-import XMonad.Hooks.ManageDocks (manageDocks)
-import XMonad.Hooks.ManageHelpers (isFullscreen,  doFullFloat, doRectFloat, isDialog) 
 import XMonad.Hooks.EwmhDesktops   -- required for xcomposite in obs to work
 
     -- Actions
@@ -35,20 +32,10 @@ import XMonad.Actions.CycleWS (moveTo, shiftTo, WSType(..))
     -- Prompts
 import XMonad.Prompt (Direction1D(..))
 
-------------------------------------------------------------------------
----CONFIG
-------------------------------------------------------------------------
-myModMask :: KeyMask
-myModMask       = mod4Mask  -- Sets modkey to super/windows key
-
-myTerminal :: [Char]
-myTerminal      = "alacritty"      -- Sets default terminal
-
-myBorderWidth :: Dimension
-myBorderWidth   = 0         -- Sets border width for windows
-
-windowCount :: X (Maybe String)
-windowCount     = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
+import Zoey.Hooks
+import Zoey.Variables
+import Zoey.GridSelect
+import Zoey.TreeSelect
 
 main :: IO ()
 main = do
@@ -135,25 +122,3 @@ myKeys =
         , ("<XF86AudioMute>", safeSpawn "pactl" ["set-sink-mute @DEFAULT_SINK@ toggle"])
         ] where nonNSP          = WSIs (return (\ws -> W.tag ws /= "nsp"))
 
-pbManageHook :: ManageHook
-pbManageHook = composeAll $ concat
-    [ [ manageDocks                                      ]
-    , [ manageHook def                                   ]
-    , [ isDialog     --> doRectFloat (W.RationalRect (1 % 4) (1 % 4) (1 % 2) (1 % 2)) ]
-    , [ isFullscreen --> doF W.focusDown <+> doFullFloat ]
-    ]
-
-myManageHook :: ManageHook
-myManageHook = composeAll [ matchAny v --> a | (v,a) <- myActions ]
-    where myActions = [ ("spotify"   , doShift "9" )
-                      , ("discord"   , doShift "8" )
-                      ]
-
-matchAny :: String -> Query Bool
-matchAny x = foldr ((<||>) . (=? x)) (return False) [className, title, name, role]
-
-name :: Query String
-name = stringProperty "WM_NAME"
-
-role :: Query String
-role = stringProperty "WM_ROLE"
