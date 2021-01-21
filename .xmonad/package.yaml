@@ -11,6 +11,10 @@ dependencies:
   - base
   - xmonad
   - xmonad-contrib
+library:
+  source-dirs: lib
+  dependencies:
+    - containers
 executables:
   xmonad:
     main: xmonad.hs
