@@ -1,3 +1,10 @@
+
+" _ __ ___   __| |___ _ __
+"| '_ ` _ \ / _` / __| '_ \
+"| | | | | | (_| \__ \ |_) |
+"|_| |_| |_|\__,_|___/ .__/
+"                    |_|
+
 source $HOME/.config/nvim/config/plugins.vim
 source $HOME/.config/nvim/config/coc.vim
 source $HOME/.config/nvim/config/leader-key.vim
