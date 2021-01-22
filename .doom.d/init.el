@@ -68,7 +68,7 @@
        ;common-lisp       ; if you've seen one lisp, you've seen them all
        (elixir +lsp)            ; erlang done right
        emacs-lisp        ; drown in parentheses
-       erlang            ; an elegant language for a more civilized age
+       (erlang +lsp)            ; an elegant language for a more civilized age
        (haskell +dante
                 +lsp)  ; a language that's lazier than I am
        json              ; At least it ain't XML

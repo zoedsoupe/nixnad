@@ -22,7 +22,7 @@ Config { font    = "xft:Ubuntu Bold Nerd Font Complete:pixelsize=14:antialias=tr
                     , Run DiskU [("/", " hdd: <free> free")] [] 60
                       -- Runs custom script to check for pacman updates.
                       -- This script is in my dotfiles repo in .local/bin.
-                    , Run Com "/home/matthew/scripts/pacupdate" [] "pacupdate" 100000
+                    , Run Com "/home/matthew/scripts/pacupdate" [] "pacupdate" 1200
                       -- Runs a standard shell command 'uname -r' to get kernel version
                     , Run Com "uname" ["-r"] "" 3600
                       -- Prints out the left side items such as workspaces, layout, etc.
