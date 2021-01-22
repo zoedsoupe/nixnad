@@ -1,0 +1,43 @@
+#!/bin/fish
+
+set active (ip addr | awk '/state UP/ {print $2}' | sed 's/.$//')
+
+if test -n $active
+    set essid (iwconfig $active | awk -F '"' '/ESSID/ {print $2}')
+    set strength (iwconfig $active | awk -F '=' '/Quality/ {print $2}' | cut -d '/' -f 1)
+    set bars (expr $strength / 10)
+else
+    echo "No device up"
+    exit 1
+end
+
+switch $bars
+    case 0
+        set bars "[----------]"
+    case 1
+        set bars "[/---------]"
+    case 2
+        set bars "[//--------]"
+    case 3
+        set bars "[///-------]"
+    case 4
+        set bars "[////------]"
+    case 5
+        set bars "[/////-----]"
+    case 6
+        set bars "[//////----]"
+    case 7
+        set bars "[///////---]"
+    case 8
+        set bars "[////////--]"
+    case 9
+        set bars "[/////////-]"
+    case 10
+        set bars "[//////////]"
+    case "*"
+        set bars "[----!!----]"
+end
+
+echo $essid $bars
+
+exit 0
