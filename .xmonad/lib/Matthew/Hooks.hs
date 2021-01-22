@@ -12,7 +12,7 @@ myStartupHook = do
         spawnOnce "clipmenud &"
         spawnOnce "picom --experimental-backends &"
         spawnOnce "/usr/bin/emacs --daemon &"
-        spawnOnce "feh --bg-fill --randomize ~/Pics/wallpapers &"
+        spawnOnce "feh --bg-fill --randomize ~/pics/wallpapers &"
 
 pbManageHook :: ManageHook
 pbManageHook = composeAll $ concat

@@ -9,7 +9,6 @@ import XMonad.Actions.WithAll (sinkAll, killAll)
 import XMonad.Util.Run (safeSpawn, safeSpawnProg)
 import XMonad.Actions.RotSlaves (rotSlavesDown, rotAllDown)
 import XMonad.Actions.GridSelect (bringSelected, goToSelected)
-import XMonad.Actions.CycleWS (moveTo, shiftTo, WSType(..), nextScreen, prevScreen)
 
 import Matthew.GridSelect
 import Matthew.TreeSelect

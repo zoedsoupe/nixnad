@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: cef07de6602bb79cb4ebb8727c7120e8717cc60de978bd051c518249e3df8e18
+-- hash: c0065363c227c0dd4d90bfc54880c1dbbe2bfb668042e9637f0f3c685665df6c
 
 name:           xmonad-matthew
 version:        0.1.0
@@ -21,7 +21,7 @@ source-repository head
   type: git
   location: https://github.com/Mdsp9070/dotfiles
 
-library matthew
+library
   exposed-modules:
       Matthew.GridSelect
       Matthew.Hooks
@@ -48,8 +48,6 @@ executable xmonad
   build-depends:
       X11
     , base
-    , containers
     , xmonad
     , xmonad-contrib
-    , matthew
   default-language: Haskell2010
