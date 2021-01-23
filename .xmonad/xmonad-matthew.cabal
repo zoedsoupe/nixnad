@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c0065363c227c0dd4d90bfc54880c1dbbe2bfb668042e9637f0f3c685665df6c
+-- hash: 4ab2cbc188d55e2760831c9c4f02db7ec47bb4de41a1f41aefb5ab13ff396098
 
 name:           xmonad-matthew
 version:        0.1.0
@@ -23,9 +23,9 @@ source-repository head
 
 library
   exposed-modules:
-      Matthew.GridSelect
       Matthew.Hooks
       Matthew.Keybindings
+      Matthew.Layout
       Matthew.TreeSelect
       Matthew.Variables
   other-modules:

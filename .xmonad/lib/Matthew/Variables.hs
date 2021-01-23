@@ -19,7 +19,7 @@ myEditor :: String
 myEditor = "emacsclient -c -a emacs" -- Sets emacs as editor for tree select
 
 myBorderWidth :: Dimension
-myBorderWidth = 2           -- Window Border
+myBorderWidth = 1           -- Window Border
 
 myNormColor :: String
 myNormColor   = "#282c34"  -- Border color of normal windows
