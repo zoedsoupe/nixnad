@@ -12,7 +12,7 @@ defmodule Installer do
   @config_path Path.expand("~/.config")
   @home_dir Path.expand("~")
 
-  @ignore [~r(\.git$), ~r(\.gitignore), ~r(README)]
+  @ignore [~r(\.git$), ~r(\.gitignore), ~r(README), ~r(assets)]
 
   def link do
     IO.puts("I'll link all these configs for you! Let's go:")
