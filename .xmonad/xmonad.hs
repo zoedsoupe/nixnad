@@ -4,12 +4,17 @@
 --- |_| |_| |_|\__,_|___/ .__/ 
 ---                     |_|
 
+-- Base
 import XMonad
-
-import XMonad.Hooks.EwmhDesktops
-import XMonad.Util.Run (spawnPipe)
 import GHC.IO.Handle.Types (Handle)
+
+-- Utils
+import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.EZConfig (additionalKeysP)
+
+-- Hooks
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.ManageDocks (docks)
 
 import Matthew.Hooks
 import Matthew.Layout
@@ -24,7 +29,7 @@ main = do
     xmonad $ mkConfig handle
 
 mkConfig :: Handle -> XConfig MyLayout
-mkConfig handle = ewmh myConfig
+mkConfig handle = ewmh . docks $ myConfig
   where
     keyConfig = myKeys myConfig
     myConfig =
