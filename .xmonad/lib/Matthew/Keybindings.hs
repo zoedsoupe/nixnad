@@ -141,6 +141,7 @@ myKeys cfg =
     --- System
        , ("M-x", safeSpawnProg "reboot")
        , ("M-S-x", safeSpawnProg "poweroff")
+       , ("M-<Escape>", spawn "betterlockscreen -l dim")
        , ("<XF86AudioPlay>", spawn (myTerminal ++ "mocp --play"))
        , ("<XF86AudioPrev>", spawn (myTerminal ++ "mocp --previous"))
        , ("<XF86AudioNext>", spawn (myTerminal ++ "mocp --next"))
