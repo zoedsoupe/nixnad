@@ -41,7 +41,7 @@ alias prettyjson="python -m json.tool | bat"
 alias d="rm -rf $argv"
 
 # system health
-alias clean="yay -Qqtd | yay -Rcns"
+alias clean="yay -Qqtd (yay -Rcns)"
 alias node_modules="find . -name "node_modules" -type d -prune -exec rm -rf '{}' +"
 alias update="yay -Syyu && xmonad --recompile"
 
@@ -52,4 +52,3 @@ alias vga_on="xrandr --output eDP-1 --auto --output DP-1 --auto --above eDP-1"
 
 # system
 alias fsource="source ~/.config/fish/config.fish"
-alias v="nvim $argv"

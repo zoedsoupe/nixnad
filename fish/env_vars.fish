@@ -32,5 +32,3 @@ set OPENER xdg-open
 set HISTCONTROL ignoreboth # ignore commands with initial space and duplicates
 
 set KERL_BUILD_DOCS yes # add erlang docs every time it's installed via asdf
-
-source $HOME/.config/fish/lf.fish
