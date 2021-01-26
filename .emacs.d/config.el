@@ -30,13 +30,13 @@
         (remq 'process-kill-buffer-query-function
 	      kill-buffer-query-functions)) ; disable confirmation on killing buffer
 
-(set-face-attribute 'default nil :font "Victor Mono Medium" :height 170)
+(set-face-attribute 'default nil :font "VictorMono Nerd Font" :height 120)
 (set-face-attribute 'fixed-pitch nil
-                    :font "Ubuntu Condendsed"
-                    :height 170)
+                    :font "UbuntuCondensed Nerd Font"
+                    :height 120)
 (set-face-attribute 'variable-pitch nil
-                    :font "Hasklug"
-                    :height 170
+                    :font "Hasklug Nerd Font"
+                    :height 120
                     :weight 'regular)
 
 ;; Dashboard-----------------------------------------------
@@ -54,7 +54,7 @@
 (use-package flycheck
   :defer t
   :hook (lsp-mode . flycheck-mode)
-  :commmands flycheck-list-errors flycheck-buffer
+  :commands flycheck-list-errors flycheck-buffer
   :config
   (setq flycheck-emacs-lisp-load-path 'inherit)
   (delq 'new-line flycheck-check-syntax-automatically)
@@ -87,10 +87,9 @@
         ivy-virtual-abbreviate 'full
         ivy-on-del-error-function #'ignore
         ivy-use-selectable-prompt t)
-  (setf (alist-get 't ivy-format-functions-alist)
-        #'ivy-format-function-line-or-arrow)
-  (after! yasnippet
-    (add-hook 'yas-prompt-functions #'+ivy-yas-prompt-fn)))
+  :after yasnippet
+  :hook
+  (yas-prompt-functions . +ivy-yas-prompt-fn))
 
 ;; Yasnippets----------------------------------------------
 (use-package yasnippet
@@ -136,7 +135,7 @@
   (projectile-enable-caching t)
   :bind-keymap
   ("C-c p" . projectile-command-map))
-nnn
+
 ;; Company------------------------------------------------
 (use-package company
   :hook
@@ -157,12 +156,10 @@ nnn
         company-dabbrev-other-buffers nil
         company-dabbrev-downcase nil
         company-dabbrev-ignore-case nil)
-  :config
-  (add-hook 'after-change-major-mode-hook #'+company-init-backends-h 'append)
-  (after! eldoc
-    (eldoc-add-command 'company-complete-selection
-                       'company-complete-common
-                       'company-abort)))
+  (eldoc-add-command 'company-complete-selection
+                     'company-complete-common
+                     'company-abort)
+  :after eldoc)
 
 
 ;; Doom-Themes-------------------------------------------
@@ -194,7 +191,6 @@ nnn
 
 ;; Git-Gutter----------------------------------------
 (use-package git-gutter-fringe
-  :if (fboundp 'fringe-mode) (fringe-mode '4)
   :config
   (setq-default fringes-outside-margins t)
   (define-fringe-bitmap 'git-gutter-fr:added [224]
@@ -202,12 +198,14 @@ nnn
   (define-fringe-bitmap 'git-gutter-fr:modified [224]
     nil nil '(center repeated))
   (define-fringe-bitmap 'git-gutter-fr:deleted [128 192 224 240]
-    nil nil 'bottom))
-
-(after! flycheck
+    nil nil 'bottom)
+  :after flycheck
+  :init
   (setq flycheck-indication-mode 'right-fringe)
   (define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
     [16 48 112 240 112 48 16] nil nil 'center))
+
+(if (fboundp 'fringe-mode) (fringe-mode '4))
 
 ;; LSP-Mode----------------------------------------
 (use-package lsp-mode
@@ -226,7 +224,6 @@ nnn
 
 ;; LSP-UI----------------------------------------------
 (use-package lsp-ui
-  :straight t
   :hook (lsp-mode .lsp-ui-mode)
   :config
   (setq lsp-ui-sideline-enable t)
@@ -236,7 +233,6 @@ nnn
 
 ;; DAP-mode--------------------------------------------
 (use-package dap-mode
-  :straight t
   :custom
   (lsp-enable-dap-auto-configure nil)
   :config
@@ -247,7 +243,6 @@ nnn
 
 ;; Markdown-mode---------------------------------------
 (use-package markdown-mode
-  :straight t
   :mode "\\.md\\'"
   :config
   (setq markdown-command "marked")

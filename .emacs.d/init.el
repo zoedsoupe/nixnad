@@ -24,7 +24,7 @@
 	     fish-mode company-shell emmet-mode haml-mode pug-mode slim-mode
 	     web-mode company-web css-mode less-css-mode sass-mode stylus-mode
 	     rainbow-mode counsel-css toml-mode yaml-mode json-mode all-the-icons
-             dap-mode emojify page-break-lines yasnippets flycheck-popup-tip format-all))
+             dap-mode emojify page-break-lines yasnippet flycheck-popup-tip format-all))
 
 (package-initialize)
 
