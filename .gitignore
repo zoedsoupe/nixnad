@@ -9,3 +9,5 @@ elpa
 projectile-bookmarks.eld
 recentf
 transient
+.extension
+recentf~
