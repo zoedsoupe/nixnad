@@ -6,8 +6,9 @@
 **/.stack-work
 .emacs.d/auto-save-list
 elpa
-projectile-bookmarks.eld
+projectile*
 recentf
 transient
 .extension
 recentf~
+.lsp*

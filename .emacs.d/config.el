@@ -208,8 +208,12 @@
 (if (fboundp 'fringe-mode) (fringe-mode '4))
 
 ;; LSP-Mode----------------------------------------
+(defvar +lsp-company-backends 'company-capf
+  "The backends to prepend to `company-backends' in `lsp-mode' buffers.
+Can be a list of backends; accepts any value `company-backends' accepts.")
+
 (use-package lsp-mode
-  :commands lsp
+  :commands lsp-install-server
   :diminish lsp-mode
   :hook
   (elixir-mode . lsp)
@@ -217,19 +221,87 @@
   (typescript-mode . lsp)
   (clojure-mode . lsp)
   (erlang-mode . lsp)
+  (lsp-mode . lsp-enable-which-key-integration)
   :init
+  (setq lsp-keep-workspace-alive nil
+	lsp-enable-folding nil
+	lsp-enable-text-document-color nil
+	lsp-enable-on-type-formatting nil
+	lsp-headerline-breadcrumb-enable nil
+	lsp-keymap-prefix "C-c l")
   (add-to-list 'exec-path "~/elixir_ls/")
   :bind (:map lsp-mode-map
-         ("TAB" . completion-at-point)))
+              ("TAB" . completion-at-point))
+  :config
+  (dolist (dir '("[/\\\\]_build"
+		 "[/\\\\]deps"
+		 "[/\\\\]node_modules"
+		 "[/\\\\]\\.cache"))
+    (push dir lsp-file-watch-ignored))
+  (set-popup-rule! "^\\*lsp-help" :size 0.35 :quit t :select t)
+  (defadvice! +lsp--respect-user-defined-checkers-a (orig-fn &rest args)
+    "Ensure user-defined `flycheck-checker' isn't overwritten by `lsp'."
+    :around #'lsp-diagnostics-flycheck-enable
+    (if flycheck-checker
+        (let ((old-checker flycheck-checker))
+          (apply orig-fn args)
+          (setq-local flycheck-checker old-checker))
+      (apply orig-fn args)))
+
+  (add-hook! 'lsp-mode-hook
+    (defun +lsp-display-guessed-project-root-h ()
+      "Log what LSP things is the root of the current project."
+      ;; Makes it easier to detect root resolution issues.
+      (when-let (path (buffer-file-name (buffer-base-buffer)))
+        (if-let (root (lsp--calculate-root (lsp-session) path))
+            (lsp--info "Guessed project root is %s" (abbreviate-file-name root))
+          (lsp--info "Could not guess project root."))))
+    #'+lsp-optimization-mode)
+
+  (add-hook! 'lsp-completion-mode-hook
+    (defun +lsp-init-company-backends-h ()
+      (when lsp-completion-mode
+        (set (make-local-variable 'company-backends)
+             (cons +lsp-company-backends
+                   (remove +lsp-company-backends
+                           (remq 'company-capf company-backends)))))))
+  (defvar +lsp--deferred-shutdown-timer nil)
+  (defadvice! +lsp-defer-server-shutdown-a (orig-fn &optional restart)
+    "Defer server shutdown for a few seconds.
+This gives the user a chance to open other project files before the server is
+auto-killed (which is a potentially expensive process). It also prevents the
+server getting expensively restarted when reverting buffers."
+    :around #'lsp--shutdown-workspace
+    (if (or lsp-keep-workspace-alive
+            restart
+            (null +lsp-defer-shutdown)
+            (= +lsp-defer-shutdown 0))
+        (prog1 (funcall orig-fn restart)
+          (+lsp-optimization-mode -1))
+      (when (timerp +lsp--deferred-shutdown-timer)
+        (cancel-timer +lsp--deferred-shutdown-timer))
+      (setq +lsp--deferred-shutdown-timer
+            (run-at-time
+             (if (numberp +lsp-defer-shutdown) +lsp-defer-shutdown 3)
+             nil (lambda (workspace)
+                   (with-lsp-workspace workspace
+                     (unless (lsp--workspace-buffers workspace)
+                       (let ((lsp-restart 'ignore))
+                         (funcall orig-fn))
+                       (+lsp-optimization-mode -1))))
+             lsp--cur-workspace)))))
 
 ;; LSP-UI----------------------------------------------
 (use-package lsp-ui
   :hook (lsp-mode .lsp-ui-mode)
   :config
-  (setq lsp-ui-sideline-enable t)
-  (setq lsp-ui-sideline-show-hover nil)
-  (setq lsp-ui-doc-position 'bottom)
-  (lsp-ui-doc-show))
+  (setq lsp-ui-sideline-enable t
+	lsp-ui-sideline-show-hover nil
+	lsp-ui-doc-position 'at-point
+	lsp-ui-doc-max-height 8
+	lsp-ui-doc-max-width 35
+	lsp-ui-sideline-ignore-duplicate t
+	lsp-ui-doc-enable nil))
 
 ;; DAP-mode--------------------------------------------
 (use-package dap-mode
