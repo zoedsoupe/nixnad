@@ -6,25 +6,25 @@
 
 ;; packages
 (require 'package)
-(setq package-archives 
+(setq package-archives
       '(("melpa" . "https://melpa.org/packages/")
-	("melpa-stable" . "https://stable.melpa.org/packages/")
+	("melpa-stablne" . "https://stable.melpa.org/packages/")
 	("org" . "https://orgmode.org/elpa/")
 	("elpa" . "https://elpa.gnu.org/packages/")))
 
 (defvar my-packages)
 (setq my-packages
-      '(dashboard company ivy centaur-tabs hl-todo doom-modeline neotree git-gutter
+      '(dashboard company ivy centaur-tabs hl-todo doom-modeline neotree git-gutter-fringe
 	     doom-themes vterm magit gist rainbow-delimiters rainbow-mode
 	     projectile paredit flycheck clojure-mode cider clj-refactor
 	     flycheck-clj-kondo elixir-mode alchemist exunit flycheck-credo
 	     flycheck-cask erlang haskell-mode dante attrap use-package
 	     lsp-mode lsp-ui lsp-haskell js2-mode rjsx-mode typescript-mode
-	     js2-refactor markdown-mode markdown-toc edit-indirect grip-mode
-	     ruby-mode yard-mode inf-ruby bundler rake projectile-rails which-key
+	     js2-refactor markdown-mode markdown-toc edit-indirect grip-mode  which-key
 	     fish-mode company-shell emmet-mode haml-mode pug-mode slim-mode
 	     web-mode company-web css-mode less-css-mode sass-mode stylus-mode
-	     rainbow-mode counsel-css toml-mode yaml-mode json-mode all-the-icons))
+	     rainbow-mode counsel-css toml-mode yaml-mode json-mode all-the-icons
+             dap-mode emojify page-break-lines yasnippets flycheck-popup-tip format-all))
 
 (package-initialize)
 
@@ -36,5 +36,10 @@
     (package-install package)))
 
 (require 'use-package)
+(setq use-package-always-ensure t)
 
 (load "~/.emacs.d/config.el")
+(load "~/.emacs.d/functions.el")
+
+(provide 'init)
+;;; init.el ends here
