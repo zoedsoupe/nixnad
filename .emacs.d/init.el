@@ -18,7 +18,7 @@
 	     doom-themes vterm magit gist rainbow-delimiters rainbow-mode
 	     projectile paredit flycheck clojure-mode cider clj-refactor
 	     flycheck-clj-kondo elixir-mode alchemist exunit flycheck-credo
-	     flycheck-cask erlang haskell-mode dante attrap use-package
+	     flycheck-cask erlang haskell-mode dante attrap use-package org
 	     lsp-mode lsp-ui lsp-haskell js2-mode rjsx-mode typescript-mode
 	     js2-refactor markdown-mode markdown-toc edit-indirect grip-mode  which-key
 	     fish-mode company-shell emmet-mode haml-mode pug-mode slim-mode
@@ -39,7 +39,6 @@
 (setq use-package-always-ensure t)
 
 (load "~/.emacs.d/config.el")
-(load "~/.emacs.d/functions.el")
 
 (provide 'init)
 ;;; init.el ends here
