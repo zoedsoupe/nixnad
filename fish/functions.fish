@@ -19,3 +19,8 @@ end
 function emacs
     command emacsclient -c -a emacs $argv &
 end
+
+function fcode
+    command grep -rnw . -e $argv \
+        --exclude-dir '.git|.github|node_modules|_build|deps|.elixir_ls'
+end
