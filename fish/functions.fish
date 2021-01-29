@@ -24,3 +24,14 @@ function fcode
     command grep -rnw . -e $argv \
         --exclude-dir '.git|.github|node_modules|_build|deps|.elixir_ls'
 end
+
+function pandoc
+    set path (pwd)
+
+    docker run --rm --volume "$path:/data" \
+        --user (id -u):(id -g) pandoc/core $argv
+end
+
+function please
+    command sudo $argv
+end
