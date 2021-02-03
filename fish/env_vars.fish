@@ -6,7 +6,7 @@ set PATH $HOME/bin /usr/local/bin \
     $HOME/.config/yarn/global/node_modules/.bin \
     $HOME/.local/bin ~/scripts/ ~/.cargo/bin \
     $HOME/.asdf/installs/rust/nightly/bin \
-    $HOME/.asdf/installs/haskell/8.6.5/bin $PATH
+    $HOME/.asdf/installs/haskell/8.8.1/bin $PATH
 
 set fish_greeting # suppress fish initital greeting
 

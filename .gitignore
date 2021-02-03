@@ -12,3 +12,8 @@ transient
 .extension
 recentf~
 .lsp*
+*\~
+*.db
+**/var/
+**/emojis/
+**/.cache
