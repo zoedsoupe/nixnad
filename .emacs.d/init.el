@@ -40,17 +40,17 @@
 		  doom-themes vterm magit gist rainbow-delimiters rainbow-mode
 		  projectile paredit flycheck clojure-mode cider clj-refactor
 		  flycheck-clj-kondo elixir-mode alchemist exunit flycheck-credo
-		  flycheck-cask erlang haskell-mode dante attrap use-package org
-		  lsp-mode lsp-ui lsp-haskell js2-mode rjsx-mode typescript-mode
-		  js2-refactor markdown-mode markdown-toc edit-indirect grip-mode
-		  fish-mode company-shell emmet-mode haml-mode pug-mode slim-mode
-		  web-mode company-web css-mode less-css-mode sass-mode stylus-mode
-		  counsel-css toml-mode yaml-mode json-mode all-the-icons emojify
-		  page-break-lines yasnippet flycheck-popup-tip format-all org-cliplink
-		  org-pdftools orgit org-brain org-download centered-window org-tree-slide
-		  which-key ob-elixir org-bullets org-roam company-prescient company-box
-		  company-quickhelp org-tree-slide selectrum orderless consult
-		  consult-flycheck evil-nerd-commenter perfect-margin))
+		  erlang haskell-mode dante attrap use-package org lsp-mode lsp-ui 
+		  lsp-haskell js2-mode rjsx-mode typescript-mode js2-refactor 
+		  markdown-mode markdown-toc edit-indirect grip-mode fish-mode 
+		  company-shell emmet-mode web-mode company-web css-mode less-css-mode
+		  sass-mode counsel-css toml-mode yaml-mode json-mode all-the-icons 
+		  emojify page-break-lines yasnippet flycheck-popup-tip format-all 
+		  org-cliplink org-pdftools orgit org-brain org-download centered-window 
+		  org-tree-slide which-key ob-elixir org-bullets org-roam company-box 
+		  company-quickhelp bind-key gnu-elpa-keyring-update selectrum orderless 
+		  consult consult-flycheck evil-nerd-commenter diminish paradox 
+		  auto-package-update minions ws-buttler))
 
 (package-initialize)
 
