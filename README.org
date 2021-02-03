@@ -10,11 +10,13 @@ environment for web developing and some hackings!
 
 *Powered by:*
 
-[[https://img.shields.io/badge/-Arch-informational?style=for-the-badge&logo=Arch-Linux&logoColor=white&color=1793D1]]
-[[https://img.shields.io/badge/-Fish-informational?style=for-the-badge&logoColor=white&color=5927E3]]
-[[https://img.shields.io/badge/-Haskell-informational?style=for-the-badge&logo=Haskell&logoColor=white&color=5D4F85]]
-[[https://img.shields.io/badge/-Elixir-informational?style=for-the-badge&logo=Elixir&logoColor=white&color=4B275F]]
-[[https://img.shields.io/badge/-Emacs-informational?style=for-the-badge&logo=GNU-Emacs&logoColor=white&color=7F5AB6]]
+#+macro: arch [[https://img.shields.io/badge/-Arch-informational?style=for-the-badge&logo=Arch-Linux&logoColor=white&color=1793D1]]
+#+macro: fish [[https://img.shields.io/badge/-Fish-informational?style=for-the-badge&logoColor=white&color=5927E3]]
+#+macro: haskell [[https://img.shields.io/badge/-Haskell-informational?style=for-the-badge&logo=Haskell&logoColor=white&color=5D4F85]]
+#+macro: elixir [[https://img.shields.io/badge/-Elixir-informational?style=for-the-badge&logo=Elixir&logoColor=white&color=4B275F]]
+#+macro: emacs [[https://img.shields.io/badge/-Emacs-informational?style=for-the-badge&logo=GNU-Emacs&logoColor=white&color=7F5AB6]]
+
+{{{arch}}} {{{fish}}} {{{haskell}}} {{{elixir}}} {{{emacs}}}
 
 ** Dependencies
 
