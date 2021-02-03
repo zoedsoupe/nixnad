@@ -15,9 +15,7 @@
          ("C-M-j" . consult-buffer))
   :custom
   (consult-project-root-function #'msdp/get-project-root)
-  (completion-in-region-function #'consult-completion-in-region)
-  :config
-  (consult-preview-mode 1))
+  (completion-in-region-function #'consult-completion-in-region))
 
 (use-package consult-selectrum
   :after selectrum

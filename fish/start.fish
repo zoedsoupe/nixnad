@@ -1,5 +1,5 @@
-# swap ctrl and caps lock
-setxkbmap -option ctrl:swapcaps
+# swap ctrl and caps lock and enable comopse key
+setxkbmap -layout us -option ctrl:swapcaps -option compose:caps
 
 # correct DNS handling
 sudo sh -c "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"

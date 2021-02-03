@@ -140,3 +140,28 @@
 (require 'init-elixir)
 
 (provide 'init)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(consult-selectrum yaml-mode which-key web-mode vterm use-package typescript-mode toml-mode stylus-mode slim-mode selectrum sass-mode rjsx-mode rainbow-mode rainbow-delimiters pug-mode paradox orgit org-tree-slide org-roam org-pdftools org-download org-cliplink org-bullets org-brain orderless ob-elixir neotree markdown-toc lsp-ui lsp-ivy lsp-haskell json-mode js2-refactor ivy-yasnippet ibuffer-projectile hl-todo grip-mode gnu-elpa-keyring-update git-gutter-fringe gist format-all flycheck-popup-tip flycheck-credo flycheck-clj-kondo flycheck-cask fish-mode exunit erlang emojify emmet-mode edit-indirect doom-themes doom-modeline diminish dashboard dante counsel-tramp counsel-projectile counsel-css consult-flycheck company-web company-shell company-quickhelp company-prescient company-box clj-refactor centered-window centaur-tabs auto-package-update attrap all-the-icons-ivy-rich all-the-icons-ibuffer alchemist)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(dashboard-heading ((t (:inherit (font-lock-string-face bold)))))
+ '(lsp-headerline-breadcrumb-path-error-face ((t :underline (:style wave :color nil) :inherit lsp-headerline-breadcrumb-path-face)))
+ '(lsp-headerline-breadcrumb-path-hint-face ((t :underline (:style wave :color nil) :inherit lsp-headerline-breadcrumb-path-face)))
+ '(lsp-headerline-breadcrumb-path-info-face ((t :underline (:style wave :color nil) :inherit lsp-headerline-breadcrumb-path-face)))
+ '(lsp-headerline-breadcrumb-path-warning-face ((t :underline (:style wave :color nil) :inherit lsp-headerline-breadcrumb-path-face)))
+ '(lsp-headerline-breadcrumb-symbols-error-face ((t :inherit lsp-headerline-breadcrumb-symbols-face :underline (:style wave :color nil))))
+ '(lsp-headerline-breadcrumb-symbols-hint-face ((t :inherit lsp-headerline-breadcrumb-symbols-face :underline (:style wave :color nil))))
+ '(lsp-headerline-breadcrumb-symbols-info-face ((t :inherit lsp-headerline-breadcrumb-symbols-face :underline (:style wave :color nil))))
+ '(lsp-headerline-breadcrumb-symbols-warning-face ((t :inherit lsp-headerline-breadcrumb-symbols-face :underline (:style wave :color nil))))
+ '(lsp-ui-sideline-code-action ((t (:inherit warning))))
+ '(mode-line ((t (:height 0.85))))
+ '(mode-line-inactive ((t (:height 0.85))))
+ '(selectrum-current-candidate ((t (:background "#3a3f5a")))))
