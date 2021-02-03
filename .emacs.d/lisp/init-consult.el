@@ -9,7 +9,6 @@
     (projectile-project-root)))
 
 (use-package consult
-  :straight t
   :demand t
   :bind (("C-s" . consult-line)
          ("C-M-l" . consult-imenu)
@@ -21,7 +20,6 @@
   (consult-preview-mode 1))
 
 (use-package consult-selectrum
-  :straight t
   :after selectrum
   :demand t)
 

@@ -4,11 +4,9 @@
 ;;; Code:
 
 (use-package orderless
-  :straight t
   :custom (completion-styles '(orderless)))
 
 (use-package selectrum
-  :straight t
   :bind (("C-M-r" . selectrum-repeat)
          :map selectrum-minibuffer-map
          ("C-r" . selectrum-select-from-history)
