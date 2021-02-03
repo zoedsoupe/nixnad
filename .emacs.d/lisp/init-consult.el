@@ -17,9 +17,5 @@
   (consult-project-root-function #'msdp/get-project-root)
   (completion-in-region-function #'consult-completion-in-region))
 
-(use-package consult-selectrum
-  :after selectrum
-  :demand t)
-
 (provide 'init-consult)
 ;;; init-consult ends here

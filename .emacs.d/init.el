@@ -11,6 +11,18 @@
 
 ;;; Code:
 
+;; The default is 800 kilobytes.  Measured in bytes.
+(setq gc-cons-threshold (* 50 1000 1000))
+
+;; Profile emacs startup
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (message "*** Emacs loaded in %s with %d garbage collections."
+                     (format "%.2f seconds"
+                             (float-time
+                              (time-subtract after-init-time before-init-time)))
+                     gcs-done)))
+
 ;; to load all config files
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
@@ -38,7 +50,7 @@
 		  org-pdftools orgit org-brain org-download centered-window org-tree-slide
 		  which-key ob-elixir org-bullets org-roam company-prescient company-box
 		  company-quickhelp org-tree-slide selectrum orderless consult
-		  consult-flycheck))
+		  consult-flycheck evil-nerd-commenter perfect-margin))
 
 (package-initialize)
 
@@ -99,18 +111,33 @@
 (doom-themes-org-config)
 
 ;; Doom-Modeline---------------------------------------
+(use-package minions
+  :hook (doom-modeline-mode . minions-mode)
+  :custom
+  (minions-mode-line-lighter ""))
+
 (use-package doom-modeline
-  :init (doom-modeline-mode 1)
+  :hook (after-init . doom-modeline-mode)
   :custom-face
   (mode-line ((t (:height 0.85))))
   (mode-line-inactive ((t (:height 0.85))))
   :custom
-  (doom-modeline-height 15)
-  (doom-modeline-bar-width 3)
+  (doom-modeline-height 12)
+  (doom-modeline-bar-width 6)
   (doom-modeline-lsp t)
   (doom-modeline-minor-modes nil)
+  (doom-modeline-persp-name nil)
   (doom-modeline-buffer-file-name-style 'truncate-except-project)
   (doom-modeline-major-mode-icon t))
+
+;; Better Commenter----------------------------------------
+(use-package evil-nerd-commenter
+  :init (evilnc-default-hotkeys t))
+
+;; Remove whitespaces---------------------------------------
+(use-package ws-butler
+  :hook ((text-mode . ws-butler-mode)
+         (prog-mode . ws-butler-mode)))
 
 ;; general and bootstrap config
 (require 'init-dashboard)
@@ -140,13 +167,14 @@
 (require 'init-elixir)
 
 (provide 'init)
+;; init ends here
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(consult-selectrum yaml-mode which-key web-mode vterm use-package typescript-mode toml-mode stylus-mode slim-mode selectrum sass-mode rjsx-mode rainbow-mode rainbow-delimiters pug-mode paradox orgit org-tree-slide org-roam org-pdftools org-download org-cliplink org-bullets org-brain orderless ob-elixir neotree markdown-toc lsp-ui lsp-ivy lsp-haskell json-mode js2-refactor ivy-yasnippet ibuffer-projectile hl-todo grip-mode gnu-elpa-keyring-update git-gutter-fringe gist format-all flycheck-popup-tip flycheck-credo flycheck-clj-kondo flycheck-cask fish-mode exunit erlang emojify emmet-mode edit-indirect doom-themes doom-modeline diminish dashboard dante counsel-tramp counsel-projectile counsel-css consult-flycheck company-web company-shell company-quickhelp company-prescient company-box clj-refactor centered-window centaur-tabs auto-package-update attrap all-the-icons-ivy-rich all-the-icons-ibuffer alchemist)))
+   '(perfect-margin yaml-mode ws-butler which-key web-mode vterm use-package typescript-mode toml-mode stylus-mode slim-mode selectrum sass-mode rjsx-mode rainbow-mode rainbow-delimiters pug-mode paradox orgit org-tree-slide org-roam org-pdftools org-download org-cliplink org-bullets org-brain orderless ob-elixir neotree minions markdown-toc lsp-ui lsp-haskell json-mode js2-refactor ibuffer-projectile hl-todo grip-mode gnu-elpa-keyring-update git-gutter-fringe gist format-all flycheck-popup-tip flycheck-credo flycheck-clj-kondo flycheck-cask fish-mode exunit evil-nerd-commenter erlang emojify emmet-mode edit-indirect doom-themes doom-modeline diminish dashboard dante counsel-css consult-flycheck company-web company-shell company-quickhelp company-prescient company-box clj-refactor centered-window centaur-tabs auto-package-update attrap all-the-icons-ibuffer alchemist)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
