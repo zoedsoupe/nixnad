@@ -1,0 +1,220 @@
+* dotfiles
+
+#+caption: screenshot
+[[./assets/screenshot.png]]
+
+Zoey's dotfiles config! Everything you need to have a productive
+environment for web developing and some hackings!
+
+[[#Installation][Installation steps]]
+
+*Powered by:*
+
+[[https://img.shields.io/badge/-Arch-informational?style=for-the-badge&logo=Arch-Linux&logoColor=white&color=1793D1]]
+[[https://img.shields.io/badge/-Fish-informational?style=for-the-badge&logoColor=white&color=5927E3]]
+[[https://img.shields.io/badge/-Haskell-informational?style=for-the-badge&logo=Haskell&logoColor=white&color=5D4F85]]
+[[https://img.shields.io/badge/-Elixir-informational?style=for-the-badge&logo=Elixir&logoColor=white&color=4B275F]]
+[[https://img.shields.io/badge/-Emacs-informational?style=for-the-badge&logo=GNU-Emacs&logoColor=white&color=7F5AB6]]
+
+** Dependencies
+
+Obs: I recommend to use =asdf= as version manager to install all
+programming languages dependencies
+
+- [[https://github.com/Mdsp9070/archlinux-setup][archlinuxsetup]] -
+  Optional, but recommended
+- Haskell (ghc + stack)
+- [[https://elixir-lang.org/install.html][Elixir]]
+- [[https://starship.rs/][Starship prompt]]
+- [[https://github.com/fish-shell/fish-shell][fish]]
+- [[https://github.com/yshui/picom][picom]]
+
+** Operating System
+
+This setup could be reproduced on any GNU/Linux distribution. It could
+however not be fully reproduced on macOs or Bsd systems.
+
+** Programs
+
+| Role                   | Program          |
+|------------------------+------------------|
+| Display Server         | X11 ([[https://wiki.archlinux.org/index.php/Xorg][Xorg]])       |
+| Window Manager         | [[https://xmonad.org/][Xmonad]]           |
+| RandR                  | [[https://www.archlinux.org/packages/?name=xorg-xrandr][xorg-xrandr]]      |
+| Compositor             | [[https://github.com/yshui/picom][picom]]            |
+| Bars                   | [[https://hackage.haskell.org/package/xmobar][xmobar]]           |
+| Terminal Emulator      | [[https://github.com/alacritty/alacritty][alacritty]]        |
+| Shell                  | [[https://github.com/fish-shell/fish-shell][fish]]             |
+| Lockscreen             | [[https://github.com/pavanjadhaw/betterlockscreen][betterlockscreen]] |
+| Wallpaper setter for X | [[https://wiki.archlinux.org/index.php/feh][feh]]              |
+| Document viewer        | [[https://pwmt.org/projects/zathura/][zathura]]          |
+| Notification daemon    | [[https://dunst-project.org/][dunst]]            |
+| Text editor            | [[https://github.com/emacs-mirror/emacs][emacs]]            |
+
+** Neovim Plugins
+
+To see/download my neovim config file, follow [[https://github.com/Mdsp9070/dotfiles/tree/12e57d78bf23f7a3abb48c79f757bb573a632210/nvim][this link]]!
+
+| Plugin name           | Role                                       |
+|-----------------------+--------------------------------------------|
+| [[https://github.com/Shougo/dein.vim][dein.vim]]              | Plugin manager                             |
+| [[https://github.com/wsdjeg/dein-ui.vim][dein-ui.vim]]           | UI for dein                                |
+| [[https://github.com/luochen1990/rainbow][rainbow]]               | Rainbow matches (parens, brackets, ...)    |
+| [[https://github.com/tpope/vim-projectionist][vim-projectionist]]     | Granular project configuration             |
+| [[https://github.com/psliwka/vim-smoothie][vim-smoothie]]          | Smoothier vim moves                        |
+| [[https://github.com/AndrewRadev/tagalong.vim][tagalong.vim]]          | Auto change html tags                      |
+| [[https://github.com/mattn/emmet-vim][emmet-vim]]             | Emmet for vim                              |
+| [[https://github.com/junegunn/goyo.vim][goyo]]                  | Zen mode                                   |
+| [[https://github.com/liuchengxu/vim-which-key][vim-which-key]]         | Like emacs which keys                      |
+| [[https://github.com/norcalli/nvim-colorizer.lua][nvim-colorizer.lua]]    | Colorizer for literal hex, rgb, rgba       |
+| [[https://github.com/nvim-treesitter/nvim-treesitter][nvim-treesitter]]       | Syntax highlighting                        |
+| [[https://github.com/mhinz/vim-signify][vim-signify]]           | Show git modifications                     |
+| [[https://github.com/tpope/vim-fugitive][vim-fugitive]]          | Git wrapper                                |
+| [[https://github.com/tpope/vim-rhubarb][vim-rhubarb]]           | Github wrapper                             |
+| [[https://github.com/junegunn/gv.vim][gv.vim]]                | Git commit browser                         |
+| [[https://github.com/rhysd/git-messenger.vim][git-messenger.vim]]     | Git hidden messages                        |
+| [[https://github.com/GuiLra/vim-omni/][vim-omni]]              | Omni colorscheme                           |
+| [[https://github.com/neoclide/coc.nvim][coc.nvim]]              | LSP integration                            |
+| [[https://github.com/earthly/earthly.vim][earthly.vim]]           | Earthfile syntax highlighting              |
+| [[https://github.com/neovimhaskell/haskell-vim][haskell.vim]]           | Haskell syntax highlighting and identation |
+| [[https://github.com/wfxr/minimap.vim][minimap.vim]]           | Blazing fast minimap                       |
+| [[https://github.com/elixir-editors/vim-elixir][vim-elixir]]            | Support for Elixir                         |
+| [[https://github.com/Yggdroot/indentLine][identLine]]             | Display indentation levels                 |
+| [[https://github.com/tpope/vim-surround][vim-surround]]          | Surrounds anything!!!                      |
+| [[https://github.com/tpope/vim-commentary][vim-commentary]]        | Comments anything!!!                       |
+| [[https://github.com/akinsho/nvim-bufferline.lua][nvim-bufferline.lua]]   | Bufferline                                 |
+| [[https://github.com/glepnir/spaceline.vim][spaceline.vim]]         | Spaceline like spacemacs                   |
+| [[https://github.com/kyazdani42/nvim-web-devicons][nvim-web-devicons]]     | Icons, icons everywhere                    |
+| [[https://github.com/easymotion/vim-easymotion][vim-easymotion]]        | Better motions                             |
+| [[https://github.com/iamcco/markdown-preview.nvim][markdown-preview.nvim]] | Markdown Preview                           |
+| [[https://github.com/pechorin/any-jump.vim][any-jump.vim]]          | Jump to any definitio                      |
+
+*** Coc extensions
+
+- coc-pairs
+- coc-tsserver
+- coc-eslint
+- coc-prettier
+- coc-json
+- coc-css
+- coc-html
+- coc-markdownlint
+- coc-svg
+- coc-vimlsp
+- coc-emoji
+- coc-elixir
+- coc-docker
+- coc-erlang_ls
+- coc-solargraph
+- coc-fish
+- extras
+  - haskell-language-server
+** Emacs packages
+
+| Package name            | Role                                                                 |
+|-------------------------+----------------------------------------------------------------------|
+| [[https://github.com/emacs-dashboard/emacs-dashboard][dashboard]]               | Emacs dashboard                                                      |
+| [[https://github.com/company-mode/company-mode][company]]                 | In-buffer completion framework for Emacs                             |
+| [[https://github.com/ema2159/centaur-tabs][centaur-tabs]]            | Modern looking tabs plugin                                           |
+| [[https://github.com/tarsius/hl-todo][hl-todo]]                 | Highlight TODO words                                                 |
+| [[https://github.com/seagle0128/doom-modeline][doom-modeline]]           | Fancy modeline                                                       |
+| [[https://github.com/hlissner/emacs-doom-themes][doom-themes]]             | Fancy themes                                                         |
+| [[https://github.com/jaypei/emacs-neotree][neotree]]                 | Tree plugin                                                          |
+| [[https://github.com/emacsorphanage/git-gutter-fringe][git-gutter-fringe]]       | Fringe version of git-gutter.el                                      |
+| [[https://github.com/akermu/emacs-libvterm][vterm]]                   | Emacs libvterm integration                                           |
+| [[https://github.com/magit/magit][magit]]                   | A Git porcelain inside Emacs                                         |
+| [[https://github.com/defunkt/gist.el][gist]]                    | Gists Emacs paste mode                                               |
+| [[https://github.com/Fanael/rainbow-delimiters][rainbow-delimiters]]      | Rainbow matches (parens, brackets, ...)                              |
+| [[https://github.com/emacsmirror/rainbow-mode][rainbow-mode]]            | Colorizer for hex, rgb and rgba                                      |
+| [[https://github.com/bbatsov/projectile][projectile]]              | Project Interaction Library for Emacs                                |
+| [[https://github.com/emacsmirror/paredit][paredit]]                 | Minor mode for editing parens                                        |
+| [[https://github.com/flycheck/flycheck][flycheck]]                | On the Fly syntax checking                                           |
+| [[https://github.com/clojure-emacs/clojure-mode][clojure-mode]]            | Support for Clojure                                                  |
+| [[https://github.com/clojure-emacs/cider][cider]]                   | The Clojure Interactive Development Environment that Rocks for Emacs |
+| [[https://github.com/clojure-emacs/clj-refactor.el][clj-refactor]]            | A collection of Clojure refactoring functions for Emacs              |
+| [[https://github.com/borkdude/flycheck-clj-kondo][flycheck-clj-kondo]]      | Emacs integration for clj-kondo via flycheck                         |
+| [[https://github.com/elixir-editors/emacs-elixir#installation][elixir-mode]]             | Support for Elixir                                                   |
+| [[https://github.com/tonini/alchemist.el][alchemist]]               | Elixir Tooling Integration Into Emacs                                |
+| [[https://github.com/ananthakumaran/exunit.el][ex-unit]]                 | Emacs ExUnit test runner                                             |
+| [[https://github.com/aaronjensen/flycheck-credo][flycheck-credo]]          | Credo integration                                                    |
+| [[https://github.com/flycheck/flycheck-cask][flycheck-cask]]           | Cask support for Flycheck                                            |
+| [[https://melpa.org/#/erlang][erlang]]                  | Erlang support                                                       |
+| [[https://github.com/haskell/haskell-mode][haskell-mode]]            | Support for Haskell                                                  |
+| [[https://github.com/jyp/dante][dante]]                   | Emacs mode for Interactive Haskell                                   |
+| [[https://github.com/mooz/js2-mode][js2-mode]]                | Support for JavaScript                                               |
+| [[https://github.com/felipeochoa/rjsx-mode][rjsx-mode]]               | Support for JSX syntax                                               |
+| [[https://github.com/emacs-typescript/typescript.el][typescript-mode]]         | Support for TypeScript                                               |
+| [[https://github.com/magnars/js2-refactor.el][js2-refactor]]            | A JavaScript refactoring library for Emacs                           |
+| [[https://github.com/jyp/attrap][attrap]]                  | ATtempt To Repair At Point (Emacs flycheck extension)                |
+| [[https://github.com/jwiegley/use-package][use-package]]             | A use-package declaration for simplifying your .emacs                |
+| [[https://orgmode.org/][org]]                     | Support for Org files                                                |
+| [[https://github.com/emacs-lsp/lsp-mode][lsp-mode]]                | Emacs client/library for the Language Server Protocol                |
+| [[https://github.com/emacs-lsp/lsp-ui][lsp-ui]]                  | UI integrations for lsp-mode                                         |
+| [[https://github.com/emacs-lsp/lsp-haskell][lsp-haskell]]             | An Emacs Lisp library for interacting with a Haskell language server |
+| [[https://melpa.org/#/markdown-mode][markdown-mode]]           | Support for Markdown                                                 |
+| [[https://github.com/ardumont/markdown-toc][markdown-toc]]            | Create TOC in markdown                                               |
+| [[https://github.com/Fanael/edit-indirect][edit-indirect]]           | Edit regions in separate buffers                                     |
+| [[https://github.com/seagle0128/grip-mode][grip-mode]]               | Instant Github-flavored Markdown/Org preview using grip              |
+| [[https://github.com/emacsmirror/fish-mode][fish-mode]]               | Support for Fish files                                               |
+| [[https://github.com/Alexander-Miller/company-shell][company-shell]]           | Completions for shell scripting                                      |
+| [[https://github.com/smihica/emmet-mode][emmet-mode]]              | Emmet for Emacs                                                      |
+| [[https://github.com/fxbois/web-mode][web-mode]]                | Web template editing mode for Emacs                                  |
+| [[https://github.com/osv/company-web][company-web]]             | Emacs company backend for html, jade, slim                           |
+| [[https://www.emacswiki.org/emacs/css-mode.el][css-mode]]                | Support for CSS                                                      |
+| [[https://github.com/purcell/less-css-mode][less-css-mode]]           | Support for LESS                                                     |
+| [[https://github.com/nex3/sass-mode][sass-mode]]               | SASS support                                                         |
+| [[https://github.com/dryman/toml-mode.el][toml-mode]]               | TOML support                                                         |
+| [[https://github.com/yoshiki/yaml-mode][yaml-mode]]               | YAML support                                                         |
+| [[https://github.com/joshwnj/json-mode][json-mode]]               | JSON support                                                         |
+| [[https://github.com/domtronn/all-the-icons.el][all-the-icons]]           | Well... Al the Icons                                                 |
+| [[https://github.com/iqbalansari/emacs-emojify][emojify]]                 | Display emojis in Emacs                                              |
+| [[https://github.com/purcell/page-break-lines][page-break-lines]]        | Display ugly ^L page breaks as tidy horizontal lines                 |
+| [[https://github.com/joaotavora/yasnippet][yasnippets]]              | A template system for Emacs                                          |
+| [[https://github.com/flycheck/flycheck-popup-tip][flycheck-popup-tip]]      | Display Flycheck error messages using popup.el                       |
+| [[https://github.com/lassik/emacs-format-all-the-code][format-all]]              | Auto-format source code in many languages with one command           |
+| [[https://github.com/rexim/org-cliplink][org-cliplink]]            | Insert org-mode links from clipboard                                 |
+| [[https://github.com/fuxialexander/org-pdftools][org-pdftools]]            | A custom org link type for pdf-tools                                 |
+| [[https://github.com/magit/orgit][orgit]]                   | Support for Org links to Magit buffers                               |
+| [[https://github.com/Kungsgeten/org-brain][org-brain]]               | Org-mode wiki + concept-mapping                                      |
+| [[https://github.com/abo-abo/org-download][org-download]]            | Drag and drop images to Emacs org-mode                               |
+| [[https://github.com/anler/centered-window-mode][centered-window-mode]]    | Centers all buffer text                                              |
+| [[https://github.com/takaxp/org-tree-slide][org-tree-slide]]          | A presentation tool for org-mode                                     |
+| [[https://github.com/justbur/emacs-which-key][which-key]]               | Emacs package that displays available keybindings in popup           |
+| [[https://github.com/victorolinasc/ob-elixir][ob-elixir]]               | Org-Mode Elixir language support                                     |
+| [[https://github.com/sabof/org-bullets][org-bullets]]             | UTF-8 bullets for org-mode                                           |
+| [[https://github.com/org-roam/org-roam][org-roam]]                | Rudimentary Roam replica with Org-mode                               |
+| [[https://github.com/sebastiencs/company-box][company-box]]             | A company front-end with icons                                       |
+| [[https://github.com/company-mode/company-quickhelp][company-quickhelp]]       | Documentation popup for Company                                      |
+| [[https://github.com/raxod502/selectrum][selectrum]]               | Better solution for incremental narrowing in Emacs                   |
+| [[https://github.com/oantolin/orderless][orderless]]               | Emacs completion style that matches multiple regexps in any order    |
+| [[https://github.com/minad/consult][consult]]                 | Consulting completing-read                                           |
+| [[https://stable.melpa.org/#/consult-flycheck][consult-flycheck]]        | Flychekc extension for Consult                                       |
+| [[https://github.com/redguardtoo/evil-nerd-commenter][evil-nerd-commenter]]     | Comment/uncomment lines efficiently                                  |
+| [[https://github.com/jwiegley/use-package/blob/master/bind-key.el][bind-key]]                | A simple way to manage personal keybindings                          |
+| [[https://elpa.gnu.org/packages/gnu-elpa-keyring-update.html][gnu-elpa-keyring-update]] | Updates the GPG keys used by the ELPA package manager                |
+| [[https://github.com/emacsmirror/diminish][diminish]]                | Diminished modes are minor modes with no modeline display            |
+| [[https://github.com/Malabarba/paradox][paradox]]                 | Project for modernizing Emacs' Package Menu                          |
+| [[https://github.com/rranelli/auto-package-update.el][auto-package-update]]     | Automatically update Emacs packages                                  |
+| [[https://github.com/tarsius/minions][minions]]                 | A minor-mode menu for the mode line                                  |
+| [[https://github.com/lewang/ws-butler][ws-butler]]               | Unobtrusively trim extraneous white-space                            |
+
+** Installation
+   :PROPERTIES:
+   :CUSTOM_ID: installation
+   :END:
+Clone this repo:
+
+#+begin_example
+  gh repo clone Mdsp9070/dorfiles
+
+  # or
+
+  git clone https://github.com/Mdsp9070/dotfiles
+#+end_example
+
+Then cd into it and run the installer script! You need to have all the
+dependencies satisfied to everything work well!
+
+#+begin_example
+  cd dotfiles && elixir installer.exs
+#+end_example
