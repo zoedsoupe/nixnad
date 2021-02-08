@@ -58,6 +58,7 @@ myLogHook h = dynamicLogWithPP xmobarPP
 myStartupHook :: X ()
 myStartupHook = do
         spawnOnce "clipmenud &"
+	spawnOnce "udiskie &"
         spawnOnce "picom --experimental-backends &"
         spawnOnce "/usr/bin/emacs --daemon &"
         spawnOnce "feh --bg-fill --randomize ~/pics/wallpapers &"
