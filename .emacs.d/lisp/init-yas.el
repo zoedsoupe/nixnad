@@ -1,13 +1,13 @@
 ;;; init-yas.el --- Sets up Yas -*- lexical-binding: t -*-
 ;;; Commentary:
-;;;  Configuration for Yasnnipets
+;;;  Configuration for Yasnipets
 ;;; Code:
 
 
 (require 'yasnippet)
 
 (use-package yasnippet
-  :hook (prog-mode . yas-minor-mode)
+  :hook (prog-mode . yas-global-mode)
   :config
   (yas-reload-all))
 
