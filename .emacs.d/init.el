@@ -40,17 +40,17 @@
 		  doom-themes vterm magit gist rainbow-delimiters rainbow-mode
 		  projectile paredit flycheck clojure-mode cider clj-refactor
 		  flycheck-clj-kondo elixir-mode alchemist exunit flycheck-credo
-		  erlang haskell-mode dante attrap use-package org lsp-mode lsp-ui 
-		  lsp-haskell js2-mode rjsx-mode typescript-mode js2-refactor 
-		  markdown-mode markdown-toc edit-indirect grip-mode fish-mode 
+		  erlang haskell-mode dante attrap use-package org lsp-mode lsp-ui
+		  lsp-haskell js2-mode rjsx-mode typescript-mode js2-refactor
+		  markdown-mode markdown-toc edit-indirect grip-mode fish-mode
 		  company-shell emmet-mode web-mode company-web css-mode less-css-mode
-		  sass-mode counsel-css toml-mode yaml-mode json-mode all-the-icons 
-		  emojify page-break-lines yasnippet flycheck-popup-tip format-all 
-		  org-cliplink org-pdftools orgit org-brain org-download centered-window 
-		  org-tree-slide which-key ob-elixir org-bullets org-roam company-box 
-		  company-quickhelp bind-key gnu-elpa-keyring-update selectrum orderless 
-		  consult consult-flycheck evil-nerd-commenter diminish paradox 
-		  auto-package-update minions ws-buttler))
+		  sass-mode counsel-css toml-mode yaml-mode json-mode all-the-icons
+		  emojify page-break-lines yasnippet flycheck-popup-tip format-all
+		  org-cliplink org-pdftools orgit org-brain org-download centered-window
+		  org-tree-slide which-key ob-elixir org-bullets org-roam company-box
+		  company-quickhelp bind-key gnu-elpa-keyring-update selectrum orderless
+		  consult consult-flycheck evil-nerd-commenter diminish paradox
+		  auto-package-update minions mix yasnippet-snippets))
 
 (package-initialize)
 
@@ -166,15 +166,13 @@
 (require 'init-emoji)
 (require 'init-elixir)
 
-(provide 'init)
-;; init ends here
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(perfect-margin yaml-mode ws-butler which-key web-mode vterm use-package typescript-mode toml-mode stylus-mode slim-mode selectrum sass-mode rjsx-mode rainbow-mode rainbow-delimiters pug-mode paradox orgit org-tree-slide org-roam org-pdftools org-download org-cliplink org-bullets org-brain orderless ob-elixir neotree minions markdown-toc lsp-ui lsp-haskell json-mode js2-refactor ibuffer-projectile hl-todo grip-mode gnu-elpa-keyring-update git-gutter-fringe gist format-all flycheck-popup-tip flycheck-credo flycheck-clj-kondo flycheck-cask fish-mode exunit evil-nerd-commenter erlang emojify emmet-mode edit-indirect doom-themes doom-modeline diminish dashboard dante counsel-css consult-flycheck company-web company-shell company-quickhelp company-prescient company-box clj-refactor centered-window centaur-tabs auto-package-update attrap all-the-icons-ibuffer alchemist)))
+   '(yasnippet-snippets mix perfect-margin yaml-mode ws-butler which-key web-mode vterm use-package typescript-mode toml-mode stylus-mode slim-mode selectrum sass-mode rjsx-mode rainbow-mode rainbow-delimiters pug-mode paradox orgit org-tree-slide org-roam org-pdftools org-download org-cliplink org-bullets org-brain orderless ob-elixir neotree minions markdown-toc lsp-ui lsp-haskell json-mode js2-refactor ibuffer-projectile hl-todo grip-mode gnu-elpa-keyring-update git-gutter-fringe gist format-all flycheck-popup-tip flycheck-credo flycheck-clj-kondo flycheck-cask fish-mode exunit evil-nerd-commenter erlang emojify emmet-mode edit-indirect doom-themes doom-modeline diminish dashboard dante counsel-css consult-flycheck company-web company-shell company-quickhelp company-prescient company-box clj-refactor centered-window centaur-tabs auto-package-update attrap all-the-icons-ibuffer alchemist)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -193,3 +191,6 @@
  '(mode-line ((t (:height 0.85))))
  '(mode-line-inactive ((t (:height 0.85))))
  '(selectrum-current-candidate ((t (:background "#3a3f5a")))))
+
+(provide 'init)
+;;; init ends here

@@ -63,12 +63,13 @@
         lsp-modeline-workspace-status-enable nil
 
         lsp-enable-file-watchers nil
-        lsp-enable-folding nil
-        lsp-enable-symbol-highlighting nil
+        lsp-enable-folding t
+        lsp-enable-symbol-highlighting t
         lsp-enable-text-document-color nil
+	lsp-enable-snippet t
 
-        lsp-enable-indentation nil
-        lsp-enable-on-type-formatting nil)
+        lsp-enable-indentation t
+        lsp-enable-on-type-formatting t)
 
   :config
   (with-no-warnings

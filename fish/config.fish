@@ -19,7 +19,7 @@ begin
 end
 
 ### VI MODE ###
-fish_vi_key_bindings
+#fish_vi_key_bindings
 
 ### ALIASES ###
 source $HOME/.config/fish/aliases.fish 
