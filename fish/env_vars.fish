@@ -18,7 +18,7 @@ set fish_color_error '#ff6c6b'
 set fish_color_param brcyan
 
 ### DEFAULT APPS ###
-set EDITOR nvim
+set EDITOR emacs
 set READER zathura
 set VISUAL nvim
 set TERMINAL alacritty
