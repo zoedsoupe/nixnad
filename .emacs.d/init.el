@@ -50,7 +50,8 @@
 		  org-tree-slide which-key ob-elixir org-bullets org-roam company-box
 		  company-quickhelp bind-key gnu-elpa-keyring-update selectrum orderless
 		  consult consult-flycheck evil-nerd-commenter diminish paradox
-		  auto-package-update minions mix yasnippet-snippets))
+		  auto-package-update minions mix yasnippet-snippets dockerfile-mode
+		  docker))
 
 (package-initialize)
 
