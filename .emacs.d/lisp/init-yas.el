@@ -9,6 +9,7 @@
 (use-package yasnippet
   :hook (prog-mode . yas-global-mode)
   :config
+  (setq yas-verbosity 2)
   (yas-reload-all))
 
 (provide 'init-yas)

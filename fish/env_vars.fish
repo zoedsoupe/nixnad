@@ -10,6 +10,9 @@ set PATH $HOME/bin /usr/local/bin \
 
 set fish_greeting # suppress fish initital greeting
 
+set NNN_PLUG 'p:preview-tui;j:autojump'
+set NNN_FIFO '/tmp/nnn.fifo'
+
 ### AUTOCOMPLETE AND HIGHLIGHT COLORS ###
 set fish_color_normal brcyan
 set fish_color_autosuggestion '#7d7d7d'

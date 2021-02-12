@@ -42,6 +42,45 @@
 (add-hook 'prog-mode-hook 'electric-pair-mode)
 (add-hook 'prog-mode-hook 'show-paren-mode)
 
+;; Basic Packages------------------------------------
+
+;; Required by `use-package'
+(use-package bind-key)
+(use-package blackout
+  :demand t)
+
+;; Update GPG keyring for GNU ELPA
+(use-package gnu-elpa-keyring-update)
+
+;; Replace default `list-packages'
+(defun my-paradox-enable (&rest _)
+  "Enable paradox, overriding the default package-menu."
+  (paradox-enable))
+
+;; A modern Packages Menu
+(use-package paradox
+  :init
+  (setq paradox-execute-asynchronously t
+        paradox-github-token t
+        paradox-display-star-count nil)
+  (advice-add #'list-packages :before #'my-paradox-enable)
+  :config
+  (when (fboundp 'page-break-lines-mode)
+    (add-hook 'paradox-after-execute-functions
+              (lambda (&rest _)
+                (let ((buf (get-buffer-create "*Paradox Report*"))
+                      (inhibit-read-only t))
+                  (with-current-buffer buf
+                    (page-break-lines-mode 1))))
+              t)))
+
+;; Auto update packages
+(use-package auto-package-update
+  :init
+  (setq auto-package-update-delete-old-versions t
+        auto-package-update-hide-results t)
+  (defalias 'upgrade-packages #'auto-package-update-now))
+
 (use-package recentf
   :ensure nil
   :bind (("C-x C-r" . recentf-open-files))
@@ -65,6 +104,45 @@
 (setq scroll-step 1
       scroll-margin 0
       scroll-conservatively 100000)
+
+;; Better Commenter----------------------------------------
+(use-package evil-nerd-commenter
+  :init (evilnc-default-hotkeys t))
+
+;; Remove whitespaces---------------------------------------
+(use-package ws-butler
+  :hook ((text-mode . ws-butler-mode)
+         (prog-mode . ws-butler-mode)))
+
+;; Package `visual-regexp' provides an alternate version of
+;; `query-replace' which highlights matches and replacements as you
+;; type.
+(use-package visual-regexp
+  :bind (([remap query-replace] . #'vr/query-replace)))
+
+;; Editing---------------------------------------------
+;;; Text formatting
+
+(add-to-list 'safe-local-variable-values '(auto-fill-function . nil))
+
+(add-to-list 'safe-local-eval-forms '(visual-line-mode +1))
+
+;; When region is active, make `capitalize-word' and friends act on
+;; it.
+(bind-key "M-c" #'capitalize-dwim)
+(bind-key "M-l" #'downcase-dwim)
+(bind-key "M-u" #'upcase-dwim)
+
+;; When filling paragraphs, assume that sentences end with one space
+;; rather than two.
+(setq sentence-end-double-space nil)
+
+;; Trigger auto-fill after punctutation characters, not just
+;; whitespace.
+(mapc
+ (lambda (c)
+   (set-char-table-range auto-fill-chars c t))
+ "!-=+]};:'\",.?")
 
 (provide 'init-basic)
 ;;; init-basic ends here
