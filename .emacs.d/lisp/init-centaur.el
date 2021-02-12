@@ -4,8 +4,7 @@
 ;;; Code:
 
 (use-package centaur-tabs
-  :demand
-  :config
+  :init
   (centaur-tabs-mode t)
   :custom
   (centaur-tabs-set-bar 'over)

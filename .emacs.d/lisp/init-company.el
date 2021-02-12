@@ -3,6 +3,12 @@
 ;;;  Config for Company
 ;;; Code:
 
+(defun mdsp-company-yasnippet ()
+  "Hide the current completeions and show snippets."
+  (interactive)
+  (company-cancel)
+  (call-interactively 'company-yasnippet))
+
 (use-package company
   :diminish
   :defines (company-dabbrev-ignore-case company-dabbrev-downcase)
@@ -12,10 +18,8 @@
          :map company-mode-map
          ("<backtab>" . company-yasnippet)
          :map company-active-map
-         ("C-p" . company-select-previous)
-         ("C-n" . company-select-next)
          ("<tab>" . company-complete-common-or-cycle)
-         ("<backtab>" . my-company-yasnippet)
+         ("<backtab>" . mdsp-company-yasnippet)
          :map company-search-map
          ("C-p" . company-select-previous)
          ("C-n" . company-select-next))
@@ -34,12 +38,6 @@
         company-backends '((company-capf :with company-yasnippet)
                            (company-dabbrev-code company-keywords company-files)
                            company-dabbrev))
-
-  (defun my-company-yasnippet ()
-    "Hide the current completeions and show snippets."
-    (interactive)
-    (company-cancel)
-    (call-interactively 'company-yasnippet))
   :config
   ;; `yasnippet' integration
   (with-no-warnings
@@ -51,17 +49,17 @@
           (append (if (consp backend) backend (list backend))
                   '(:with company-yasnippet))))
 
-      (defun my-company-enbale-yas (&rest _)
+      (defun mdsp-company-enbale-yas (&rest _)
         "Enable `yasnippet' in `company'."
         (setq company-backends (mapcar #'company-backend-with-yas company-backends)))
 
-      (defun my-lsp-fix-company-capf ()
+      (defun mdsp-lsp-fix-company-capf ()
         "Remove redundant `comapny-capf'."
         (setq company-backends
               (remove 'company-backends (remq 'company-capf company-backends))))
-      (advice-add #'lsp-completion--enable :after #'my-lsp-fix-company-capf)
+      (advice-add #'lsp-completion--enable :after #'mdsp-lsp-fix-company-capf)
 
-      (defun my-company-yasnippet-disable-inline (fun command &optional arg &rest _ignore)
+      (defun mdsp-company-yasnippet-disable-inline (fun command &optional arg &rest _ignore)
         "Enable yasnippet but disable it inline."
         (if (eq command 'prefix)
             (when-let ((prefix (funcall fun 'prefix)))
@@ -77,7 +75,7 @@
                 (put-text-property 0 len 'yas-annotation snip arg)
                 (put-text-property 0 len 'yas-annotation-patch t arg)))
             (funcall fun command arg))))
-      (advice-add #'company-yasnippet :around #'my-company-yasnippet-disable-inline)))
+      (advice-add #'company-yasnippet :around #'mdsp-company-yasnippet-disable-inline)))
 
   ;; Icons and quickhelp
   (use-package company-box
@@ -90,7 +88,7 @@
     :config
     (with-no-warnings
       ;; Prettify icons
-      (defun my-company-box-icons--elisp (candidate)
+      (defun mdsp-company-box-icons--elisp (candidate)
         (when (or (derived-mode-p 'emacs-lisp-mode) (derived-mode-p 'lisp-mode))
           (let ((sym (intern candidate)))
             (cond ((fboundp sym) 'Function)
@@ -99,7 +97,7 @@
                   ((boundp sym) 'Variable)
                   ((symbolp sym) 'Text)
                   (t . nil)))))
-      (advice-add #'company-box-icons--elisp :override #'my-company-box-icons--elisp))
+      (advice-add #'company-box-icons--elisp :override #'mdsp-company-box-icons--elisp))
     (declare-function all-the-icons-faicon 'all-the-icons)
     (declare-function all-the-icons-material 'all-the-icons)
     (declare-function all-the-icons-octicon 'all-the-icons)
@@ -132,6 +130,41 @@
             (TypeParameter . ,(all-the-icons-faicon "arrows" :height 0.8 :v-adjust -0.02))
             (Template . ,(all-the-icons-material "format_align_left" :height 0.8 :v-adjust -0.15)))
           company-box-icons-alist 'company-box-icons-all-the-icons)))
+
+(require 'dumb-jump)
+
+(defun mdsp-dumb-jump-go-prompt-other-window ()
+  "Like `dumb-jump-go-prompt' but use a different window."
+  (interactive)
+  (let ((dumb-jump-window 'other))
+    (dumb-jump-go-prompt)))
+
+;; Package `dumb-jump' provides a mechanism to jump to the definitions
+;; of functions, variables, etc. in a variety of programming
+;; languages. The advantage of `dumb-jump' is that it doesn't try to
+;; be clever, so it "just works" instantly for dozens of languages
+;; with zero configuration.
+(use-package dumb-jump
+  :init
+  (defvar dumb-jump-mode-map
+    (let ((map (make-sparse-keymap)))
+      (define-key map (kbd "C-M-g") 'dumb-jump-go)
+      (define-key map (kbd "C-M-p") 'dumb-jump-back)
+      (define-key map (kbd "C-M-q") 'dumb-jump-quick-look)
+      map))
+
+  (define-minor-mode dumb-jump-mode
+    "Minor mode for jumping to variable and function definitions"
+    :global t
+    :keymap dumb-jump-mode-map)
+
+  (dumb-jump-mode +1)
+
+  :bind (:map dumb-jump-mode-map
+              ("M-Q" . #'dumb-jump-quick-look))
+  :bind* (("C-M-d" . #'dumb-jump-go-prompt)
+          ("C-x 4 g" . #'dumb-jump-go-other-window)
+          ("C-x 4 d" . #'mdsp-dumb-jump-go-prompt-other-window)))
 
 (provide 'init-company)
 ;;; init-company ends here

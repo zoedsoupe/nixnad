@@ -31,7 +31,3 @@ function pandoc
     docker run --rm --volume "$path:/data" \
         --user (id -u):(id -g) pandoc/core $argv
 end
-
-function please
-    command sudo $argv
-end

@@ -42,7 +42,6 @@ alias d="rm -rf $argv"
 
 # system health
 alias node_modules="find . -name "node_modules" -type d -prune -exec rm -rf '{}' +"
-alias update="aura -Syyu && aura -Ayyu && xmonad --recompile"
 
 # screens
 alias one_screen="xrandr --output eDP-1 --auto --output HDMI-1 --off"
