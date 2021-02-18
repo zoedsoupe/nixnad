@@ -81,10 +81,10 @@ functions."
         lsp-enable-folding t
         lsp-enable-symbol-highlighting t
         lsp-enable-text-document-color nil
-	lsp-enable-snippet t
+	lsp-enable-snippet nil
 
         lsp-enable-indentation t
-        lsp-enable-on-type-formatting t)
+        lsp-enable-on-type-formatting nil)
 
   :config
   (dolist (fun '(lsp-warn lsp--warn lsp--info lsp--error))
