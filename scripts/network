@@ -1,6 +1,6 @@
 #!/bin/fish
 
-set active (ip addr | awk '/state UP/ {print $2}' | sed 's/.$//')
+set active (ip addr | awk '/state UP/ {print $2}' | sed 's/.$//' | head -n 1)
 
 if test -n $active
     set essid (iwconfig $active | awk -F '"' '/ESSID/ {print $2}')

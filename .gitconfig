@@ -2,7 +2,7 @@
 	name = Matheus de Souza Pessanha
 	email = matheus_pessanha2001@outlook.com
 [core]
-	editor = nvim
+	editor = vim
 
 [core]
     pager = delta
