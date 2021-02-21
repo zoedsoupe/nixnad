@@ -34,6 +34,7 @@
 
 <p align="center">
   <a href="#programs">Programs</a> •
+  <a href="#screenshots">Screenshots</a> •
   <a href="#neovim">Neovim</a> •
   <a href="#emacs">Emacs</a> •
   <a href="#install">Install</a> •
