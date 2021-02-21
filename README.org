@@ -4,32 +4,42 @@
 #+begin_html
 <h1 align="center">
   <br>
-  <img src="./assets/logo.png" alt="Matthew's Logo" width="100">
+  <img src="./assets/logo.png" alt="Matthew's Logo" width="300">
   <br>
   Matthew's Dotfiles
   <br>
 </h1>
+
+<div align="center">
+  <strong>Matthew's dotfiles config! Everything you need to have a productive environment for web developing and some hackings!</strong>
+</div>
+
+<div align="center">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-%235FCC6F">
+</div>
+
+<div align="center">
+  <strong>Powered by</strong>
+  <br>
+  <img src="https://img.shields.io/badge/-Arch-informational?style=for-the-badge&logo=Arch-Linux&logoColor=white&color=blue" alt="Arch Linux" />
+
+  <img src="https://img.shields.io/badge/-Fish-informational?style=for-the-badge&logoColor=white&color=5927E3" alt="Fish shell" />
+
+  <img src="https://img.shields.io/badge/-Haskell-informational?style=for-the-badge&logo=Haskell&logoColor=white&color=5D4F85" alt="Haskell" />
+
+  <img src="https://img.shields.io/badge/-Elixir-informational?style=for-the-badge&logo=Elixir&logoColor=white&color=4B275F" alt="Elixir" />
+
+  <img src="https://img.shields.io/badge/-Emacs-informational?style=for-the-badge&logo=GNU-Emacs&logoColor=white&color=7F5AB6" alt="Emacs" />
+</div>
+
+<p align="center">
+  <a href="#programs">Install</a> •
+  <a href="#neovim">Install</a> •
+  <a href="#emacs">Install</a> •
+  <a href="#install">Install</a> •
+  <a href="#license">License</a>
+</p>
 #+end_html
-
-** Description
-
-Matthew's dotfiles config! Everything you need to have a productive
-environment for web developing and some hackings!
-
-[[#Installation][Installation steps]]
-
-*Powered by:*
-
-#+caption: arch linux
-[[file:https://img.shields.io/badge/-Arch-informational?style=for-the-badge&logo=Arch-Linux&logoColor=white&color=blue&/arch.svg]]
-#+caption: fish shell
-[[file:https://img.shields.io/badge/-Fish-informational?style=for-the-badge&logoColor=white&color=5927E3&/fish.svg]]
-#+caption: haskell
-[[file:https://img.shields.io/badge/-Haskell-informational?style=for-the-badge&logo=Haskell&logoColor=white&color=5D4F85&/haskell.svg]]
-#+caption: elixir
-[[file:https://img.shields.io/badge/-Elixir-informational?style=for-the-badge&logo=Elixir&logoColor=white&color=4B275F&/elixir.svg]]
-#+caption: emacs
-[[file:https://img.shields.io/badge/-Emacs-informational?style=for-the-badge&logo=GNU-Emacs&logoColor=white&color=7F5AB6%/emacs.svg]]
 
 ** Dependencies
 
@@ -50,6 +60,9 @@ This setup could be reproduced on any GNU/Linux distribution. It could
 however not be fully reproduced on macOs or Bsd systems.
 
 ** Programs
+   :PROPERTIES:
+   :CUSTOM_ID: programs
+   :END:
 
 | Role                   | Program          |
 |------------------------+------------------|
@@ -67,11 +80,17 @@ however not be fully reproduced on macOs or Bsd systems.
 | Text editor            | [[https://github.com/emacs-mirror/emacs][emacs]]            |
 
 ** Screenshots
+   :PROPERTIES:
+   :CUSTOM_ID: screenshots
+   :END:
 
 #+caption: screenshot
 [[./assets/screenshot.png]]
 
 ** Neovim Plugins
+   :PROPERTIES:
+   :CUSTOM_ID: neovim
+   :END:
 
 To see/download my neovim config file, follow [[https://github.com/Mdsp9070/dotfiles/tree/12e57d78bf23f7a3abb48c79f757bb573a632210/nvim][this link]]!
 
@@ -129,7 +148,11 @@ To see/download my neovim config file, follow [[https://github.com/Mdsp9070/dotf
 - coc-fish
 - extras
   - haskell-language-server
+
 ** Emacs packages
+   :PROPERTIES:
+   :CUSTOM_ID: emacs
+   :END:
 
 | Package name            | Role                                                                 |
 |-------------------------+----------------------------------------------------------------------|
@@ -218,9 +241,9 @@ To see/download my neovim config file, follow [[https://github.com/Mdsp9070/dotf
 | [[https://github.com/tarsius/minions][minions]]                 | A minor-mode menu for the mode line                                  |
 | [[https://github.com/lewang/ws-butler][ws-butler]]               | Unobtrusively trim extraneous white-space                            |
 
-** Installation
+** Install
    :PROPERTIES:
-   :CUSTOM_ID: installation
+   :CUSTOM_ID: install
    :END:
 Clone this repo:
 
@@ -238,3 +261,10 @@ dependencies satisfied to everything work well!
 #+begin_example
   cd dotfiles && elixir installer.exs
 #+end_example
+
+** License
+   :PROPERTIES:
+   :CUSTOM_ID: license
+   :END:
+
+[[./LICENSE][MIT License]]
