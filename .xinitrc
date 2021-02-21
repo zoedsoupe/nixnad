@@ -44,8 +44,5 @@ fi
 
 feh --bg-fil --randomize ~/pics/wallpapers &
 
-if ! ps -aux | grep xmonad > /dev/null ; then
-  exec xmonad
-fi
-
+exec xmonad
 # END SYSTEM CONFIG
