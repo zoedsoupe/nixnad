@@ -33,9 +33,9 @@
 </div>
 
 <p align="center">
-  <a href="#programs">Install</a> •
-  <a href="#neovim">Install</a> •
-  <a href="#emacs">Install</a> •
+  <a href="#programs">Programs</a> •
+  <a href="#neovim">Neovim</a> •
+  <a href="#emacs">Emacs</a> •
   <a href="#install">Install</a> •
   <a href="#license">License</a>
 </p>
