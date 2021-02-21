@@ -1,29 +1,6 @@
 #!/bin/sh
 
 # BEGIN SYSTEM CONFIG
-userresources=$HOME/.Xresources
-usermodmap=$HOME/.Xmodmap
-sysresources=/etc/X11/xinit/.Xresources
-sysmodmap=/etc/X11/xinit/.Xmodmap
-
-# merge in defaults and keymaps
-
-if [ -f $sysresources ]; then
-    xrdb -merge $sysresources
-fi
-
-if [ -f $sysmodmap ]; then
-    xmodmap $sysmodmap
-fi
-
-if [ -f "$userresources" ]; then
-    xrdb -merge "$userresources"
-fi
-
-if [ -f "$usermodmap" ]; then
-    xmodmap "$usermodmap"
-fi
-
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
   [ -x "$f" ] && . "$f"
@@ -39,11 +16,9 @@ nameserver 8.8.4.4
 EOF
 
 # set second monitor as primary 
-if [ xrandr | grep -q 'HDMI-1 connected' ] 
-then
+if xrandr | grep -q 'HDMI-1 connected' ; then
   xrandr --output eDP-1 --auto --output HDMI-1 --primary --auto --left-of eDP-1
-else if [ xrandr | grep -q 'DP-1 connected' ]
-  then
+else if xrandr | grep -q 'DP-1 connected' ; then
     xrandr --output eDP-1 --auto --output DP-1 --primary --auto --left-of eDP-1
   fi
 fi
@@ -51,12 +26,26 @@ fi
 # swap ctrl and caps lock and enable comopse key
 setxkbmap -layout us -option ctrl:swapcaps -option compose:rwin
 
-clipmenud &
-udiskie &
-picom --experimental-backends &
-/usr/bin/emacs --daemon &
-feh --bg-fil --randomize ~/pics/wallpapers
+if ! pidof picom > /dev/null ; then
+  picom --experimental-backends &
+fi
 
-exec xmonad
+if ! pidof emacs > /dev/null ; then
+  emacs --daemon
+fi
+
+if ! ps -aux | grep clipmenu > /dev/null ; then
+  clipmenud &
+fi
+
+if ! pidof udiskie > /dev/null ; then 
+  udiskie &
+fi
+
+feh --bg-fil --randomize ~/pics/wallpapers &
+
+if ! ps -aux | grep xmonad > /dev/null ; then
+  exec xmonad
+fi
 
 # END SYSTEM CONFIG
