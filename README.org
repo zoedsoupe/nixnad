@@ -4,7 +4,7 @@
 #+begin_html
 <h1 align="center">
   <br>
-  <img src="./assets/my_logo.png" alt="Zoey's Logo" width="100">
+  <img src="./assets/logo.png" alt="Zoey's Logo" width="100">
   <br>
   Zoey's Dotfiles
   <br>
