@@ -36,7 +36,6 @@ mkConfig handle = ewmh . docks $ myConfig
           logHook = myLogHook handle,
           manageHook = myManageHook <+> pbManageHook,
           layoutHook = myLayoutHook,
-          startupHook = myStartupHook,
           handleEventHook = myHandleEventHook
         }
         `additionalKeysP` keyConfig

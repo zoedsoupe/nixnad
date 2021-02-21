@@ -7,9 +7,6 @@
 ### PROMPT ###
 starship init fish | source
 
-### START HOOK ###
-source $HOME/.config/fish/start.fish
-
 ### AUTOJUMP ###
 begin
     set --local AUTOJUMP_PATH $HOME/.autojump/share/autojump/autojump.fish

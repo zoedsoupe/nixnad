@@ -55,14 +55,6 @@ myLogHook h = dynamicLogWithPP xmobarPP
                         , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]
                         }
 
-myStartupHook :: X ()
-myStartupHook = do
-        spawnOnce "clipmenud &"
-	spawnOnce "udiskie &"
-        spawnOnce "picom --experimental-backends &"
-        spawnOnce "/usr/bin/emacs --daemon &"
-        spawnOnce "feh --bg-fill --randomize ~/pics/wallpapers &"
-
 pbManageHook :: ManageHook
 pbManageHook = composeAll $ concat
     [ [ manageDocks                                      ]
