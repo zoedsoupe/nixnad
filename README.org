@@ -1,6 +1,7 @@
 #+author: Matheus de Souza Pessanha
 #+email: mdsp@boosting.tech
 
+#+begin_html
 <h1 align="center">
   <br>
   <img src="./assets/my_logo.png" alt="Matthew's Logo" width="100">
@@ -8,6 +9,7 @@
   Matthew's Dotfiles
   <br>
 </h1>
+#end_html
 
 ** Description
 
