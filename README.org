@@ -1,7 +1,15 @@
-* dotfiles
+#+author: Zoey de Souza Pessanha
+#+email: mdsp@boosting.tech
 
-#+caption: screenshot
-[[./assets/screenshot.png]]
+<h1 align="center">
+  <br>
+  <img src="./assets/my_logo.png" alt="Zoey's Logo" width="100">
+  <br>
+  Zoey's Dotfiles
+  <br>
+</h1>
+
+** Description
 
 Zoey's dotfiles config! Everything you need to have a productive
 environment for web developing and some hackings!
@@ -55,6 +63,11 @@ however not be fully reproduced on macOs or Bsd systems.
 | Document viewer        | [[https://pwmt.org/projects/zathura/][zathura]]          |
 | Notification daemon    | [[https://dunst-project.org/][dunst]]            |
 | Text editor            | [[https://github.com/emacs-mirror/emacs][emacs]]            |
+
+** Screenshots
+
+#+caption: screenshot
+[[./assets/screenshot.png]]
 
 ** Neovim Plugins
 
