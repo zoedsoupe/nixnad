@@ -1,0 +1,1 @@
+SUBSYSTEMS=="input", AATRS{name}=="Keychron K3", RUN+="/home/matthew/scripts/fix_keyboard"
