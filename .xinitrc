@@ -1,12 +1,12 @@
-#!/bin/sh
+#!/bin/fish
 
 # BEGIN SYSTEM CONFIG
-if [ -d /etc/X11/xinit/xinitrc.d ] ; then
- for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
-  [ -x "$f" ] && . "$f"
- done
- unset f
-fi
+if test -d /etc/X11/xinit/xinitrc.d
+  for f in /etc/X11/xinit/xinitrc.d/?*.sh
+    test -x "$f" && sh "$f"
+  end
+ set -e f
+end
 # END SYSTEM CONFIG
 
 # BEGIN USER CONFIG
@@ -16,31 +16,32 @@ fi
 #EOF
 
 # set second monitor as primary 
-if xrandr | grep -q 'HDMI-1 connected' ; then
+if xrandr | grep -q 'HDMI-1 connected'
   xrandr --output eDP-1 --auto --output HDMI-1 --primary --auto --left-of eDP-1
-else if xrandr | grep -q 'DP-1 connected' ; then
+else if xrandr | grep -q 'DP-1 connected'
     xrandr --output eDP-1 --auto --output DP-1 --primary --auto --left-of eDP-1
-  fi
-fi
+end
 
 # swap ctrl and caps lock and enable comopse key
-setxkbmap -layout us -option ctrl:swapcaps -option compose:rwin
+setxkbmap -layout us -option ctrl:swapcaps -option compose:rwin &
 
-if ! pidof picom > /dev/null ; then
+bluetoothctl power on > /dev/null &
+
+if ! pidof picom > /dev/null
   picom --experimental-backends &
-fi
+end
 
-if ! pidof emacs > /dev/null ; then
+if ! pidof emacs > /dev/null
   emacs --daemon
-fi
+end
 
-if ! ps -aux | grep clipmenu > /dev/null ; then
+if ! procs | grep clipmenu > /dev/null
   clipmenud &
-fi
+end
 
-if ! pidof udiskie > /dev/null ; then 
+if ! pidof udiskie > /dev/null
   udiskie &
-fi
+end
 
 feh --bg-fil --randomize ~/pics/wallpapers &
 
