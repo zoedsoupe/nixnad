@@ -9,6 +9,8 @@ defmodule Installer do
   Run this Elixir script to automatically link all these configs!
   """
 
+  import Colors
+
   @config_path Path.expand("~/.config")
   @home_dir Path.expand("~")
 
@@ -81,8 +83,11 @@ defmodule Installer do
       end
     end
 
-    IO.puts("Linked all! Congratutalions!")
-    IO.puts("Please, remember to change ~/.gitconfig file")
+    "Linked all! Congratutalions!"
+    |> success()
+
+    "Please, remember to change ~/.gitconfig file"
+    |> warning()
   end
 
   defp link_to_home(existing, config), do: File.ln_s!(existing, @home_dir <> "/#{config}")
@@ -92,10 +97,32 @@ defmodule Installer do
 
   defp root_config(commands) do
     IO.puts("Please, insert your sudo pass:")
-    System.cmd("sudo", ["-A"] ++ commands, into: IO.read(:stdio, :line))
+    System.cmd("sudo", ["-A"] ++ commands, into: :io.get_password() |> List.to_string())
   end
 
   defp skip(config), do: IO.puts("Skipping #{config}...")
+
+  defmodule Colors do
+    import IO.ANSI, only: [format: 2]
+
+    def success(task) do
+      ["DONE: ", :green, :bold, task, :green]
+      |> format(true)
+      |> IO.puts()
+    end
+
+    def error(reason) do
+      ["ERROR: ", :red, :bold, reason, :red]
+      |> format(true)
+      |> IO.puts()
+    end
+
+    def warn(info) do
+      ["WARNING: ", :yellow, :bold, info, :yellow]
+      |> format(true)
+      |> IO.puts()
+    end
+  end
 end
 
 Installer.link()
