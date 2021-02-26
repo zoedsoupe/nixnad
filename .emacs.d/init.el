@@ -50,7 +50,7 @@
 		  ob-elixir org-bullets org-roam company-box company-quickhelp bind-key
 		  gnu-elpa-keyring-update selectrum orderless consult consult-flycheck
 		  evil-nerd-commenter paradox auto-package-update mix yasnippet-snippets
-		  dockerfile-mode docker dumb-jump minions))
+		  dockerfile-mode docker dumb-jump minions mmm-mode))
 
 (package-initialize)
 
@@ -66,21 +66,54 @@
 (setq use-package-always-defer t)
 (setq use-package-expand-minimally t)
 
+(use-package mmm-mode)
+(require 'mmm-defaults)
+
+(setq mmm-global-mode 'auto
+      mmm-submode-decoration-level 0
+      mmm-parse-when-idle t)
+
+(add-to-list 'auto-mode-alist '("\\.html.eex\\'" . mhtml-mode))
+(add-to-list 'auto-mode-alist '("\\.html.leex\\'" . mhtml-mode))
+
+(mmm-add-classes
+ '((eex-elixir
+    :submode elixir-mode
+    :face mmm-declaration-submode-face
+    :front "<%[#=%]*" ;; regex to find the opening tag
+    :back "%>"))) ;; regex to find the closing tag
+
+(mmm-add-mode-ext-class 'mhtml-mode nil 'eex-elixir)
+
 ;; Theme----------------------------------
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (use-package zerodark-theme)
 
-(load-theme 'zerodark t)
-;; Optionally setup the modeline
-(zerodark-setup-modeline-format)
+(load-theme 'omni t)
+(omni-setup-modeline-format)
 
 (use-package minions
   :init (minions-mode 1))
+
+(use-package centaur-tabs
+  :init
+  (centaur-tabs-mode t)
+  :custom
+  (centaur-tabs-set-bar 'over)
+  (centaur-tabs-set-icons t)
+  (centaur-tabs-height 24)
+  (centaur-tabs-set-modified-marker t)
+  (centaur-tabs-style "bar")
+  (centaur-tabs-modified-marker "•"))
+
+(centaur-tabs-headline-match)
+
+(use-package all-the-icons)
 
 ;; general and bootstrap config
 (require 'init-dashboard)
 (require 'init-basic)
 (require 'init-ibuffer)
-(require 'init-centaur)
 (require 'init-key)
 (require 'init-todo)
 (require 'init-functions)
