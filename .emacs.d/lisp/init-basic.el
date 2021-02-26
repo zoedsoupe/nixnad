@@ -20,7 +20,8 @@
 (dolist (mode '(text-mode-hook
                 prog-mode-hook
                 conf-mode-hook))
-  (add-hook mode (lambda () (display-line-numbers-mode 1))))
+  (add-hook mode (lambda () (display-line-numbers-mode 1)
+		   (setq display-line-numbers 'relative))))
 
 (setq confirm-kill-emacs nil) ; disable confirmation to exit emacs
 (setq inhibit-splash-screen t) ; disable splash screen
@@ -30,12 +31,12 @@
       (remq 'process-kill-buffer-query-function
 	    kill-buffer-query-functions)) ; disable confirmation on killing buffer
 
-(set-face-attribute 'default nil :font "VictorMono Nerd Font" :height 120)
+(set-face-attribute 'default nil :font "JetBrains Mono Medium Medium Nerd Font Complete Mono" :height 120)
 (set-face-attribute 'fixed-pitch nil
-                    :font "UbuntuCondensed Nerd Font"
+                    :font "JetBrains Mono Medium Medium Nerd Font Complete"
                     :height 120)
 (set-face-attribute 'variable-pitch nil
-                    :font "Hasklug Nerd Font"
+                    :font "Victor Mono Regular Nerd Font Complete"
                     :height 120
                     :weight 'regular)
 

@@ -18,3 +18,4 @@ recentf~
 **/emojis/
 **/.cache
 .emacs.d/custom.el
+.emacs.d/flycheck_init.el

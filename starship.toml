@@ -18,6 +18,9 @@ format = "[$path]($style)[$read_only]($read_only_style) "
 format = "[git:](white)\\([$branch]($style)\\)"
 
 [git_status]
+deleted = ""
+ahead = ""
+behind = ""
 format = "[$all_status$ahead_behind]($style) "
 
 [elixir]
@@ -31,5 +34,5 @@ format = "[rust:](white)\\([$version]($style)\\) "
 
 [character]
 success_symbol = "\n[ﬦ](bold green)"
-error_symbol = "\n[✗](bold red)"
+error_symbol = "\n[](bold red)"
 vicmd_symbol = "\n[](bold green)"
