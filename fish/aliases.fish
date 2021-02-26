@@ -48,5 +48,6 @@ alias hdmi_on="xrandr --output eDP-1  --auto --output HDMI-1 --primary --auto --
 alias vga_on="xrandr --output eDP-1 --auto --output DP-1 --auto --above eDP-1"
 
 # system
+alias update="sudo aura -Syyu && sudo aura -Ayyu"
 alias please="sudo $argv"
 alias fsource="source ~/.config/fish/config.fish"
