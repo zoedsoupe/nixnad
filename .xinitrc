@@ -46,4 +46,11 @@ end
 feh --bg-fil --randomize ~/pics/wallpapers &
 
 exec xmonad
+
+switch $1
+  case xmonad
+    exec xmonad
+  case "*"
+    echo "No WM or DE specified..."
+end
 # END SYSTEM CONFIG
