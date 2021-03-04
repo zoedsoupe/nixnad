@@ -31,8 +31,12 @@ if ! pidof picom > /dev/null
   picom --experimental-backends &
 end
 
+if ! pidof dockerd > /dev/null
+  sudo dockerd &
+end
+
 if ! pidof emacs > /dev/null
-  emacs --daemon
+  emacs --daemon &
 end
 
 if ! procs | grep clipmenu > /dev/null
@@ -44,6 +48,8 @@ if ! pidof udiskie > /dev/null
 end
 
 feh --bg-fil --randomize ~/pics/wallpapers &
+
+dbus &
 
 exec xmonad
 
