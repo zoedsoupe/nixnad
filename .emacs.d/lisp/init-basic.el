@@ -17,6 +17,11 @@
 (setq visible-bell nil) ; disable visual bell
 (setq indent-tabs-mode nil) ; changes from tabs to spaces
 
+(setq backup-directory-alist
+            `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+            `((".*" ,temporary-file-directory t)))
+
 (dolist (mode '(text-mode-hook
                 prog-mode-hook
                 conf-mode-hook))

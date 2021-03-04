@@ -1,5 +1,12 @@
-function setenv
-    set -gx $argv
+function export
+    set params (string split -m 1 = $argv)
+    set -gx $params[1] $params[2]
+end
+
+function dbus
+  for var in (dbus-launch)
+    export $var
+  end
 end
 
 function tre
@@ -17,8 +24,8 @@ function mkd
 end
 
 function fcode
-    command grep -rnw . -e $argv \
-        --exclude-dir '.git|.github|node_modules|_build|deps|.elixir_ls'
+    command grep -rnw . -e $argv --color=always \
+        --exclude-dir={\.git,\.github,node_modules,_build,deps,\.elixir_ls}
 end
 
 function pandoc

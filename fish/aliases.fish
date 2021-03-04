@@ -26,9 +26,9 @@ alias gac="ga && gc"
 
 # docker
 alias aws="docker run --rm -it -v ~/.aws:/root/.aws amazon/aws-cli"
-alias psql="docker exec -it d9b38d3002d0 psql $argv"
-alias pg_isready="docker exec -it d9b38d3002d0 pg_isready $argv"
-alias start_postgres="docker start d9b38d3002d0"
+alias psql="docker exec -it 2df73117f099 psql $argv"
+alias pg_isready="docker exec -it 2df73117f099 pg_isready $argv"
+alias start_postgres="docker start 2df73117f099"
 
 # replace software
 alias lg="lazygit"
