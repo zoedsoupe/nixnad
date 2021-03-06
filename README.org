@@ -104,6 +104,7 @@ however not be fully reproduced on macOs or Bsd systems.
    | [[https://github.com/firebase/firebase-tools][firebase-tools]]   | The Firebase Command Line Tools                                                            |
    | [[https://www.gnu.org/software/emacs/][emacs]]            | An extensible, customizable, free/libre text editor                                        |
    | [[https://github.com/freedesktop/xorg-xrandr][xrandr]]           | Primitive command line interface to RandR extension                                        |
+   | [[https://github.com/jarun/nnn/][nnn]]              | n³ The unorthodox terminal file manager                                                    |
 ** Screenshots
    :PROPERTIES:
    :CUSTOM_ID: screenshots
@@ -284,7 +285,7 @@ Then cd into it and run the installer script! You need to have all the
 dependencies satisfied to everything work well!
 
 #+begin_example
-  cd dotfiles && sudo ./install.fish
+  cd dotfiles && ./install.fish
 #+end_example
 
 ** License
