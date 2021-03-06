@@ -11,7 +11,7 @@ end
 
 function tre
     command tree -aC \
-        -I '.git|node_modules|deps|_build|.elixir_ls' \
+        -I '.git|.github|node_modules|deps|_build|.elixir_ls' \
         --dirsfirst $argv | bat
 end
 
@@ -33,4 +33,8 @@ function pandoc
 
     docker run --rm --volume "$path:/data" \
         --user (id -u):(id -g) pandoc/core $argv
+end
+
+function clean_node_modules
+    command find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
 end
