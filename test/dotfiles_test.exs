@@ -2,7 +2,7 @@ defmodule DotfilesTest do
   use ExUnit.Case
   doctest Dotfiles
 
-  test "greets the world" do
-    assert Dotfiles.hello() == :world
+  test "math" do
+    assert 1 + 1 == 2
   end
 end
