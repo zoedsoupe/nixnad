@@ -43,43 +43,67 @@
 #+end_html
 
 ** Dependencies
-
-Obs: I recommend to use =asdf= as version manager to install all
-programming languages dependencies
-
-- [[https://github.com/Mdsp9070/archlinux-setup][archlinuxsetup]] -
-  Optional, but recommended
-- Haskell (ghc + stack)
-- [[https://elixir-lang.org/install.html][Elixir]]
-- [[https://starship.rs/][Starship prompt]]
 - [[https://github.com/fish-shell/fish-shell][fish]]
-- [[https://github.com/yshui/picom][picom]]
 
 ** Operating System
 
 This setup could be reproduced on any GNU/Linux distribution. It could
 however not be fully reproduced on macOs or Bsd systems.
 
-** Programs
+** You'll be installing...
    :PROPERTIES:
    :CUSTOM_ID: programs
    :END:
 
-| Role                   | Program          |
-|------------------------+------------------|
-| Display Server         | X11 ([[https://wiki.archlinux.org/index.php/Xorg][Xorg]])       |
-| Window Manager         | [[https://xmonad.org/][Xmonad]]           |
-| RandR                  | [[https://www.archlinux.org/packages/?name=xorg-xrandr][xorg-xrandr]]      |
-| Compositor             | [[https://github.com/yshui/picom][picom]]            |
-| Bars                   | [[https://hackage.haskell.org/package/xmobar][xmobar]]           |
-| Terminal Emulator      | [[https://github.com/alacritty/alacritty][alacritty]]        |
-| Shell                  | [[https://github.com/fish-shell/fish-shell][fish]]             |
-| Lockscreen             | [[https://github.com/pavanjadhaw/betterlockscreen][betterlockscreen]] |
-| Wallpaper setter for X | [[https://wiki.archlinux.org/index.php/feh][feh]]              |
-| Document viewer        | [[https://pwmt.org/projects/zathura/][zathura]]          |
-| Notification daemon    | [[https://dunst-project.org/][dunst]]            |
-| Text editor            | [[https://github.com/emacs-mirror/emacs][emacs]]            |
-
+   | Software         | Description                                                                                |
+   |------------------+--------------------------------------------------------------------------------------------|
+   | [[https://asdf-vm.com/][asdf]]             | General version manager                                                                    |
+   | [[https://curl.haxx.se/][cURL]]             | Command line tool and library for transferring data with URLs                              |
+   | [[https://git-scm.com/][git]]              | Free and open source distributed version control system                                    |
+   | [[https://github.com/cli/cli][Github CLI]]       | Github offcial CLI                                                                         |
+   | [[https://www.vim.org/][vim]]              | Highly configurable terminal text editor                                                   |
+   | [[https://github.com/alacritty/alacritty][alacritty]]        | GPU based terminal                                                                         |
+   | [[https://opensource.com/article/19/7/xclip][xclip]]            | Command line interface to the X11 clipboard                                                |
+   | [[https://www.spotify.com/][Spotify]]          | Music streaming and media services provider                                                |
+   | [[https://nodejs.org/en/][nodejs]]           | JavaScript runtime built on Chrome's V8 JavaScript engine                                  |
+   | [[https://yarnpkg.com/][yarn]]             | Fast and safe NodeJS package manager                                                       |
+   | [[https://www.docker.com/][Docker]]           | Platform for building, deploying, and managing containerized applications                  |
+   | [[https://www.beekeeperstudio.io/][Beekeper Studio]]  | Open source SQL editor                                                                     |
+   | [[https://insomnia.rest/][Insomnia]]         | API Client and Design Tool                                                                 |
+   | [[https://www.typescriptlang.org/][typescript]]       | Typed superset of JavaScript that compiles to plain JavaScript                             |
+   | [[https://elixir-lang.org/][elixir]]           | Dynamic, functional language designed for building scalable and maintainable applications  |
+   | [[https://www.rust-lang.org/][rust]]             | A language empowering everyone to build reliable and efficient software                    |
+   | [[https://github.com/dalance/procs][procs]]            | Replacement for ps written in Rust                                                         |
+   | [[https://github.com/facebook/create-react-app][create-react-app]] | Set up a modern ReactJS web app by running one command                                     |
+   | [[https://eslint.org/][eslint]]           | JavaScript and Typescript linter                                                           |
+   | [[https://prettier.io/][prettier]]         | Opinated code formatter                                                                    |
+   | [[https://github.com/dylanaraps/neofetch][neofetch]]         | A command-line system information tool                                                     |
+   | [[https://github.com/ppetr/ncdu][ncdu]]             | Curses-based version of the well-known 'du'                                                |
+   | [[https://web.telegram.org/][telegram-desktop]] | Instant message sender based on cloud                                                      |
+   | [[https://cloud.google.com/sdk/][google cloud sdk]] | A complete tooling to interact to google cloud                                             |
+   | [[https://www.qbittorrent.org/][qbittorrent]]      | The qBittorrent project aims to provide an open-source software alternative to µTorrent    |
+   | [[https://discord.com/][discord]]          | Group-chatting platform                                                                    |
+   | [[https://github.com/jesseduffield/lazygit][lazygit]]          | A simple terminal UI for git commands                                                      |
+   | [[https://github.com/charmbracelet/glow][glow]]             | Terminal based markdown reader                                                             |
+   | [[https://github.com/ogham/exa][exa]]              | exa is a modern replacement for ls                                                         |
+   | [[https://starship.rs/][starship]]         | The minimal, blazing-fast, and infinitely customizable prompt for any shell!               |
+   | [[https://github.com/dandavison/delta][git-delta]]        | A viewer for git and diff output                                                           |
+   | [[https://xmonad.org/][xmonad]]           | Dynamically tiling X11 window manager that is written and configured in Haskell            |
+   | [[https://hackage.haskell.org/package/xmobar][xmobar]]           | Minimalistic text based status bar                                                         |
+   | [[https://github.com/yshui/picom][picom]]            | A lightweight compositor for X11                                                           |
+   | [[https://dunst-project.org/][dunst]]            | Lightweight replacement for the notification-daemons provided by most desktop environments |
+   | [[https://github.com/fosskers/aura][aura]]             | A secure, multilingual package manager for Arch Linux and the AUR                          |
+   | [[https://github.com/flameshot-org/flameshot][flameshot]]        | Powerful yet simple to use screenshot software                                             |
+   | [[https://github.com/pwmt/zathura][zathura]]          | Vim like document viewer                                                                   |
+   | [[https://github.com/mpv-player/mpv][mpv]]              | Command line video player                                                                  |
+   | [[https://www.microsoft.com/en-us/edge][microsoft-edge]]   | Browser                                                                                    |
+   | [[https://www.erlang.org/][erlang]]           | Programming language used to build massively scalable soft real-time systems               |
+   | [[https://www.haskell.org/][haskell]]          | Declarative, statically typed code                                                         |
+   | [[https://www.phoenixframework.org/][phoenix]]          | Peace of mind from prototype to production                                                 |
+   | [[https://github.com/sharkdp/fd][fd]]               | A simple, fast and user-friendly alternative to 'find'                                     |
+   | [[https://github.com/firebase/firebase-tools][firebase-tools]]   | The Firebase Command Line Tools                                                            |
+   | [[https://www.gnu.org/software/emacs/][emacs]]            | An extensible, customizable, free/libre text editor                                        |
+   | [[https://github.com/freedesktop/xorg-xrandr][xrandr]]           | Primitive command line interface to RandR extension                                        |
 ** Screenshots
    :PROPERTIES:
    :CUSTOM_ID: screenshots
@@ -260,7 +284,7 @@ Then cd into it and run the installer script! You need to have all the
 dependencies satisfied to everything work well!
 
 #+begin_example
-  cd dotfiles && elixir installer.exs
+  cd dotfiles && sudo ./install.fish
 #+end_example
 
 ** License
