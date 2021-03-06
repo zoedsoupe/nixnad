@@ -42,6 +42,6 @@ test-setup:
   COPY .formatter.exs .
   RUN mix local.rebar --force \
       && mix local.hex --force \
-      && mix do deps.get,deps.compile
+      && mix do deps.get, deps.compile
 
   COPY --dir config lib test ./
