@@ -27,9 +27,9 @@ alias gac="ga && gc"
 
 # docker
 alias aws="docker run --rm -it -v ~/.aws:/root/.aws amazon/aws-cli"
-alias psql="docker exec -it 2df73117f099 psql $argv"
-alias pg_isready="docker exec -it 2df73117f099 pg_isready $argv"
-alias start_postgres="docker start 2df73117f099"
+alias psql="docker exec -it postgres psql $argv"
+alias pg_isready="docker exec -it postgres pg_isready $argv"
+alias start_postgres="docker start postgres"
 
 # replace software
 alias lg="lazygit"
@@ -39,9 +39,6 @@ alias ls="exa -l"
 alias cheat="tldr $argv"
 alias prettyjson="python -m json.tool | bat"
 alias d="rm -rf $argv"
-
-# system health
-alias node_modules="find . -name "node_modules" -type d -prune -exec rm -rf '{}' +"
 
 # screens
 alias one_screen="xrandr --output eDP-1 --auto --output HDMI-1 --off"
