@@ -84,10 +84,8 @@
     :back "%>"))) ;; regex to find the closing tag
 
 (mmm-add-mode-ext-class 'mhtml-mode nil 'eex-elixir)
-
 ;; Theme----------------------------------
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(use-package zerodark-theme)
 
 (load-theme 'omni t)
 (omni-setup-modeline-format)

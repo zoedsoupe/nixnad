@@ -4,11 +4,7 @@
 ;;; Code:
 
 (use-package emojify
-  :hook
-  (erc-mode . emojify-mode)
-  (markdown-mode . emojify-mode)
-  (org-mode . emojify-mode)
-  :commands emojify-mode)
+  :hook (after-init . global-emojify-mode))
 
 (provide 'init-emoji)
 ;;; init-emoji ends here

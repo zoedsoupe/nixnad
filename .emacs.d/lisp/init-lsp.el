@@ -3,7 +3,7 @@
 ;;;  Config for LSP
 ;;; Code:
 
-(defun mdsp--advice-lsp-mode-silence (format &rest args)
+(defun mdsp--advice-lsp-mode-silence (format &rest)
   "Silence needless diagnostic messages from `lsp-mode'.
 This is a `:before-until' advice for several `lsp-mode' logging
 functions."
@@ -12,12 +12,7 @@ functions."
    (string-match-p "Connected to %s" format)
    (string-match-p "Unable to calculate the languageId" format)
    (string-match-p
-    "There are no language servers supporting current mode" format)
-   ;; Errors we get from gopls for no good reason (I can't figure
-   ;; out why). They don't impair functionality.
-   (and (stringp (car args))
-        (or (string-match-p "^no object for ident .+$" (car args))
-            (string-match-p "^no identifier found$" (car args))))))
+    "There are no language servers supporting current mode" format)))
 
 (use-package lsp-mode
   :commands (lsp-enable-which-key-integration
