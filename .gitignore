@@ -1,22 +1,51 @@
-.netrwhist
-.xmonad/xmonad-x86_64-linux
-*.hi
-*.o
-*.errors
-**/.stack-work
-.emacs.d/auto-save-list
-elpa
-projectile*
-recentf
-transient
-.extension
-recentf~
-.lsp*
-*\~
-*.db
-**/var/
-**/emojis/
-**/.cache
-.emacs.d/custom.el
-.emacs.d/flycheck_init.el
+# The directory Mix will write compiled artifacts to.
+/_build/
+
+# If you run "mix test --cover", coverage assets end up here.
+/cover/
+
+# The directory Mix downloads your dependencies sources to.
+/deps/
+
+# Where third-party dependencies like ExDoc output generated docs.
+/doc/
+
+# Ignore .fetch files in case you like to edit your project deps locally.
+/.fetch
+
+# If the VM crashes, it generates a dump, let's ignore it too.
+erl_crash.dump
+
+# Also ignore archive artifacts (built via "mix archive.build").
+*.ez
+
+# Ignore package tarball (built via "mix hex.build").
+dotfiles-*.tar
+
+# Temporary files for e.g. tests
+/tmp
+
+# Xmonad and Xmobar stuff
+/dots/.xmonad/xmonad-x86_64-linux
+**/*.hi
+**/*.o
+**/*.errors
+**/.stack-work/
+
+# Emacs stuff
+/dots/.emacs.d/auto-save-list
+/dots/.emacs.d/elpa/
+/dots/.emacs.d/projectile*
+/dots/.emacs.d/recentf
+/dots/.emacs.d/transient
+/dots/.emacs.d/.extension
+/dots/.emacs.d/.lsp*
+/dots/.emacs.d/*.db
+/dots/.emacs.d/var/
+/dots/.emacs.d/emojis/
+/dots/.emacs.d/.cache/
+/dots/.emacs.d/custom.el
+/dots/.emacs.d/flycheck_init.el
+
+# Fish stuff
 fish/fish_variables
