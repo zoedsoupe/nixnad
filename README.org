@@ -271,22 +271,8 @@ To see/download my neovim config file, follow [[https://github.com/Mdsp9070/dotf
    :PROPERTIES:
    :CUSTOM_ID: install
    :END:
-Clone this repo:
 
-#+begin_example
-  gh repo clone Mdsp9070/dorfiles
-
-  # or
-
-  git clone https://github.com/Mdsp9070/dotfiles
-#+end_example
-
-Then cd into it and run the installer script! You need to have all the
-dependencies satisfied to everything work well!
-
-#+begin_example
-  cd dotfiles && ./install.fish
-#+end_example
+WIP...
 
 ** License
    :PROPERTIES:
