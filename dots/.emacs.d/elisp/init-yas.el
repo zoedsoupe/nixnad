@@ -7,6 +7,7 @@
 (require 'yasnippet)
 
 (use-package yasnippet
+  :straight t
   :hook (prog-mode . yas-global-mode)
   :config
   (setq yas-verbosity 2)

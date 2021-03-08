@@ -45,5 +45,7 @@ resources.")
 (advice-remove #'display-graphic-p #'mdsp--advice-fix-display-graphic-p)
 (advice-remove #'xw-display-color-p #'mdsp--advice-fix-xw-display-color-p)
 
+(setq package-enable-at-startup nil)
+
 (provide 'early-init)
 ;;; early-init ends here

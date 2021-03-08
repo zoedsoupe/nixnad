@@ -4,6 +4,7 @@
 ;;; Code:
 
 (use-package projectile
+  :straight t
   :init
   (projectile-mode)
   (setq projectile-mode-line-prefix ""

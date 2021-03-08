@@ -51,12 +51,15 @@
 ;; Basic Packages------------------------------------
 
 ;; Required by `use-package'
-(use-package bind-key)
+(use-package bind-key
+  :straight t)
 (use-package blackout
+  :straight t
   :demand t)
 
 ;; Update GPG keyring for GNU ELPA
-(use-package gnu-elpa-keyring-update)
+(use-package gnu-elpa-keyring-update
+  :straight t)
 
 ;; Replace default `list-packages'
 (defun my-paradox-enable (&rest _)
@@ -65,6 +68,7 @@
 
 ;; A modern Packages Menu
 (use-package paradox
+  :straight t
   :init
   (setq paradox-execute-asynchronously t
         paradox-github-token t
@@ -80,14 +84,8 @@
                     (page-break-lines-mode 1))))
               t)))
 
-;; Auto update packages
-(use-package auto-package-update
-  :init
-  (setq auto-package-update-delete-old-versions t
-        auto-package-update-hide-results t)
-  (defalias 'upgrade-packages #'auto-package-update-now))
-
 (use-package recentf
+  :straight t
   :ensure nil
   :bind (("C-x C-r" . recentf-open-files))
   :hook (after-init . recentf-mode)
@@ -113,10 +111,12 @@
 
 ;; Better Commenter----------------------------------------
 (use-package evil-nerd-commenter
+  :straight t
   :init (evilnc-default-hotkeys t))
 
 ;; Remove whitespaces---------------------------------------
 (use-package ws-butler
+  :straight t
   :hook ((text-mode . ws-butler-mode)
          (prog-mode . ws-butler-mode)))
 
@@ -124,6 +124,7 @@
 ;; `query-replace' which highlights matches and replacements as you
 ;; type.
 (use-package visual-regexp
+  :straight t
   :bind (([remap query-replace] . #'vr/query-replace)))
 
 ;; Editing---------------------------------------------
@@ -142,13 +143,6 @@
 ;; When filling paragraphs, assume that sentences end with one space
 ;; rather than two.
 (setq sentence-end-double-space nil)
-
-;; Trigger auto-fill after punctutation characters, not just
-;; whitespace.
-(mapc
- (lambda (c)
-   (set-char-table-range auto-fill-chars c t))
- "!-=+]};:'\",.?")
 
 (provide 'init-basic)
 ;;; init-basic ends here

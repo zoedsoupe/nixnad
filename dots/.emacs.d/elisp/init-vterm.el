@@ -4,6 +4,7 @@
 ;;; Code:
 
 (use-package vterm
+  :straight t
   :commands vterm
   :config
   (setq vterm-max-scrollback 10000))

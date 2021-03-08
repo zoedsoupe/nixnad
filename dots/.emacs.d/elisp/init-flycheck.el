@@ -3,21 +3,17 @@
 ;;;  Config for flycheck
 ;;; Code:
 
-(require 'lsp-ui)
-
 (defun +syntax-init-popups-h ()
   "Activate `flycheck-posframe-mode' if available and in GUI Emacs.
-Activate `flycheck-popup-tip-mode' otherwise.
-Do nothing if `lsp-ui-mode' is active and `lsp-ui-sideline-enable' is non-nil."
-  (unless (and (bound-and-true-p lsp-ui-mode)
-               lsp-ui-sideline-enable)
-    (if (and (fboundp 'flycheck-posframe-mode)
+Activate `flycheck-popup-tip-mode' otherwise."
+  (if (and (fboundp 'flycheck-posframe-mode)
              (display-graphic-p))
         (flycheck-posframe-mode +1)
-      (flycheck-popup-tip-mode +1))))
+      (flycheck-popup-tip-mode +1)))
 
 
 (use-package flycheck
+  :straight t
   :defer t
   :hook (prog-mode . flycheck-mode)
   :commands flycheck-list-errors flycheck-buffer
@@ -29,10 +25,12 @@ Do nothing if `lsp-ui-mode' is active and `lsp-ui-sideline-enable' is non-nil."
   (setq flycheck-display-errors-delay 0.25))
 
 (use-package flycheck-popup-tip
+  :straight t
   :commands flycheck-popup-tip-show-popup flycheck-popup-tip-delete-popup
   :hook (flycheck-mode . +syntax-init-popups-h))
 
 (use-package git-gutter-fringe
+  :straight t
   :after flycheck
   :config
   (setq-default fringes-outside-margins t)
@@ -52,6 +50,7 @@ Do nothing if `lsp-ui-mode' is active and `lsp-ui-sideline-enable' is non-nil."
 (global-git-gutter-mode +1)
 
 (use-package magit
+  :straight t
   :commands (magit-status magit-get-current-branch)
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))

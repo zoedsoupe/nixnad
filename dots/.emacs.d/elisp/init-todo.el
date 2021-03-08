@@ -4,6 +4,7 @@
 ;;; Code:
 
 (use-package hl-todo
+  :straight t
   :init (global-hl-todo-mode))
 
 (provide 'init-todo)

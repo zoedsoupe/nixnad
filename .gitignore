@@ -46,6 +46,9 @@ dotfiles-*.tar
 /dots/.emacs.d/.cache/
 /dots/.emacs.d/custom.el
 /dots/.emacs.d/flycheck_init.el
+/dots/.emacs.d/straight/*.el
+/dots/.emacs.d/straight/build/
+/dots/.emacs.d/straight/repos/
 
 # Fish stuff
 /dots/fish/fish_variables

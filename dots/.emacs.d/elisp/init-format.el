@@ -3,8 +3,6 @@
 ;;;  Config for auto format on save
 ;;; Code:
 
-(require 'lsp-mode)
-(require 'org)
 (require 'format-all)
 
 (defun +format--delete-whole-line (&optional arg)
@@ -101,9 +99,6 @@ Stolen shamelessly from go-mode"
 (defvar-local +format-with nil
   "Set this to explicitly use a certain formatter for the current buffer.")
 
-(defvar +format-with-lsp t
-  "If non-nil, format with LSP formatter if it's available.")
-
 (defun +format-probe-a (orig-fn)
   "Use `+format-with' instead, if it is set.
 Prompts for a formatter if universal arg is set, receives ORIG-FN."
@@ -198,53 +193,9 @@ See `+format/buffer' for the interactive version of this function, and
                    (:reformatted (format "Reformatted with %s" formatter))))))))
 
 (defun +format/buffer ()
-  "Reformat the current buffer using LSP or `format-all-buffer'."
+  "Reformat the current buffer using `format-all-buffer'."
   (interactive)
-  (if (eq major-mode 'org-mode)
-      (when (org-in-src-block-p t)
-        (+format--org-region nil nil))
-    (call-interactively
-     (cond ((and +format-with-lsp
-                 (bound-and-true-p lsp-mode)
-                 (lsp-feature? "textDocument/formatting"))
-            #'lsp-format-buffer)
-           (#'format-all-buffer)))))
-
-(defun +format--org-region (beg end)
-  "Reformat the region within BEG and END.
-If nil, BEG and/or END will default to the boundaries of the src block at point."
-  (let ((element (org-element-at-point)))
-    (save-excursion
-      (let* ((block-beg (save-excursion
-                          (goto-char (org-babel-where-is-src-block-head element))
-                          (line-beginning-position 2)))
-             (block-end (save-excursion
-                          (goto-char (org-element-property :end element))
-                          (skip-chars-backward " \t\n")
-                          (line-beginning-position)))
-             (beg (if beg (max beg block-beg) block-beg))
-             (end (if end (min end block-end) block-end))
-             (lang (org-element-property :language element))
-             (major-mode (org-src-get-lang-mode lang)))
-        (if (eq major-mode 'org-mode)
-            (user-error "Cannot reformat an org src block in org-mode")
-          (+format/region beg end))))))
-
-(defun +format/region (beg end)
-  "Run the active formatter on the lines within BEG and END.
-WARNING: this may not work everywhere.  It will throw errors if the region
-contains a syntax error in isolation.  It is mostly useful for formatting
-snippets or single lines."
-  (interactive "rP")
-  (if (and (eq major-mode 'org-mode)
-           (org-in-src-block-p t))
-      (+format--org-region beg end)
-    (cond ((and +format-with-lsp
-                (bound-and-true-p lsp-mode)
-                (lsp-feature? "textDocument/rangeFormatting"))
-           (call-interactively #'lsp-format-region))
-          ((save-restriction
-             (narrow-to-region beg end))))))
+  (call-interactively (#'format-all-buffer)))
 
 (defun +format-enable-on-save-h ()
   "Enables formatting on save."
@@ -254,6 +205,7 @@ snippets or single lines."
   "Format the source code in the current buffer with minimal feedback.")
 
 (use-package format-all
+  :straight t
   :hook
   (prog-mode . format-all-mode)
   (format-all-mode . format-all-ensure-formatter))
@@ -262,7 +214,6 @@ snippets or single lines."
   '(not emacs-lisp-mode))
 (defvar +format-preserve-identation t)
 (defvar-local +format-with nil)
-(defvar +format-with-lsp t)
 
 (defun +format-enable-on-save-maybe-h ()
   "Enable formatting on save in  certain major modes."
@@ -280,7 +231,6 @@ snippets or single lines."
 (advice-add #'format-all--probe :around #'+format-probe-a)
 (advice-add #'format-all-buffer--with :around #'+format-buffer-a)
 (add-to-list 'debug-ignored-errors "^Don't know how to format ")
-
 
 (provide 'init-format)
 ;;; init-format ends here
