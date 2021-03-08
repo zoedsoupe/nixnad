@@ -84,7 +84,7 @@ treeselectAction a = TS.treeselectAction a
        ]
    , Node (TS.TSNode "+ Programming" "programming and scripting tools" (return ()))
        [ Node (TS.TSNode "+ Emacs" "Emacs is more than a text editor" (return ()))
-           [ Node (TS.TSNode "Emacs Client" "Doom Emacs launched as client" (spawn "emacsclient -c -a emacs")) []
+           [ Node (TS.TSNode "Emacs Client" "Emacs launched as client" (spawn "emacsclient -c -a emacs")) []
            , Node (TS.TSNode "M-x ibuffer" "Emacs buffer list" (spawn "emacsclient -c -a '' --eval '(ibuffer)'")) []
            , Node (TS.TSNode "M-x vterm" "Emacs" (spawn "emacsclient -c -a '' --eval '(+vterm/here nil))'")) []
            ]
@@ -132,7 +132,7 @@ treeselectAction a = TS.treeselectAction a
            , Node (TS.TSNode "Wikipedia" "The free encyclopedia" (spawn (myBrowser ++ " https://www.wikipedia.org/"))) []
            ]
        , Node (TS.TSNode "+ Programming" "programming and scripting" (return ()))
-           [ Node (TS.TSNode "+ Fish and Shell Scripting" "shell scripting documentation" (return ()))
+           [ Node (TS.TSNode "+ Shell" "shell scripting documentation" (return ()))
                [ Node (TS.TSNode "Fish" "Documentation for fish" (spawn (myBrowser ++ " https://fishshell.com/docs/current/index.html"))) []
                , Node (TS.TSNode "r/fishshell" "Subreddit for fish" (spawn (myBrowser ++ " https://www.reddit.com/r/fishshell/"))) []
                , Node (TS.TSNode "r/commandline" "Subreddit for the command line" (spawn (myBrowser ++ " https://www.reddit.com/r/commandline/"))) []
@@ -160,28 +160,20 @@ treeselectAction a = TS.treeselectAction a
              , Node (TS.TSNode "Elixir on StackExchange" "Newest elixir topics on StackExchange" (spawn (myBrowser ++ " https://stackoverflow.com/questions/tagged/elixir"))) []
              ]
          ]
-       , Node (TS.TSNode "My Start Page" "Custom start page for browser" (spawn (myBrowser ++ "file://$HOME/.surf/html/homepage.html"))) []
        ]
    , Node (TS.TSNode "+ Config Files" "config files that edit often" (return ()))
-       [ Node (TS.TSNode "+ doom emacs configs" "My doom emacs config files" (return ()))
-         [ Node (TS.TSNode "Doom Emacs init.el" "doom emacs init" (spawn (myEditor ++ "$HOME/.doom.d/init.el"))) []
-         , Node (TS.TSNode "Doom Emacs packages.el" "doom emacs packages" (spawn (myEditor ++ "$HOME/.doom.d/packages.el"))) []
-         , Node (TS.TSNode "Doom Emacs eshell aliases" "the aliases for use in eshell" (spawn (myEditor ++ "$HOME/.doom.d/aliases"))) []
+       [ Node (TS.TSNode "+ emacs configs" "My emacs config files" (return ()))
+         [ Node (TS.TSNode "Emacs init.el" "emacs init" (spawn (myEditor ++ "$HOME/.emacs.d/init.el"))) []
+         , Node (TS.TSNode "Emacs custom elisp" "emacs custom elisp" (spawn (myEditor ++ "$HOME/.emacs.d/elisp/"))) []
          ]
-       , Node (TS.TSNode "+ xmobar configs" "My xmobar config files" (return ()))
-           [ Node (TS.TSNode "xmobar" "status bar" (spawn (myEditor ++ "$HOME/.config/xmobar/xmobarrc"))) []
-           ]
-       , Node (TS.TSNode "+ xmonad configs" "My xmonad config files" (return ()))
-           [ Node (TS.TSNode "xmonad.hs" "My XMonad Main" (spawn (myEditor ++ "$HOME/.xmonad/xmonad.hs"))) []
-           , Node (TS.TSNode "xmonadctl.hs" "The xmonadctl script" (spawn (myEditor ++ "$HOME/.xmonad/xmonadctl.hs"))) []
-           ]
+       , Node (TS.TSNode "xmobar" "status bar" (spawn (myEditor ++ "$HOME/.config/xmobar/xmobarrc"))) []
+       , Node (TS.TSNode "xmonad.hs" "My XMonad Main" (spawn (myEditor ++ "$HOME/.xmonad/xmonad.hs"))) []
        , Node (TS.TSNode "alacritty" "alacritty terminal emulator" (spawn (myEditor ++ "$HOME/.config/alacritty/alacritty.yml"))) []
-       , Node (TS.TSNode "fishrc" "the friendly interactive shell" (spawn (myEditor ++ "$HOME/.config/fish/config.fish"))) []
-       , Node (TS.TSNode "neovim init.vim" "neovim text editor" (spawn (myEditor ++ "$HOME/.config/nvim/init.vim"))) []
+       , Node (TS.TSNode "fish" "the friendly interactive shell" (spawn (myEditor ++ "$HOME/.config/fish/config.fish"))) []
        ]
    , Node (TS.TSNode "+ Screenshots" "take a screenshot" (return ()))
-       [ Node (TS.TSNode "Quick fullscreen" "take screenshot immediately" (spawn "scrot -d 1 ~/pics/screenshots/%Y-%m-%d-@%H-%M-%S-scrot.png")) []
-       , Node (TS.TSNode "Delayed fullscreen" "take screenshot in 5 secs" (spawn "scrot -d 5 ~/pics/screenshots/%Y-%m-%d-@%H-%M-%S-scrot.png")) []
-       , Node (TS.TSNode "Section screenshot" "take screenshot of section" (spawn "scrot -s ~/pics/screenshots/%Y-%m-%d-@%H-%M-%S-scrot.png")) []
+       [ Node (TS.TSNode "Quick fullscreen" "take screenshot immediately" (spawn "flameshot screen -p ~/pics/screenshots/")) []
+       , Node (TS.TSNode "Delayed fullscreen" "take screenshot in 5 secs" (spawn "flameshot -d 5000 -p ~/pics/screenshots/")) []
+       , Node (TS.TSNode "Section screenshot" "take screenshot of section" (spawn "flameshot gui -p ~/pics/screenshots/")) []
        ]
    ] 
