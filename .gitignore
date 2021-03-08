@@ -48,4 +48,4 @@ dotfiles-*.tar
 /dots/.emacs.d/flycheck_init.el
 
 # Fish stuff
-fish/fish_variables
+/dots/fish/fish_variables

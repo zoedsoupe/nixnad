@@ -107,8 +107,6 @@ defmodule Installer do
   @config_path Path.expand("~/.config")
   @home_dir Path.expand("~")
 
-  @ignore [~r(\.git$), ~r(\.gitignore), ~r(README), ~r(assets), ~r(exs$)]
-
   def link do
     "I'll link all these configs for you! Let's go:"
     |> info()
@@ -130,13 +128,12 @@ defmodule Installer do
         |> success()
     end
 
-    for config <- Path.wildcard("./*", match_dot: true) do
-      config_path = actual_path <> "/#{config}"
+    for config <- Path.wildcard("./dots/*", match_dot: true) do
+      config = config |> String.replace("dots/", "")
+
+      config_path = actual_path <> "/dots/#{config}"
 
       cond do
-        @ignore |> Enum.filter(&(config =~ &1)) |> length() > 0 ->
-          skip(config)
-
         config =~ ~r(^\..+) ->
           (@home_dir <> "/#{config}")
           |> link_if_exist(config, config_path, &link_to_home/2)
