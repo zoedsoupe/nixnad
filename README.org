@@ -35,7 +35,7 @@
 <p align="center">
   <a href="#programs">Programs</a> •
   <a href="#screenshots">Screenshots</a> •
-  <a href="#neovim">Neovim</a> •
+  <a href="https://github.com/Mdsp9070/dotfiles/tree/12e57d78bf23f7a3abb48c79f757bb573a632210/nvim">Neovim</a> •
   <a href="#emacs">Emacs</a> •
   <a href="#install">Install</a> •
   <a href="#license">License</a>
@@ -112,68 +112,6 @@ however not be fully reproduced on macOs or Bsd systems.
 
 #+caption: screenshot
 [[./assets/screenshot.png]]
-
-** Neovim Plugins
-   :PROPERTIES:
-   :CUSTOM_ID: neovim
-   :END:
-
-To see/download my neovim config file, follow [[https://github.com/Mdsp9070/dotfiles/tree/12e57d78bf23f7a3abb48c79f757bb573a632210/nvim][this link]]!
-
-| Plugin name           | Role                                       |
-|-----------------------+--------------------------------------------|
-| [[https://github.com/Shougo/dein.vim][dein.vim]]              | Plugin manager                             |
-| [[https://github.com/wsdjeg/dein-ui.vim][dein-ui.vim]]           | UI for dein                                |
-| [[https://github.com/luochen1990/rainbow][rainbow]]               | Rainbow matches (parens, brackets, ...)    |
-| [[https://github.com/tpope/vim-projectionist][vim-projectionist]]     | Granular project configuration             |
-| [[https://github.com/psliwka/vim-smoothie][vim-smoothie]]          | Smoothier vim moves                        |
-| [[https://github.com/AndrewRadev/tagalong.vim][tagalong.vim]]          | Auto change html tags                      |
-| [[https://github.com/mattn/emmet-vim][emmet-vim]]             | Emmet for vim                              |
-| [[https://github.com/junegunn/goyo.vim][goyo]]                  | Zen mode                                   |
-| [[https://github.com/liuchengxu/vim-which-key][vim-which-key]]         | Like emacs which keys                      |
-| [[https://github.com/norcalli/nvim-colorizer.lua][nvim-colorizer.lua]]    | Colorizer for literal hex, rgb, rgba       |
-| [[https://github.com/nvim-treesitter/nvim-treesitter][nvim-treesitter]]       | Syntax highlighting                        |
-| [[https://github.com/mhinz/vim-signify][vim-signify]]           | Show git modifications                     |
-| [[https://github.com/tpope/vim-fugitive][vim-fugitive]]          | Git wrapper                                |
-| [[https://github.com/tpope/vim-rhubarb][vim-rhubarb]]           | Github wrapper                             |
-| [[https://github.com/junegunn/gv.vim][gv.vim]]                | Git commit browser                         |
-| [[https://github.com/rhysd/git-messenger.vim][git-messenger.vim]]     | Git hidden messages                        |
-| [[https://github.com/GuiLra/vim-omni/][vim-omni]]              | Omni colorscheme                           |
-| [[https://github.com/neoclide/coc.nvim][coc.nvim]]              | LSP integration                            |
-| [[https://github.com/earthly/earthly.vim][earthly.vim]]           | Earthfile syntax highlighting              |
-| [[https://github.com/neovimhaskell/haskell-vim][haskell.vim]]           | Haskell syntax highlighting and identation |
-| [[https://github.com/wfxr/minimap.vim][minimap.vim]]           | Blazing fast minimap                       |
-| [[https://github.com/elixir-editors/vim-elixir][vim-elixir]]            | Support for Elixir                         |
-| [[https://github.com/Yggdroot/indentLine][identLine]]             | Display indentation levels                 |
-| [[https://github.com/tpope/vim-surround][vim-surround]]          | Surrounds anything!!!                      |
-| [[https://github.com/tpope/vim-commentary][vim-commentary]]        | Comments anything!!!                       |
-| [[https://github.com/akinsho/nvim-bufferline.lua][nvim-bufferline.lua]]   | Bufferline                                 |
-| [[https://github.com/glepnir/spaceline.vim][spaceline.vim]]         | Spaceline like spacemacs                   |
-| [[https://github.com/kyazdani42/nvim-web-devicons][nvim-web-devicons]]     | Icons, icons everywhere                    |
-| [[https://github.com/easymotion/vim-easymotion][vim-easymotion]]        | Better motions                             |
-| [[https://github.com/iamcco/markdown-preview.nvim][markdown-preview.nvim]] | Markdown Preview                           |
-| [[https://github.com/pechorin/any-jump.vim][any-jump.vim]]          | Jump to any definitio                      |
-
-*** Coc extensions
-
-- coc-pairs
-- coc-tsserver
-- coc-eslint
-- coc-prettier
-- coc-json
-- coc-css
-- coc-html
-- coc-markdownlint
-- coc-svg
-- coc-vimlsp
-- coc-emoji
-- coc-elixir
-- coc-docker
-- coc-erlang_ls
-- coc-solargraph
-- coc-fish
-- extras
-  - haskell-language-server
 
 ** Emacs packages
    :PROPERTIES:
@@ -279,4 +217,4 @@ WIP...
    :CUSTOM_ID: license
    :END:
 
-[[./LICENSE][MIT License]]
+This project is licensed under the[[./LICENSE][MIT License]].

@@ -6,7 +6,7 @@
 (require 'all-the-icons)
 
 (use-package dashboard
-  :diminish (dashboard-mode page-break-lines-mode)
+  :straight t
   :functions (all-the-icons-faicon
               all-the-icons-material
               winner-undo

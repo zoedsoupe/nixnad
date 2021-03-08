@@ -24,7 +24,7 @@
                      gcs-done)))
 
 ;; to load all config files
-(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "elisp" user-emacs-directory))
 
 ;; packages
 (require 'package)
@@ -36,37 +36,40 @@
 
 (defvar my-packages)
 (setq my-packages
-      '(dashboard company centaur-tabs hl-todo git-gutter-fringe blackout
+      '(dashboard centaur-tabs hl-todo git-gutter-fringe blackout
 		  vterm magit gist rainbow-delimiters rainbow-mode projectile
-		  paredit flycheck clojure-mode cider clj-refactor flycheck-clj-kondo
-		  elixir-mode alchemist exunit flycheck-credo erlang haskell-mode
-		  dante attrap use-package org lsp-mode lsp-ui lsp-haskell js2-mode
-		  rjsx-mode typescript-mode js2-refactor markdown-mode markdown-toc
-		  edit-indirect grip-mode fish-mode company-shell emmet-mode web-mode
-		  company-web css-mode less-css-mode sass-mode toml-mode yaml-mode
-		  json-mode all-the-icons emojify page-break-lines yasnippet
-		  flycheck-popup-tip format-all org-cliplink org-pdftools orgit
-		  org-brain org-download centered-window org-tree-slide which-key
-		  ob-elixir org-bullets org-roam company-box company-quickhelp bind-key
-		  gnu-elpa-keyring-update selectrum orderless consult consult-flycheck
-		  evil-nerd-commenter paradox auto-package-update mix yasnippet-snippets
-		  dockerfile-mode docker dumb-jump minions mmm-mode))
+		  paredit flycheck elixir-mode alchemist exunit flycheck-credo
+		  erlang haskell-mode attrap use-package org js2-mode rjsx-mode
+		  typescript-mode js2-refactor markdown-mode markdown-toc grip-mode
+		  edit-indirect fish-mode emmet-mode web-mode css-mode less-css-mode
+		  sass-mode toml-mode yaml-mode json-mode all-the-icons emojify
+		  page-break-lines yasnippet flycheck-popup-tip format-all
+		  org-cliplink org-pdftools orgit org-brain org-download
+		  centered-window org-tree-slide which-key ob-elixir org-bullets
+		  org-roam bind-key gnu-elpa-keyring-update selectrum orderless
+		  consult consult-flycheck evil-nerd-commenter paradox mix
+		  yasnippet-snippets dumb-jump minions mmm-mode))
 
-(package-initialize)
+;; straight.el bootstrap
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-(unless package-archive-contents
-  (package-refresh-contents))
-
+;; install packages
 (dolist (package my-packages)
-  (unless (package-installed-p package)
-    (package-install package)))
+  (straight-use-package package))
 
-(require 'use-package)
-(setq use-package-always-ensure t)
-(setq use-package-always-defer t)
-(setq use-package-expand-minimally t)
-
-(use-package mmm-mode)
+(use-package mmm-mode
+  :straight t)
 (require 'mmm-defaults)
 
 (setq mmm-global-mode 'auto
@@ -91,9 +94,11 @@
 (omni-setup-modeline-format)
 
 (use-package minions
+  :straight t
   :init (minions-mode 1))
 
 (use-package centaur-tabs
+  :straight t
   :init
   (centaur-tabs-mode t)
   :custom
@@ -106,7 +111,8 @@
 
 (centaur-tabs-headline-match)
 
-(use-package all-the-icons)
+(use-package all-the-icons
+  :straight t)
 
 ;; general and bootstrap config
 (require 'init-dashboard)
@@ -125,8 +131,6 @@
 (require 'init-neotree)
 (require 'init-vterm)
 (require 'init-paredit)
-(require 'init-company)
-(require 'init-lsp)
 (require 'init-format)
 
 ;; lang-modes

@@ -12,6 +12,7 @@
   (visual-line-mode 1))
 
 (use-package org
+  :straight t
   :defer t
   :hook (org-mode . mdsp/org-mode-setup)
   :config
@@ -89,6 +90,7 @@
   (org-tree-slide-mode 0))
 
 (use-package org-tree-slide
+  :straight t
   :defer t
   :after org
   :commands org-tree-slide-mode
@@ -106,6 +108,7 @@
         org-tree-slide-header t))
 
 (use-package org-roam
+  :straight t
   :ensure t
   :hook
   (after-init . org-roam-mode)
@@ -120,6 +123,7 @@
               (("C-c n I" . org-roam-insert-immediate))))
 
 (use-package org-bullets
+  :straight t
   :init
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 

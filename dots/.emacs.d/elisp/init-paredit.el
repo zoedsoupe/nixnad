@@ -4,8 +4,8 @@
 ;;; Code:
 
 (use-package paredit
+  :straight t
   :ensure t
-  :diminish "﹙﹚"
   :init
   (dolist (m (list 'emacs-lisp-mode-hook
 		   'lisp-interaction-mode-hook

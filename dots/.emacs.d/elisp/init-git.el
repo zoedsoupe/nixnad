@@ -4,6 +4,7 @@
 ;;; Code:
 
 (use-package git-gutter-fringe
+  :straight t
   :config
   (setq-default fringes-outside-margins t)
   (define-fringe-bitmap 'git-gutter-fr:added [224]

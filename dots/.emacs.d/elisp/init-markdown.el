@@ -13,6 +13,7 @@
     (set-face-attribute (car face) nil :weight 'normal :height (cdr face))))
 
 (use-package markdown-mode
+  :straight t
   :mode "\\.md\\'"
   :config
   (setq markdown-command "marked")
