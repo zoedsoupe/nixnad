@@ -111,9 +111,6 @@
 
 (centaur-tabs-headline-match)
 
-(use-package all-the-icons
-  :straight t)
-
 ;; general and bootstrap config
 (require 'init-dashboard)
 (require 'init-basic)

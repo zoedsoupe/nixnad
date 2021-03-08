@@ -34,6 +34,7 @@ modal cfg bindings = modalMap
     f (k, a) = (k, a >> modalMap)
     g k = (k, pure ())
 
+-- TODO make brightness work on Artix Linux
  -- set the backlight - I like 0 to yield 100%
 setBacklight :: Int -> X ()
 setBacklight n = spawn $ "xbacklight -set " <> show (f n)
