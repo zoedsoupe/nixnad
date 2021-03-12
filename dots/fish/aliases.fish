@@ -40,11 +40,6 @@ alias cheat="tldr $argv"
 alias prettyjson="python -m json.tool | bat"
 alias d="rm -rf $argv"
 
-# screens
-alias one_screen="xrandr --output eDP-1 --auto --output HDMI-1 --off"
-alias hdmi_on="xrandr --output eDP-1  --auto --output HDMI-1 --primary --auto --left-of eDP-1"
-alias vga_on="xrandr --output eDP-1 --auto --output DP-1 --auto --above eDP-1"
-
 # system
 alias update="sudo aura -Syyu && sudo aura -Ayyu"
 alias please="sudo $argv"
