@@ -38,3 +38,19 @@ end
 function clean_node_modules
     command find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
 end
+
+function one_screen
+    if xrandr | grep -q 'HDMI1 connected'
+        xrandr --output eDP1 --auto --output HDMI1 --off
+    else if xrandr | grep -q 'DP1 connected'
+        xrandr --output eDP1 --auto --output DP1 --off
+    end
+end
+
+function hdmi_on
+    xrandr --output eDP1  --auto --output HDMI1 --primary --auto --left-of eDP1
+end
+
+function vga_on
+    xrandr --output eDP1 --auto --output DP1 --primary --auto --left-of eDP1
+end
