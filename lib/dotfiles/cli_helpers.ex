@@ -6,9 +6,7 @@ defmodule Dotfiles.CLIHelpers do
   import Dotfiles.Colors
 
   def unknown_opts(invalid) do
-    invalid =
-      invalid
-      |> Enum.map(fn {op, _} -> op end)
+    invalid = keyword_keys(invalid)
 
     "I really don't know what to do with these options:\n#{inspect(invalid)}"
     |> warn()
@@ -18,10 +16,17 @@ defmodule Dotfiles.CLIHelpers do
     "Well, You didn't say me nothing so, what I need to do?" |> error()
   end
 
+  def ignoring_opts(invalid) do
+    invalid = keyword_keys(invalid)
+
+    "Ignoring these options as I don't recognize them:\n#{inspect(invalid)}"
+    |> warn()
+  end
+
   def default_error(_), do: default_error()
 
   def default_error do
-    ""
+    "Something got wrong..."
     |> error()
 
     System.halt(1)
@@ -46,5 +51,10 @@ defmodule Dotfiles.CLIHelpers do
     IO.puts("            Shows this help section")
 
     {:ok, "helped (:"}
+  end
+
+  defp keyword_keys(kw) do
+    kw
+    |> Enum.map(fn {op, _} -> op end)
   end
 end

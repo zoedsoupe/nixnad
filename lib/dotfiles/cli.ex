@@ -5,31 +5,28 @@ defmodule Dotfiles.CLI do
 
   import Dotfiles.CLIHelpers
 
-  alias Dotfiles.Installer
+  alias Dotfiles.Linker
 
   def main(args) do
-    args
-    |> parse_args
-    |> case do
-      {:ok, parsed} ->
-        parsed |> commands()
+    {:ok, parsed} =
+      args
+      |> parse_args
 
-      _ ->
-        default_error()
-    end
+    parsed |> commands()
   end
 
   defp commands(help: true), do: get_version() |> build_help()
-  defp commands(link: true), do: Installer.link()
+  defp commands(task: "link"), do: Linker.link()
+  defp commands(task: "install"), do: nil
 
   defp parse_args(args) do
     opts = [
-      strict: [help: :boolean, link: :boolean],
-      aliases: [h: :help, l: :link]
+      strict: [help: :boolean, link: :boolean, task: :string],
+      aliases: [h: :help, l: :link, t: :task]
     ]
 
     case OptionParser.parse(args, opts) do
-      {[], _, []} ->
+      {[], [], []} ->
         no_opts()
 
         System.halt(1)
@@ -39,8 +36,8 @@ defmodule Dotfiles.CLI do
 
         System.halt(1)
 
-      {parsed, _, invalid} ->
-        unless Enum.empty?(invalid), do: unknown_opts(invalid)
+      {parsed, _, invalid} when parsed != [] ->
+        unless Enum.empty?(invalid), do: ignoring_opts(invalid)
 
         {:ok, parsed}
     end

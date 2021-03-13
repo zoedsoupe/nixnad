@@ -1,4 +1,4 @@
-defmodule Dotfiles.Installer do
+defmodule Dotfiles.Linker do
   @moduledoc """
   Link dotfiles!
   """
@@ -20,7 +20,7 @@ defmodule Dotfiles.Installer do
       config_path = actual_path <> "/dots/#{config}"
 
       cond do
-        !want_install?(config) ->
+        !want_link?(config) ->
           skip(config)
 
         config =~ ~r(^\..+) ->
@@ -57,10 +57,10 @@ defmodule Dotfiles.Installer do
     |> warn()
   end
 
-  defp want_install?(config) do
+  defp want_link?(config) do
     config = Path.basename(config)
 
-    IO.puts("Do you want to link #{config} dot? (y/n)")
+    IO.puts("Do you want to link #{yellow(config)} dot? (y/n)")
 
     res =
       IO.gets(green("read") <> "> ")
@@ -70,7 +70,7 @@ defmodule Dotfiles.Installer do
     cond do
       res =~ "y" -> true
       res =~ "n" -> false
-      true -> want_install?(config)
+      true -> want_link?(config)
     end
   end
 
