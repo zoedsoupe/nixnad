@@ -48,7 +48,7 @@
 		  centered-window org-tree-slide which-key ob-elixir org-bullets
 		  org-roam bind-key gnu-elpa-keyring-update selectrum orderless
 		  consult consult-flycheck evil-nerd-commenter paradox mix
-		  yasnippet-snippets dumb-jump minions mmm-mode))
+		  yasnippet-snippets dumb-jump minions mmm-mode org org-wild-notifier))
 
 ;; straight.el bootstrap
 (defvar bootstrap-version)
@@ -110,6 +110,10 @@
   (centaur-tabs-modified-marker "•"))
 
 (centaur-tabs-headline-match)
+
+(use-package org-wild-notifier
+  :straight t
+  :init (org-wild-notifier-mode))
 
 ;; general and bootstrap config
 (require 'init-dashboard)
