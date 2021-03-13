@@ -10,7 +10,8 @@ defmodule Dotfiles.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       description: description(),
-      source_url: "https://github.com/Mdsp9070/dotfiles"
+      source_url: "https://github.com/Mdsp9070/dotfiles",
+      escript: [main_module: Dotfiles.CLI]
     ]
   end
 
