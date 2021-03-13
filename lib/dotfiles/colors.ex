@@ -3,7 +3,7 @@ defmodule Dotfiles.Colors do
   Define some cute colors for messages!
   """
 
-  import IO.ANSI, only: [format: 2]
+  import IO.ANSI, only: [format: 2, green: 0, yellow: 0, reset: 0]
 
   @info "ℹ"
   @success "✅"
@@ -52,5 +52,13 @@ defmodule Dotfiles.Colors do
     |> IO.puts()
 
     {:ok, msg}
+  end
+
+  def green(text) do
+    green() <> text <> reset()
+  end
+
+  def yellow(text) do
+    yellow() <> text <> reset()
   end
 end
