@@ -20,6 +20,9 @@ defmodule Dotfiles.Installer do
       config_path = actual_path <> "/dots/#{config}"
 
       cond do
+        !want_install?(config) ->
+          skip(config)
+
         config =~ ~r(^\..+) ->
           (home_path <> "/#{config}")
           |> link_if_exist(config, config_path, &link_to_home/2)
@@ -52,6 +55,23 @@ defmodule Dotfiles.Installer do
 
     "Please, remember to change ~/.gitconfig file"
     |> warn()
+  end
+
+  defp want_install?(config) do
+    config = Path.basename(config)
+
+    IO.puts("Do you want to link #{config} dot? (y/n)")
+
+    res =
+      IO.gets(green("read") <> "> ")
+      |> String.trim()
+      |> String.downcase()
+
+    cond do
+      res =~ "y" -> true
+      res =~ "n" -> false
+      true -> want_install?(config)
+    end
   end
 
   defp check_config_path(config_path) do

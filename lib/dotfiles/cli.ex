@@ -19,13 +19,13 @@ defmodule Dotfiles.CLI do
     end
   end
 
-  defp commands(help: help), do: get_version() |> build_help()
-  defp commands(link: link), do: Installer.link()
+  defp commands(help: true), do: get_version() |> build_help()
+  defp commands(link: true), do: Installer.link()
 
   defp parse_args(args) do
     opts = [
-      strict: [help: :boolean],
-      aliases: [h: :help]
+      strict: [help: :boolean, link: :boolean],
+      aliases: [h: :help, l: :link]
     ]
 
     case OptionParser.parse(args, opts) do

@@ -5,8 +5,6 @@ defmodule Dotfiles.CLIHelpers do
 
   import Dotfiles.Colors
 
-  alias IO.ANSI
-
   def unknown_opts(invalid) do
     invalid =
       invalid
@@ -25,6 +23,8 @@ defmodule Dotfiles.CLIHelpers do
   def default_error do
     ""
     |> error()
+
+    System.halt(1)
   end
 
   def get_version do
@@ -46,13 +46,5 @@ defmodule Dotfiles.CLIHelpers do
     IO.puts("            Shows this help section")
 
     {:ok, "helped (:"}
-  end
-
-  defp green(text) do
-    ANSI.green() <> text <> ANSI.reset()
-  end
-
-  defp yellow(text) do
-    ANSI.yellow() <> text <> ANSI.reset()
   end
 end
