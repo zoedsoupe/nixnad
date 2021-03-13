@@ -6,7 +6,7 @@ defmodule Dotfiles.Helpers do
   @config_folder Application.compile_env(:dotfiles, :paths)[:config_path]
   @home_path Application.compile_env(:dotfiles, :paths)[:home_path]
 
-  import Dotfiles.Messages
+  import Dotfiles.Colors
 
   def skip(config), do: "Skipping #{config}..." |> info()
 

@@ -11,7 +11,7 @@ defmodule Dotfiles.MixProject do
       deps: deps(),
       description: description(),
       source_url: "https://github.com/Mdsp9070/dotfiles",
-      escript: [main_module: Dotfiles.CLI]
+      escript: escript()
     ]
   end
 
@@ -20,6 +20,13 @@ defmodule Dotfiles.MixProject do
     [
       extra_applications: [:logger],
       mod: {Dotfiles.Application, []}
+    ]
+  end
+
+  defp escript do
+    [
+      main_module: Dotfiles.CLI,
+      path: "./bin/dotfiles"
     ]
   end
 
