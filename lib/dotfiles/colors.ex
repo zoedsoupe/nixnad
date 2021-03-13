@@ -1,13 +1,18 @@
-defmodule Dotfiles.Messages do
+defmodule Dotfiles.Colors do
   @moduledoc """
   Define some cute colors for messages!
   """
 
   import IO.ANSI, only: [format: 2]
 
+  @info "ℹ"
+  @success "✅"
+  @failure "❌"
+  @warning "⚠"
+
   def success(task) do
     msg =
-      [:green, :bright, "DONE: ", :green, task]
+      [:green, :bright, "#{@success} DONE: ", :green, task]
       |> format(true)
 
     msg
@@ -18,7 +23,7 @@ defmodule Dotfiles.Messages do
 
   def error(reason) do
     msg =
-      [:red, :bright, "ERROR: ", :red, reason]
+      [:red, :bright, "#{@failure} ERROR: ", :red, reason]
       |> format(true)
 
     msg
@@ -29,7 +34,7 @@ defmodule Dotfiles.Messages do
 
   def warn(info) do
     msg =
-      [:yellow, :bright, "\nWARNING: ", :yellow, info]
+      [:yellow, :bright, "#{@warning} WARNING: ", :yellow, info]
       |> format(true)
 
     msg
@@ -40,7 +45,7 @@ defmodule Dotfiles.Messages do
 
   def info(desc) do
     msg =
-      [:blue, :bright, "INFO: ", :blue, desc]
+      [:blue, :bright, "#{@info} INFO: ", :blue, desc]
       |> format(true)
 
     msg

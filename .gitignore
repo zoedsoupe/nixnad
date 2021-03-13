@@ -23,7 +23,9 @@ erl_crash.dump
 dotfiles-*.tar
 
 # Temporary files for e.g. tests
-/tmp
+/tmp/
+
+/bin/
 
 # Xmonad and Xmobar stuff
 /dots/.xmonad/xmonad-x86_64-linux
