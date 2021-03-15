@@ -29,13 +29,13 @@
         org-startup-folded 'content
 	;; ex. of org-link-abbrev-alist in action
 	;; [[arch-wiki:Name_of_Page][Description]]
-	org-link-abbrev-alist    ; This overwrites the default Doom org-link-abbrev-list
+	org-link-abbrev-alist    ; This overwrites the default org-link-abbrev-list
 	'(("google" . "http://www.google.com/search?q=")
           ("arch-wiki" . "https://wiki.archlinux.org/index.php/")
 	  ("youtube" . "https://youtube.com/")
-	  ("github" . "https://github.com/")) ; TODO (IMPROVE THIS)
+	  ("github" . "https://github.com/"))
         org-cycle-separator-lines 2
-	org-todo-keywords        ; This overwrites the default Doom org-todo-keywords
+	org-todo-keywords        ; This overwrites the default org-todo-keywords
         '((sequence
            "TODO(t)"           ; A task that is ready to be tackled
            "PROJ(p)"           ; A project that contains other tasks
@@ -106,21 +106,6 @@
         org-tree-slide-activate-message "Presentation started."
         org-tree-slide-deactivate-message "Presentation ended."
         org-tree-slide-header t))
-
-(use-package org-roam
-  :straight t
-  :ensure t
-  :hook
-  (after-init . org-roam-mode)
-  :custom
-  (org-roam-directory "~/org")
-  :bind (:map org-roam-mode-map
-              (("C-c n l" . org-roam)
-               ("C-c n f" . org-roam-find-file)
-               ("C-c n g" . org-roam-graph))
-              :map org-mode-map
-              (("C-c n i" . org-roam-insert))
-              (("C-c n I" . org-roam-insert-immediate))))
 
 (use-package org-bullets
   :straight t

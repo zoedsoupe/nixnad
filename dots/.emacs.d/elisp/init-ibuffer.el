@@ -13,6 +13,7 @@
   :config
   ;; Display icons for buffers
   (use-package all-the-icons-ibuffer
+    :straight t
     :init (all-the-icons-ibuffer-mode 1))
 
   (with-eval-after-load 'counsel
@@ -26,22 +27,6 @@
                                      default-directory))))
           (counsel-find-file default-directory)))
       (advice-add #'ibuffer-find-file :override #'my-ibuffer-find-file))))
-
-;; Group ibuffer's list by project root
-(use-package ibuffer-projectile
-  :functions all-the-icons-octicon ibuffer-do-sort-by-alphabetic
-  :hook ((ibuffer . (lambda ()
-                      (ibuffer-projectile-set-filter-groups)
-                      (unless (eq ibuffer-sorting-mode 'alphabetic)
-                        (ibuffer-do-sort-by-alphabetic)))))
-  :config
-  (setq ibuffer-projectile-prefix
-	(concat
-         (all-the-icons-octicon "file-directory"
-                                :face ibuffer-filter-group-name-face
-                                :v-adjust 0.0
-                                :height 1.0)
-         " ")))
 
 (provide 'init-ibuffer)
 ;;; init-ibuffer.el ends here

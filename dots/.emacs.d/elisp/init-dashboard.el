@@ -21,9 +21,9 @@
   :hook (dashboard-mode . (lambda () (setq-local frame-title-format "")))
   :init
   (setq dashboard-startup-banner 'logo
-	dashboard-center-content t
-	dashboard-show-shortcuts nil
+	dashboard-show-shortcuts t
 	dashboard-items '((recents  . 10)
+			  (agenda . 5)
 			  (bookmarks . 5)
 			  (projects . 5))
 
@@ -74,6 +74,12 @@
     "Go to recent files."
     (interactive)
     (let ((func (local-key-binding "r")))
+      (and func (funcall func))))
+
+  (defun dashboard-goto-agenda ()
+    "Go to agenda files."
+    (interactive)
+    (let ((func (local-key-binding "a")))
       (and func (funcall func))))
 
   (defun dashboard-goto-projects ()

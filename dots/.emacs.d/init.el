@@ -46,7 +46,7 @@
 		  page-break-lines yasnippet flycheck-popup-tip format-all
 		  org-cliplink org-pdftools orgit org-brain org-download
 		  centered-window org-tree-slide which-key ob-elixir org-bullets
-		  org-roam bind-key gnu-elpa-keyring-update selectrum orderless
+		  bind-key gnu-elpa-keyring-update selectrum orderless
 		  consult consult-flycheck evil-nerd-commenter paradox mix
 		  yasnippet-snippets dumb-jump minions mmm-mode org org-wild-notifier))
 
