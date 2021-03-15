@@ -25,7 +25,7 @@ end
 
 function fcode
     command grep -rnw . -e $argv --color=always \
-        --exclude-dir={\.git,\.github,node_modules,_build,deps,\.elixir_ls}
+        --exclude-dir={\.git,\.github,node_modules,_build,deps,\.elixir_ls,\.straight}
 end
 
 function pandoc
