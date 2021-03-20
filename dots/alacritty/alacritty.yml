@@ -1,5 +1,5 @@
 import:
-  - /home/matthew/Documents/privy/dotfiles/alacritty/omni.yml
+  - /home/matthew/.config/alacritty/omni.yml
 
 window:
   dynamic_title: true
