@@ -7,6 +7,9 @@
 ### PROMPT ###
 starship init fish | source
 
+# SHELL THEME
+source $HOME/.config/fish/omni.fish
+
 ### AUTOJUMP ###
 begin
     set --local AUTOJUMP_PATH $HOME/.autojump/share/autojump/autojump.fish
