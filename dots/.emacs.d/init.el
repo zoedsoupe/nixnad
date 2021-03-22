@@ -48,7 +48,8 @@
 		  centered-window org-tree-slide which-key ob-elixir org-bullets
 		  bind-key gnu-elpa-keyring-update selectrum orderless
 		  consult consult-flycheck evil-nerd-commenter paradox mix
-		  yasnippet-snippets dumb-jump minions mmm-mode org org-wild-notifier))
+		  yasnippet-snippets dumb-jump minions mmm-mode org
+		  org-wild-notifier package-lint))
 
 ;; straight.el bootstrap
 (defvar bootstrap-version)
