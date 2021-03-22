@@ -57,9 +57,8 @@ function die --on-event command-failed
 end
 
 function prompt
-    set_color green
-    echo -n "$argv> "
-    set_color normal
+    green $argv
+    normal "> "
 end
 
 function info
@@ -621,6 +620,8 @@ function link
 
     menu && info "Type all numbers that wou want to link separated by spaces!\n"
     read -p "prompt dots" options
+
+    echo $options
 
     success "All linked! Congrats!\n"
 end
