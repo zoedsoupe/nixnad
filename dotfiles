@@ -8,9 +8,8 @@ set config_path $HOME/.config
 set fish_config_path $HOME/.config/fish/config.fish
 set fish_var_file $HOME/.config/fish/env_vars.fish
 
-set files_to_link ""
-
 set dots_version "2.0.0"
+set dots_repo "https://github.com/Mdsp9070/dotfiles"
 
 # Colors Functions
 
@@ -32,6 +31,12 @@ function red
     set_color normal
 end
 
+function magenta
+    set_color magenta
+    echo -ne $argv
+    set_color normal
+end
+
 function blue
     set_color blue
     echo -ne $argv
@@ -41,7 +46,13 @@ end
 # General Functions
 
 function die --on-event command-failed
-    exit
+    exit 1
+end
+
+function prompt
+    set_color green
+    echo -n "$argv> "
+    set_color normal
 end
 
 function info
@@ -64,9 +75,12 @@ function success_installed
     success "$argv installed sucessfully!"
 end
 
-
 function header
     info "\n$argv\n"
+end
+
+function exist
+    stat $argv >/dev/null 2>&1
 end
 
 function is_installed
@@ -109,7 +123,7 @@ function yes_no
     end
 end
 
-function default_error
+function arg_parse_error
     failure "I don't know what to do with these args...\n"
     failure "Execute -h/--help to see availabele commands!\n"
 end
@@ -128,6 +142,10 @@ function help
     echo -e "            Given a dots directory, links all dots to they desired folders!\n"
     green "    -i, --install\n"
     echo -e "            Sets up a complete workstation! This option also links all dots!"
+
+    yellow "\nMORE INFO:\n"
+    echo -ne "Please, refer to the repository README: "
+    magenta "$dots_repo\n"
 end
 
 #### SCRIPT ####
@@ -285,9 +303,9 @@ function config
 
     header "Instaling asdf"
     if not ls $HOME/.asdf/ >/dev/null 2>&1
-        gh clone asdf-vm/asdf ~/.asdf
+        gh repo clone asdf-vm/asdf ~/.asdf >/dev/null 2>&1
         cd ~/.asdf
-        git checkout (git describe --abbrev=0 --tags)
+        git checkout (git describe --abbrev=0 --tags) >/dev/null 2>&1
         source ~/.asdf/asdf.fish
         mkdir -p ~/.config/fish/completions; and cp ~/.asdf/completions/asdf.fish ~/.config/fish/completions
         echo "source ~/.asdf/asdf.fish" >>$HOME/.config/fish/config.fish
@@ -511,7 +529,7 @@ function config
 
         header "Cloning omni theme for insomnia"
         warning "Dont't forget to move to ~/.config/Insomnia/plugins/"
-        gh repo clone Rocketseat/insomnia-omni ~/insomnia-omni
+        gh repo clone Rocketseat/insomnia-omni ~/insomnia-omni >/dev/null 2>&1
 
         success_installed insomnia
     end
@@ -544,16 +562,70 @@ function config
         success_installed discord
     end
 
+    if set -q files_to_link
+        info "These're dots that you recently installed and will be linked automatically:\n"
+        warning "Note that these configs needs to be into the dots folder specified ($dots_dir)\n"
+
+        set_color magenta
+        echo -n "[ "
+        echo -n (string join ", " $files_to_link)
+        echo -ne " ]\n"
+        set_color normal
+    end
+
     success "\nAll done! Enjoy now!\n"
 end
 
-if argparse h/help i/install "l/link=" -- $argv
-    true
-else
-    default_error
+function menu_option
+    green "$argv[1]) "
+    magenta "$argv[2]\n"
 end
 
-set flags $_flag_help $_flag_install $_flag_link
+function menu
+    header "Dots and configs available:"
+
+    set dots (for n in $dots_tmp/* $dots_tmp/.*; printf '%s\n' (realpath -e $n); end)
+    set dots_number (count $dots)
+
+    for opt in (seq $dots_number)
+        menu_option $opt $dots[$opt]
+    end
+end
+
+function link
+    if exist $dots_tmp
+        success "You're already up-to-date with latest matthew's dots\n"
+        git pull origin main -C $dots_tmp >/dev/null 2>&1
+    else
+        header "Getting latest matthew's dots from (magenta $dots_repo)..."
+        gh repo clone $dots_repo $dots_tmp >/dev/null 2>&1
+        success "You're up-to-date with latest matthew's dots!\n"
+    end
+
+    menu $dots && info "Type all numbers that wou want to link separated by spaces!\n"
+    read -p "prompt dots" options
+
+    success "All linked! Congrats!\n"
+end
+
+function update
+
+end
+
+if argparse h/help i/install l/link= u/update -- $argv
+    true
+else
+    arg_parse_error
+    die
+end
+
+if ! set -q DOTS_DIR && ! set -q _flag_help
+    failure "`DOTS_DIR` was not provided!\n"
+    failure "Please, export a variable called `DOTS_DIR`!\n"
+    failure "See help section for more info\n"
+
+    die
+end
 
 if set -q _flag_help
     help
@@ -561,6 +633,8 @@ else if set -q _flag_install
     config
 else if set -q _flag_link
     link
+else if _flag_update
+    update
 else
     failure "No option provided!\n"
     failure "Please, see help section with -h/--help\n"
