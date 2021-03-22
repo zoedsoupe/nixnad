@@ -597,25 +597,29 @@ end
 function menu
     header "Dots and configs available:"
 
-    set dots (for n in $dots_tmp/* $dots_tmp/.*; printf '%s\n' (realpath -e $n); end)
     set dots_number (count $dots)
 
-    for opt in (seq $dots_number)
+    set idxs (seq $dots_number)
+    for opt in $idxs
         menu_option $opt $dots[$opt]
     end
+    menu_option "\n0" "Cancel\n"
 end
 
 function link
-    if exist $dots_tmp
+    if exist $DOTS_DIR
         success "You're already up-to-date with latest matthew's dots\n"
         git pull origin main -C $dots_tmp >/dev/null 2>&1
     else
-        header "Getting latest matthew's dots from (magenta $dots_repo)..."
+        info "Getting latest matthew's dots from "
+        magenta "$dots_repo...\n"
         gh repo clone $dots_repo $dots_tmp >/dev/null 2>&1
         success "You're up-to-date with latest matthew's dots!\n"
     end
 
-    menu $dots && info "Type all numbers that wou want to link separated by spaces!\n"
+    set -g dots (for n in $DOTS_DIR/* $DOTS_DIR/.*; printf '%s\n' (basename $n); end)
+
+    menu && info "Type all numbers that wou want to link separated by spaces!\n"
     read -p "prompt dots" options
 
     success "All linked! Congrats!\n"
@@ -625,7 +629,7 @@ function update
 
 end
 
-if argparse h/help i/install l/link= u/update -- $argv
+if argparse h/help i/install l/link u/update -- $argv
     true
 else
     arg_parse_error
@@ -636,6 +640,10 @@ if ! set -q DOTS_DIR && ! set -q _flag_help
     failure "`DOTS_DIR` was not provided!\n"
     failure "Please, export a variable called `DOTS_DIR`!\n"
     failure "See help section for more info\n"
+
+    die
+else if ! realpath -e $DOTS_DIR >/dev/null 2>&1
+    failure "`DOTS_DIRS` path value appears to not exist...\n"
 
     die
 end
