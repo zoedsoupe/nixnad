@@ -621,7 +621,9 @@ function link
     menu && info "Type all numbers that wou want to link separated by spaces!\n"
     read -p "prompt dots" options
 
-    echo $options
+    for opt in $options
+        echo $opt
+    end
 
     success "All linked! Congrats!\n"
 end
