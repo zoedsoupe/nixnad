@@ -3,6 +3,7 @@
 #### HELPERS ####
 
 # Variables
+set home_path $HOME
 set config_path $HOME/.config
 
 set fish_config_path $HOME/.config/fish/config.fish
@@ -109,8 +110,12 @@ function install_aur
     end
 end
 
-function skip
+function skip_install
     info "Ok, skipping $argv installation...\n"
+end
+
+function skip_link
+    info "Ok, skipping $argv link as it already exists...\n"
 end
 
 function yes_no
@@ -122,7 +127,7 @@ function yes_no
         case y
             true
         case n
-            skip $argv
+            skip_install $argv
             false
         case "*"
             yes_no $argv
@@ -600,9 +605,36 @@ function menu
 
     set idxs (seq $dots_number)
     for opt in $idxs
-        menu_option $opt $dots[$opt]
+        menu_option $opt (basename $dots[$opt])
     end
     menu_option "\n0" "Cancel\n"
+end
+
+function link_if_not_exist
+    set -l base (basename $argv[1])
+
+    if exist $argv[1]
+        skip_link $base
+
+    else
+        ln -s $argv[1] $argv[2]/$base
+
+        success "Linked $base!\n"
+
+    end
+
+end
+
+function link_to_home
+    link_if_not_exist $argv $home_path/$base
+end
+
+function link_to_config
+    link_if_not_exist $argv $config_path
+end
+
+function link_to
+    link_if_not_exist $argv[2] $argv[1]
 end
 
 function link
@@ -616,17 +648,40 @@ function link
         success "You're up-to-date with latest matthew's dots!\n"
     end
 
-    set -g dots (for n in $DOTS_DIR/* $DOTS_DIR/.*; printf '%s\n' (basename $n); end)
+    set -g dots (for n in $DOTS_DIR/* $DOTS_DIR/.*; printf '%s\n' (realpath -e $n); end)
 
     menu && info "Type all numbers that wou want to link separated by spaces!\n"
     read -p "prompt dots" options
 
-    for opt in $options
-        echo $opt
+    echo ""
+
+    for opt in (string split " " $options)
+        set -l current $dots[$opt]
+
+        switch $opt
+            case string match -r "^\..+" $current
+                link_to_home $current
+
+            case string match scripts $current
+                link_to_home $current
+                echo "set PATH $HOME/scripts" >>$fish_config_path
+
+            case string match udev_rules $current
+                for rule in $DOTS_DIR/udev_rules/*
+                    set -l base (basename $rule)
+                    set -l real (realpath -e $rule)
+
+                    link_to "/etc/udev/rules/$base" $real
+                end
+
+            case "*"
+                link_to_config $current
+        end
     end
 
-    success "All linked! Congrats!\n"
+    success "\nAll linked! Congrats!\n"
 end
+
 
 function update
 
