@@ -19,6 +19,13 @@ function green
     set_color normal
 end
 
+function normal
+    set_color normal
+    echo -ne $argv
+    set_color normal
+end
+
+
 function yellow
     set_color yellow
     echo -ne $argv
@@ -143,9 +150,17 @@ function help
     green "    -i, --install\n"
     echo -e "            Sets up a complete workstation! This option also links all dots!"
 
-    yellow "\nMORE INFO:\n"
-    echo -ne "Please, refer to the repository README: "
-    magenta "$dots_repo\n"
+    yellow "\nMORE INFO:\n\n"
+    normal "Please, refer to the repository README: "
+    magenta "$dots_repo\n\n"
+
+    red "Errors "
+    normal "in a nutshell:\n"
+    set_color -uoi cyan
+    echo -ne "BEFORE RUNNING install OR link COMMANDS, YOU NEED TO "
+    echo -ne "EXPORT A VARIABLE `DOTS_DIR` THAT'S POINT TO THE FOLDER "
+    echo -ne "WHERE YOU CLONNED THE MATTHEW'S REPO!!!\n"
+    set_color normal
 end
 
 #### SCRIPT ####
@@ -566,11 +581,9 @@ function config
         info "These're dots that you recently installed and will be linked automatically:\n"
         warning "Note that these configs needs to be into the dots folder specified ($dots_dir)\n"
 
-        set_color magenta
-        echo -n "[ "
-        echo -n (string join ", " $files_to_link)
-        echo -ne " ]\n"
-        set_color normal
+        yellow "[ "
+        magenta (string join ", " $files_to_link)
+        yellow " ]\n"
     end
 
     success "\nAll done! Enjoy now!\n"
