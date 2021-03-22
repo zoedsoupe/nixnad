@@ -169,6 +169,57 @@ end
 
 #### SCRIPT ####
 
+function link_if_not_exist
+    set -l base (basename $argv[1])
+
+    if exist $argv[1]
+        skip_link $base
+    else
+        ln -s $argv[1] $argv[2]/$base
+
+        success "Linked $base!\n"
+    end
+end
+
+function link_to_home
+    link_if_not_exist $argv $home_path/$base
+end
+
+function link_to_config
+    link_if_not_exist $argv $config_path
+end
+
+function link_to
+    link_if_not_exist $argv[2] $argv[1]
+end
+
+function match_opt
+    set -l current $dots[$opt]
+    switch $argv
+        case string match -r "^\..+" $current
+            link_to_home $current
+
+        case string match scripts $current
+            link_to_home $current
+            echo "set PATH $HOME/scripts" >>$fish_config_path
+
+        case string match udev_rules $current
+            for rule in $DOTS_DIR/udev_rules/*
+                set -l base (basename $rule)
+                set -l real (realpath -e $rule)
+
+                link_to "/etc/udev/rules/$base" $real
+            end
+
+        case 0
+            success "Bye bye!\n"
+            die
+
+        case "*"
+            link_to_config $current
+    end
+end
+
 function config
     header "Welcome! Let's start setting up your system xD\n"
     header "It could take more than 10 minutes, be patient\n"
@@ -588,6 +639,10 @@ function config
         yellow "[ "
         magenta (string join ", " $files_to_link)
         yellow " ]\n"
+
+        ##for f in $files_to_link
+        #    set -l real $DOTS_DIR/$f
+        #end
     end
 
     success "\nAll done! Enjoy now!\n"
@@ -622,36 +677,11 @@ function menu
     menu_option "\n0" "Cancel\n"
 end
 
-function link_if_not_exist
-    set -l base (basename $argv[1])
-
-    if exist $argv[1]
-        skip_link $base
-
-    else
-        ln -s $argv[1] $argv[2]/$base
-
-        success "Linked $base!\n"
-
-    end
-
-end
-
-function link_to_home
-    link_if_not_exist $argv $home_path/$base
-end
-
-function link_to_config
-    link_if_not_exist $argv $config_path
-end
-
-function link_to
-    link_if_not_exist $argv[2] $argv[1]
-end
-
 function link
 
-    update && set -g dots (for n in $DOTS_DIR/* $DOTS_DIR/.*; printf '%s\n' (realpath -e $n); end)
+    update
+
+    set -g dots (for n in $DOTS_DIR/* $DOTS_DIR/.*; printf '%s\n' (realpath -e $n); end)
 
     menu && info "Type all numbers that wou want to link separated by spaces!\n"
     read -p "prompt dots" options
@@ -659,27 +689,7 @@ function link
     echo ""
 
     for opt in (string split " " $options)
-        set -l current $dots[$opt]
-
-        switch $opt
-            case string match -r "^\..+" $current
-                link_to_home $current
-
-            case string match scripts $current
-                link_to_home $current
-                echo "set PATH $HOME/scripts" >>$fish_config_path
-
-            case string match udev_rules $current
-                for rule in $DOTS_DIR/udev_rules/*
-                    set -l base (basename $rule)
-                    set -l real (realpath -e $rule)
-
-                    link_to "/etc/udev/rules/$base" $real
-                end
-
-            case "*"
-                link_to_config $current
-        end
+        match_opt $opt
     end
 
     success "\nAll linked! Congrats!\n"

@@ -49,7 +49,8 @@
 		  bind-key gnu-elpa-keyring-update selectrum orderless
 		  consult consult-flycheck evil-nerd-commenter paradox mix
 		  yasnippet-snippets dumb-jump minions mmm-mode org
-		  org-wild-notifier package-lint))
+		  org-wild-notifier package-lint pdf-tools auctex-latexmk
+		  reftex auto-dictionary))
 
 ;; straight.el bootstrap
 (defvar bootstrap-version)
