@@ -36,6 +36,7 @@ if ! pidof picom > /dev/null
   picom --experimental-backends &
 end
 
+# TODO yeah, I know I need to solve this...
 if ! pidof dockerd > /dev/null
   sudo dockerd &
 end
