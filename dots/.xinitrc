@@ -9,6 +9,19 @@ if test -d /etc/X11/xinit/xinitrc.d
 end
 # END SYSTEM CONFIG
 
+function export
+  set params (string split -m 1 = $argv)
+  set -gx $params[1] $params[2]
+end
+
+function dbus
+  for var in (dbus-launch)
+    export $var
+  end
+end
+
+dbus &
+
 # set second monitor as primary 
 if xrandr | grep -q 'HDMI1 connected'
   xrandr --output eDP1 --auto --output HDMI1 --primary --auto --left-of eDP1
@@ -18,9 +31,6 @@ end
 
 # swap ctrl and caps lock and enable comopse key
 setxkbmap -layout us -option ctrl:swapcaps -option compose:rwin &
-
-bluetoothctl power on > /dev/null &
-bluetoothctl scan on > /dev/null &
 
 if ! pidof picom > /dev/null
   picom --experimental-backends &
@@ -43,8 +53,6 @@ if ! pidof udiskie > /dev/null
 end
 
 feh --bg-fil --randomize ~/pics/wallpapers &
-
-dbus &
 
 exec xmonad
 
