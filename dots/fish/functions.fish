@@ -1,14 +1,3 @@
-function export
-    set params (string split -m 1 = $argv)
-    set -gx $params[1] $params[2]
-end
-
-function dbus
-  for var in (dbus-launch)
-    export $var
-  end
-end
-
 function tre
     command tree -aC \
         -I '.git|.github|node_modules|deps|_build|.elixir_ls' \
