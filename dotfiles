@@ -567,6 +567,14 @@ function config
         success_installed "eslint and prettier"
     end
 
+    if yes_no patat
+        header "Installing patat"
+        install_aur patat-bin
+
+        success_installed patat
+    end
+
+
     if yes_no docker
         header "Installing docker"
         install -S docker
@@ -584,6 +592,18 @@ function config
         warning "Log out and log in again to be able to run docker without sudo"
         success_installed docker
     end
+
+    if yes_no docker-postgres
+        header "Setting up postgres locally with docker"
+
+        sudo docker network create postgres-network
+        sudo docker run --name postgres --network postgres-network \
+            -e "POSTGRES_PASSWORD=postgres" -p 5432:5432 \
+            -v ~/docker/volumes/postgres/:/var/lib/postgres -d postgres
+
+        success_installed docker-postgres
+    end
+
 
     if yes_no insomnia
         header "Installing insomnia"
