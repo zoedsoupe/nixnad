@@ -79,6 +79,7 @@ if dein#load_state('/home/matthew/.cache/dein')
   call dein#add('Yggdroot/indentLine') " indent line
   call dein#add('tpope/vim-surround') " vim surround
   call dein#add('tpope/vim-commentary') " commentary
+  call dein#add('cakebaker/scss-syntax.vim') " SCSS syntax
   """ END PLUGINS
 
   " Required:
