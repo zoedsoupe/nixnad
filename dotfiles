@@ -203,14 +203,6 @@ function match_opt
             link_to_home $current
             echo "set PATH $HOME/scripts" >>$fish_config_path
 
-        case string match udev_rules $current
-            for rule in $DOTS_DIR/udev_rules/*
-                set -l base (basename $rule)
-                set -l real (realpath -e $rule)
-
-                link_to "/etc/udev/rules/$base" $real
-            end
-
         case 0
             success "Bye bye!\n"
             die
