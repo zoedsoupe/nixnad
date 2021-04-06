@@ -20,8 +20,6 @@ function dbus
   end
 end
 
-dbus &
-
 # set second monitor as primary 
 if xrandr | grep -q 'HDMI1 connected'
   xrandr --output eDP1 --auto --output HDMI1 --primary --auto --left-of eDP1
@@ -55,7 +53,7 @@ end
 
 feh --bg-fil --randomize ~/pics/wallpapers &
 
-exec xmonad
+exec dbus-launch --sh-syntax --exit-with-session xmonad
 
 switch $1
   case xmonad
