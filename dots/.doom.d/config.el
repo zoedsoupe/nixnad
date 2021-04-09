@@ -13,8 +13,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "JetBrains Mono" :size 15 :weight 'medium)
-      doom-variable-pitch-font (font-spec :family "sans" :size 13))
+(setq doom-font (font-spec :font "JetBrains Mono Medium Medium Nerd Font Complete Mono" :size 16.5)
+    doom-variable-pitch-font (font-spec :font "Victor Mono Regular Nerd Font Complete" :size 15.5))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -27,22 +27,82 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type t)
 
+(defun mdsp/get-project-root ()
+  "Find the project root using projectile."
+    (when (fboundp 'projectile-project-root)
+          (projectile-project-root)))
 
-;; Here are some additional functions/macros that could help you configure Doom:
-;;
-;; - `load!' for loading external *.el files relative to this one
-;; - `use-package!' for configuring packages
-;; - `after!' for running code after a package has loaded
-;; - `add-load-path!' for adding directories to the `load-path', relative to
-;;   this file. Emacs searches the `load-path' when you load packages with
-;;   `require' or `use-package'.
-;; - `map!' for binding new keys
-;;
-;; To get information about any of these functions/macros, move the cursor over
-;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
-;; This will open documentation for it, including demos of how they are used.
-;;
-;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
-;; they are implemented.
+;; COMPLETIONS AND SEARCH----------------------------------------------------------
+(use-package! consult
+  :demand t
+  :bind (("C-s" . consult-line)
+         ("C-M-l" . consult-imenu)
+         ("C-M-j" . consult-buffer))
+  :custom
+  (consult-project-root-function #'msdp/get-project-root)
+  (completion-in-region-function #'consult-completion-in-region))
+
+(use-package! orderless
+  :custom (completion-styles '(orderless)))
+
+(use-package! selectrum
+  :bind (("C-M-r" . selectrum-repeat)
+         :map selectrum-minibuffer-map
+         ("C-r" . selectrum-select-from-history)
+         ("C-j" . selectrum-next-candidate)
+         ("C-k" . selectrum-previous-candidate)
+         :map minibuffer-local-map
+         ("M-h" . backward-kill-word))
+  :custom
+  (selectrum-fix-minibuffer-height t)
+  (selectrum-num-candidates-displayed 7)
+  (selectrum-refine-candidates-function #'orderless-filter)
+  (selectrum-highlight-candidates-function #'orderless-highlight-matches)
+  :custom-face
+  (selectrum-current-candidate ((t (:background "#3a3f5a"))))
+  :init
+  (selectrum-mode 1))
+
+;; ORG_CONFIGS-------------------------------------------------------------
+(defun mdsp/org-start-presentation ()
+  "Start a Org presentation."
+  (interactive)
+  (org-tree-slide-mode 1)
+  (display-line-numbers-mode 0)
+  (text-scale-mode 1))
+
+(defun mdsp/org-end-presentation ()
+  "End a Org presentation."
+  (interactive)
+  (display-line-numbers-mode 1)
+  (text-scale-mode 0)
+  (org-tree-slide-mode 0))
+
+(use-package! org-tree-slide
+  :defer t
+  :after org
+  :commands org-tree-slide-mode
+  :custom
+  (setq org-image-actual-width nil)
+  :config
+  (define-key org-mode-map (kbd "<f8>") 'mdsp/org-start-presentation)
+  (define-key org-mode-map (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
+  (define-key org-tree-slide-mode-map (kbd "q") 'mdsp/org-end-presentation)
+  (define-key org-tree-slide-mode-map  (kbd "C->") 'org-tree-slide-move-next-tree)
+  (define-key org-tree-slide-mode-map  (kbd "C-<") 'org-tree-slide-move-previous-tree)
+  (setq org-tree-slide-slide-in-effect nil
+        org-tree-slide-activate-message "Presentation started."
+        org-tree-slide-deactivate-message "Presentation ended."
+        org-tree-slide-header t))
+
+(defun org-update-cookies-after-save()
+    "Update all org cookies on save."
+    (interactive)
+    (let ((current-prefix-arg '(4)))
+         (org-update-statistics-cookies "ALL")))
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'org-update-cookies-after-save nil 'make-it-local)))
