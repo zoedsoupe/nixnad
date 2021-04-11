@@ -1,7 +1,8 @@
+set DENO_INSTALL '/home/matthew/.deno'
 ### PATH ###
 set PATH $HOME/bin /usr/local/bin \
     $HOME/.ebcli-virtual-env/executables \
-    $HOME/.yarn/bin \
+    $HOME/.yarn/bin $DENO_INSTALL/bin \
     $HOME/.emacs.d/bin \
     $HOME/.config/yarn/global/node_modules/.bin \
     $HOME/.local/bin ~/scripts/ ~/.cargo/bin \

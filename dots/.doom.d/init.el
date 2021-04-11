@@ -47,10 +47,10 @@
        ;;grammar           ; tasing grammar mistake every you make
 
        :tools
-       debugger          ; FIXME stepping through code, to help you add bugs
+       ;debugger          ; FIXME stepping through code, to help you add bugs
        ;;direnv
        ;;docker
-       editorconfig      ; let someone else argue about tabs vs spaces
+       ;editorconfig      ; let someone else argue about tabs vs spaces
        (eval +overlay)     ; run code, run (also, repls)
        gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
@@ -86,7 +86,7 @@
        (haskell +dante)  ; a language that's lazier than I am
        ;;idris             ; a language you can depend on
        json              ; At least it ain't XML
-       javascript        ; all(hope(abandon(ye(who(enter(here))))))
+       ;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        julia             ; a better, faster MATLAB
        latex             ; writing papers in Emacs has never been so fun
        lua               ; one-based indices? one-based indices
