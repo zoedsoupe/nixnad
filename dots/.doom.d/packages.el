@@ -5,3 +5,5 @@
 (package! consult)
 
 (package! org-tree-slide)
+
+(package! typescript-mode)
