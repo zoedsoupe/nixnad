@@ -88,11 +88,6 @@ in
     xdg.configFile."picom.conf".source = "${dotfiles}/picom.conf";
     xdg.configFile."startship.toml".source = "${dotfiles}/startship.toml";
 
-    xdg.configFile."xmonad" = {
-      source = "${dotfiles}/xmonad";
-      recursive = true;
-    };
-
     xdg.configFile."xmobar" = {
       source = "${dotfiles}/xmobar";
       recursive = true;
@@ -110,6 +105,7 @@ in
     home.file.".sbclrc".source = "${dotfiles}/.sbclrc";
     home.file.".vimrc".source = "${dotfiles}/.vimrc";
     home.file.".xinitrc".source = "${dotfiles}/.xinitrc";
+    home.file.".xmonad".source = "${dotfiles}/.xmonad";
   };
 
 }
