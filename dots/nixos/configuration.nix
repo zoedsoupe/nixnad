@@ -22,7 +22,7 @@
     noto-fonts-cjk
     cantarell-fonts
     (nerdfonts.override {
-      fonts = [ "FiraCode" "JetbrainsMono" ];
+      fonts = [ "FiraCode" ];
     })
   ];
 

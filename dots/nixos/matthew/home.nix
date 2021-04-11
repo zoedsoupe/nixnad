@@ -61,7 +61,7 @@ in
 
       #audio & video
       mpd playerctl mpc_cli mpv
-      pavucontrol ffmpeg spotifu
+      pavucontrol ffmpeg spotify
 
       #editor/ide
       vim emacs
@@ -76,7 +76,7 @@ in
       udiskie rofi zathura
 
       #xorg
-      libnotify xclip xrandr
+      libnotify xclip xorg.xrandr
       xautolock picom
     ];
 
