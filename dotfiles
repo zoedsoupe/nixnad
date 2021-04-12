@@ -183,7 +183,7 @@ function link_if_not_exist
 end
 
 function link_to_home
-    link_if_not_exist $argv $home_path/$base
+    link_if_not_exist $argv $home_path
 end
 
 function link_to_config
@@ -195,21 +195,20 @@ function link_to
 end
 
 function match_opt
-    set -l current $dots[$argv]
-    switch $argv
-        case string match -r "^\." (basename $current)
-            link_to_home $current
+    if test $argv -eq 0
+    	success "Bye bye!\n"
+       
+        die
+    end
 
-        case string match scripts $current
-            link_to_home $current
-            echo "set PATH $HOME/scripts" >>$fish_config_path
+    set -l current (basename $dots[$argv])
 
-        case 0
-            success "Bye bye!\n"
-            die
-
-        case "*"
-            link_to_config $current
+    if string match ".*" $current
+        link_to_home $dots[$argv]
+    else if string match "scripts" $current
+        link_to_home $dots[$argv]
+    else
+        link_to_config $dots[$argv]
     end
 end
 
