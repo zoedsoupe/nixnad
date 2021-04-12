@@ -1,4 +1,5 @@
-#!/bin/fish
+#! /run/current-system/sw/bin/nix-shell
+#! nix-shell -i fish -p fish
 
 #### HELPERS ####
 
@@ -194,7 +195,7 @@ function link_to
 end
 
 function match_opt
-    set -l current $dots[$opt]
+    set -l current $dots[$argv]
     switch $argv
         case string match -r "^\..+" $current
             link_to_home $current
@@ -690,12 +691,9 @@ function menu
 end
 
 function link
-
-    update
-
     set -g dots (for n in $DOTS_DIR/* $DOTS_DIR/.*; printf '%s\n' (realpath -e $n); end)
 
-    menu && info "Type all numbers that wou want to link separated by spaces!\n"
+    menu && info "Type all numbers that you want to link separated by spaces!\n"
     read -p "prompt dots" options
 
     echo ""
