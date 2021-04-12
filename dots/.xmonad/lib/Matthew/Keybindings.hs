@@ -132,7 +132,7 @@ myKeys cfg =
 
     --- My Applications
        , ("M-t", spawn (myTerminal ++ " -e ytop"))
-       , ("M-w", safeSpawnProg "microsoft-edge-dev")
+       , ("M-w", safeSpawnProg "google-chrome-stable")
        , ("M-m", safeSpawnProg "spotify")
        , ("M-S-m", safeSpawnProg "discord")
        , ("M-c", safeSpawnProg "clipmenu")
