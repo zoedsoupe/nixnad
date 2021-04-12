@@ -173,7 +173,7 @@ end
 function link_if_not_exist
     set -l base (basename $argv[1])
 
-    if exist $argv[1]
+    if exist $argv[2]/$base
         skip_link $base
     else
         ln -s $argv[1] $argv[2]/$base
@@ -197,7 +197,7 @@ end
 function match_opt
     set -l current $dots[$argv]
     switch $argv
-        case string match -r "^\..+" $current
+        case string match -r "^\." (basename $current)
             link_to_home $current
 
         case string match scripts $current
