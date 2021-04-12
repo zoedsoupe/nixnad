@@ -29,6 +29,3 @@ source $HOME/.config/fish/functions.fish
 
 ### ENV VARS ###
 source $HOME/.config/fish/env_vars.fish
-
-### ASDF ###
-source ~/.asdf/asdf.fish
