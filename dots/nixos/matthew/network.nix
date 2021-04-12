@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  networking.hostName = "matthew"; # Define your hostname.
+  networking.hostName = "mdsp"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -10,7 +10,6 @@
   networking.useDHCP = false;
   networking.interfaces.enp2s0.useDHCP = true;
   networking.interfaces.wlp3s0.useDHCP = true;
-  networking.interfaces.wlp0s20u4.useDHCP = true;
   networking.networkmanager.enable = true;
 
   # Configure network proxy if necessary

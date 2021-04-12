@@ -21,10 +21,14 @@
     neofetch procs nnn git
     wget unzip exa pciutils unrar
     cmatrix curl fd lazygit glow
-    ncdu starship
+    ncdu starship alacritty
+    gitAndTools.gh
 
     #theme
     betterlockscreen
+
+    #chat
+    tdesktop discord
 
     #editor/ide
     vim emacs
@@ -47,12 +51,33 @@
     #erlang/elixir dev
     erlangR23 elixir 
 
+    #audio & video
+    mpd playerctl mpc_cli mpv
+    pavucontrol ffmpeg spotify
+
+    #editor/ide
+    vim emacs
+
+    #dev 
+    insomnia google-cloud-sdk
+
+    #printer
+    simple-scan
+
+    #others
+    udiskie rofi zathura
+
+    #xorg
+    libnotify xclip xorg.xrandr
+    xautolock picom xorg.xauth
+    pam
+
     #tools
     gparted qbittorrent
     dunst flameshot docker
     docker-compose
   ];
 
-  environment.sessionVariables.TERMINAL = [ "kitty" ];
-  environment.sessionVariables.EDITOR = [ "nvim" ];
+  environment.sessionVariables.TERMINAL = [ "alacritty" ];
+  environment.sessionVariables.EDITOR = [ "emacs" ];
 }

@@ -5,7 +5,6 @@
     [ 
       ./hardware-configuration.nix
       ./matthew/boot.nix
-      ./matthew/home.nix
       ./matthew/services.nix
       ./matthew/programs.nix
       ./matthew/network.nix
@@ -16,14 +15,11 @@
   console.useXkbConfig = true;
 
   fonts.fonts = with pkgs; [
-    fira-code
+    iosevka
     jetbrains-mono
     noto-fonts
     noto-fonts-cjk
     cantarell-fonts
-    (nerdfonts.override {
-      fonts = [ "FiraCode" ];
-    })
   ];
 
   virtualisation.docker.enable = true;
@@ -41,6 +37,8 @@
     enable = true;
     package = pkgs.pulseaudioFull;
   };
+
+  hardware.bluetooth.enable = true;
 
   hardware.bluetooth.config = {
    General = {
@@ -62,6 +60,7 @@
       initialPassword = "mdsp";
     };
     users.matthew = {
+      home = "/home/matthew";
       isNormalUser = true;
       shell = pkgs.fish;
       initialPassword = "nixos";
