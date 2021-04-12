@@ -16,14 +16,17 @@
       enable = true;
       drivers = [ pkgs.hplipWithPlugin ];
     };
-    
-    udev.extraRules = "
-    SUBSYSTEMS=\"input\", AATRS{name}==\"Keychron K3\", RUN+=\"/home/matthew/scripts/fix_keyboard\"
-    ";    
 
     # Enable the X11 windowing system.
     xserver = {
       enable = true;
+      windowManager.xmonad = {
+        enable = true;
+        config = "/home/matthew/.xmonad";
+        extraPackages = haskellPackages: [
+          haskell.packages.xmonad-contrib
+        ];
+      };
       layout = "us";
       xkbOptions = "ctrl:swapcaps,compose:rwin";
       libinput.enable = true;
@@ -47,6 +50,18 @@
             [0;34;40m ██   ████ ██ ██   ██  ██████  ███████ 
             [0;37;40m
     '';
+  };
+
+  systemd.services.ly = {
+    enable = true;
+    description = "TUI login manager";
+    serviceConfig = {
+      User = "matthew";
+      Type = "simple";
+      ExecStart = ''${pkgs.ly}/bin/ly'';
+      TimeoutSec = "infinity";
+      alias = [ "ly@matthew.service" ];
+    };
   };
 
   systemd.services.betterlockscreen = {
