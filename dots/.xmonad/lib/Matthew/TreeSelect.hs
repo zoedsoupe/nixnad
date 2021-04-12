@@ -69,7 +69,7 @@ treeselectAction a = TS.treeselectAction a
        , Node (TS.TSNode "Boxes" "GNOME's virtualization program" (spawn "gnome-boxes")) []
        ]
    , Node (TS.TSNode "+ Internet" "internet and web programs" (return ()))
-       [ Node (TS.TSNode "Edge" "Microsoft's chromium based browser" (spawn "microsoft-edge-dev")) []
+       [ Node (TS.TSNode "Edge" "Microsoft's chromium based browser" (spawn "google-chrome-stable")) []
        , Node (TS.TSNode "Discord" "Chat and video chat platform" (spawn "discord")) []
        ]
    , Node (TS.TSNode "+ Multimedia" "sound and video applications" (return ()))
