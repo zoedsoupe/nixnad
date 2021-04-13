@@ -66,12 +66,13 @@
   (selectrum-mode 1))
 
 ;; ORG_CONFIGS-------------------------------------------------------------
+
 (defun mdsp/org-start-presentation ()
   "Start a Org presentation."
   (interactive)
   (org-tree-slide-mode 1)
   (display-line-numbers-mode 0)
-  (text-scale-mode 1))
+  (text-scale-mode 2))
 
 (defun mdsp/org-end-presentation ()
   "End a Org presentation."
