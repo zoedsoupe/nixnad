@@ -3,7 +3,7 @@
 
 (doom! :input
        :completion
-       company           ; the ultimate code completion backend
+       ;company           ; the ultimate code completion backend
 
        :ui
        deft              ; notational velocity for Emacs

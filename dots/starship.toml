@@ -1,5 +1,4 @@
 format = """
-$directory\
 $git_branch\
 $git_status\
 $docker_context\
@@ -7,6 +6,8 @@ $elixir\
 $elm\
 $nodejs\
 $rust\
+$haskell\
+$elm\
 $character"""
 
 scan_timeout = 5
@@ -31,6 +32,12 @@ format = "[node:](white)\\([$version]($style)\\) "
 
 [rust]
 format = "[rust:](white)\\([$version]($style)\\) "
+
+[haskell]
+format = "[haskell:](white)\\([$version]($style)\\) "
+
+[elm]
+format = "[elm:](white)\\([$version]($style)\\) "
 
 [character]
 success_symbol = "\n[ﬦ](bold green)"

@@ -16,13 +16,13 @@ scrolling:
 
 font:
   normal:
-    family: JetBrains-Mono-Regular-Nerd-Font-Complete
+    family: JetBrainsMono 
 
   bold:
-    family: JetBrains-Mono-Bold-Nerd-Font-Complete
+    family: JetBrainsMono
 
   italic:
-    family: JetBrains-Mono-Italic-Nerd-Font-Complete
+    family: JetBrainsMono
 
   size: 13.0
 
