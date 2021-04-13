@@ -16,13 +16,13 @@ scrolling:
 
 font:
   normal:
-    family: JetBrains Mono Medium Nerd Font Complete Mono
+    family: JetBrains-Mono-Regular-Nerd-Font-Complete
 
   bold:
-    family: JetBrains Mono Bold Nerd Font Complete Mono
+    family: JetBrains-Mono-Bold-Nerd-Font-Complete
 
   italic:
-    family: JetBrains Mono Italic Nerd Font Complete Mono
+    family: JetBrains-Mono-Italic-Nerd-Font-Complete
 
   size: 13.0
 
@@ -34,13 +34,12 @@ font:
     x: 0
     y: 0
 
-  use_thin_strokes: true
+  use_thin_strokes: false
 
 draw_bold_text_with_bright_colors: true
 
-background_opacity: 1.0
+background_opacity: 1
 
 key_bindings:
   - { key: V, mods: Control|Shift, action: Paste }
   - { key: C, mods: Control|Shift, action: Copy }
-  # - { key: C, mods: Control|Shift, chars: "\x03" }
