@@ -1,72 +1,50 @@
 { config, lib, pkgs, ... }:
 
-let
-  vim-omni = pkgs.vimUtils.buildVimPlugin {
-    name = "vim-omni";
-    src = pkgs.fetchFromGitHub {
-      owner = "GuiLra";
-      repo = "vim-omni";
-      rev = "cf57c94d6cd48d23fb02655f157f25a605988361";
-      sha256 = "4f9d9a433f9a337e2bd96e0d0f969cbdbb8fc3bea6919630bd0014f1da4dcb25";
-    };
-  };
-
-  earthly = pkgs.vimUtils.buildVimPlugin {
-    name = "earthly.vim";
-    src = pkgs.fetchFromGitHub {
-      owner = "earthly";
-      repo = "earthly.vim";
-      rev = "292c2e76785154d68066dbe0edfab0bdb06dc200";
-      sha256 = "e4d07eff273e1cbd81931c407dca3c828453f79a37cc240252957e8f006c76b0";
-    };
-  };
-in {
+{
     programs.vim = {
     enable = true;
     settings = {
-      so = 999; # cursor never leaves mid screen
-      autoread = true;
-      nocompatible = true;
       hidden = true; # keep multiple buffers openned
-      nowrap = true; # displays long lines into one
-      encoding = "utf-8";
-      pumheight = 10; # popup smaller
-      fileencoding = "utf-8";
-      cmdheight = 1;
-      ruler = true;
-      splitbelow = true; # horizontal split will be below
-      splitright = true; # vertical split will be right
-      t_Co = 256; # support 256 colors
-      concealllevel = 0; # `` on markdown and ** in org shows up
       tabstop = 2;
       shiftwidth = 2;
-      smarttab = true;
-      expandtab = true;
-      smartindent = true;
-      autoindent = true;
-      lastsattus = 2; # always shows status line
       number = true;
       relativenumber = true;
-      showtabline = 0; # never show tabs
-      updatetime = 300;
-      timeoutlen = 1000;
-      incsearch = true;
-      wildmenu = true;
       background = "dark";
     };
     plugins = with pkgs.vimPlugins; [
       rainbow haskell-vim
       vim-elixir surround
       commentary indentLine
-      vim-omni earthly
+      elm-vim dracula-vim
     ];
     extraConfig = ''
     set formatoptions-=cro
+    set autoindent
+    set autoread
+    set cmdheight=1
     set whichwrap+=<,>,[,],h,l
     set shortmess+=c
     set wildignore+=**/node_modules/**,**/deps/**,**/_build/**
-
-    colorscheme omni
+    set conceallevel=0 " `` on markdown and ** in org shows up
+    set so=999 " cursor never leaves mid screen
+    set nocompatible
+    set nowrap " displays long lines into one
+    set encoding=utf-8
+    set pumheight=10 " popup smaller
+    set fileencoding=utf-8"
+    set ruler
+    set splitbelow " horizontal split will be below
+    set splitright " vertical split will be right
+    set t_Co=256 " support 256 colors
+    set showtabline=0 " never show tabs
+    set updatetime=300
+    set timeoutlen=1000
+    set incsearch
+    set wildmenu
+    set smarttab
+    set expandtab
+    set smartindent
+    set laststatus=2 " always shows status line
 
     filetype plugin on
     filetype plugin indent on

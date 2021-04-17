@@ -3,7 +3,10 @@
 {
   services.dunst = {
     enable = true;
-    iconTheme.package = pkgs.arc-icon-theme;
+    iconTheme = {
+      name = "arc-icon-theme";
+      package = pkgs.arc-icon-theme;
+    };
     settings = {
       global = {
         monitor = 0;

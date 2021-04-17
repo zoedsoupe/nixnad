@@ -5,7 +5,6 @@
     enable = true;
     disableConfirmationPrompt = true;
     keyMode = "emacs";
-    shell = "${pkgs.fish}/bin/fish";
     extraConfig = ''
     # Automatically set window title
     set-window-option -g automatic-rename on
