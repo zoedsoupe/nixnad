@@ -1,7 +1,0 @@
-#!/bin/fish
-
-while test ! (/sbin/bluetoothctl info "DC:2C:26:F4:DA:C2" 2>&1 > /dev/null; echo $status)
-    sleep 0.1
-end
-
-setxkbmap -layout us -option ctrl:swapcaps -option compose:rwin

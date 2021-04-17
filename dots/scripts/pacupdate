@@ -1,5 +1,0 @@
-#!/bin/fish
-
-set cupd (checkupdates | wc -l)
-echo "$cupd updates "
-
