@@ -6,6 +6,7 @@ in {
   imports = [
     ./vim.nix
     ./git.nix
+    ./tmux.nix
     ./dunst.nix
     ./udiskie.nix
     ./starship.nix
