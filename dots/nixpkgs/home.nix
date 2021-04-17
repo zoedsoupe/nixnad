@@ -24,7 +24,7 @@ in {
   programs.command-not-found.enable = true;
 
   # extra services
-  services.clipmenu.enable = true;
+  services.blueman-applet.enable = true;
 
   home.username = "matthew";
   home.homeDirectory = "/home/matthew";
