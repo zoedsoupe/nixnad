@@ -12,8 +12,15 @@ in {
     ./autojump.nix
     ./alacritty.nix
   ];
-  
+
+  # extra programs
   programs.home-manager.enable = true;
+  programs.alot.enable = true;
+  programs.command-not-found.enable = true;
+  programs.texlive = {
+    enable = true;
+    package = pkgs.texlive.combined.scheme-basic;
+  };
 
   home.username = "matthew";
   home.homeDirectory = "/home/matthew";
@@ -30,7 +37,7 @@ in {
     
     # tools
     docker-compose insomnia
-    qbittorrent
+    qbittorrent obs-studio
 
     # audio
     spotify
