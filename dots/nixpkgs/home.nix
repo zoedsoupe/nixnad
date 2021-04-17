@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
-{
+let
+  dotfiles = "/home/matthew/documents/privy/dotfiles/dots";
+in {
   imports = [
     ./vim.nix
     ./git.nix
@@ -14,6 +16,30 @@
 
   home.username = "matthew";
   home.homeDirectory = "/home/matthew";
+
+  home.file = {
+    iex.source = "${dotfiles}/.iex.exs";
+    sbclrc.source = "${dotfiles}/.scblrc";
+    patat.source = "${dotfiles}/.patat.yaml";
+    xinitrc.source = "${dotfiles}/.xinitrc";
+  };
+
+  xdg.configFile = {
+    neofetch.source = "${dotfiles}/neofetch";
+    scripts.source = "${dotfiles}/scripts";
+  };
+  
+  accounts.email.accounts = {
+    main = {
+      address = "zoey.spessanha@zeetech.io"; 
+    };
+    second = {
+      address = "00119110328@pq.uenf.br";
+    };
+    business = {
+      address = "mdsp@boosting.tech";
+    };
+  };
   
   home.stateVersion = "21.03";
 }
