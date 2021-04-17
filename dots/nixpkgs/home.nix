@@ -7,6 +7,7 @@ in {
     ./vim.nix
     ./git.nix
     ./dunst.nix
+    ./udiskie.nix
     ./starship.nix
     ./autojump.nix
     ./alacritty.nix
