@@ -12,6 +12,7 @@ in {
     ./starship.nix
     ./autojump.nix
     ./alacritty.nix
+    ./polybar
   ];
 
   # extra programs
@@ -21,6 +22,24 @@ in {
   programs.texlive = {
     enable = true;
     package = pkgs.texlive.combined.scheme-basic;
+  };
+
+  # extra services
+  services.clipmenu.enable = true;
+
+  xsession = {
+    enable = true;
+
+    windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+      extraPackages = hp: [
+        hp.dbus
+        hp.monad-logger
+        hp.xmonad-contrib
+      ];
+      config = ./config.hs;
+    };
   };
 
   home.username = "matthew";
