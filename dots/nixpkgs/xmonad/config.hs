@@ -18,14 +18,15 @@ import Data.Monoid (All)
 import System.IO (hPutStrLn)
 import System.Exit (exitSuccess)
 import GHC.IO.Handle.Types (Handle)
+import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
 
 -- Hooks
-import XMomad.Hooks.FadeInactive (fadeInactiveLogHook)
+import XMonad.Hooks.FadeInactive (fadeInactiveLogHook)
 import XMonad.Hooks.EwmhDesktops hiding (fullscreenEventHook)
-import XMonad.Hooks.ManageDocks (AvoidStruts, manageDocks, avoidStruts, docks)
 import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat, doRectFloat, isDialog)
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
+import XMonad.Hooks.ManageDocks (Direction2D(..), AvoidStruts, manageDocks, avoidStruts, docks)
 
 -- Utils
 import XMonad.Util.SpawnOnce
@@ -38,12 +39,12 @@ import XMonad.Layout (Full)
 import XMonad.Layout.Gaps (gaps)
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Grid (Grid(..))
-import qualified XMonad.StackSet as W
 import XMonad.Layout.Spacing (spacing)
 import XMonad.Layout.TwoPane (TwoPane(..))
 import XMonad.Layout.LimitWindows (setLimit)
 import XMonad.Layout.PerWorkspace (onWorkspace)
 import XMonad.Layout.ThreeColumns (ThreeCol(..))
+import XMonad.Layout.MultiToggle (mkToggle, single)
 import XMonad.Layout.LayoutModifier (ModifiedLayout)
 import XMonad.Layout.Reflect (Reflect, reflectHoriz)
 import XMonad.Layout.ResizableTile (ResizableTall(..))
@@ -51,6 +52,7 @@ import XMonad.Layout.LayoutCombinators (NewSelect, (|||))
 import XMonad.Layout.NoBorders (SmartBorder, smartBorders)
 import XMonad.Layout.LimitWindows (Selection, limitSelect)
 import XMonad.Layout.ToggleLayouts (ToggleLayouts, toggleLayouts)
+import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL))
 import XMonad.Layout.Fullscreen (FullscreenFull, fullscreenEventHook, fullscreenFull)
 
 -- Polybar
@@ -88,59 +90,43 @@ windowCount :: X (Maybe String)
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
 myWorkspaces :: [String]
-myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
+myWorkspaces = [ " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 " ]
 
 -- | LAYOUTS
 
-type MyLayout
-   = ModifiedLayout AvoidStruts (ModifiedLayout SmartBorder (ModifiedLayout FullscreenFull (ToggleLayouts Full (ModifiedLayout Selection (NewSelect ResizableTall (NewSelect (ModifiedLayout Reflect ResizableTall) (NewSelect TwoPane (NewSelect Grid (NewSelect ThreeCol ThreeCol)))))))))
-
--- The type of my layouts - not sure there is an easier way to express this
-type MyLayouts a
-   = NewSelect ResizableTall (NewSelect (ModifiedLayout Reflect ResizableTall) (NewSelect TwoPane (NewSelect Grid (NewSelect ThreeCol ThreeCol)))) a
-
 -- Layouts
-layouts :: MyLayouts a
-layouts =
-  wrkLayout ||| tall ||| reflectedTall ||| twopane ||| grid ||| threecol ||| threecolmid
+myLayoutHook =
+  avoidStruts 
+  . smartBorders 
+  . toggleLayouts Full
+  . limitSelect 1 5
+  . fullScreenToggle 
+  $ (tiled ||| Mirror tiled ||| column3 ||| full ||| tall ||| reflectedTall ||| twopane ||| grid)
  where
   -- Gaps bewteen windows
-  myGaps gap    = gaps [(U, gap),(D, gap),(L, gap),(R, gap)]
-  gapSpaced g   = spacing g . myGaps g
+  myGaps gap       = gaps [(U, gap),(D, gap),(L, gap),(R, gap)]
+  gapSpaced g      = spacing g . myGaps g
 
-  nmaster       = 1 -- Default number of windows
-  ratio         = (/) 1 2 -- Default screen proportion
-  delta         = (/) 3 100 -- Default screen percent when resizes
+  nmaster          = 1 -- Default number of windows
+  ratio            = (/) 1 2 -- Default screen proportion
+  delta            = (/) 3 100 -- Default screen percent when resizes
 
-  tiled         = gapSpaced 10 $ Tall nmaster delta ratio
-  full          = gapSpaced 5 Full
-  column3       = gapSpaced 10 $ ThreeColMid 1 (3/100) (1/2)
+  tiled            = gapSpaced 10 $ Tall nmaster delta ratio
+  full             = gapSpaced 5 Full
+  column3          = gapSpaced 10 $ ThreeColMid 1 (3 / 100) (1 / 2)
 
-  tall          = ResizableTall 1 0.03 (φ / (1 + φ)) []
-  reflectedTall = reflectHoriz tall
-  threecol      = ThreeCol 1 (3 / 100) (1 / 2)
-  threecolmid   = ThreeColMid 1 (3 / 100) (1 / 2)
-  twopane       = TwoPane 0.03 (1 / φ)
-  grid          = Grid
-  φ             = realToFrac ((1.0 + sqrt 5) / 2.0 :: Double)
+  tall             = ResizableTall 1 0.03 (φ / (1 + φ)) []
+  reflectedTall    = reflectHoriz tall
+  twopane          = TwoPane 0.03 (1 / φ)
+  grid             = Grid
+  φ                = realToFrac ((1.0 + sqrt 5) / 2.0 :: Double)
 
-  wrkLayout     = onWorkspace wrkWs (tiled ||| full) $ (tiled ||| Mirror tiled ||| column3 ||| full)
+  fullScreenToggle = mkToggle (single NBFULL)
 
 -- | HOOKS
 
 myHandleEventHook :: Event -> X All
 myHandleEventHook = handleEventHook def <+> fullscreenEventHook
-
--- Layout hook - all quite standard, note the use of limitSelect (I
--- have a key-binding to limit the windows defined below, which is
--- pretty handy)
-myLayoutHook :: MyLayout Window
-myLayoutHook =
-  avoidStruts
-    . smartBorders
-    . toggleLayouts Full
-    . limitSelect 1 5
-    $ layouts
 
 mdspManageHook :: ManageHook
 mdspManageHook = composeAll $ concat
