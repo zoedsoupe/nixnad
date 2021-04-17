@@ -1,6 +1,26 @@
 { config, lib, pkgs, ... }:
 
-{
+let
+  vim-omni = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-omni";
+    src = pkgs.fetchFromGitHub {
+      owner = "GuiLra";
+      repo = "vim-omni";
+      rev = "cf57c94d6cd48d23fb02655f157f25a605988361";
+      sha256 = "4f9d9a433f9a337e2bd96e0d0f969cbdbb8fc3bea6919630bd0014f1da4dcb25";
+    };
+  };
+
+  earthly = pkgs.vimUtils.buildVimPlugin {
+    name = "earthly.vim";
+    src = pkgs.fetchFromGitHub {
+      owner = "earthly";
+      repo = "earthly.vim";
+      rev = "292c2e76785154d68066dbe0edfab0bdb06dc200";
+      sha256 = "e4d07eff273e1cbd81931c407dca3c828453f79a37cc240252957e8f006c76b0";
+    };
+  };
+in {
     programs.vim = {
     enable = true;
     settings = {
@@ -34,12 +54,12 @@
       wildmenu = true;
       background = "dark";
     };
-    plugins = (let vp = pkgs.vimPlugins;
-               in [
-                 vp.rainbow vp.haskell-vim
-                 vp.vim-elixir vp.surround
-                 vp.commentary vp.indentLine 
-               ]);
+    plugins = with pkgs.vimPlugins; [
+      rainbow haskell-vim
+      vim-elixir surround
+      commentary indentLine
+      vim-omni earthly
+    ];
     extraConfig = ''
     set formatoptions-=cro
     set whichwrap+=<,>,[,],h,l
