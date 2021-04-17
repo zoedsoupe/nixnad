@@ -9,7 +9,7 @@
 
   programs.git = {
     enable = true;
-    lfs = true;
+    lfs.enable = true;
     delta.enable = true;
     userEmail = "zoey.spessanha@zeetech.io";
     userName = "Zoey de Souza Pessanha";

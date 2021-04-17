@@ -1,4 +1,4 @@
-{ mainBar, config, pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   browser = "${pkgs.google-chrome}/bin/google-chrome-stable";
@@ -41,7 +41,7 @@ let
   github = ''
     [module/clickable-github]
     inherit = module/github
-    token = ''${file:${config.xdg.configHome}/polybar/github-notifications-token}
+    token = ''${file:${config.xdg.configHome}/github-notifications-token}
     user = gvolpe
     label = %{A1:${openGithub}:}  %notifications%%{A}
   '';
@@ -53,10 +53,10 @@ let
     tail = true
   '';
 
-  customMods = mainBar + bctl + github + xmonad;
+  customMods = bctl + github + xmonad;
 in
 {
-  xdg.configFile."polybar/github-notifications-token".source = ../../secrets/github-notifications-token;
+  xdg.configFile."polybar/github-notifications-token".source = ../../../secrets/github-notifications-token;
 
   services.polybar = {
     enable = true;

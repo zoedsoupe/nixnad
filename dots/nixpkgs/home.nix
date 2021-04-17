@@ -16,14 +16,12 @@ in {
     ./xmonad
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   # extra programs
   programs.home-manager.enable = true;
   programs.alot.enable = true;
   programs.command-not-found.enable = true;
-  programs.texlive = {
-    enable = true;
-    package = pkgs.texlive.combined.scheme-basic;
-  };
 
   # extra services
   services.clipmenu.enable = true;
@@ -53,20 +51,20 @@ in {
   ];
   
   home.file = {
-    iex.source = "${dotfiles}/.iex.exs";
-    sbclrc.source = "${dotfiles}/.scblrc";
-    patat.source = "${dotfiles}/.patat.yaml";
-    xinitrc.source = "${dotfiles}/.xinitrc";
-  };
-
-  xdg.configFile = {
-    neofetch.source = "${dotfiles}/neofetch";
+    ".iex.exs".source = "${dotfiles}/.iex.exs";
+    ".doom.d".source = "${dotfiles}/.doom.d";
+    ".sbclrc".source = "${dotfiles}/.sbclrc";
+    ".patat.yaml".source = "${dotfiles}/.patat.yaml";
+    ".xinitrc".source = "${dotfiles}/.xinitrc";
     scripts.source = "${dotfiles}/scripts";
   };
+
+  xdg.configFile.neofetch.source = "${dotfiles}/neofetch";
   
   accounts.email.accounts = {
     main = {
       address = "zoey.spessanha@zeetech.io"; 
+      primary = true;
     };
     second = {
       address = "00119110328@pq.uenf.br";

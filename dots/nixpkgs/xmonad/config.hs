@@ -12,7 +12,7 @@ import XMonad.Actions.WithAll (sinkAll, killAll)
 import XMonad.Actions.RotSlaves (rotSlavesDown, rotAllDown)
 
 -- Base
-import XMonad
+import XMonad hiding ((|||))
 import Data.Ratio
 import Data.Monoid (All)
 import System.IO (hPutStrLn)
@@ -21,7 +21,8 @@ import GHC.IO.Handle.Types (Handle)
 import qualified XMonad.StackSet as W
 
 -- Hooks
-import XMonad.Hooks.EwmhDesktops
+import XMomad.Hooks.FadeInactive (fadeInactiveLogHook)
+import XMonad.Hooks.EwmhDesktops hiding (fullscreenEventHook)
 import XMonad.Hooks.ManageDocks (AvoidStruts, manageDocks, avoidStruts, docks)
 import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat, doRectFloat, isDialog)
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
@@ -38,6 +39,7 @@ import XMonad.Layout.Gaps (gaps)
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Grid (Grid(..))
 import qualified XMonad.StackSet as W
+import XMonad.Layout.Spacing (spacing)
 import XMonad.Layout.TwoPane (TwoPane(..))
 import XMonad.Layout.LimitWindows (setLimit)
 import XMonad.Layout.PerWorkspace (onWorkspace)
@@ -103,8 +105,12 @@ layouts =
   wrkLayout ||| tall ||| reflectedTall ||| twopane ||| grid ||| threecol ||| threecolmid
  where
   -- Gaps bewteen windows
-  myGaps gap  = gaps [(U, gap),(D, gap),(L, gap),(R, gap)]
-  gapSpaced g = spacing g . myGaps g
+  myGaps gap    = gaps [(U, gap),(D, gap),(L, gap),(R, gap)]
+  gapSpaced g   = spacing g . myGaps g
+
+  nmaster       = 1 -- Default number of windows
+  ratio         = (/) 1 2 -- Default screen proportion
+  delta         = (/) 3 100 -- Default screen percent when resizes
 
   tiled         = gapSpaced 10 $ Tall nmaster delta ratio
   full          = gapSpaced 5 Full
@@ -136,7 +142,7 @@ myLayoutHook =
     . limitSelect 1 5
     $ layouts
 
-msdpManageHook :: ManageHook
+mdspManageHook :: ManageHook
 mdspManageHook = composeAll $ concat
     [ [ manageDocks                                      ]
     , [ manageHook def                                   ]
@@ -322,6 +328,8 @@ polybarHook dbus =
           }
 
 myPolybarLogHook dbus = myLogHook <+> dynamicLogWithPP (polybarHook dbus)
+
+myLogHook = fadeInactiveLogHook 0.9
 
 -- | MAIN
 
