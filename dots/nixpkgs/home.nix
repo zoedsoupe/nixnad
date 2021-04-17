@@ -13,6 +13,7 @@ in {
     ./autojump.nix
     ./alacritty.nix
     ./polybar
+    ./xmonad
   ];
 
   # extra programs
@@ -26,21 +27,6 @@ in {
 
   # extra services
   services.clipmenu.enable = true;
-
-  xsession = {
-    enable = true;
-
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-      extraPackages = hp: [
-        hp.dbus
-        hp.monad-logger
-        hp.xmonad-contrib
-      ];
-      config = ./config.hs;
-    };
-  };
 
   home.username = "matthew";
   home.homeDirectory = "/home/matthew";
