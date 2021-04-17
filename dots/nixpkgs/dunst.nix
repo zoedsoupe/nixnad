@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  programs.dunst = {
+  services.dunst = {
     enable = true;
     iconTheme.package = pkgs.arc-icon-theme;
     settings = {

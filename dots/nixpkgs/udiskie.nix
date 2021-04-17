@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  programs.udiskie = {
+  services.udiskie = {
     enable = true;
     automount = true;
     notify = true;
