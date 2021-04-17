@@ -17,6 +17,27 @@ in {
   home.username = "matthew";
   home.homeDirectory = "/home/matthew";
 
+  home.packages = with pkgs; [
+    # chat
+    tdesktop discord
+
+    # browser
+    qutebrowser google-chrome
+
+    # theme
+    lxappearance
+    
+    # tools
+    docker-compose insomnia
+    qbittorrent
+
+    # audio
+    spotify
+    
+    # images
+    flameshot peek
+  ];
+  
   home.file = {
     iex.source = "${dotfiles}/.iex.exs";
     sbclrc.source = "${dotfiles}/.scblrc";
