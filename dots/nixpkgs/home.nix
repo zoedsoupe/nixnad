@@ -56,7 +56,6 @@ in {
     ".sbclrc".source = "${dotfiles}/.sbclrc";
     ".patat.yaml".source = "${dotfiles}/.patat.yaml";
     ".xinitrc".source = "${dotfiles}/.xinitrc";
-    scripts.source = "${dotfiles}/scripts";
   };
 
   xdg.configFile.neofetch.source = "${dotfiles}/neofetch";
