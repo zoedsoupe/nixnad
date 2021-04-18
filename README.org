@@ -125,11 +125,29 @@ For the =Doom= config you can go here -> [[https://github.com/Mdsp9070/dotfiles/
    :CUSTOM_ID: install
    :END:
 
-WIP...
+*** NixOS
+The default way to install is to use =NixOS=! You can learn more [[https://nixos.org/manual/nixos/stable/][here]].
+
+After you boot on your machine you can install git as:
+#+begin_src shell
+nix-env -f '<nixpkgs>' -iA git
+#+end_src
+
+With =git= installed you can clone this repo and use my configs!
+DISCLAIMER: remember to generate your own =hardware-configuration.nix= following =NixOS= manual and
+replace this file from my repo!
+
+Also, take a look into =system/network.nix= to set up correct interfaces name!
+
+*** Use dotfiles scripts
+If you don't want to use =NixOS= or =Nix= at all, you can download my =dotfiles= script!
+
+Once you have it on hands you can provide a =DOTS_DIR= env var that points to your own
+dotfiles. This script will help you to link all your files/folders to the correct place!
 
 ** License
    :PROPERTIES:
    :CUSTOM_ID: license
    :END:
 
-This project is licensed under the[[./LICENSE][MIT License]].
+This project is licensed under the[[./LICENSE][ GPLv3 License]]
