@@ -21,7 +21,7 @@
 <div align="center">
   <strong>Powered by</strong>
   <br>
-  <img src="https://img.shields.io/badge/-Arch-informational?style=for-the-badge&logo=Arch-Linux&logoColor=white&color=blue" alt="Arch Linux" />
+  <img src="https://img.shields.io/badge/-NixOS-informational?style=for-the-badge&logo=NixOS&logoColor=white&color=5277C3" alt="NixOS" />
 
   <img src="https://img.shields.io/badge/-Fish-informational?style=for-the-badge&logoColor=white&color=5927E3" alt="Fish shell" />
 
@@ -57,7 +57,6 @@ however not be fully reproduced on macOs or Bsd systems.
 
    | Software         | Description                                                                                |
    |------------------+--------------------------------------------------------------------------------------------|
-   | [[https://asdf-vm.com/][asdf]]             | General version manager                                                                    |
    | [[https://curl.haxx.se/][cURL]]             | Command line tool and library for transferring data with URLs                              |
    | [[https://git-scm.com/][git]]              | Free and open source distributed version control system                                    |
    | [[https://github.com/cli/cli][Github CLI]]       | Github offcial CLI                                                                         |
@@ -68,7 +67,6 @@ however not be fully reproduced on macOs or Bsd systems.
    | [[https://nodejs.org/en/][nodejs]]           | JavaScript runtime built on Chrome's V8 JavaScript engine                                  |
    | [[https://yarnpkg.com/][yarn]]             | Fast and safe NodeJS package manager                                                       |
    | [[https://www.docker.com/][Docker]]           | Platform for building, deploying, and managing containerized applications                  |
-   | [[https://www.beekeeperstudio.io/][Beekeper Studio]]  | Open source SQL editor                                                                     |
    | [[https://insomnia.rest/][Insomnia]]         | API Client and Design Tool                                                                 |
    | [[https://www.typescriptlang.org/][typescript]]       | Typed superset of JavaScript that compiles to plain JavaScript                             |
    | [[https://elixir-lang.org/][elixir]]           | Dynamic, functional language designed for building scalable and maintainable applications  |
@@ -92,16 +90,13 @@ however not be fully reproduced on macOs or Bsd systems.
    | [[https://hackage.haskell.org/package/xmobar][xmobar]]           | Minimalistic text based status bar                                                         |
    | [[https://github.com/yshui/picom][picom]]            | A lightweight compositor for X11                                                           |
    | [[https://dunst-project.org/][dunst]]            | Lightweight replacement for the notification-daemons provided by most desktop environments |
-   | [[https://github.com/fosskers/aura][aura]]             | A secure, multilingual package manager for Arch Linux and the AUR                          |
    | [[https://github.com/flameshot-org/flameshot][flameshot]]        | Powerful yet simple to use screenshot software                                             |
    | [[https://github.com/pwmt/zathura][zathura]]          | Vim like document viewer                                                                   |
    | [[https://github.com/mpv-player/mpv][mpv]]              | Command line video player                                                                  |
-   | [[https://www.microsoft.com/en-us/edge][microsoft-edge]]   | Browser                                                                                    |
    | [[https://www.erlang.org/][erlang]]           | Programming language used to build massively scalable soft real-time systems               |
    | [[https://www.haskell.org/][haskell]]          | Declarative, statically typed code                                                         |
    | [[https://www.phoenixframework.org/][phoenix]]          | Peace of mind from prototype to production                                                 |
    | [[https://github.com/sharkdp/fd][fd]]               | A simple, fast and user-friendly alternative to 'find'                                     |
-   | [[https://github.com/firebase/firebase-tools][firebase-tools]]   | The Firebase Command Line Tools                                                            |
    | [[https://www.gnu.org/software/emacs/][emacs]]            | An extensible, customizable, free/libre text editor                                        |
    | [[https://github.com/freedesktop/xorg-xrandr][xrandr]]           | Primitive command line interface to RandR extension                                        |
    | [[https://github.com/jarun/nnn/][nnn]]              | n³ The unorthodox terminal file manager                                                    |
@@ -118,7 +113,12 @@ however not be fully reproduced on macOs or Bsd systems.
    :CUSTOM_ID: emacs
    :END:
 
-WIP...
+I have two =Emacs= "frameworks" configs:
+1. The one that I'm building myself
+2. My work config that uses =Doom Emacs=
+
+My config you can find here -> [[https://github.com/Mdsp9070/my_emacs]]
+For the =Doom= config you can go here -> [[https://github.com/Mdsp9070/dotfiles/tree/main/nixos/home/.doom.d][Doom config]]
 
 ** Install
    :PROPERTIES:
