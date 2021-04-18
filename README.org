@@ -42,9 +42,6 @@
 </p>
 #+end_html
 
-** Dependencies
-- [[https://github.com/fish-shell/fish-shell][fish]]
-
 ** Operating System
 
 This setup could be reproduced on any GNU/Linux distribution. It could
