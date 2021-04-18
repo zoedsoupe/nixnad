@@ -42,11 +42,6 @@
 </p>
 #+end_html
 
-** Operating System
-
-This setup could be reproduced on any GNU/Linux distribution. It could
-however not be fully reproduced on macOs or Bsd systems.
-
 ** You'll be installing...
    :PROPERTIES:
    :CUSTOM_ID: programs
