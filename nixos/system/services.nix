@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  programs.gnupg.agent.pinentryFlavor = "gnome3";
-
   # List services that you want to enable:
   services = {
 
@@ -18,14 +16,7 @@
     # Emacs daemon
     emacs.enable = true;
 
-    dbus = {
-      enable = true;
-      packages = [ pkgs.gnome3.dconf ];
-    };
-
-    udev.packages = [ pkgs.gnome3.gnome-settings-daemon ];
-
-    gnome3.gnome-keyring.enable = true;
+    dbus.enable = true;
 
     # X compositor
     picom = {
@@ -67,13 +58,13 @@
     xserver = {
       enable = true;
       layout = "us";
-      xkbOptions = "ctrl:swapcaps,compose:rwin";
+      xkbOptions = "ctrl:swapcaps";
+      xkbVariant = "intl";
       libinput = {
         enable = true;
         touchpad.disableWhileTyping = true;
       };
       desktopManager.xterm.enable = false;
-      desktopManager.gnome3.enable = true;
       windowManager.xmonad = {
         enable = true;
         enableContribAndExtras = true;

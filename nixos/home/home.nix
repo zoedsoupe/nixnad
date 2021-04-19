@@ -27,6 +27,8 @@
       command-not-found.enable = true;
     };
 
+    services.flameshot.enable = true;
+
     home.username = "matthew";
     home.homeDirectory = "/home/matthew";
 
@@ -52,7 +54,7 @@
       spotify
     
       # images
-      flameshot peek
+      peek
 
       # others
       any-nix-shell arandr

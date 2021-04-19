@@ -6,7 +6,6 @@
       enable = true;
       enableFishIntegration = true;
       settings = {
-        scan_timeout = 5;
         directory = {
           format = "[$path]($style)[$read_only]($read_only_style) ";
         };
