@@ -18,7 +18,7 @@
     unrar psmisc bat cmatrix 
     iw curl neofetch ncdu 
     lazygit glow fd 
-    nnn jq ytop tldr
+    nnn jq tldr
 
     # theme
     betterlockscreen 

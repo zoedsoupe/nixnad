@@ -40,8 +40,7 @@
 
   hardware.bluetooth = {
     enable = true;
-    config = {
-
+    settings = {
       General = {
         Name = "mdsp-note";
         DiscoverableTimeout = 0;

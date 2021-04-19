@@ -24,6 +24,13 @@
         fi
         # END SYSTEM CONFIG
 
+        # set second monitor as primary 
+        if xrandr | grep -q 'HDMI1 connected'; then
+          xrandr --output eDP1 --auto --output HDMI1 --primary --auto --left-of eDP1
+        elif xrandr | grep -q 'DP1 connected'; then
+          xrandr --output eDP1 --auto --output DP1 --primary --auto --left-of eDP1
+        fi
+
         feh --bg-fill --randomize ~/pics/wallpapers &
 
         case "$WM" in
