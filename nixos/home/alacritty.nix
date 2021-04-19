@@ -22,9 +22,9 @@
           { key = "C"; mods= "Control|Shift"; action = "Copy";  }
         ];
         font = {
-          normal = { family = "JetBrainsMono"; };
-          bold = { family = "JetBrainsMono"; };
-          italic = { family = "JetBrainsMono"; };
+          normal = { family = "JetBrainsMono Nerd Font Mono"; };
+          bold = { family = "JetBrainsMono Nerd Font Mono"; };
+          italic = { family = "JetBrainsMono Nerd Font Mono"; };
           offset = { x = 0; y = 0; };
           glyph_offset = { x = 0; y = 0; };
           size = 14;

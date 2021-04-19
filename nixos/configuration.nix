@@ -21,9 +21,6 @@
   time.timeZone = "America/Sao_Paulo";
 
   fonts.fonts = with pkgs; [
-    fira-code
-    fira-code-symbols
-    jetbrains-mono
     cantarell-fonts
     font-awesome_4
     material-design-icons
