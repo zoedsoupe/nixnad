@@ -40,6 +40,8 @@ let
   ### PROMPT ###
   starship init fish | source
 
+  any-nix-shell fish --info-right | source
+
   set -x STARSHIP_CONFIG ~/.config/starship.toml
 
   set fish_greeting # suppress fish initital greeting

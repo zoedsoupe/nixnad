@@ -271,8 +271,8 @@ myKeys cfg =
        , ("M-c", safeSpawnProg "clipmenu")
        , ("M-s", safeSpawnProg "screenkey")
        , ("M-S-s", safeSpawn "killall" ["screenkey"])
-       , ("M-S-p", safeSpawn "flameshot" ["gui", "-p", "~/pics/screenshots/"])
-       , ("M-C-p", safeSpawn "flameshot" ["screen", "-p", "~/pics/screenshots/"])
+       , ("M-S-p", safeSpawn "flameshot" ["gui", "-p", "/home/matthew/pics/screenshots/"])
+       , ("M-C-p", safeSpawn "flameshot" ["screen", "-p", "/home/matthew/pics/screenshots/"])
        
     --- System
        , ("M-x", safeSpawnProg "reboot")

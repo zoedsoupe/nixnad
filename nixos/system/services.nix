@@ -70,7 +70,7 @@
       xkbOptions = "ctrl:swapcaps,compose:rwin";
       libinput = {
         enable = true;
-        disableWhileTyping = true;
+        touchpad.disableWhileTyping = true;
       };
       desktopManager.xterm.enable = false;
       desktopManager.gnome3.enable = true;
@@ -88,7 +88,7 @@
       '';
     };
 
-    mingetty.helpLine = ''
+    getty.helpLine = ''
 
             [0;34;40m ███    ██ ██ ██   ██  ██████  ███████ 
             [0;34;40m ████   ██ ██  ██ ██  ██    ██ ██      
