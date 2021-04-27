@@ -11,18 +11,10 @@
         backend: auto
     '';
 
-    ".xinitrc".text = ''
+    ".xsession".text = ''
       #!/bin/sh
 
       set -e
-
-      # BEGIN SYSTEM CONFIG
-      if [[ -d /stc/X11/xinit/xinitrc.d ]]; then
-        for f in /etc/X11/xinit/xinitrc.d/?*.sh; do
-          [ -x "$f" && sh "$f" ]
-        done
-      fi
-      # END SYSTEM CONFIG
 
       # set second monitor as primary 
       if xrandr | grep -q 'HDMI-1 connected'; then
