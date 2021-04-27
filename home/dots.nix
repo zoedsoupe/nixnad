@@ -32,11 +32,6 @@
       fi
 
       feh --bg-fill --randomize ~/pics/wallpapers &
-
-      case "$WM" in
-        xmonad) exec xmonad ;;
-        *) echo "No WM specified" && false ;;
-      esac
     '';
   };
 
