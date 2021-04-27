@@ -74,7 +74,7 @@
       enable = true;
       layout = "us";
       xkbOptions = "ctrl:swapcaps";
-      xkbVariant = "alt-intl";
+      xkbVariant = "intl";
       libinput = {
         enable = true;
         touchpad.disableWhileTyping = true;

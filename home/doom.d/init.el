@@ -26,7 +26,7 @@
 
        :editor
        file-templates    ; auto-snippets for empty files
-       fold              ; (nigh) universal code folding
+       ;fold              ; (nigh) universal code folding
        (format +onsave)  ; automated prettiness
        snippets          ; my elves. They type so I don't have to
        word-wrap         ; soft wrapping with language-aware indent
@@ -71,8 +71,8 @@
 
        :lang
        cc                ; C/C++/Obj-C madness
-       clojure           ; java with a lisp
-       common-lisp       ; if you've seen one lisp, you've seen them all
+       ;clojure           ; java with a lisp
+       ;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
        ;;csharp            ; unity, .NET, and mono shenanigans
@@ -87,7 +87,7 @@
        ;;idris             ; a language you can depend on
        json              ; At least it ain't XML
        ;javascript        ; all(hope(abandon(ye(who(enter(here))))))
-       julia             ; a better, faster MATLAB
+       ;julia             ; a better, faster MATLAB
        latex             ; writing papers in Emacs has never been so fun
        lua               ; one-based indices? one-based indices
        markdown          ; writing docs for people to ignore
