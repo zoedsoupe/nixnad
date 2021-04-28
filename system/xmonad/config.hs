@@ -40,6 +40,7 @@ import XMonad.Layout.Gaps (gaps)
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Grid (Grid(..))
 import XMonad.Layout.Spacing (spacing)
+import XMonad.Layout.IndependentScreens
 import XMonad.Layout.TwoPane (TwoPane(..))
 import XMonad.Layout.LimitWindows (setLimit)
 import XMonad.Layout.PerWorkspace (onWorkspace)
@@ -290,12 +291,13 @@ myKeys cfg =
 -- | MAIN
 main :: IO ()
 main = do
+  n <- countScreens
   -- Launching xmobar.
-  handle <- spawnPipe "xmobar $HOME/.config/xmobar/xmobarrc"
+  xmprocs <- mapM (\i -> spawnPipe $ "xmobar $HOME/.config/xmobar/xmobarrc" ++ " -x " ++ show i) [0..n-1]
   -- the xmonad, ya know...what the WM is named after!
-  xmonad $ mkConfig handle
+  xmonad $ mkConfig xmprocs
 
-mkConfig handle = ewmh . docks $ myConfig
+mkConfig xmprocs = ewmh . docks $ myConfig
   where
     keyConfig = myKeys myConfig
     myConfig =
@@ -305,7 +307,7 @@ mkConfig handle = ewmh . docks $ myConfig
           borderWidth        = myBorderWidth,
           normalBorderColor  = myNormColor,
           focusedBorderColor = myFocusColor,
-          logHook            = myLogHook handle,
+          logHook            = mapM_ (\handle -> myLogHook handle) xmprocs,
           manageHook         = myManageHook <+> mdspManageHook,
           layoutHook         = myLayoutHook,
           handleEventHook    = myHandleEventHook
