@@ -88,7 +88,7 @@
        json              ; At least it ain't XML
        ;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;julia             ; a better, faster MATLAB
-       latex             ; writing papers in Emacs has never been so fun
+       ;latex             ; writing papers in Emacs has never been so fun
        lua               ; one-based indices? one-based indices
        markdown          ; writing docs for people to ignore
        ocaml             ; an objective camel

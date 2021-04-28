@@ -12,9 +12,4 @@ in {
   home.file.".emacs.d/init.el".text = ''
     (load "default.el")
   '';
-
-  services.emacs = {
-    enable = true;
-    package = doom-emacs;
-  };
 }

@@ -2,7 +2,7 @@
 
 {
   services.dunst = {
-    enable = false;
+    enable = true;
     iconTheme = {
       name = "arc-icon-theme";
       package = pkgs.arc-icon-theme;

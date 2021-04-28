@@ -21,7 +21,7 @@
   boot.loader.grub.version = 2;
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.device = "nodev"; # or "nodev" for efi only
-  boot.loader.grub.splashImage = "/etc/nixos/system/boot_wallpaper.jpg"; 
+  boot.loader.grub.splashImage = "/etc/nixos/boot_wallpaper.jpg"; 
   boot.loader.grub.useOSProber = true;
   boot.loader.efi = {
     canTouchEfiVariables = true;
