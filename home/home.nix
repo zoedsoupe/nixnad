@@ -10,6 +10,7 @@
     ./udiskie.nix
     ./starship.nix
     ./autojump.nix
+    ./autorandr.nix
     ./alacritty.nix
   ];
 
