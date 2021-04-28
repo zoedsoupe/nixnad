@@ -260,6 +260,7 @@ myKeys cfg =
            [ ("e", spawn "emacsclient -c")
            , ("b", spawn "emacsclient -c --eval '(ibuffer)'")
            , ("v", spawn "emacsclient -c --eval '(+vterm/here nil)'")
+           , ("g", spawn "emacsclient -c --eval '(emacs-everywhere)'")
            ]
          )
 

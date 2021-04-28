@@ -11,10 +11,9 @@
     neofetch procs
     wget unzip exa pciutils 
     unrar psmisc bat cmatrix 
-    iw curl neofetch ncdu 
-    lazygit glow fd 
-    nnn jq tldr 
-    haskellPackages.patat
+    iw curl ncdu lazygit 
+    glow fd nnn jq tldr git
+    alacritty
 
     # theme
     betterlockscreen 

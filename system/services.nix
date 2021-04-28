@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  imports = [ ./xmonad ];
+
   location = {
     provider = "manual";
     latitude = -21.7629877;
@@ -17,6 +19,8 @@
     upower.enable = true;
 
     dbus.enable = true;
+
+    emacs.enable = true;
 
     # X compositor
     picom = {
@@ -74,7 +78,7 @@
       enable = true;
       layout = "us";
       xkbOptions = "ctrl:swapcaps";
-      xkbVariant = "intl";
+      xkbVariant = "alt-intl";
       libinput = {
         enable = true;
         touchpad.disableWhileTyping = true;

@@ -2,7 +2,6 @@
 
 {
   imports = [
-    (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/release-20.09.tar.gz}/nixos")
     ./vim.nix
     ./git.nix
     ./dots.nix
@@ -15,9 +14,6 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
-
-  useUserPackages = true;
-  useGlobalPkgs = true;
 
   programs = {
     home-manager.enable = true;
@@ -38,7 +34,7 @@
     tdesktop discord
 
     # browser
-    qutebrowser google-chrome
+    google-chrome
 
     # theme
     lxappearance
@@ -56,7 +52,7 @@
 
     # others
     any-nix-shell arandr
-    bitwarden-cli dunst
+    bitwarden-cli
   ];
 
   home.stateVersion = "21.03";
