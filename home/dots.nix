@@ -11,7 +11,7 @@
         backend: auto
     '';
 
-    ".xsession".text = ''
+    ".xsessionrc".text = ''
       #!/bin/sh
 
       set -e
