@@ -133,16 +133,16 @@ replace this file from my repo!
 **** Possible configs
 
 I have 2 possible system wide configs:
-1. My personal and playground config, with `Xmonad` as WE
-2. My workstation config, with `Gnome3` as DE
+1. My personal and playground config, with =Xmonad= as WE
+2. My workstation config, with =Gnome3= as DE
 
-After you had cloned this repo you can edit `services.nix` file and prepend:
-```nix
+After you had cloned this repo you can edit =services.nix= file and prepend:
+#+begin_src nix
 {
   imports = [ ./xmonad ]; # or ./gnome
   ...
 }
-```
+#+end_src
 
 Also, take a look into =system/network.nix= to set up correct interfaces name!
 
