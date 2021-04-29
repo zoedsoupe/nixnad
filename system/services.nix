@@ -20,8 +20,6 @@
 
     dbus.enable = true;
 
-    emacs.enable = true;
-
     # X compositor
     picom = {
       enable = true;
