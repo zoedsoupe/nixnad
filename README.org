@@ -110,7 +110,8 @@ I have two =Emacs= "frameworks" configs:
 2. My work config that uses =Doom Emacs=
 
 My config you can find here -> [[https://github.com/Mdsp9070/my_emacs]]
-For the =Doom= config you can go here -> [[https://github.com/Mdsp9070/dotfiles/tree/main/nixos/home/.doom.d][Doom config]]
+
+For the =Doom= config you can go here -> [[https://github.com/Mdsp9070/dotfiles/tree/main/nixos/home/doom.d][Doom config]]
 
 ** Install
    :PROPERTIES:
@@ -128,6 +129,20 @@ nix-env -f '<nixpkgs>' -iA git
 With =git= installed you can clone this repo and use my configs!
 DISCLAIMER: remember to generate your own =hardware-configuration.nix= following =NixOS= manual and
 replace this file from my repo!
+
+**** Possible configs
+
+I have 2 possible system wide configs:
+1. My personal and playground config, with `Xmonad` as WE
+2. My workstation config, with `Gnome3` as DE
+
+After you had cloned this repo you can edit `services.nix` file and prepend:
+```nix
+{
+  imports = [ ./xmonad ]; # or ./gnome
+  ...
+}
+```
 
 Also, take a look into =system/network.nix= to set up correct interfaces name!
 
