@@ -1,16 +1,6 @@
 { config, lib, pkgs, ... }:
 
-let
-  omni-vim = pkgs.vimUtils.buildVimPlugin {
-    name = "omni-vim";
-    src = pkgs.fetchFromGitHub {
-      owner = "GuiLra";
-      repo = "vim-omni";
-      rev = "cf57c94d6cd48d23fb02655f157f25a605988361";
-      sha256 = "0ic18bfbkhm25fpqm8bj1b8i2h7029nfs87hsm1rxsid6src2bkr";
-    };
-  };
-in {
+{
   programs.vim = {
     enable = true;
     settings = {
@@ -25,7 +15,7 @@ in {
       rainbow haskell-vim
       vim-elixir surround
       commentary indentLine
-      elm-vim omni-vim
+      elm-vim
     ];
     extraConfig = ''
     set formatoptions-=cro
@@ -60,8 +50,8 @@ in {
     filetype plugin on
     filetype plugin indent on
 
-    packadd! omni.vim
-    colorscheme omni
+    packadd! dracula
+    colorscheme dracula
 
     au! BufWritePost $MYVIMRC source % " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
     autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
