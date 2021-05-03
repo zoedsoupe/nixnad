@@ -11,20 +11,7 @@
         backend: auto
     '';
 
-    ".xsessionrc".text = ''
-      #!/bin/sh
-
-      set -e
-
-      # set second monitor as primary 
-      if xrandr | grep -q 'HDMI-1 connected'; then
-        xrandr --output eDP-1 --auto --output HDMI-1 --primary --auto --left-of eDP-1
-      elif xrandr | grep -q 'DP-1 connected'; then
-        xrandr --output eDP-1 --auto --output DP-1 --primary --auto --left-of eDP-1
-      fi
-
-      feh --bg-fill --randomize ~/pics/wallpapers &
-    '';
+    ".doom.d".source = ./doom.d;
   };
 
   xdg.configFile.xmobar = {

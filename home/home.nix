@@ -5,7 +5,6 @@
     ./vim.nix
     ./git.nix
     ./dots.nix
-    ./doom.nix
     ./dunst.nix
     ./udiskie.nix
     ./starship.nix
@@ -20,9 +19,11 @@
     home-manager.enable = true;
     gpg.enable = true;
     command-not-found.enable = true;
+    emacs.enable = true;
   };
 
   services.clipmenu.enable = true;
+  services.emacs.enable = true;
 
   home.username = "matthew";
   home.homeDirectory = "/home/matthew";
@@ -49,7 +50,7 @@
     spotify
   
     # images
-    peek flameshot
+    peek flameshot imagemagick
 
     # others
     any-nix-shell arandr
