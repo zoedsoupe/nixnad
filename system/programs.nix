@@ -38,6 +38,13 @@
     # elixir dev
     erlangR23 elixir
 
+    # elm dev
+    elmPackages.elm 
+    elmPackages.elm-format
+    elmPackages.elm-analyse 
+    elmPackages.elm-test
+    elmPackages.create-elm-app
+
     # tools
     gparted 
     dmenu
@@ -57,5 +64,5 @@
   ];
 
   environment.sessionVariables.TERMINAL = [ "alacritty" ];
-  environment.sessionVariables.EDITOR = [ "emacs" ];
+  environment.sessionVariables.EDITOR = [ "vim" ];
 }
