@@ -23,5 +23,7 @@
 /dots/.emacs.d/straight/build/
 /dots/.emacs.d/straight/repos/
 
+/home/doom.d/custom.el
+
 # Fish stuff
 /dots/fish/fish_variables

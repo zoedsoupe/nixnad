@@ -1,6 +1,16 @@
 { config, lib, pkgs, ... }:
 
-{
+let
+  omni-vim = pkgs.vimUtils.buildVimPlugin {
+    name = "omni-vim";
+    src = pkgs.fetchFromGitHub {
+      owner = "GuiLra";
+      repo = "vim-omni";
+      rev = "cf57c94d6cd48d23fb02655f157f25a605988361";
+      sha256 = "0ic18bfbkhm25fpqm8bj1b8i2h7029nfs87hsm1rxsid6src2bkr";
+    };
+  };
+in {
   programs.vim = {
     enable = true;
     settings = {
@@ -15,7 +25,7 @@
       rainbow haskell-vim
       vim-elixir surround
       commentary indentLine
-      elm-vim dracula-vim
+      elm-vim omni-vim
     ];
     extraConfig = ''
     set formatoptions-=cro
@@ -50,7 +60,10 @@
     filetype plugin on
     filetype plugin indent on
 
-    au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+    packadd! omni.vim
+    colorscheme omni
+
+    au! BufWritePost $MYVIMRC source % " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
     autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
     " force syntax highlighting for large files

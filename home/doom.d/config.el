@@ -73,10 +73,11 @@
   Region included in screenshot is the active selection, interactively,
   or given by BEG and END. Buffer is used if region spans 0-1 characters."
   (interactive (if (region-active-p)
-                   (list (region-beggining) (region-end))
+                   (list (region-beginning) (region-end))
                  (list (point-min) (point-max))))
   (deactivate-mark)
 
+  (require 'screenshot)
   (screenshot--set-screenshot-region beg end)
 
   (setq screenshot--tmp-file
