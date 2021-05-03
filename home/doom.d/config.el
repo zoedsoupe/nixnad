@@ -14,7 +14,7 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (setq doom-font (font-spec :font "Monofur Nerd Font Mono" :size 15)
-    doom-variable-pitch-font (font-spec :font "FiraCode Nerd Font Mono" :size 15))
+      doom-variable-pitch-font (font-spec :font "FiraCode Nerd Font Mono" :size 15))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -31,8 +31,8 @@
 
 (defun mdsp/get-project-root ()
   "Find the project root using projectile."
-    (when (fboundp 'projectile-project-root)
-          (projectile-project-root)))
+  (when (fboundp 'projectile-project-root)
+    (projectile-project-root)))
 
 ;; COMPLETIONS AND SEARCH----------------------------------------------------------
 (use-package! consult
@@ -64,6 +64,25 @@
   (selectrum-current-candidate ((t (:background "#3a3f5a"))))
   :init
   (selectrum-mode 1))
+
+;; SCREENSHOT-------------------------------------------------------------
+
+(defun screenshot (beg end)
+  "Take a screenshot of the current region or buffer.
+
+  Region included in screenshot is the active selection, interactively,
+  or given by BEG and END. Buffer is used if region spans 0-1 characters."
+  (interactive (if (region-active-p)
+                   (list (region-beggining) (region-end))
+                 (list (point-min) (point-max))))
+  (deactivate-mark)
+
+  (screenshot--set-screenshot-region beg end)
+
+  (setq screenshot--tmp-file
+        (make-temp-file "screenshot-" nil ".png"))
+
+  (screenshot-transient))
 
 ;; ORG_CONFIGS-------------------------------------------------------------
 
@@ -99,14 +118,14 @@
         org-tree-slide-header t))
 
 (use-package! org
-    :config
-    (setq org-ellipsis " ▼ "))
+  :config
+  (setq org-ellipsis " ▼ "))
 
 (defun org-update-cookies-after-save()
-    "Update all org cookies on save."
-    (interactive)
-    (let ((current-prefix-arg '(4)))
-         (org-update-statistics-cookies "ALL")))
+  "Update all org cookies on save."
+  (interactive)
+  (let ((current-prefix-arg '(4)))
+    (org-update-statistics-cookies "ALL")))
 
 (add-hook 'org-mode-hook
           (lambda ()
