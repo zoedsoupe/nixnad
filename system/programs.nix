@@ -61,6 +61,12 @@
     # xorg
     xorg.xrandr xclip
 
+    # gnome stuff
+    gnome3.gnome-tweaks
+    gnomeExtensions.material-shell
+    gnomeExtensions.emoji-selector
+    gnomeExtensions.clipboard-indicator
+
   ];
 
   environment.sessionVariables.TERMINAL = [ "alacritty" ];

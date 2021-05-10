@@ -1,18 +1,24 @@
 { pkgs, ...}:
 
 {
-  services.xserver = {
-    windowManager.xmonad = {
-      enable = true;
-      config = ./config.hs;
-      enableContribAndExtras = true;
+  services = {
+    xserver = {
+      windowManager.xmonad = {
+        enable = true;
+        config = ./config.hs;
+        enableContribAndExtras = true;
+      };
+
+      displayManager = {
+        autoLogin = {
+          enable = true;
+          user = "matthew";
+        };
+
+        defaultSession = "none+xmonad";
+      };
     };
 
-    displayManager.autoLogin = {
-      enable = true;
-      user = "matthew";
-    };
+    xrdp.defaultWindowManager = "xmonad";
   };
-
-  services.xrdp.defaultWindowManager = "xmonad";
 }

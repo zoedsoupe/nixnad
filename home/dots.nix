@@ -12,6 +12,10 @@
     '';
 
     ".doom.d".source = ./doom.d;
+
+    ".ghci".text = ''
+      :set prompt "\ESC[1;34m%s\n\ESC[0;34mλ> \ESC[m"
+    '';
   };
 
   xdg.configFile.xmobar = {
