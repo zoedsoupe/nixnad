@@ -15,7 +15,7 @@
       rainbow haskell-vim
       vim-elixir surround
       commentary indentLine
-      elm-vim
+      elm-vim editorconfig-vim
     ];
     extraConfig = ''
     set formatoptions-=cro
