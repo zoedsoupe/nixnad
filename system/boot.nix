@@ -28,6 +28,8 @@
     efiSysMountPoint = "/boot/efi";
   }; 
 
+  boot.supportedFilesystems = [ "ntfs" "ext4" ];
+
   services.fstrim = {
     enable = true;
     interval = "weekly";

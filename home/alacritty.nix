@@ -7,7 +7,7 @@
       window = {
         dynamic_title = true;
         dynamic_padding = false;
-        decorations = "none";
+        decorations = "full";
       };
       selection = {
         save_to_clipboard = true;
