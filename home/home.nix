@@ -26,6 +26,10 @@
   services.clipmenu.enable = true;
   services.emacs.enable = true;
 
+  # enable direnv and nix-direnv
+  programs.direnv.enable = true;
+  programs.direnv.enableNixDirenvIntegration = true;
+
   home.username = "matthew";
   home.homeDirectory = "/home/matthew";
 
