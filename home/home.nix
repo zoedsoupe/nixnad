@@ -5,6 +5,7 @@
     ./vim.nix
     ./git.nix
     ./dots.nix
+    ./doom.nix
     ./dunst.nix
     ./udiskie.nix
     ./starship.nix
