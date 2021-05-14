@@ -22,32 +22,10 @@
     vim
 
     # dev
-    gcc zlib cmake bzip2 gnumake
-    lua binutils.bintools gdb
-    pkg-config google-cloud-sdk
-
-    # haskell dev
-    ghc stack haskellPackages.brittany 
-    haskellPackages.hoogle
-
-    # node dev
-    nodejs-12_x nodePackages.yarn deno
-    nodePackages.typescript
-    nodePackages.create-react-app
-
-    # elixir dev
-    erlangR23 elixir
-
-    # elm dev
-    elmPackages.elm 
-    elmPackages.elm-format
-    elmPackages.elm-analyse 
-    elmPackages.elm-test
-    elmPackages.create-elm-app
+    google-cloud-sdk
 
     # tools
     gparted 
-    dmenu
 
     # audio & video
     mpv pavucontrol ffmpeg
@@ -63,9 +41,10 @@
 
     # gnome stuff
     gnome3.gnome-tweaks
-    gnomeExtensions.material-shell
     gnomeExtensions.emoji-selector
     gnomeExtensions.clipboard-indicator
+    numix-icon-theme-circle
+    numix-cursor-theme
 
   ];
 

@@ -58,7 +58,6 @@
 
     redshift = {
       enable = true;
-      executable = "/bin/redshift-gtk";
       brightness = {
         day = "1";
         night = "1";
@@ -79,7 +78,9 @@
       xkbVariant = "intl";
       libinput = {
         enable = true;
-        touchpad.disableWhileTyping = true;
+        tapping = true;
+        disableWhileTyping = true;
+        naturalScrolling = true;
       };
       desktopManager.xterm.enable = false;
       updateDbusEnvironment = true;
@@ -91,7 +92,7 @@
       '';
     };
 
-    getty.helpLine = ''
+    mingetty.helpLine = ''
 
             [0;34;40m ███    ██ ██ ██   ██  ██████  ███████ 
             [0;34;40m ████   ██ ██  ██ ██  ██    ██ ██      
@@ -101,20 +102,5 @@
             [0;37;40m
     '';
 
-  };
-
-  systemd.services.betterlockscreen = {
-    enable = true;
-    description = "Locks screen when going to sleep/suspend";
-    environment = { DISPLAY = ":0"; };
-    serviceConfig = {
-      User = "matthew";
-      Type = "simple";
-      ExecStart = ''${pkgs.betterlockscreen}/bin/betterlockscreen -l'';
-      TimeoutSec = "infinity";
-      alias = [ "betterlockscreen@matthew.service" ];
-    };
-    before = [ "sleep.target" "suspend.target" ];
-    wantedBy = [ "sleep.target" "suspend.target" ];
   };
 }
