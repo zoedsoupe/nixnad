@@ -6,11 +6,8 @@
     ./git.nix
     ./dots.nix
     ./doom.nix
-    ./dunst.nix
-    ./udiskie.nix
     ./starship.nix
     ./autojump.nix
-    ./autorandr.nix
     ./alacritty.nix
   ];
 
@@ -20,11 +17,7 @@
     home-manager.enable = true;
     gpg.enable = true;
     command-not-found.enable = true;
-    emacs.enable = true;
   };
-
-  services.clipmenu.enable = true;
-  services.emacs.enable = true;
 
   # enable direnv and nix-direnv
   programs.direnv.enable = true;
@@ -34,9 +27,6 @@
   home.homeDirectory = "/home/matthew";
 
   home.packages = with pkgs; [
-    # bar
-    haskellPackages.xmobar
-
     # chat
     tdesktop discord
 
@@ -58,7 +48,7 @@
     peek flameshot imagemagick
 
     # others
-    any-nix-shell arandr
+    any-nix-shell
     bitwarden-cli
   ];
 
