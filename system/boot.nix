@@ -28,6 +28,12 @@
     interval = "weekly";
   };
 
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 60;
+  };
+
   hardware.cpu.intel.updateMicrocode = true;
 
   nix.maxJobs = lib.mkDefault 8;
