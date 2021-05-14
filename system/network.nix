@@ -8,8 +8,8 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.enp2s0.useDHCP = true;
-  networking.interfaces.wlp3s0.useDHCP = true;
+  networking.interfaces.enp4s0.useDHCP = true;
+  networking.interfaces.wlp0s20f3.useDHCP = true;
   networking.networkmanager.enable = true;
 
   # Configure network proxy if necessary
