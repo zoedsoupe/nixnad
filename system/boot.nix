@@ -9,13 +9,6 @@
     "vt.default_blu=0x4c,0x6c,0x4c,0x77,0x4f,0xf4,0xff,0xff,0xa7,0x6d,0xee,0x77,0x5c,0xf4,0xff,0xff"
   ];
 
-  boot.extraModprobeConfig = ''
-  options ath9wk btcoex_enable=1 bt_ant_diversity=1
-  options snd_hda_intel index=1
-  '';
-
-  boot.blacklistedKernelModules = [ "acer_wmi" ];
-
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
@@ -28,7 +21,7 @@
     efiSysMountPoint = "/boot/efi";
   }; 
 
-  boot.supportedFilesystems = [ "ntfs" "ext4" ];
+  boot.supportedFilesystems = [ "ntfs" "btrfs" ];
 
   services.fstrim = {
     enable = true;
@@ -55,9 +48,16 @@
         ReconnectAttempts = 5;
         ReconnectIntervals = "1,2,4,8,16";
       };
-
     };
   };
 
   boot.cleanTmpDir = true;
+
+  # low mem
+  boot.kernel.sysctl = {
+    "vm.overcommit_memory" = "1";
+    "vm.swappiness" = 100; # if you're using (z)swap and/or zram. if you aren't, you should.
+  };
+
+  environment.variables.GC_INITIAL_HEAP_SIZE = "32M";
 }
