@@ -28,7 +28,7 @@
 
   home.packages = with pkgs; [
     # chat
-    tdesktop discord
+    tdesktop discord slack-dark
 
     # browser
     google-chrome
