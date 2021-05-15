@@ -4,7 +4,6 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.command-not-found.enable = true;
-  programs.nm-applet.enable = true;
 
   environment.systemPackages = with pkgs; [
     # terminal & tools
