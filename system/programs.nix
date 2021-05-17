@@ -3,7 +3,14 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  programs.command-not-found.enable = true;
+  programs = {
+    command-not-found.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      pinentryFlavor = "curses";
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     # terminal & tools
@@ -19,6 +26,9 @@
 
     # editor/ide
     vim
+
+    # browser
+    google-chrome
 
     # dev
     google-cloud-sdk
