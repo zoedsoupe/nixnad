@@ -9,6 +9,11 @@
     longitude = -41.296212;
   };
 
+  xdg.portal = {
+    enable = true;
+    gtkUsePortal = true;
+  };
+
   # List services that you want to enable:
   services = {
 
@@ -19,6 +24,8 @@
     upower.enable = true;
 
     dbus.enable = true;
+
+    pipewire.enable = true;
 
     # X compositor
     picom = {

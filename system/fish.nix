@@ -71,6 +71,11 @@ let
   function clean_node_modules
       command find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
   end
+
+  function nix_pkg_build
+      nix-shell -E \
+        "with import <nixpkgs> {}; callPackage $argv {}"
+  end
   '';
 
   theme = ''
