@@ -15,7 +15,6 @@
 
   programs = {
     home-manager.enable = true;
-    gpg.enable = true;
     command-not-found.enable = true;
   };
 
@@ -25,9 +24,6 @@
   home.packages = with pkgs; [
     # chat
     tdesktop discord slack-dark
-
-    # browser
-    google-chrome
 
     # theme
     lxappearance
