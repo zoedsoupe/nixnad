@@ -12,5 +12,10 @@
       pull = { rebase = true; };
     };
     ignores = [ "**/.~*" "*.swp" "*.swo" ];
+    signing = {
+      gpgPath = "${pkgs.gnupg}/bin/gpg2";
+      key = null;
+      signByDefault = true;
+    };
   };
 }
