@@ -19,6 +19,15 @@ let
     mps = "mix phx.server";
   };
 
+  solfacilAliases = {
+    solfacil_core= "docker-compose run --rm core";
+    solfacil_app= "docker-compose run --rm app";
+    solfacil_db= "docker-compose run --rm db";
+    solfacil_node= "docker-compose run --rm node";
+    solfacil_vpn= "sudo openvpn /etc/openvpn/matheus.ovpn";
+    solfacil_swoosh= "docker-compose run --rm -p 4001:4001 core iex -S mix phx.server";
+  };
+
   otherAliases = {
     lg = "lazygit";
     ps = "procs";
@@ -143,6 +152,6 @@ in {
       completions.enable = true;
     };
     shellInit = (base + functions + theme);
-    shellAliases = elixirAliases // otherAliases;
+    shellAliases = elixirAliases // solfacilAliases // otherAliases;
   };
 }
