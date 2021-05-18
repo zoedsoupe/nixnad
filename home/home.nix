@@ -32,6 +32,7 @@
     docker-compose insomnia
     qbittorrent obs-studio
     screenkey gitAndTools.gh
+    openvpn
 
     # audio
     spotify

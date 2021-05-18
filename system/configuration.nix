@@ -43,21 +43,17 @@
   };
   virtualisation.libvirtd.enable = true;
 
+  hardware.pulseaudio.enable = false;
+
   security.apparmor.enable = true;
   security.polkit.enable = true;
+  security.rtkit.enable = true;
   security.sudo = {
     enable = true;
     configFile = ''
       Defaults lecture=always
       Defaults lecture_file=/etc/nixos/misc/groot.txt
     '';
-  };
-
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio = {
-    enable = true;
-    package = pkgs.pulseaudioFull;
   };
 
   nix = {
