@@ -11,7 +11,7 @@
       init = { defaultBranch = "main"; };
       pull = { rebase = true; };
     };
-    ignores = [ "**/.~*" "*.swp" "*.swo" ];
+    ignores = [ "**/.~*" "*.swp" "*.swo" ".nix-*" ".postgres" ];
     signing = {
       gpgPath = "${pkgs.gnupg}/bin/gpg2";
       key = null;
