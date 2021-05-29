@@ -34,7 +34,7 @@
       };
       character = {
         success_symbol = "\n[ﬦ](bold green)";
-        error_symbol = "\n[](bold red)";
+        error_symbol = "\n[ﬦ](bold red)";
         vicmd_symbol = "\n[](bold green)";
       };
       format = lib.concatStrings [

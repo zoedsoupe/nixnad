@@ -67,6 +67,8 @@
 
 ;; SCREENSHOT-------------------------------------------------------------
 
+(add-to-list 'load-path "~/documents/privy/dotfiles/home/doom.d/libs/")
+
 (defun screenshot (beg end)
   "Take a screenshot of the current region or buffer.
 
