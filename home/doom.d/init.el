@@ -83,7 +83,7 @@
        emacs-lisp        ; drown in parentheses
        erlang            ; an elegant language for a more civilized age
        ;;(go +lsp)         ; the hipster dialect
-       (haskell +dante)  ; a language that's lazier than I am
+       haskell  ; a language that's lazier than I am
        ;;idris             ; a language you can depend on
        json              ; At least it ain't XML
        ;javascript        ; all(hope(abandon(ye(who(enter(here))))))
