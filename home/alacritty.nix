@@ -4,6 +4,12 @@
   programs.alacritty = {
     enable = true;
     settings = {
+      cursor = {
+        style = {
+          blinking = "Always";
+          blink_interval = 300;
+        };
+      };
       window = {
         dynamic_title = true;
         dynamic_padding = false;

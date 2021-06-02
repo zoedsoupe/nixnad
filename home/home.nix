@@ -45,7 +45,7 @@ in {
     docker-compose insomnia
     qbittorrent obs-studio
     screenkey gitAndTools.gh
-    exodus earthly
+    exodus earthly awscli2
 
     # audio
     spotify
