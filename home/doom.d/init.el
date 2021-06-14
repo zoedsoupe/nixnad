@@ -81,7 +81,7 @@
        elixir            ; erlang done right
        elm               ; care for a cup of TEA?
        emacs-lisp        ; drown in parentheses
-       erlang            ; an elegant language for a more civilized age
+       ;erlang            ; an elegant language for a more civilized age
        ;;(go +lsp)         ; the hipster dialect
        haskell  ; a language that's lazier than I am
        ;;idris             ; a language you can depend on
