@@ -25,6 +25,13 @@
 
     dbus.enable = true;
 
+    openvpn.servers = {
+      solfacilVPN = { 
+        autoStart = false;
+        config = "config /etc/openvpn/matheus.ovpn"; 
+      };
+    };
+
     pipewire = {
       enable = true;
       alsa.enable = true;

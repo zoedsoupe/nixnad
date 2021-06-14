@@ -15,23 +15,35 @@
         dynamic_padding = false;
         decorations = "full";
       };
-      selection = {
-        save_to_clipboard = true;
-      };
+      selection = { save_to_clipboard = true; };
       scrolling = {
         history = 50000;
         multiplier = 2;
       };
       key_bindings = [
-        { key = "V"; mods= "Control|Shift"; action = "Paste";  }
-        { key = "C"; mods= "Control|Shift"; action = "Copy";  }
+        {
+          key = "V";
+          mods = "Control|Shift";
+          action = "Paste";
+        }
+        {
+          key = "C";
+          mods = "Control|Shift";
+          action = "Copy";
+        }
       ];
       font = {
         normal = { family = "JetBrainsMono Nerd Font Mono"; };
         bold = { family = "JetBrainsMono Nerd Font Mono"; };
         italic = { family = "JetBrainsMono Nerd Font Mono"; };
-        offset = { x = 0; y = 0; };
-        glyph_offset = { x = 0; y = 0; };
+        offset = {
+          x = 0;
+          y = 0;
+        };
+        glyph_offset = {
+          x = 0;
+          y = 0;
+        };
         size = 14;
       };
       colors = {
@@ -54,14 +66,14 @@
           white = "0xbfbfbf";
         };
         bright = {
-            black = "0x4d4d4d";
-            red = "0xff6e67";
-            green = "0x5af78e";
-            yellow = "0xeaf08d";
-            blue = "0xcaa9fa";
-            magenta = "0xff92d0";
-            cyan = "0xaa91e3";
-            white = "0xe6e6e6";
+          black = "0x4d4d4d";
+          red = "0xff6e67";
+          green = "0x5af78e";
+          yellow = "0xeaf08d";
+          blue = "0xcaa9fa";
+          magenta = "0xff92d0";
+          cyan = "0xaa91e3";
+          white = "0xe6e6e6";
         };
         dim = {
           black = "0x000000";

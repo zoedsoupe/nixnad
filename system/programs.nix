@@ -19,7 +19,7 @@
     unrar psmisc bat cmatrix 
     iw curl ncdu lazygit 
     glow fd nnn jq tldr git
-    alacritty acpi
+    alacritty acpi ag
 
     # theme
     betterlockscreen 
