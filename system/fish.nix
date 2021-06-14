@@ -24,7 +24,6 @@ let
     solfacil_app= "docker-compose run --rm app";
     solfacil_db= "docker-compose run --rm db";
     solfacil_node= "docker-compose run --rm node";
-    solfacil_vpn= "sudo openvpn /etc/openvpn/matheus.ovpn";
     solfacil_swoosh= "docker-compose run --rm -p 4001:4001 core iex -S mix phx.server";
   };
 
@@ -56,12 +55,16 @@ let
   ### FUNCTIONS ###
   function tre
       command tree -aC \
-          -I '.git|.github|node_modules|deps|_build|.elixir_ls' \
+          -I '.git|.github|node_modules|deps|_build|.elixir_ls|.nix-hex|.nix-mix|.postgres' \
           --dirsfirst $argv | bat
   end
 
   function cd
       builtin cd $argv && ls -a .
+
+      if [ -z $IN_NIX_SHELL ] && [ -e shell.nix ]
+          nix-shell
+      end
   end
 
   function ls
@@ -72,18 +75,8 @@ let
       command mkdir -p $argv && cd $argv
   end
 
-  function fcode
-      command grep -rnw . -e $argv --color=always \
-          --exclude-dir={\.git,\.github,node_modules,_build,deps,\.elixir_ls,\.straight}
-  end
-
   function clean_node_modules
       command find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
-  end
-
-  function nix_pkg_build
-      nix-shell -E \
-        "with import <nixpkgs> {}; callPackage $argv {}"
   end
   '';
 
