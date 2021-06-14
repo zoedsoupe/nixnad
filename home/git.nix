@@ -17,5 +17,13 @@
       key = null;
       signByDefault = true;
     };
+    aliases = {
+      p = "push";
+      s = "status";
+      c = "commit";
+      co = "checkout";
+      aa = "add -p";
+      st = "stash";
+    };
   };
 }
