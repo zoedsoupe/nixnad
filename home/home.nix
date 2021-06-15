@@ -46,6 +46,7 @@ in {
     qbittorrent obs-studio
     screenkey gitAndTools.gh
     exodus earthly awscli2
+    ngrok
 
     # audio
     spotify

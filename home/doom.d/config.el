@@ -133,3 +133,11 @@
 (add-hook 'org-mode-hook
           (lambda ()
             (add-hook 'before-save-hook 'org-update-cookies-after-save nil 'make-it-local)))
+
+;; WEB MODE CONFIGS----------------------------------------------------------------
+
+(use-package web-mode
+  :custom
+  (web-mode-markup-indent-offset 2)
+  (web-mode-css-indent-offset 2)
+  (web-mode-code-indent-offset 2))
