@@ -4,7 +4,6 @@
   imports =
     [
       ./boot.nix
-      ./fish.nix
       ./network.nix
       ./programs.nix
       ./services.nix

@@ -8,8 +8,8 @@ in {
     ./git.nix
     ./dots.nix
     ./doom.nix
+    ./fish.nix
     ./starship.nix
-    ./autojump.nix
     ./alacritty.nix
   ];
 
@@ -46,7 +46,7 @@ in {
     qbittorrent obs-studio
     screenkey gitAndTools.gh
     exodus earthly awscli2
-    ngrok
+    ngrok flyctl gcolor3
 
     # audio
     spotify
