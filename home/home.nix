@@ -29,6 +29,10 @@ in {
   programs = {
     home-manager.enable = true;
     command-not-found.enable = true;
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
   };
 
   home.username = "matthew";
