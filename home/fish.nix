@@ -61,10 +61,6 @@ let
 
   function cd
       builtin cd $argv && ls -a .
-
-      if [ -z $IN_NIX_SHELL ] && [ -e shell.nix ]
-          nix-shell
-      end
   end
 
   function ls
