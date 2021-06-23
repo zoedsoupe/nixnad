@@ -35,8 +35,6 @@ in {
     };
   };
 
-  services.lorri.enable = true;
-
   home.username = "matthew";
   home.homeDirectory = "/home/matthew";
 

@@ -58,14 +58,15 @@ in {
   };
 
   xdg.configFile.".direnvrc".text = ''
-    #! /usr/bin/env nix-shell
-    #! nix-shell -i bash
+    #! /usr/bin/env nix-shelL
+    #! nix-shell -i bash -p postgresql
 
     layout_postgres() {
       PGHOST=$(direnv_layout_dir)/.postgres
       PGHOST=$PGHOST/data
       PGLOG=$PGHOST/postgres.log
-      PGPASSWORD=postgres
+      PGUSER=postgres
+      export PGPASSWORD=postgres
 
       is_running() {
         pg_ctl status 2>/dev/null | grep "server is running" 1>/dev/null
@@ -78,7 +79,7 @@ in {
         echo "unix_socket_directories = '$PGHOST'" | \
           "$PGDATA/postgresql.conf"
 
-        echo "CREATE DATABASE $USER;" | postgres --single -E postgres
+        echo "CREATE DATABASE $PGUSER;" | postgres --single -E postgres
       fi
 
       if ! is_running; then
