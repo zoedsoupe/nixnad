@@ -57,40 +57,28 @@ in {
     };
   };
 
-  xdg.configFile.".direnvrc".text = ''
+  xdg.configFile."direnv/direnvrc".text = ''
     #! /usr/bin/env nix-shelL
     #! nix-shell -i bash -p postgresql
 
     layout_postgres() {
-      PGHOST=$(direnv_layout_dir)/.postgres
-      PGHOST=$PGHOST/data
-      PGLOG=$PGHOST/postgres.log
-      PGUSER=postgres
-      export PGPASSWORD=postgres
+      echo "direnv: usign layout postgres"
 
-      is_running() {
-        pg_ctl status 2>/dev/null | grep "server is running" 1>/dev/null
-      }
+      export PGHOST=$(direnv_layout_dir)/.postgres
+      export PGDATA=$PGHOST/data
+      export PGLOG=$PGHOST/postgres.log
+      export PGUSER=postgres
+      export PGPASSWORD=postgres
 
       if [[ ! -d "$PGDATA" ]]; then
         echo 'Initializing postgresql daemon...'
-        initdb -auth=trust --no-locale --encoding=UTF8 >/dev/null
+        initdb --auth=trust --no-locale --encoding=UTF8 -U=$PGUSER >/dev/null
 
-        echo "unix_socket_directories = '$PGHOST'" | \
-          "$PGDATA/postgresql.conf"
+        echo "unix_socket_directories = '$PGHOST'" >> "$PGDATA/postgresql.conf"
 
+        echo "CREATE USER postgres SUPERUSER;" | postgres --single -E postgres
         echo "CREATE DATABASE $PGUSER;" | postgres --single -E postgres
       fi
-
-      if ! is_running; then
-        pg_ctl start -l $PGLOG 
-      fi
-
-      finish() {
-        pg_ctl -D $PGDATA stop  
-      }
-
-      trap finish EXIT
     }
   '';
 }
