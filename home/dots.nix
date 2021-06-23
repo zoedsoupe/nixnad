@@ -1,14 +1,12 @@
 { pkgs, ... }:
 
 let
-
   gtk-omni = pkgs.fetchFromGitHub {
     owner = "getomni";
     repo = "gtk";
     rev = "e81b3fbebebf53369cffe1fb662abc400edb04f7";
     sha256 = "08h4x9bjd3p3h00adj9060q27w544acsnn5ifxyahqxbdy8669im";
   };
-
 in {
   home.file = {
     ".iex.exs".text = ''
@@ -58,4 +56,40 @@ in {
       source = gtk-omni;
     };
   };
+
+  xdg.configFile."direnvrc".text = ''
+    #! /usr/bin/env nix-shell
+    #! nix-shell -i bash
+
+    layout_postgres() {
+      PGHOST=$(direnv_layout_dir)/.postgres
+      PGHOST=$PGHOST/data
+      PGLOG=$PGHOST/postgres.log
+      PGPASSWORD=postgres
+
+      is_running() {
+        pg_ctl status 2>/dev/null | grep "server is running" 1>/dev/null
+      }
+
+      if [[ ! -d "$PGDATA" ]]; then
+        echo 'Initializing postgresql daemon...'
+        initdb -auth=trust --no-locale --encoding=UTF8 >/dev/null
+
+        echo "unix_socket_directories = '$PGHOST'" | \
+          "$PGDATA/postgresql.conf"
+
+        echo "CREATE DATABASE $USER;" | postgres --single -E postgres
+      fi
+
+      if ! is_running; then
+        pg_ctl start -l $PGLOG 
+      fi
+
+      finish() {
+        pg_ctl -D $PGDATA stop  
+      }
+
+      trap finish EXIT
+    }
+  '';
 }
