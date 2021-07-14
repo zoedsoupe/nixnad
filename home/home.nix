@@ -4,11 +4,11 @@ let
   discordUrl = https://discord.com/api/download?platform=linux&format=tar.gz;
 in {
   imports = [
-    ./vim.nix
     ./git.nix
     ./dots.nix
     ./doom.nix
     ./fish.nix
+    ./neovim.nix
     ./starship.nix
     ./alacritty.nix
   ];
