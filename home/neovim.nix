@@ -1,40 +1,42 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 with pkgs.vimUtils;
 
 let
-  bullets-vim = buildVimPlugin {
-    name = "bullets-vim";
+  pluginGit = rev: owner: repo: buildVimPluginFrom2Nix {
+    pname = "${lib.strings.sanitizeDerivationName repo}";
+    version = rev;
     src = pkgs.fetchFromGitHub {
-      owner = "dkarter";
-      repo = "bullets.vim";
-      rev = "1.6.0";
-      sha256 = "0wz3xjmz9c4a58sh5vaxy79505hdwxa553gv6l7k9qz77skk6qbm";
+      owner = owner;
+      repo = repo;
+      rev = rev;
+      sha256 = "0vjs11bx5zp6xqny5fd3lhqqvqaz6xjgncyga7hb0x5v6zng7gaj";
     };
   };
 
-  rescript-vim = buildVimPlugin {
-    name = "resript-vim";
-    src = pkgs.fetchFromGitHub {
-      owner = "rescript-lang";
-      repo = "vim-rescript";
-      rev = "b8714edb8fe5ff2b7e32ced3bdeddd31ed08b02e";
-      sha256 = "0wz3xjmz9c4a58sh5vaxy79505hdwxa553gv6l7k9qz77skk6qbm";
-    };
-  };
+  # always installs latest version
+  plugin = pluginGit "HEAD";
 in {
   programs.neovim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    plugins = with pkgs.vimPlugins; [
-      rainbow haskell-vim
-      vim-elixir surround
-      commentary indentLine
-      elm-vim editorconfig-vim
-      bullets-vim dracula-vim
-      vim-nix rescript-vim
+    plugins = with pkgs.vimPlugins; 
+    [
+      rainbow 
+      haskell-vim
+      vim-elixir 
+      surround
+      commentary 
+      indentLine
+      elm-vim 
+      editorconfig-vim
+      dracula-vim
+      vim-nix 
+      (plugin "Raimondi" "delimitMate") # auto bracket
+      (plugin "jordwalke" "vim-reasonml")
+      (plugin "dkarter" "bullets-vim")
     ];
     extraConfig = ''
       set hidden
@@ -94,6 +96,13 @@ in {
       command! MakeTags !ctags -R .
 
       nnoremap <CR> :noh<CR><CR> " set highlighting off after regex
+
+      let g:bullets_enabled_file_types = [
+        \ 'markdown',
+        \ 'text',
+        \ 'gitcommit',
+        \ 'scratch'
+        \]
 
       """ BEGIN FUNCTIONS
       "Reloads vimrc after saving but keep cursor position
