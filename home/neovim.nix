@@ -1,42 +1,29 @@
 { pkgs, lib, ... }:
 
-with pkgs.vimUtils;
-
 let
-  pluginGit = rev: owner: repo: buildVimPluginFrom2Nix {
-    pname = "${lib.strings.sanitizeDerivationName repo}";
-    version = rev;
-    src = pkgs.fetchFromGitHub {
-      owner = owner;
-      repo = repo;
-      rev = rev;
-      sha256 = "0vjs11bx5zp6xqny5fd3lhqqvqaz6xjgncyga7hb0x5v6zng7gaj";
-    };
-  };
-
-  # always installs latest version
-  plugin = pluginGit "HEAD";
-in {
+  plugins = pkgs.vimPlugins // pkgs.callPackage ./custom-neovim-plugins.nix {};
+in 
+{
   programs.neovim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    plugins = with pkgs.vimPlugins; 
+    plugins = with plugins; 
     [
-      rainbow 
+      vim-rescript
       haskell-vim
       vim-elixir 
-      surround
-      commentary 
       indentLine
       elm-vim 
       editorconfig-vim
       dracula-vim
       vim-nix 
-      (plugin "Raimondi" "delimitMate") # auto bracket
-      (plugin "jordwalke" "vim-reasonml")
-      (plugin "dkarter" "bullets-vim")
+      surround
+      commentary
+      rainbow
+      delimit-mate
+      bullets-vim
     ];
     extraConfig = ''
       set hidden
@@ -85,6 +72,8 @@ in {
       " force syntax highlighting for large files
       autocmd BufEnter *.{ex,exs,ts,tsx} :syntax sync fromstart
       autocmd BufLeave *.{ex,exs,ts,tsx} :syntax sync clear
+
+      let maplocalleader="\\"
 
       if !exists('g:syntax_on')
         syntax enable
