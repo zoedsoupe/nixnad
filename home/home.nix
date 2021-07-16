@@ -4,11 +4,11 @@ let
   discordUrl = https://discord.com/api/download?platform=linux&format=tar.gz;
 in {
   imports = [
+    ./neovim
     ./git.nix
     ./dots.nix
     ./doom.nix
     ./fish.nix
-    ./neovim.nix
     ./starship.nix
     ./alacritty.nix
   ];
@@ -32,6 +32,10 @@ in {
     direnv = {
       enable = true;
       nix-direnv.enable = true;
+    };
+    fzf = {
+      enable = true;
+      enableFishIntegration = true;
     };
   };
 
