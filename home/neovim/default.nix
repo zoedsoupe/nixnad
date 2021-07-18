@@ -23,6 +23,7 @@ in
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+    extraConfig = "lua require('init')";
     plugins = with plugins; 
     [
       vim-rescript
@@ -47,6 +48,5 @@ in
       (pluginWithDeps galaxyline-nvim [ nvim-web-devicons ])
       (pluginWithDeps nvim-bufferline-lua [ nvim-web-devicons ])
     ] ++ extraPlugins;
-    extraConfig = "lua require('init')";
   };
 }
