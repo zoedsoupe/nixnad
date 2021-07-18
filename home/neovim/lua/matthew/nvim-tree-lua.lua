@@ -3,7 +3,7 @@ local g = vim.g
 vim.cmd 'highlight NvimTreeFolderIcon guibg=blue'
 
 g.nvim_tree_git_hl = 1
-g.nvim_tree_width = 40
+g.nvim_tree_width = 32
 g.nvim_tree_follow = 1
 g.nvim_tree_gitignore = 1
 g.nvim_tree_auto_open = 1
