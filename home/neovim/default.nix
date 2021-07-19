@@ -30,6 +30,7 @@ in
       indentLine
       editorconfig-vim
       dracula-vim
+      emmet-vim
       rainbow
       vim-surround
       direnv-vim
