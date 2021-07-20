@@ -41,6 +41,7 @@ in
       telescope-nvim
       nvim-colorizer-lua
       dashboard-nvim
+      vim-fugitive
       gitsigns-nvim
       vim-haskell-module-name
     ] ++ map pluginWithConfig [
