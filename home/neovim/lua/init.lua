@@ -51,10 +51,10 @@ require('colorizer').setup()
 require('nvim-web-devicons').setup({ default = true; })
 
 -- telescope keybindings
-vim.api.nvim_set_keymap('', '<leader>ff', ':Telescpope find_files<cr>', { noremap = true })
-vim.api.nvim_set_keymap('', '<leader>fg', ':Telescpope live_grep<cr>', { noremap = true })
-vim.api.nvim_set_keymap('', '<leader>fb', ':Telescpope buffers<cr>', { noremap = true })
-vim.api.nvim_set_keymap('', '<leader>fh', ':Telescpope help_tags<cr>', { noremap = true })
+vim.api.nvim_set_keymap('', '<leader>ff', ':Telescope find_files<cr>', { noremap = true })
+vim.api.nvim_set_keymap('', '<leader>fg', ':Telescope live_grep<cr>', { noremap = true })
+vim.api.nvim_set_keymap('', '<leader>fb', ':Telescope buffers<cr>', { noremap = true })
+vim.api.nvim_set_keymap('', '<leader>fh', ':Telescope help_tags<cr>', { noremap = true })
 
 -- small plugins config and extra config
 g.rainbow_active = 1
