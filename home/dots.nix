@@ -67,8 +67,8 @@ in {
       export PGHOST=$(direnv_layout_dir)/.postgres
       export PGDATA=$PGHOST/data
       export PGLOG=$PGHOST/postgres.log
-      export PGUSER=postgres
-      export PGPASSWORD=postgres
+      export PGUSER=$PGUSER
+      export PGPASSWORD=$PGPASSWORD
 
       if [[ ! -d "$PGDATA" ]]; then
         echo 'Initializing postgresql daemon...'
@@ -76,7 +76,7 @@ in {
 
         echo "unix_socket_directories = '$PGHOST'" >> "$PGDATA/postgresql.conf"
 
-        echo "CREATE USER postgres SUPERUSER;" | postgres --single -E postgres
+        echo "CREATE USER $PGUSER SUPERUSER;" | postgres --single -E postgres
         echo "CREATE DATABASE $PGUSER;" | postgres --single -E postgres
       fi
     }
