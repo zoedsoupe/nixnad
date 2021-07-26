@@ -4,6 +4,7 @@
   nixpkgs.config.allowUnfree = true;
 
   programs = {
+    steam.enable = true;
     command-not-found.enable = true;
     gnupg.agent = {
       enable = true;
@@ -48,8 +49,11 @@
     # xorg
     xorg.xrandr xclip
 
+    # games
+    steamcmd
+
     # gnome stuff
-    gnome3.gnome-tweaks
+    gnome.gnome-tweaks
     gnomeExtensions.emoji-selector
     gnomeExtensions.clipboard-indicator
     numix-icon-theme-circle

@@ -55,6 +55,7 @@ in {
     screenkey gitAndTools.gh
     exodus earthly awscli2
     ngrok flyctl gcolor3
+    t-rec
 
     # audio
     spotify
