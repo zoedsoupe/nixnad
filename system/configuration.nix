@@ -1,4 +1,4 @@
-{ config, pkgs, options,... }:
+{ config, pkgs, lib, options,... }:
 
 {
   imports =
@@ -43,6 +43,7 @@
   virtualisation.libvirtd.enable = true;
 
   hardware.pulseaudio.enable = false;
+  sound.enable = false;
 
   security.apparmor.enable = true;
   security.polkit.enable = true;
@@ -79,6 +80,7 @@
       initialPassword = "nixos";
       extraGroups = [ 
         "wheel"  
+        "audio"
         "libvirtd" 
         "networkmanager" 
         "docker" 
