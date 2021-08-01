@@ -42,14 +42,13 @@ in
       nvim-colorizer-lua
       dashboard-nvim
       vim-fugitive
-      gitsigns-nvim
       nvim-autopairs
       vim-haskell-module-name
     ] ++ map pluginWithConfig [
       vim-polyglot
+      gitsigns-nvim
       (pluginWithDeps nvim-tree-lua [ nvim-web-devicons ])
       (pluginWithDeps galaxyline-nvim [ nvim-web-devicons ])
-      (pluginWithDeps nvim-bufferline-lua [ nvim-web-devicons ])
     ] ++ extraPlugins;
   };
 }
