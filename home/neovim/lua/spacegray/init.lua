@@ -25,6 +25,16 @@ local function highlight(group, properties)
   vim.api.nvim_command(cmd)
 end
 
+local async
+async = vim.loop.new_async(vim.schedule_wrap(function()
+  local skeletons = {}
+  for _, skeleton in ipairs(skeletons) do
+    util.initialise(skeleton)
+  end
+
+  async:close()
+end))
+
 local highlights = require('spacegray.highlights')
 local markdown = require('spacegray.markdown')
 local Git = require('spacegray.Git')
@@ -40,3 +50,5 @@ for _, skeleton in ipairs(skeletons) do
     highlight(group, properties)
   end
 end
+
+async:send()
