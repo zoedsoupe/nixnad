@@ -13,16 +13,6 @@ with pkgs.vimUtils;
     };
   };
 
-  delimit-mate = buildVimPluginFrom2Nix {
-    name = "delimitMate";
-    src = pkgs.fetchFromGitHub {
-      owner = "Raimondi";
-      repo = "delimitMate";
-      rev = "HEAD";
-      sha256 = "0vjs11bx5zp6xqny5fd3lhqqvqaz6xjgncyga7hb0x5v6zng7gaj";
-    };
-  };
-
   bullets-vim = buildVimPluginFrom2Nix {
     name = "bullets-vim";
     src = pkgs.fetchFromGitHub {

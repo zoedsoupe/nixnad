@@ -35,7 +35,6 @@ in
       vim-surround
       direnv-vim
       vim-commentary
-      delimit-mate
       orgmode
       bullets-vim
       telescope-nvim
@@ -43,6 +42,7 @@ in
       dashboard-nvim
       vim-fugitive
       gitsigns-nvim
+      nvim-autopairs
       vim-haskell-module-name
     ] ++ map pluginWithConfig [
       vim-polyglot

@@ -49,6 +49,9 @@ set.termguicolors = true
 require('gitsigns').setup()
 require('colorizer').setup()
 require('nvim-web-devicons').setup({ default = true; })
+require('nvim-autopairs').setup({
+  disable_filetype = { "TelescopePrompt" , "vim" },
+})
 
 -- telescope keybindings
 vim.api.nvim_set_keymap('', '<leader>ff', ':Telescope find_files<cr>', { noremap = true })
