@@ -46,6 +46,7 @@ set.termguicolors = true
 
 -- load no config plugins
 --require('orgmode').setup()
+require('spacegray')
 require('gitsigns').setup()
 require('colorizer').setup()
 require('nvim-web-devicons').setup({ default = true; })
@@ -65,7 +66,7 @@ g.direnv_silent_load = 1
 g.dashboard_default_executive = 'telescope'
 g.bullets_enabled_file_types = { 'markdown', 'text', 'gitcommit', 'orgmode', 'scratch' }
 
-cmd 'colorscheme dracula'
+--cmd 'colorscheme dracula'
 cmd 'filetype plugin on'
 cmd 'filetype plugin indent on'
 

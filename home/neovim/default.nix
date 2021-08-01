@@ -17,6 +17,7 @@ let
 in 
 {
   xdg.configFile."nvim/lua".source = ./lua;
+  xdg.configFile."nvim/colors".source = ./colors;
 
   programs.neovim = {
     enable = true;
