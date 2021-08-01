@@ -6,6 +6,7 @@ vim.o.background = "dark"
 vim.o.termguicolors = true
 vim.g.colors_name = "spacegray"
 
+Config = require "spacegray.config"
 C = require('spacegray.palette')
 
 local function highlight(group, properties)
