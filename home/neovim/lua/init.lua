@@ -37,6 +37,7 @@ set.splitright = true -- vertical split will be to the right
 set.showtabline = 0 -- never show tabs
 set.updatetime = 300
 set.timeoutlen = 1000
+set.signcolumn = 'yes' -- always show the sign column, otherwise it would shift the text each time
 set.incsearch = true
 set.wildmenu = true
 set.smarttab = true
@@ -74,13 +75,15 @@ g.dashboard_default_executive = 'telescope'
 g.bullets_enabled_file_types = { 'markdown', 'text', 'gitcommit', 'orgmode', 'scratch' }
 
 --cmd 'colorscheme dracula'
-cmd 'colorscheme spacegray'
 cmd 'filetype plugin on'
 cmd 'filetype plugin indent on'
 
 if g.syntax_on then
 	cmd 'syntax enable'
 end
+
+cmd 'colorscheme spacegray'
+cmd "au ColorScheme * hi SignColumn ctermbg=none guibg=none"
 
 vim.api.nvim_set_keymap('', '<cr>', [[:noh<cr><cr>]], { noremap = true })
 
