@@ -6,8 +6,15 @@ g.mapleader = ','
 g.maplocalleader = '\\'
 
  -- my custom options
+set.backup = false
+set.colorcolumn = '99999' -- fixes indentline for now
+set.showmode = false -- we don't need to see things like -- INSERT -- anymore
+set.clipboard = 'unnamedplus'
+set.completeopt = { "menuone", "noselect" }
+set.foldmethod = "manual"
 set.hidden = true
 set.tabstop = 2
+set.hlsearch = true
 set.shiftwidth = 2
 set.number = true
 set.relativenumber = true
@@ -21,6 +28,7 @@ set.wildignore:append({ '**/node_modules/**', '**/deps/**', '**/_build/**' })
 set.conceallevel = 0 -- `` on markdown and ** in org shows up
 set.so = 999 -- cursor never leaves mid screen
 set.encoding = 'utf-8'
+set.cursorline = true -- highlight the current line
 set.fileencoding = 'utf-8'
 set.pumheight = 10 -- popup smaller
 set.ruler = true
@@ -46,7 +54,6 @@ set.termguicolors = true
 
 -- load no config plugins
 --require('orgmode').setup()
-require('spacegray')
 require('gitsigns').setup()
 require('colorizer').setup()
 require('nvim-web-devicons').setup({ default = true; })
@@ -67,6 +74,7 @@ g.dashboard_default_executive = 'telescope'
 g.bullets_enabled_file_types = { 'markdown', 'text', 'gitcommit', 'orgmode', 'scratch' }
 
 --cmd 'colorscheme dracula'
+cmd 'colorscheme spacegray'
 cmd 'filetype plugin on'
 cmd 'filetype plugin indent on'
 
