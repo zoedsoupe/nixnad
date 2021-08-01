@@ -2,7 +2,7 @@ local gl = require('galaxyline')
 
 local gls = gl.section
 
-gl.short_line_list = {'LuaTree','vista','dbui'}
+gl.short_line_list = {'NvimTree','vista','dbui'}
 
 local colors = {
   bg = '#282c34',
@@ -25,16 +25,40 @@ local buffer_not_empty = function()
   return false
 end
 
-gls.left[1] = {
-  FirstElement = {
-    provider = function() return '▋' end,
-    highlight = {colors.blue,colors.yellow}
-  },
-}
 gls.left[2] = {
   ViMode = {
     provider = function()
-      local alias = {n = 'NORMAL',i = 'INSERT',c= 'COMMAND',v= 'VISUAL',V= 'VISUAL LINE', [''] = 'VISUAL BLOCK'}
+      local alias = {
+        n = 'NORMAL',
+        i = 'INSERT',
+        c = 'COMMAND',
+        v = 'VISUAL',
+        V = 'VISUAL LINE',
+        [''] = 'VISUAL BLOCK'
+      }
+      local mode_color = {
+        n = colors.blue,
+        i = colors.green,
+        v = colors.purple,
+        [''] = colors.purple,
+        V = colors.purple,
+        c = colors.magenta,
+        no = colors.blue,
+        s = colors.orange,
+        S = colors.orange,
+        [''] = colors.orange,
+        ic = colors.yellow,
+        R = colors.red,
+        Rv = colors.red,
+        cv = colors.blue,
+        ce = colors.blue,
+        r = colors.cyan,
+        rm = colors.cyan,
+        ['r?'] = colors.cyan,
+        ['!'] = colors.blue,
+        t = colors.blue,
+      }
+      vim.api.nvim_command('hi GalaxyViMode guifg=' .. mode_color[vim.fn.mode()])
       return alias[vim.fn.mode()]
     end,
     separator = '',
