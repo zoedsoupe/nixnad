@@ -7,7 +7,7 @@ in {
     ./neovim
     ./git.nix
     ./dots.nix
-    ./doom.nix
+    #./doom.nix
     ./fish.nix
     ./starship.nix
     ./alacritty.nix
@@ -51,8 +51,7 @@ in {
   
     # tools
     docker-compose insomnia
-    qbittorrent obs-studio
-    screenkey gitAndTools.gh
+    qbittorrent gitAndTools.gh
     exodus earthly awscli2
     ngrok flyctl gcolor3
     t-rec
