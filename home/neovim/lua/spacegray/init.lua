@@ -37,12 +37,10 @@ end))
 
 local highlights = require('spacegray.highlights')
 local markdown = require('spacegray.markdown')
-local Git = require('spacegray.Git')
 
 local skeletons = {
   highlights,
   markdown,
-  Git
 }
 
 for _, skeleton in ipairs(skeletons) do
