@@ -38,6 +38,7 @@ in
       orgmode
       bullets-vim
       telescope-nvim
+      vim-highlightedyank
       nvim-colorizer-lua
       dashboard-nvim
       vim-fugitive
