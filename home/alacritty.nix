@@ -4,7 +4,7 @@
     settings = {
       cursor = {
         style = {
-          blinking = "Always";
+          blinking = "Never";
           blink_interval = 300;
         };
       };

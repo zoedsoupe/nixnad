@@ -6,6 +6,8 @@ g.mapleader = ','
 g.maplocalleader = '\\'
 
  -- my custom options
+set.visualbell = true
+set.errorbells = true
 set.backup = false
 set.colorcolumn = '99999' -- fixes indentline for now
 set.showmode = false -- we don't need to see things like -- INSERT -- anymore
@@ -69,6 +71,7 @@ vim.api.nvim_set_keymap('', '<leader>fb', ':Telescope buffers<cr>', { noremap = 
 vim.api.nvim_set_keymap('', '<leader>fh', ':Telescope help_tags<cr>', { noremap = true })
 
 -- small plugins config and extra config
+g.highlightedyank_highlight_duration = 145
 g.rainbow_active = 1
 g.direnv_silent_load = 1
 g.dashboard_default_executive = 'telescope'
@@ -89,3 +92,7 @@ vim.api.nvim_set_keymap('', '<cr>', [[:noh<cr><cr>]], { noremap = true })
 
 -- you can't stop me
 vim.api.nvim_set_keymap('c', 'w!!', [[!sudo tee %]], { noremap = true })
+
+vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true })
+vim.api.nvim_set_keymap('n', 'n', 'nzzzv', { noremap = true })
+vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', { noremap = true })
