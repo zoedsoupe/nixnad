@@ -33,6 +33,7 @@ in
       emmet-vim
       rainbow
       vim-surround
+      vimtex
       direnv-vim
       vim-commentary
       orgmode
