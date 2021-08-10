@@ -65,6 +65,7 @@ in {
     # others
     any-nix-shell
     bitwarden-cli
+    texlive.combined.scheme-full
   ];
 
   home.stateVersion = "21.03";
