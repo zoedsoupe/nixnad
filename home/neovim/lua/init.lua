@@ -2,7 +2,7 @@ local set = vim.opt
 local g = vim.g
 local cmd = vim.cmd
 
-g.mapleader = ','
+g.mapleader = ' '
 g.maplocalleader = '\\'
 
  -- my custom options

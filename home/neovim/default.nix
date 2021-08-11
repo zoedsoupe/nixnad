@@ -30,6 +30,7 @@ in
       vim-rescript
       indentLine
       editorconfig-vim
+      agda-vim
       emmet-vim
       rainbow
       vim-surround
