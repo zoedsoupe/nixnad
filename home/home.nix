@@ -7,7 +7,7 @@ in {
     ./neovim
     ./git.nix
     ./dots.nix
-    #./doom.nix
+    ./doom.nix
     ./fish.nix
     ./starship.nix
     ./alacritty.nix
