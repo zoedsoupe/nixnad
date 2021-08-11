@@ -65,6 +65,7 @@ in {
     # others
     any-nix-shell
     bitwarden-cli
+    zoom-us
     texlive.combined.scheme-full
   ];
 
