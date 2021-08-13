@@ -58,6 +58,10 @@ in {
 
     # audio
     spotify
+
+    # text
+    jabref
+    texlive.combined.scheme-full
   
     # images
     peek flameshot imagemagick
@@ -66,7 +70,6 @@ in {
     any-nix-shell
     bitwarden-cli
     zoom-us
-    texlive.combined.scheme-full
   ];
 
   home.stateVersion = "21.03";
