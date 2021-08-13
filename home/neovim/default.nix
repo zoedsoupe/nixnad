@@ -37,6 +37,8 @@ in
       vimtex
       direnv-vim
       vim-commentary
+      ultisnips
+      vim-snippets
       orgmode
       bullets-vim
       telescope-nvim

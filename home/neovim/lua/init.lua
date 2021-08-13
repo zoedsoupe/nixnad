@@ -76,6 +76,9 @@ g.rainbow_active = 1
 g.direnv_silent_load = 1
 g.dashboard_default_executive = 'telescope'
 g.bullets_enabled_file_types = { 'markdown', 'text', 'gitcommit', 'orgmode', 'scratch' }
+g.UltiSnipsExpandTrigger = "<tab>"
+g.UltiSnipsJumpForwardTrigger = "<c-k>"
+g.UltiSnipsJumpBackwardTrigger = "<c-j>"
 
 --cmd 'colorscheme dracula'
 cmd 'filetype plugin on'
