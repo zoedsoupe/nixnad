@@ -7,7 +7,7 @@ in {
     ./neovim
     ./git.nix
     ./dots.nix
-    ./doom.nix
+    ./emacs.nix
     ./fish.nix
     ./starship.nix
     ./alacritty.nix
@@ -59,6 +59,9 @@ in {
     # audio
     spotify
 
+    # video
+    libsForQt5.kdenlive
+
     # text
     jabref
     texlive.combined.scheme-full
@@ -70,6 +73,14 @@ in {
     any-nix-shell
     bitwarden-cli
     zoom-us
+
+    # DOOM Emacs dependencies
+    binutils
+    (ripgrep.override { withPCRE2 = true; })
+    gnutls
+    zstd
+    editorconfig-core-c
+    emacs-all-the-icons-fonts
   ];
 
   home.stateVersion = "21.03";

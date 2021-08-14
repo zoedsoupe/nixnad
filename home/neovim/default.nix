@@ -16,15 +16,22 @@ let
   ];
 in 
 {
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+    }))
+  ];
+
   xdg.configFile."nvim/lua".source = ./lua;
   xdg.configFile."nvim/colors".source = ./colors;
 
   programs.neovim = {
+    package = pkgs.neovim-nightly;
     enable = true;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    extraConfig = "lua require('init')";
+    extraConfig = "lua require('init')\n";
     plugins = with plugins; 
     [
       vim-rescript
@@ -45,7 +52,6 @@ in
       vim-highlightedyank
       nvim-colorizer-lua
       dashboard-nvim
-      vim-fugitive
       nvim-autopairs
       vim-haskell-module-name
     ] ++ map pluginWithConfig [
