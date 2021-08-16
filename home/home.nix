@@ -54,13 +54,10 @@ in {
     qbittorrent gitAndTools.gh
     exodus earthly awscli2
     ngrok flyctl gcolor3
-    t-rec
+    t-rec heroku
 
     # audio
     spotify
-
-    # video
-    libsForQt5.kdenlive
 
     # text
     jabref
