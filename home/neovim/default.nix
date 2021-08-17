@@ -46,6 +46,7 @@ in
       vim-commentary
       ultisnips
       vim-snippets
+      neoclip
       orgmode
       bullets-vim
       telescope-nvim

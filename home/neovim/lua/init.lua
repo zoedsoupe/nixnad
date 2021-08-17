@@ -11,7 +11,6 @@ set.errorbells = true
 set.backup = false
 set.colorcolumn = '99999' -- fixes indentline for now
 set.showmode = false -- we don't need to see things like -- INSERT -- anymore
-set.clipboard = 'unnamedplus'
 set.completeopt = { "menuone", "noselect" }
 set.foldmethod = "manual"
 set.hidden = true
@@ -59,13 +58,15 @@ set.termguicolors = true
 --require('orgmode').setup()
 require('gitsigns').setup()
 require('colorizer').setup()
-require('nvim-web-devicons').setup({ default = true; })
+require('nvim-web-devicons').setup({ default = true })
+require('neoclip').setup({ history = 25 })
 require('nvim-autopairs').setup({
   disable_filetype = { "TelescopePrompt" , "vim" },
 })
 
 -- telescope keybindings
 vim.api.nvim_set_keymap('', '<leader>ff', ':Telescope find_files<cr>', { noremap = true })
+vim.api.nvim_set_keymap('', '<leader>fy', [[:lua require('telescope').extensions.neoclip.default()<cr>]], { noremap = true })
 vim.api.nvim_set_keymap('', '<leader>fg', ':Telescope live_grep<cr>', { noremap = true })
 vim.api.nvim_set_keymap('', '<leader>fb', ':Telescope buffers<cr>', { noremap = true })
 vim.api.nvim_set_keymap('', '<leader>fh', ':Telescope help_tags<cr>', { noremap = true })
