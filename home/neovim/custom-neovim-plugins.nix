@@ -32,4 +32,15 @@ with pkgs.vimUtils;
       sha256 = "0rfa8cpykarcal8qcfp1dax1kgcbq7bv1ld6r1ia08n9vnqi5vm6";
     };
   };
+
+  neoclip = buildVimPluginFrom2Nix {
+    name = "neoclip";
+    src = pkgs.fetchFromGitHub {
+      owner = "AckslD";
+      repo = "nvim-neoclip.lua";
+      rev = "HEAD";
+      sha256 = "0vlmsss6jisg2xaf4gk4md1a5lsds4jgk1cpxhx74snll274bnyd";
+    };
+  };
+
 }
