@@ -60,7 +60,7 @@ in {
     spotify
 
     # text
-    jabref
+    zotero
     texlive.combined.scheme-full
   
     # images
