@@ -13,7 +13,7 @@ in
   ];
 
   networking = {
-    hostName = "${username}";
+    hostName = hostname;
     useDHCP = false;
     interfaces.enp4s0.useDHCP = true;
     interfaces.wlp0s20f3.useDHCP = true;
