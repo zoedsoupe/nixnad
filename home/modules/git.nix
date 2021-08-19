@@ -16,7 +16,7 @@ with import ../../global-config.nix;
     ignores = [ "**/.~*" "*.swp" "*.swo" ".nix-*" ".postgres" ".envrc" ".direnv" ];
     signing = {
       gpgPath = "${pkgs.gnupg}/bin/gpg2";
-      key = "2D4D 488F 17FB FF75 664E  C016 6DFD 6562 20A3 B849";
+      key = "2F32 CFEF E11A D73B A740  FA47 2671 964A B1E0 6A08";
       signByDefault = true;
     };
     aliases = {
