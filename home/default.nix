@@ -18,7 +18,10 @@ with import ../global-config.nix;
     command-not-found.enable = true;
     direnv = {
       enable = true;
-      nix-direnv.enable = true;
+      nix-direnv = {
+        enable = true;
+        enableFlakes = true;
+      };
     };
     fzf = {
       enable = true;

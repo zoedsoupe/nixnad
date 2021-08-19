@@ -50,8 +50,9 @@ with import ../../global-config.nix;
   security.sudo = {
     enable = true;
     configFile = ''
+      Defaults insults
       Defaults lecture=always
-      Defaults lecture_file="/home/${username}/.dotfiles/modules/misc/groot.txt"
+      Defaults lecture_file="${rootPath}/modules/misc/groot.txt"
     '';
   };
 
