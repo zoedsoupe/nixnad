@@ -6,13 +6,11 @@ with import ../global-config.nix;
   imports = [
     ./modules/git.nix
     ./modules/dots.nix
-    ./modules/emacs.nix
+    #./modules/emacs.nix
     ./modules/fish.nix
     ./modules/starship.nix
     ./modules/alacritty.nix
   ];
-
-  nixpkgs.config.allowUnfree = true;
 
   programs = {
     home-manager.enable = true;

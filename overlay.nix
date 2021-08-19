@@ -21,7 +21,10 @@ reduce-join [
     latest = import flakes.inputs.nixpkgs-latest { };
     discord = super.discord.overrideAttrs (
       _: {
-        src = builtins.fetchTarball discord-url;
+        src = builtins.fetchTarball {
+          url = discord-url;
+	  sha256 = "1ahj4bhdfd58jcqh54qcgafljqxl1747fqqwxhknqlasa83li75n";
+	};
       }
     );
   }

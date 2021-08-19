@@ -5,8 +5,9 @@
     {
       home-manager = {
         url = "github:nix-community/home-manager/release-21.05";
-        inputs.nixpkgs.follows = "nixpkgs";
+        inputs.nixpkgs.follows = "unstable";
       };
+      unstable.url = "github:nixos/nixpkgs/nixos-unstable";
       nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.05";
       nixpkgs-latest.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     };
@@ -24,12 +25,6 @@
       export NIX_PATH=nixpkgs=${nixpkgs}:nixpkgs-overlays=${builtins.toString rootPath}/overlay.nix:nixpkgs-latest=${nixpkgs-latest}:home-manager=${home-manager}:nixos-config=${(builtins.toString rootPath) + "/nodes/$HOSTNAME/default.nix"}
     '';
 
-    hm-config = home-manager.lib.homeManagerConfiguration;
-    nixos-config = { mainModule }: nixpkgs.lib.nixosSystem {
-      inherit pkgs system;
-
-      modules = [ (mainModule) rev-module ];
-    };
     overlays = [
       (import ./overlay.nix)
       (import "${home-manager}/overlay.nix")
@@ -44,27 +39,30 @@
     rev-module = ({ pkgs, ... }: {
       system.configurationRevision =
         if (self ? rev) then
-          builtins.trace "detected flake hash: ${self.rev}" self.ref
+          builtins.trace "detected flake hash: ${self.rev}" self.rev
         else
           builtins.trace "flake hash not detected!" null;
     });
   in {
     inherit pkgs overlays environment-shell;
 
-    homeConfigurations = {
-      main = hm-config {
-        inherit system username pkgs;
-
-        configuration = import ./home;
-        homeDirectory = "/home/${username}";
-      };
-    };
     nixosConfigurations = {
-      acer-nix = nixos-config {
-        mainModule = ./nodes/acer-nix;
+      acer-nix = nixpkgs-latest.lib.nixosSystem {
+	inherit pkgs system;
+	modules = [
+	  ./nodes/acer-nix
+	  home-manager.nixosModules.home-manager {
+	    home-manager = {
+	      useGlobalPkgs = true;
+	      useUserPackages = true;
+	      users."${username}" = import ./home;
+	    };
+	  }
+	];
       };
-      bootstrap = nixos-config {
-        mainModule = ./nodes/bootstrap;
+      bootstrap = nixpkgs.lib.nixosSystem {
+        inherit pkgs system; 
+	modules = [ ./nodes/bootstrap ];
       };
     };
 
