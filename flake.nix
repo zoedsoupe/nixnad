@@ -24,11 +24,11 @@
       export NIX_PATH=nixpkgs=${nixpkgs}:nixpkgs-overlays=${builtins.toString rootPath}/overlay.nix:nixpkgs-latest=${nixpkgs-latest}:home-manager=${home-manager}:nixos-config=${(builtins.toString rootPath) + "/nodes/$HOSTNAME/default.nix"}
     '';
 
-    hm-config = home-manager.lib.home-manager-configuration;
-    nixos-config = { mainModule }: nixpkgs.lib.nixos-system {
+    hm-config = home-manager.lib.homeManagerConfiguration;
+    nixos-config = { mainModule }: nixpkgs.lib.nixosSystem {
       inherit pkgs system;
 
-      modules = [ (main-module) rev-module ];
+      modules = [ (mainModule) rev-module ];
     };
     overlays = [
       (import ./overlay.nix)
@@ -42,7 +42,7 @@
       };
     };
     rev-module = ({ pkgs, ... }: {
-      system.configuration-revision =
+      system.configurationRevision =
         if (self ? rev) then
           builtins.trace "detected flake hash: ${self.rev}" self.ref
         else
@@ -51,7 +51,7 @@
   in {
     inherit pkgs overlays environment-shell;
 
-    home-configurations = {
+    homeConfigurations = {
       main = hm-config {
         inherit system username pkgs;
 
@@ -59,7 +59,7 @@
         homeDirectory = "/home/${username}";
       };
     };
-    nixos-configurations = {
+    nixosConfigurations = {
       acer-nix = nixos-config {
         mainModule = ./nodes/acer-nix;
       };

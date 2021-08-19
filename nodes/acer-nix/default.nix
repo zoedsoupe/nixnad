@@ -1,4 +1,4 @@
-{ pkgs, nix-ld }:
+{ pkgs }:
 
 with import ../../global-config.nix;
 
@@ -9,7 +9,6 @@ in
   imports = [
     ../common
     ./hardware-configuration.nix
-    "${flake.inputs.nix-ld}/modules/nix-ld.nix"
     ../../modules/gui/system.nix
   ];
 

@@ -27,9 +27,6 @@ with import ../global-config.nix;
     };
   };
 
-  home.username = "${username}";
-  home.homeDirectory = "/home/${username}";
-
   home.packages = with pkgs; [
     # chat
     tdesktop
