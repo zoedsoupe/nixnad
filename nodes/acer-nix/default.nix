@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 
 with import ../../global-config.nix;
 

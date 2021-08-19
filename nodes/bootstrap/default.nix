@@ -53,7 +53,7 @@ with import ../../global-config.nix;
     enable = true;
     configFile = ''
       Defaults lecture=always
-      Defaults lecture_file="$HOME/.dotfiles/modules/misc/groot.txt"
+      Defaults lecture_file="/home/${username}/.dotfiles/modules/misc/groot.txt"
     '';
   };
 
