@@ -27,8 +27,8 @@ with import ../global-config.nix;
     };
   };
 
-  home.username = "matthew";
-  home.homeDirectory = "/home/matthew";
+  home.username = "${username}";
+  home.homeDirectory = "/home/${username}";
 
   home.packages = with pkgs; [
     # chat

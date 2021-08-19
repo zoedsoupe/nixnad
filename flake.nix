@@ -9,7 +9,7 @@
       };
       nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.05";
       nixpkgs-latest.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    }
+    };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-latest, home-manager, ... }:
   with import ./global-config.nix;
@@ -21,7 +21,7 @@
       nix repl "${rootPath}/repl.nix" "$@"
     }
     export NIXPKGS_ALLOW_UNFREE=1
-    export NIX_PATH=nixpkgs=${nixpkgs}:nixpkgs-overlays=${builtins.toString rootPath}/compat/overlay.nix:nixpkgs-latest=${nixpkgs-latest}:home-manager=${home-manager}:nixos-config=${(builtins.toString rootPath) + "/nodes/$HOSTNAME/default.nix"}
+    export NIX_PATH=nixpkgs=${nixpkgs}:nixpkgs-overlays=${builtins.toString rootPath}/overlay.nix:nixpkgs-latest=${nixpkgs-latest}:home-manager=${home-manager}:nixos-config=${(builtins.toString rootPath) + "/nodes/$HOSTNAME/default.nix"}
   '';
 
   hm-config = home-manager.lib.home-manager-configuration;
@@ -77,5 +77,5 @@
       echo Shell setup complete!
     '';
   };
-}
+};
 }
