@@ -4,7 +4,7 @@
   inputs =
     {
       home-manager = {
-        url = "github:nix-community/home-manager/release-21.05";
+        url = "github:nix-community/home-manager";
         inputs.nixpkgs.follows = "unstable";
       };
       unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -12,7 +12,7 @@
       nixpkgs-latest.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-latest, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-latest, unstable, home-manager, ... }:
   with import ./global-config.nix;
 
   let
@@ -29,7 +29,7 @@
       (import ./overlay.nix)
       (import "${home-manager}/overlay.nix")
     ];
-    pkgs = import nixpkgs {
+    pkgs = import nixpkgs-latest {
       inherit overlays system;
 
       config = {
@@ -47,7 +47,7 @@
     inherit pkgs overlays environment-shell;
 
     nixosConfigurations = {
-      acer-nix = nixpkgs-latest.lib.nixosSystem {
+      acer-nix = unstable.lib.nixosSystem {
 	inherit pkgs system;
 	modules = [
 	  ./nodes/acer-nix
@@ -60,7 +60,7 @@
 	  }
 	];
       };
-      bootstrap = nixpkgs.lib.nixosSystem {
+      bootstrap = unstable.lib.nixosSystem {
         inherit pkgs system; 
 	modules = [ ./nodes/bootstrap ];
       };

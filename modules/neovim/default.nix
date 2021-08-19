@@ -20,7 +20,6 @@ in
   xdg.configFile."nvim/colors".source = ./colors;
 
   programs.neovim = {
-    package = pkgs.neovim;
     enable = true;
     viAlias = true;
     vimAlias = true;

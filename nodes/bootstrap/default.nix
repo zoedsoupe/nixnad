@@ -7,8 +7,6 @@ with import ../../global-config.nix;
   console.useXkbConfig = true;
   time.timeZone = "America/Sao_Paulo";
 
-  environment.systemPackages = with pkgs; [ neovim ];
-
   fonts.fonts = with pkgs; [
     cantarell-fonts
     font-awesome_4

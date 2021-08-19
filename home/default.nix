@@ -4,6 +4,7 @@ with import ../global-config.nix;
 
 {
   imports = [
+    ../modules/neovim
     ./modules/git.nix
     ./modules/dots.nix
     #./modules/emacs.nix
