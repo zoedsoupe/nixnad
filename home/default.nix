@@ -1,16 +1,15 @@
-{ config, pkgs, ... }:
+{ config, neomat, pkgs, ... }:
 
 with import ../global-config.nix;
 
 {
   imports = [
-    ../modules/neovim
     ./modules/git.nix
     ./modules/dots.nix
-    #./modules/emacs.nix
     ./modules/fish.nix
     ./modules/starship.nix
     ./modules/alacritty.nix
+    "${flake.inputs.neomat}/neomat.nix"
   ];
 
   programs = {

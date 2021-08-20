@@ -10,9 +10,13 @@
       unstable.url = "github:nixos/nixpkgs/nixos-unstable";
       nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.05";
       nixpkgs-latest.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+      neomat= {
+        url = "github:matdsoupe/neomat";
+        flake = false;
+      };
     };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-latest, unstable, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-latest, unstable, home-manager, neomat, ... }:
   with import ./global-config.nix;
 
   let
