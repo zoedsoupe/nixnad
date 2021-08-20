@@ -23,11 +23,11 @@
     "neomat": {
       "flake": false,
       "locked": {
-        "lastModified": 1629480795,
-        "narHash": "sha256-NlH7l/GJznKtg218maYn8UN95G+BFpo4DQ004ep4GLU=",
+        "lastModified": 1629496348,
+        "narHash": "sha256-LhJdktL2gxvwu09SzGztimnZJt3Y71XjDiiqRMq1R6k=",
         "owner": "matdsoupe",
         "repo": "neomat",
-        "rev": "b3229781d5b8c394804527ec2cf162fedeed853e",
+        "rev": "bd187f1aabcfaeb452e4f2411fcc344d1abdc56b",
         "type": "github"
       },
       "original": {
