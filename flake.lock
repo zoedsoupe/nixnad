@@ -18,11 +18,11 @@
     "emacsmat": {
       "flake": false,
       "locked": {
-        "lastModified": 1629779180,
-        "narHash": "sha256-Ay3+MxpmYgR1RXAe3AehfbpVPVQi89PnNXVHfjORsds=",
+        "lastModified": 1629779845,
+        "narHash": "sha256-r5w+mh0n+n0svHTPju90X6fmvKHSEs5VikEifrx2lh0=",
         "owner": "zoedsoupe",
         "repo": "emacsmat",
-        "rev": "ae88250b2eb298e31c5b08049a159d57c362e73b",
+        "rev": "7b0a02940fc1f390980a13c5b2b333b09a8fa8ff",
         "type": "github"
       },
       "original": {

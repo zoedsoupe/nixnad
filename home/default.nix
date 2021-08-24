@@ -2,7 +2,9 @@
 
 with import ../global-config.nix;
 
-{
+let
+  agda = pkgs.agda.withPackages (p: [ p.standard-library ]); 
+in {
   imports = [
     ./modules/git.nix
     ./modules/dots.nix
@@ -35,8 +37,8 @@ with import ../global-config.nix;
     discord
     slack-dark
 
-    # theme
-    lxappearance
+    # dev
+    agda
 
     # tools
     docker-compose
