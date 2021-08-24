@@ -14,9 +14,17 @@
         url = "github:matdsoupe/neomat";
         flake = false;
       };
+      emacs = {
+        url = "github:nix-community/emacs-overlay";
+        inputs.nixpkgs.follows = "master";
+      };
+      emacsmat = {
+        url = "github:matdsoupe/emacsmat";
+        flake = false;
+      };
     };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-latest, unstable, home-manager, neomat, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-latest, home-manager, neomat, emacs, emacsmat, unstable, ... }:
   with import ./global-config.nix;
 
   let
@@ -33,6 +41,7 @@
       (import ./overlay.nix)
       (import "${home-manager}/overlay.nix")
     ];
+
     pkgs = import nixpkgs-latest {
       inherit overlays system;
 
@@ -40,6 +49,8 @@
         allowUnfree = true;
       };
     };
+    epkgs = import unstable { system = "x86_64-linux"; overlays = [ self.overlays.emacs ]; };
+
     rev-module = ({ pkgs, ... }: {
       system.configurationRevision =
         if (self ? rev) then
@@ -49,6 +60,10 @@
     });
   in {
     inherit pkgs overlays environment-shell;
+
+    packages."${system}" = {
+      emacs = epkgs.emacsGcc;
+    };
 
     nixosConfigurations = {
       acer-nix = unstable.lib.nixosSystem {
