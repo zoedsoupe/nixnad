@@ -1,4 +1,4 @@
-{ config, neomat, pkgs, ... }:
+{ config, neomat, emacsnat, pkgs, ... }:
 
 with import ../global-config.nix;
 
@@ -10,6 +10,7 @@ with import ../global-config.nix;
     ./modules/starship.nix
     ./modules/alacritty.nix
     "${flake.inputs.neomat}/neomat.nix"
+    "${flake.inputs.emacsmat}/emacsmat.nix"
   ];
 
   programs = {

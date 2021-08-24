@@ -1,5 +1,36 @@
 {
   "nodes": {
+    "emacs": {
+      "locked": {
+        "lastModified": 1629766736,
+        "narHash": "sha256-Id+RnL1yNzG4vtM55mwEr6pTXUdpWFjknvkaQ/LP7tI=",
+        "owner": "nix-community",
+        "repo": "emacs-overlay",
+        "rev": "81b96e496b7098297fe4e980dfd975c9d4a358ac",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "emacs-overlay",
+        "type": "github"
+      }
+    },
+    "emacsmat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1629779180,
+        "narHash": "sha256-Ay3+MxpmYgR1RXAe3AehfbpVPVQi89PnNXVHfjORsds=",
+        "owner": "zoedsoupe",
+        "repo": "emacsmat",
+        "rev": "ae88250b2eb298e31c5b08049a159d57c362e73b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zoedsoupe",
+        "repo": "emacsmat",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -70,6 +101,8 @@
     },
     "root": {
       "inputs": {
+        "emacs": "emacs",
+        "emacsmat": "emacsmat",
         "home-manager": "home-manager",
         "neomat": "neomat",
         "nixpkgs": "nixpkgs",
