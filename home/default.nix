@@ -1,10 +1,10 @@
 { config, neomat, emacsnat, pkgs, ... }:
 
-with import ../global-config.nix;
+ import ../global-config.nix;
 
-let
+
   agda = pkgs.agda.withPackages (p: [ p.standard-library ]); 
-in {
+  {
   imports = [
     ./modules/git.nix
     ./modules/dots.nix
