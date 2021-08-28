@@ -58,7 +58,7 @@ in {
     spotify
 
     # text
-    zotero
+    jabref
     texlive.combined.scheme-full
 
     # images
