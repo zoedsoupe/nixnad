@@ -9,6 +9,7 @@ in {
     ./modules/git.nix
     ./modules/dots.nix
     ./modules/fish.nix
+    ./modules/kitty.nix
     ./modules/starship.nix
     ./modules/alacritty.nix
     "${flake.inputs.neomat}/neomat.nix"
