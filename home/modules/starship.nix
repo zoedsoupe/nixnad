@@ -26,11 +26,11 @@
       rust = {
         format = "[rust](white)\\([$version]($style)\\) ";
       };
-      haskell = {
-        format = "[haskell](white)\\([$version]($style)\\) ";
-      };
       elm = {
         format = "[elm](white)\\([$version]($style)\\) ";
+      };
+      lua = {
+        format = "[lua](white)\\([$version]($style)\\) ";
       };
       character = {
         success_symbol = "\n[ﬦ](bold green)";
