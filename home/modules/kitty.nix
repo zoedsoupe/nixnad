@@ -17,7 +17,6 @@
       cursor_shape = "block";
       cursor_blink_interval = 0;
       open_url_modifiers = "ctrl";
-      remeber_window_size = "yes";
       initial_window_height = 300;
       initial_window_width = 300;
       term = "xterm-256color";
