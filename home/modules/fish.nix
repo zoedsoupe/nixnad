@@ -36,6 +36,8 @@ let
 
     any-nix-shell fish --info-right | source
 
+    set -x GPG_TTY (tty)
+
     set -x STARSHIP_CONFIG ~/.config/starship.toml
 
     set fish_greeting # suppress fish initital greeting

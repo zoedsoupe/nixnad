@@ -38,6 +38,9 @@ in {
     discord
     slack-dark
 
+    # office
+    onlyoffice-bin
+
     # dev
     agda
 

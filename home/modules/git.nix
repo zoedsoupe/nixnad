@@ -26,6 +26,7 @@ with import ../../global-config.nix;
       co = "checkout";
       aa = "add -p";
       st = "stash";
+      br = "branch";
     };
   };
 }
