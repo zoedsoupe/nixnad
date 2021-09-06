@@ -2,11 +2,11 @@
   "nodes": {
     "emacs": {
       "locked": {
-        "lastModified": 1630377723,
-        "narHash": "sha256-+nx+XYRt0n33ZAbWlv/U7B75CCjyAu/CJ99zk3wlG2Q=",
+        "lastModified": 1630689308,
+        "narHash": "sha256-1jL0IQJFytv9VsbOc1EKvkaFrZWwosoFAcSrpwvhulw=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "a088e0d7aa691d2e2e5a4be77407168dda6c87ac",
+        "rev": "efc5b40f6dfb4bffa8cd5965e9825f95cff3028b",
         "type": "github"
       },
       "original": {
@@ -18,11 +18,11 @@
     "emacsmat": {
       "flake": false,
       "locked": {
-        "lastModified": 1630640449,
-        "narHash": "sha256-xWl4fBv3Zu6XhWCoWCNmjBcvMnxFqvQPWDrlFBlH9g0=",
+        "lastModified": 1630701606,
+        "narHash": "sha256-J/3QDKf89RslLi5/c07TZntchsIlNfbAUysQMGTUQgE=",
         "owner": "zoedsoupe",
         "repo": "emacsmat",
-        "rev": "a83aceb715251445e15688541649be243b12a8e0",
+        "rev": "9581e2f5df7818df1367a7d56a73cc4a2c68f6d5",
         "type": "github"
       },
       "original": {
@@ -54,11 +54,11 @@
     "neomat": {
       "flake": false,
       "locked": {
-        "lastModified": 1630437161,
-        "narHash": "sha256-86GKP/b5ao2DyrsTJgHAEvGP1g7vTY+0Pc1GOdcvgUY=",
+        "lastModified": 1630953453,
+        "narHash": "sha256-Kz7dBcRDFFLNjhWz5XayPwmPO1kddOHkigoAbnnhec4=",
         "owner": "zoedsoupe",
         "repo": "neomat",
-        "rev": "ce13f2805c07187820bbf771fc1e587166ed17e9",
+        "rev": "6353c13a1b4375416a14363355e40eba4f8f8419",
         "type": "github"
       },
       "original": {

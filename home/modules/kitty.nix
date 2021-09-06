@@ -8,8 +8,8 @@
     keybindings = {
       # windows
       "super+w" = "new_tab";
-      "super+shift+q" = "close_tab";
-      "super+a" = "next_tab";
+      "super+q" = "close_tab";
+      "super+f" = "next_tab";
       "super+d" = "previous_tab";
     };
     settings = {
@@ -20,7 +20,6 @@
       initial_window_height = 300;
       initial_window_width = 300;
       term = "xterm-256color";
-      copy_on_select = "clipboard";
       allow_remote_control = "yes";
       strip_trailing_spaces = "always";
       tab_bar_style = "hidden";

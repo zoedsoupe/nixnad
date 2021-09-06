@@ -62,7 +62,7 @@
     inherit pkgs overlays environment-shell;
 
     packages."${system}" = {
-      emacs = epkgs.emacsGcc;
+      emacs = epkgs.emacsUnstable;
     };
 
     nixosConfigurations = {
