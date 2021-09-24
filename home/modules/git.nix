@@ -13,7 +13,16 @@ with import ../../global-config.nix;
       init = { defaultBranch = "main"; };
       pull = { rebase = true; };
     };
-    ignores = [ "**/.~*" "*.swp" "*.swo" ".nix-*" ".postgres" ".envrc" ".direnv" ];
+    ignores = [ 
+      "**/.~*" 
+      "*.swp" 
+      "*.swo" 
+      ".nix-*" 
+      ".postgres" 
+      ".envrc" 
+      ".direnv"
+      "shell.nix"
+    ];
     signing = {
       gpgPath = "${pkgs.gnupg}/bin/gpg2";
       key = "2F32 CFEF E11A D73B A740  FA47 2671 964A B1E0 6A08";
