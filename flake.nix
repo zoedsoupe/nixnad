@@ -24,7 +24,7 @@
       };
     };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-latest, home-manager, neomat, emacs, emacsmat, unstable, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-latest, home-manager, unstable, ... }:
   with import ./global-config.nix;
 
   let
