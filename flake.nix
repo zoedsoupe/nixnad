@@ -9,6 +9,7 @@
       };
       unstable.url = "github:nixos/nixpkgs/nixos-unstable";
       nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.05";
+      nixpkgs-master.url = "github:NixOS/nixpkgs/master";
       nixpkgs-latest.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
       neomat= {
         url = "github:zoedsoupe/neomat";

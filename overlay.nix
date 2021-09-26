@@ -2,7 +2,6 @@ with import ./global-config.nix;
 
 self: super:
 let
-  discord-url = https://discord.com/api/download?platform=linux&format=tar.gz;
   recursive-update = super.lib.recursiveUpdate;
   cp = p: (super.callPackage p) { };
   reduce-join = items:
@@ -19,13 +18,7 @@ reduce-join [
       maintainers = import "${flakes.inputs.nixpkgs-latest}/maintainers/maintainer-list.nix";
     };
     latest = import flakes.inputs.nixpkgs-latest { };
-    discord = super.discord.overrideAttrs (
-      _: {
-        src = builtins.fetchTarball {
-          url = discord-url;
-	  sha256 = "1ahj4bhdfd58jcqh54qcgafljqxl1747fqqwxhknqlasa83li75n";
-	};
-      }
-    );
+    discord = cp "${flake.inputs.nixpkgs-master}/pkgs/applications/networking/instant-messengers/discord/default.nix";
+    onlyoffice-bin = cp "${flake.inputs.nixpkgs-master}/pkgs/applications/office/onlyoffice-bin/default.nix";
   }
 ]
