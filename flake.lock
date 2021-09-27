@@ -54,11 +54,11 @@
     "neomat": {
       "flake": false,
       "locked": {
-        "lastModified": 1632601626,
-        "narHash": "sha256-Qv6lfdTdImKvXW49DDcwWBtM4+T74NxjOf8HYvqANT4=",
+        "lastModified": 1632755275,
+        "narHash": "sha256-1C+sb+HJsQWfp2oHiurgqsTeah46/HU0VQmG504uOUI=",
         "owner": "zoedsoupe",
         "repo": "neomat",
-        "rev": "6baa08c0516913730c192fc3d7de176c186e9e0b",
+        "rev": "a4e5d532541f7d91671ffa3d2491701e6c8835ac",
         "type": "github"
       },
       "original": {
