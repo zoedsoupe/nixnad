@@ -9,8 +9,10 @@ in {
     ./modules/git.nix
     ./modules/dots.nix
     ./modules/fish.nix
+    # ./modules/dunst.nix
     ./modules/kitty.nix
     ./modules/starship.nix
+    # ./modules/autorandr.nix
     ./modules/alacritty.nix
     "${flake.inputs.neomat}/neomat.nix"
     "${flake.inputs.emacsmat}/emacsmat.nix"
@@ -32,7 +34,19 @@ in {
     };
   };
 
+#   services = {
+#     clipmenu.enable = true;
+#     udiskie = {
+#       enable = true;
+#       automount = true;
+#       notify = true;
+#     };
+#   };
+# 
   home.packages = with pkgs; [
+    # bar
+    # haskellPackages.xmobar
+
     # chat
     tdesktop
     discord
@@ -74,6 +88,7 @@ in {
     any-nix-shell
     bitwarden-cli
     zoom-us
+    arandr
 
     # DOOM Emacs dependencies
     binutils

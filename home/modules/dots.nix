@@ -9,6 +9,11 @@ let
   };
 in
 {
+  # xdg.configFile.xmobar = {
+  #   source = ./xmobar;
+  #   recursive = true;
+  # };
+
   home.file = {
     ".iex.exs".text = ''
       colors_opts = [

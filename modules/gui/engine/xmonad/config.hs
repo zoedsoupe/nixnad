@@ -62,7 +62,7 @@ myModMask :: KeyMask
 myModMask = mod4Mask      -- Sets modKey to command/super key
 
 myTerminal :: String
-myTerminal = "alacritty"  -- Sets default terminal
+myTerminal = "kitty"  -- Sets default terminal
 
 myBrowser :: String
 myBrowser = "google-chrome-stable" -- Sets edge for tree select
@@ -273,8 +273,8 @@ myKeys cfg =
        , ("M-c", safeSpawnProg "clipmenu")
        , ("M-s", safeSpawnProg "screenkey")
        , ("M-S-s", safeSpawn "killall" ["screenkey"])
-       , ("M-S-p", safeSpawn "flameshot" ["gui", "-p", "/home/matthew/pics/screenshots/"])
-       , ("M-C-p", safeSpawn "flameshot" ["screen", "-p", "/home/matthew/pics/screenshots/"])
+       , ("M-S-p", safeSpawn "flameshot" ["gui", "-p", "/home/zoedsoupe/pics/screenshots/"])
+       , ("M-C-p", safeSpawn "flameshot" ["screen", "-p", "/home/zoedsoupe/pics/screenshots/"])
        
     --- System
        , ("M-x", safeSpawnProg "reboot")
@@ -284,8 +284,8 @@ myKeys cfg =
        , ("<XF86AudioPrev>", spawn (myTerminal ++ "mocp --previous"))
        , ("<XF86AudioNext>", spawn (myTerminal ++ "mocp --next"))
        , ("<XF86AudioMute>",   spawn "amixer set Master toggle")
-       , ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%- unmute")
-       , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute")
+       , ("<XF86AudioLowerVolume>", spawn "pamixer -d 5")
+       , ("<XF86AudioRaiseVolume>", spawn "pamixer -i 5")
     ]
 
 -- | MAIN

@@ -45,7 +45,7 @@ with import ../../global-config.nix;
   environment = {
     variables = {
       EDITOR = "nvim";
-      TERMINAL = "alacritty";
+      TERMINAL = "kitty";
       GC_INITIAL_HEAP_SIZE = "32M";
     };
     systemPackages = with pkgs; [
@@ -59,8 +59,11 @@ with import ../../global-config.nix;
       git alacritty acpi
       ag
 
-      # theme
-      betterlockscreen
+      # window manager
+      # moc dmenu pamixer
+      # screenkey clipmenu
+      # wirelesstools
+      # betterlockscreen
 
       # editor/ide
       vim

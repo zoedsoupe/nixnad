@@ -11,13 +11,9 @@ with import ../../../global-config.nix;
         enableContribAndExtras = true;
       };
 
-      displayManager = {
-        autoLogin = {
-          enable = true;
-          user = "${username}";
-        };
-
-        defaultSession = "none+xmonad";
+      displayManager.gdm = {
+        enable = true;
+        wayland = false;
       };
     };
 
