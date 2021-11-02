@@ -52,6 +52,9 @@ in {
     discord
     slack-dark
 
+    # web
+    firefox
+
     # office
     onlyoffice-bin
 
