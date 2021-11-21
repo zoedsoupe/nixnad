@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-with import ../../../global-config.nix;
+{ global, pkgs, ... }:
 
 {
   services = {

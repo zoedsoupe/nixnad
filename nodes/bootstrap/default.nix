@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ global, pkgs, ... }:
 
-with import ../../global-config.nix;
+with global;
 
 {
   i18n.defaultLocale = "en_CA.UTF-8";

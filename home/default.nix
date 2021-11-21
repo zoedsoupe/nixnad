@@ -1,8 +1,9 @@
-{ config, neomat, emacsnat, pkgs, ... }:
-
-with import ../global-config.nix;
+{ global, config, pkgs, self, ... }:
 
 let
+  inherit (global) username email;
+  inherit (self) inputs;
+  inherit (inputs) emacsmat;
   agda = pkgs.agda.withPackages (p: [ p.standard-library ]); 
 in {
   imports = [
@@ -14,8 +15,7 @@ in {
     ./modules/starship.nix
     # ./modules/autorandr.nix
     ./modules/alacritty.nix
-    "${flake.inputs.neomat}/neomat.nix"
-    "${flake.inputs.emacsmat}/emacsmat.nix"
+    # "${emacsmat}/emacsmat.nix"
   ];
 
   programs = {
@@ -62,6 +62,8 @@ in {
     agda
 
     # tools
+    beekeeper-studio
+    exercism
     docker-compose
     insomnia
     qbittorrent
@@ -102,5 +104,5 @@ in {
     emacs-all-the-icons-fonts
   ];
 
-  home.stateVersion = "21.03";
+  # home.stateVersion = "21.05";
 }

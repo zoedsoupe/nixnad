@@ -1,5 +1,13 @@
+{ global, ... }:
+
 let
-  config = import ../../global-config.nix;
-  selected-de = config.selected-desktop-environment;
-in
-import (./engine + "/${selected-de}")
+  profiles = {
+    "gnome" = ./engine/gnome;
+    "xmonad" = ./engine/xmonad;
+  };
+  inherit (global) selected-desktop-environment;
+in {
+  imports = [
+    (profiles."${selected-desktop-environment}")
+  ];
+}

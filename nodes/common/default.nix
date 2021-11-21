@@ -1,6 +1,4 @@
-{ pkgs, lib, ... }:
-
-with import ../../global-config.nix;
+{ global, pkgs, lib, self, ... }:
 
 {
   imports = [
@@ -66,7 +64,7 @@ with import ../../global-config.nix;
       # betterlockscreen
 
       # editor/ide
-      vim
+      vim neovim
 
       # browser
       google-chrome

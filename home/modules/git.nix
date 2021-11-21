@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ global, pkgs, ... }:
 
-with import ../../global-config.nix;
-
+let
+  inherit (global) username email;
+in
 {
   programs.git = {
     enable = true;
