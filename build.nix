@@ -3,7 +3,7 @@ let
   flake = getFlake "${toString ./.}";
   inherit (flake.outputs) pkgs;
 in builtins.attrValues {
-  inherit (pkgs) discord;
+  inherit (pkgs) discord neovim;
   inherit (flake.outputs.nixosConfigurations)
     acer-nix
     bootstrap

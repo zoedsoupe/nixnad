@@ -70,7 +70,7 @@
       google-chrome
 
       # dev
-      google-cloud-sdk
+      google-cloud-sdk gcc tree-sitter
 
       # tools
       gparted

@@ -27,5 +27,6 @@ reduce-join [
     beekeeper-studio = cp "${nixpkgs-master}/pkgs/development/tools/database/beekeeper-studio/default.nix";
     discord = cp "${nixpkgs-master}/pkgs/applications/networking/instant-messengers/discord/default.nix";
     onlyoffice-bin = cp "${nixpkgs-master}/pkgs/applications/office/onlyoffice-bin/default.nix";
+    neovim = cp neomat.overlay."${system}";
   }
 ]

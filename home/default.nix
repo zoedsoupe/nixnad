@@ -15,7 +15,7 @@ in {
     ./modules/starship.nix
     # ./modules/autorandr.nix
     ./modules/alacritty.nix
-    # "${emacsmat}/emacsmat.nix"
+    "${emacsmat}/emacsmat.nix"
   ];
 
   programs = {
