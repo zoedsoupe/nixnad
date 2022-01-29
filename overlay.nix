@@ -6,7 +6,7 @@ let
   inherit (super) lib callPackage writeShellScript;
   inherit (lib) recursiveUpdate;
   inherit (builtins) toString length head tail;
-  inherit (flake.inputs) nixpkgs-latest nixpkgs-master nixpkgs neomat;
+  inherit (flake.inputs) nixpkgs-latest nixpkgs-master nixpkgs copper;
 in
 let
   cp = f: (callPackage f) {};
@@ -27,6 +27,5 @@ reduce-join [
     beekeeper-studio = cp "${nixpkgs-master}/pkgs/development/tools/database/beekeeper-studio/default.nix";
     discord = cp "${nixpkgs-master}/pkgs/applications/networking/instant-messengers/discord/default.nix";
     onlyoffice-bin = cp "${nixpkgs-master}/pkgs/applications/office/onlyoffice-bin/default.nix";
-    neovim = cp neomat.overlay."${system}";
   }
 ]

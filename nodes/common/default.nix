@@ -11,9 +11,18 @@
   hardware.cpu.intel.updateMicrocode = true;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
-  services.fstrim = {
-    enable = true;
-    interval = "weekly";
+  services = {
+    fstrim = {
+      enable = true;
+      interval = "weekly";
+    };
+
+    logind = {
+      extraConfig = ''
+        LidSwitchIgnoreInhibited=no
+      '';
+      #lidSwitch = "ignore";
+    };
   };
 
   zramSwap = {

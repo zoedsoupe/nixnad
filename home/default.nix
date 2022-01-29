@@ -3,7 +3,7 @@
 let
   inherit (global) username email;
   inherit (self) inputs;
-  inherit (inputs) emacsmat;
+  inherit (inputs) aqua;
   agda = pkgs.agda.withPackages (p: [ p.standard-library ]); 
 in {
   imports = [
@@ -15,7 +15,7 @@ in {
     ./modules/starship.nix
     # ./modules/autorandr.nix
     ./modules/alacritty.nix
-    "${emacsmat}/emacsmat.nix"
+    "${aqua}/emacs.nix"
   ];
 
   programs = {
@@ -76,6 +76,8 @@ in {
     gcolor3
     t-rec
     heroku
+    obsidian
+    gitter
 
     # audio
     spotify

@@ -26,7 +26,7 @@ in
     ];
     signing = {
       gpgPath = "${pkgs.gnupg}/bin/gpg2";
-      key = "2F32 CFEF E11A D73B A740  FA47 2671 964A B1E0 6A08";
+      key = "EAA1 51DB 472B 0122 109A  CB17 1E1E 889C DBD6 A315";
       signByDefault = true;
     };
     aliases = {
