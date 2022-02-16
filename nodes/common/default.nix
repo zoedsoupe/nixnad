@@ -107,6 +107,7 @@
       gnome.gnome-tweaks
       gnomeExtensions.emoji-selector
       gnomeExtensions.clipboard-indicator
+      gnomeExtensions.application-volume-mixer
       numix-icon-theme-circle
       numix-cursor-theme
     ];

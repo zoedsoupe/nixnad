@@ -1,25 +1,7 @@
 { pkgs, ... }:
 
 let
-  elixirAliases = {
-    phx_api = "mix phx.new --no-html --no-webpack --binary-id $argv";
-    mes = "mix ecto.setup";
-    megm = "mix ecto.gen.migration $argv";
-    mem = "mix ecto.migrate";
-    mdg = "mix deps.get";
-    mdc = "mix deps.compile";
-    mpr = "mix phx.routes";
-    mpn = "mix phx.new $argv";
-    mpgh = "mix phx.gen.html $argv";
-    mpgl = "mix phx.gen.live $argv";
-    mpgc = "mix phx.gen.context $argv";
-    mpgj = "mix phx.gen.json $argv";
-    mpgs = "mix phx.gen.schema $argv";
-    ies = "iex -S mix";
-    mps = "mix phx.server";
-  };
-
-  otherAliases = {
+  aliases = {
     lg = "lazygit";
     ps = "procs";
     top = "ytop";
@@ -60,7 +42,7 @@ let
     ### FUNCTIONS ###
     function tre
         command tree -aC \
-            -I '.git|.github|node_modules|deps|_build|.elixir_ls|.nix-hex|.nix-mix|.postgres' \
+            -I '.git|.github|node_modules|deps|_build|.elixir_ls|.nix-hex|.nix-mix|.postgres|.direnv' \
             --dirsfirst $argv | bat
     end
 
@@ -85,14 +67,14 @@ in
   programs.fish = {
     enable = true;
     shellInit = (base + functions);
-    shellAliases = elixirAliases // otherAliases;
+    shellAliases = aliases;
     plugins = [
       {
         name = "z";
         src = pkgs.fetchFromGitHub {
           owner = "jethrokuan";
           repo = "z";
-          rev = "ccb0ac58bc09841eaa2a54bf2aa7e9fb871d0e3f";
+          rev = "HEAD";
           sha256 = "05z6lnkmzbl212cbfp291p63qfzzqp73nkfizsgbmm0fbiqbi74p";
         };
       }
@@ -101,8 +83,17 @@ in
         src = pkgs.fetchFromGitHub {
           owner = "getomni";
           repo = "fish";
-          rev = "2d089c16bf254fdf962344cedf96e0b97391fb67";
+          rev = "v1.0.0";
           sha256 = "1q1mvw6wh6msksxmkysjq33b0hrgfvnljdbmj72kw12ya2iksxz6";
+        };
+      }
+      {
+        name = "fzf.fish";
+        src = pkgs.fetchFromGitHub {
+          owner = "PatrickF1";
+          repo = "fzf.fish";
+          rev = "v8.1";
+          sha256 = "uqYVbRdrcO6StaIim9S8xmb9P67CmXnLEywSeILn4yQ=";
         };
       }
     ];
