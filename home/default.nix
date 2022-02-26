@@ -78,6 +78,7 @@ in {
     heroku
     obsidian
     gitter
+    reviewdog
 
     # audio
     spotify
