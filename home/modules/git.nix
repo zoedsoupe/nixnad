@@ -1,7 +1,7 @@
 { global, pkgs, ... }:
 
 let
-  inherit (global) username email;
+  inherit (global) username email rootPath;
 in
 {
   programs.git = {
@@ -9,10 +9,40 @@ in
     lfs.enable = true;
     delta.enable = true;
     userEmail = "${email}";
-    userName = "${username}";
+    userName = "Zoey Pessanha";
     extraConfig = {
+      github = { user = "${username}"; };
+      grep = { linenumber = true; };
+      merge = { log = true; };
+      rebase = { autosquash = true; };
+      fetch = { prune = true; };
+      push = { default = "current"; };
+      apply = { whitespace = "nowarn"; };
+      help = { autocorrect = 0; };
+      user = { username = "zoedsoupe"; };
       init = { defaultBranch = "main"; };
-      pull = { rebase = true; };
+      pull = { rebase = false; };
+      commit = { 
+        template = "${rootPath}/modules/misc/gitmessage"; 
+      };
+      log = {
+        follow = true;
+        abbrevCommit = true;
+      };
+      core = {
+        editor = "nvim";
+        autocrlf = "input";
+        whitespace = "fix,-indent-with-non-tab,trailing-space,cr-at-eol";
+      };
+      color = {
+        grep = "auto";
+        branch = "auto";
+        diff = "auto";
+        status = "auto";
+        showbranch = "auto";
+        interactive = "auto";
+        ui = "auto";
+      };
     };
     ignores = [ 
       "**/.~*" 
@@ -37,6 +67,7 @@ in
       aa = "add -p";
       st = "stash";
       br = "branch";
+      lg = "log --graph --oneline --decorate --abbrev-commit";
     };
   };
 }

@@ -3,9 +3,6 @@
 
 #+begin_html
 <h1 align="center">
-  <br>
-  <img src="./assets/logo.png" alt="Zoey's Logo" width="300">
-  <br>
   Zoey's Dotfiles
   <br>
 </h1>
