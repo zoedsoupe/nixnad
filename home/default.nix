@@ -76,7 +76,7 @@ in {
     gcolor3
     t-rec
     heroku
-    obsidian
+    # obsidian
     gitter
     reviewdog
 
@@ -84,8 +84,8 @@ in {
     spotify
 
     # text
-    jabref
-    texlive.combined.scheme-full
+    # jabref
+    # texlive.combined.scheme-full
 
     # images
     peek

@@ -28,14 +28,6 @@ let
     set fish_greeting # suppress fish initital greeting
 
     set HISTCONTROL ignoreboth # ignore commands with initial space and duplicates
-
-    function __direnv_export_eval --on-event fish_prompt;
-        begin;
-            begin;
-                "/etc/profiles/per-user/zoedsoupe/bin/direnv" export fish
-            end 1>| source
-        end 2>| egrep -v -e "^direnv: export"
-    end;
   '';
 
   functions = ''

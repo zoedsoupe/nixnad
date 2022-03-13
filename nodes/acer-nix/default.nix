@@ -27,7 +27,7 @@ in
   xdg.portal = {
     enable = true;
     gtkUsePortal = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
   };
 
   # List services that you want to enable:

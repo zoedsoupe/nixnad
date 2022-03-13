@@ -24,8 +24,7 @@ reduce-join [
       maintainers = import "${nixpkgs-latest}/maintainers/maintainer-list.nix";
     };
     latest = import nixpkgs-latest { };
-    beekeeper-studio = cp "${nixpkgs-master}/pkgs/development/tools/database/beekeeper-studio/default.nix";
-    discord = cp "${nixpkgs-latest}/pkgs/applications/networking/instant-messengers/discord/default.nix";
+    # discord = cp "${nixpkgs-master}/pkgs/applications/networking/instant-messengers/discord/default.nix";
     onlyoffice-bin = cp "${nixpkgs-master}/pkgs/applications/office/onlyoffice-bin/default.nix";
     neovim = import "${copper}/flake.nix";
   }
